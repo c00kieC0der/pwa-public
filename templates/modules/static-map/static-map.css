@@ -1,0 +1,10 @@
+.static-map-container {
+    height: 300px;
+    position: absolute;
+    width: 100%;
+    margin: 10px;
+}
+
+.static-map {
+    height: 100%;
+}

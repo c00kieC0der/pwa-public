@@ -1,0 +1,105 @@
+@import compass
+@import breakpoint
+
+$pinned-col-width: 134px
+$th-bg: #eef6fb
+$RTL-pinned-col-width: 152px
+
+.twc-table-wrapper
+  position: relative
+.twc-table-scroller
+  overflow-x: scroll
+  overflow-y: visible
+  width: auto
+  white-space: nowrap
+  -webkit-overflow-scrolling: auto
+  -webkit-transform: translate3d(0,0,0)
+  border-bottom: none
+  -webkit-backface-visibility: hidden
+  -webkit-perspective: 1000
+.twc-table
+  padding-left: $pinned-col-width
+  border: none
+  border-collapse: separate
+  border-spacing: 0
+  display: block
+  overflow: auto
+  table-layout: fixed
+  color: #393939
+  th
+    border: none
+    color: #999
+    padding: 10px
+    text-align: left
+    text-shadow: 1px 1px 1px #fff
+    white-space: nowrap
+    text-transform: uppercase
+    font-weight: 600
+    border-bottom: solid 1px #393939
+    background-color: $th-bg
+    &.twc-sticky-col
+      border-right: none
+  td
+    border-bottom: solid 1px #393939
+    padding: 5px 10px
+    white-space: nowrap
+    height: 50px
+    &.twc-sticky-col
+      background-color: #fff
+  tr.open td,
+  tr.details td
+    background-color: $gray-light
+    border-bottom: solid 1px #393939
+    +transition(background-color .3s ease)
+  .clickable
+    cursor: pointer
+  .no-data
+    cursor: inherit
+  .wx-alert-badge
+    color: red
+    position: absolute
+    top: 5px
+    right: 5px
+  .day-detail
+    +clearfix
+  .wrap
+    white-space: normal
+  .twc-sticky-col
+    border-right: none
+    overflow: visible
+    left: 0
+    position: absolute
+    top: auto
+    width: $pinned-col-width
+    -webkit-transform: translate3d(0,0,0)
+    -webkit-backface-visibility: hidden
+    -webkit-perspective: 1000
+    .wx-dsxdate
+      font-weight: 600
+      text-transform: uppercase
++breakpoint(767px)
+  .twc-table
+    .twc-sticky-col
+      html[lang="fa-IR"] &,
+      html[lang="ar-AE"] &
+        width: $RTL-pinned-col-width
+
+  /*rtl:ignore*/
+  .twc-table
+    th.twc-sticky-col, td.twc-sticky-col
+      html[lang="fa-IR"] &,
+      html[lang="ar-AE"] &
+        padding-right: 25px
+
+.twc-table-shadow
+  pointer-events: none
+  position: absolute
+  top: 0
+  right: 0
+  width: 10px
+  +background-image(linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, .15)))
+  height: 100%
+  &.sticky
+    width: 10px
+    right: -10px
+    +background-image(linear-gradient(to right, rgba(0, 0, 0, .15), rgba(0, 0, 0, 0)))
