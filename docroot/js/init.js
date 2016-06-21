@@ -1,6 +1,5 @@
 //This would be the today page, on initial load. Below is just for testing.
-window.location = '#today';
-helper.loadTemplate('page-content', 'pages', 'today');
+//helper.loadTemplate('page-content', 'pages', 'today');
 
 
 ////initialize the service worker file.
@@ -10,6 +9,3 @@ helper.loadTemplate('page-content', 'pages', 'today');
 //        {scope: '/pwa/*'}
 //    ).then(_SW.success(), _SW.failure());
 //}
-
-
-//wx-icon-code-32
