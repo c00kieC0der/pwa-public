@@ -3,12 +3,14 @@
  */
 (function(){
     var ngRepeatMap = [
-        ['time-td',        'processTime'],
-        ['temp-td',        'temperature'],
-        ['feels-td',       'feelsLike'],
-        ['description-td', 'phrase'],
-        ['precip-td',      'precipPct'],
-        ['humidity-td',    'rh']
+        ['time',        'processTime'],
+        ['temp',        'temperature'],
+        ['feels',       'feelsLike'],
+        ['description', 'phrase'],
+        ['precip',      'precipPct'],
+        ['humidity',    'rh'],
+        ['wind',        'windDirCompass'],
+        ['wind-speed',  'windSpeed']
     ];
     /*
         What div,
@@ -17,10 +19,11 @@
         data
         do it how many times?
      */
-    helper.ngRepeat('vertical-wx-row-div', 'vertical-wx-row', ngRepeatMap, _Data.hourly, 6);
+    helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 6);
 
     console.log(_Data.hourly) ;
     document.getElementById('event-anchor').addEventListener('builder', function() {
-        helper.ngRepeat('vertical-wx-row-div', 'vertical-wx-row', ngRepeatMap, _Data.hourly, 6);
+        // helper.ngRepeat('vertical-wx-row-div', 'vertical-wx-row', ngRepeatMap, _Data.hourly, 6);
+        helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 6);
     });
 })();

@@ -1,0 +1,49 @@
+        <tr
+          data-ng-class="{'open': lsHourlyVm.selectedHourlyIndex === $index,
+            'details': hour.parent !== -1, 'closed': lsHourlyVm.selectedHourlyIndex !== $index && hour.parent === -1,
+            'clickable': hour.hasChildHourly, 'no-data': !hour.hasChildHourly && hour.parent === -1}"
+          data-ng-click="hour.hasChildHourly && lsHourlyVm.openHourlyDetail($index)"
+          data-ng-repeat="hour in (lsHourlyVm.hourlyRecords | limitTo: lsHourlyVm.limitHourly) track by $index"
+          data-ng-if="hour.parent === -1 || hour.parent === lsHourlyVm.selectedHourlyIndex"
+          data-track-str="{{::lsHourlyVm.moduleId}}_toggle"
+          class="ls-row-repeat">
+          <td class="twc-sticky-col" headers="time">
+            <span
+              data-dsxdate
+              data-datetime="::hour.processTime" data-timezone="::locTz" class="time-detail"
+              data-format="::'h:mm a' | pfTranslate: {context: 'weather_dateformats'}"></span>
+            <span data-gm-wx-alert-badge="::hour.iconExtended"></span>
+            <span data-wxicon data-sky-code="::hour.icon"></span>
+            <span
+              data-dsxdate
+              data-datetime="::hour.processTime" data-timezone="::locTz" class="day-detail clearfix"
+              data-format="::'EEE, MMM d' | pfTranslate: {context: 'weather_dateformats'}"></span>
+              <div class="twc-table-shadow sticky"></div>
+          </td>
+          <td headers="description" class="description">
+            <p
+              data-ng-bind="::hour.phrase"></p>
+          </td>
+          <td headers="temp" class="temp">
+            <span
+            data-ng-bind="::hour.temperature"></span>&deg;
+          </td>
+          <td headers="feels" class="feels">
+            <span
+              data-ng-bind="::hour.feelsLike"></span>&deg;
+          </td>
+          <td headers="precip" class="precip">
+            <span aria-hidden="true" class="wx-iconfont-global wx-icon-precip-rain-1"></span>
+            <span
+              data-ng-bind="::hour.precipPct"></span>%
+          </td>
+          <td headers="humidity" class="humidity">
+            <span
+              data-ng-bind="::hour.rh"></span>%
+          </td>
+          <td headers="wind" class="wind">
+            <span
+              data-gm-wx-wind-direction="::hour.windDirCompass"
+              data-wx-wind-speed="::hour.windSpeed"></span>
+          </td>
+      </tr>
