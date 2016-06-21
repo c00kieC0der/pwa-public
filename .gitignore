@@ -1,0 +1,59 @@
+# OS X
+.DS_Store
+
+# Vagrant
+.vagrant
+
+# Vagrant ruby hinted
+Vagrantfile.rb
+
+# vi
+*.swp
+*~
+
+# JetBrains PHPStorm config
+.idea
+*.iml
+
+# Berksfile ruby hinted
+Berksfile.rb
+
+# Gems
+Gemfile.lock
+
+# Locally generated files
+.idea/codeStyleSettings.xml
+mdocroot/sites/mount_point/
+docroot/sites/default/settings.php
+docroot/sites/local/twc.settings.php
+node_modules
+site-testing/vagrant/
+scripts/AutoIncrementVersion/node_modules
+scripts/AutoIncrementVersion/excluded.json
+npm-debug.log
+.idea
+.sass-cache
+*.sass-cache
+*.sublime-project
+*.sublime-workspace
+*.codekit
+apc.php
+docroot/webgrind
+mdocroot/sites/default
+docroot/pkg
+dampp_docroot
+dampp_docroot.backup
+docroot.new
+drupal-6.*
+drupal-7.*
+.idea.rubymine
+twc_cms.esproj
+site-testing/pull-request.json
+site-testing/git-credential-osxkeychain
+coverage/
+docroot/sites/all/modules/wu/jspm_packages
+docroot/sites/all/modules/wu/node_modules
+docroot/sites/all/modules/wu/build
+docroot/sites/all/modules/custom/angularmods_ng2/build
+site-testing/git-credential-osxkeychain
+site-testing/reports
