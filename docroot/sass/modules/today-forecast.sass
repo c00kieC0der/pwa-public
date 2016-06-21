@@ -132,224 +132,222 @@
       .wx-detail-row
         background-color: $gray-lighter
 
-.looking-ahead
-  display: none
-//
-//.looking-ahead
-//  .panel-body, .panel-footer
-//    padding: 0 15px
-//  h2
-//    display: inline
-//  .today-next-link
-//    text-transform: uppercase
-//    float: right
-//    margin: 15px 15px 10px
-//    a
-//      color: $wx-light-blue
-//      font-weight: 600
-//  .today-looking-ahead
-//    background-color: #FFF
-//  .today-daypart-hilo
-//    font-size: 12px
-//  +display-flex
-//  +flex-direction(row)
-//
-//  .today-daypart
-//    //max-width: 125px
-//    +flex-basis(125px)
-//    +flex(0 0 25px)
-//    outline: 0
-//    transition: flex-basis 0.3s linear
-//    -webkit-transition: flex-basis 0.3s linear
-//    -moz-transition: flex-basis 0.3s linear
-//    //transition: width 0.3s linear
-//    color: #FFF
-//    text-align: center
-//    padding: 25px 8px
-//    display: inline
-//    position: relative
-//    margin-bottom: 30px
-//    justify-content: center
-//    cursor: pointer
-//    &:after
-//      top: 100%
-//      left: 50%
-//      border: solid transparent
-//      content: " "
-//      height: 0
-//      width: 0
-//      position: absolute
-//      pointer-events: none
-//      border-color: transparent
-//      border-width: 20px
-//      margin-left: -14px
-//    .today-daypart-top
-//      min-height: 55px
-//      min-width: 65px
-//    .today-daypart-content
-//      max-width: 95px
-//      margin: auto
-//
-//    .today-daypart-wxphrase
-//      opacity: 0
-//      display: none
-//      transition: opacity .35s ease-in-out
-//      -moz-transition: opacity .35s ease-in-out
-//      -webkit-transition: opacity .35s ease-in-out
-//
-//    &.selected
-//      max-width: none
-//      cursor: default
-//      +flex-basis(15%)
-//      .today-daypart-wxphrase
-//        opacity: 1
-//      &:after
-//        width: 0
-//        height: 0
-//        border-style: solid
-//        border-width: 16px 12px 0 12px
-//      .today-daypart-content
-//        max-width: 100%
-//        margin: auto
-//
-//  .condition-icon
-//    width: 45px
-//    margin: 10px auto
-//    height: 50px
-//    margin-bottom: 10px
-//
-//  .today-daypart-title
-//    font-weight: 600
-//    margin-bottom: 4px
-//  //letter-spacing: 0.1em
-//
-//  .today-daypart-title,
-//  .today-daypart-wxphrase,
-//  .today-daypart-hilo
-//    text-transform: uppercase
-//
-//  .today-daypart-temp
-//    font-size: 32px
-//  .today-daypart-precip,
-//  .today-daypart-wxphrase
-//    color: $frosted-glass
-//  .today-daypart-wxphrase
-//    font-size: px-to-rem(11px)
-//  .today-daypart-precip
-//    font-size: px-to-rem(13px)
-//
-//
-//  .today-daypart-title,
-//  .today-daypart-hilo,
-//  .today-daypart-temp,
-//  .today-daypart-precip
-//    display: block
-//
-//  .today-daypart-title,
-//  .today-daypart-wxphrase,
-//  .today-daypart-hilo,
-//  .today-daypart-temp,
-//  .today-daypart-precip
-//    text-align: center
-//
-//  .today-daypart-temp
-//    margin: -5px 0 10px 0
-//    position: relative
-//  .today-daypart-title-lg
-//    display: none
-//  .deg-unit
-//    position: absolute
-//  .wx-detail
-//    .wx-icon-sunrise-sunset
-//      line-height: 0.3em
-//      font-size: px-to-rem(22px)
-//      position: relative
-//      top: 3px
-//  .wx-details-block
-//    margin: 20px 0
-//    +pie-clearfix
-//    .wx-detail
-//      display: block
-//      padding: 8px 0
-//    .wx-detail-icon
-//      float: left
-//      padding-right: 6px
-//      font-size: px-to-rem(14px)
-//      color: $gray-dark
-//    .wx-detail-value
-//      float: right
-//      text-align: right
-//    .wx-detail-label
-//      text-transform: uppercase
-//      font-weight: 600
-//  .show-lg
-//    display: none
-//@media (min-width: 481px)
-//  .looking-ahead
-//    .today-daypart-title-sm
-//      display: none
-//    .today-daypart-title-lg
-//      display: inline
 
-//.looking-ahead
-//  .show-lg
-//    display: inline
-//
-//  .today-daypart
-//    &.daypart-1
-//      background-color: $wx-blue-1
-//      -webkit-flex-grow: 1
-//      flex-grow: 1
-//      &.selected
-//        &:after
-//          border-top-color: $wx-blue-1
-//    &.daypart-2
-//      background-color: $wx-blue-2
-//      -webkit-flex-grow: 1
-//      flex-grow: 1
-//      &.selected
-//        &:after
-//          border-top-color: $wx-blue-2
-//    &.daypart-3
-//      background-color: $wx-blue-3
-//      -webkit-flex-grow: 1
-//      flex-grow: 1
-//      &.selected
-//        &:after
-//          border-top-color: $wx-blue-3
-//    &.daypart-4
-//      background-color: $wx-blue-4
-//      -webkit-flex-grow: 1
-//      flex-grow: 1
-//      &.selected
-//        &:after
-//          border-top-color: $wx-blue-4
-//    &.daypart-5
-//      background-color: $wx-blue-5
-//      -webkit-flex-grow: 1
-//      flex-grow: 1
-//      &.selected
-//        &:after
-//          border-top-color: $wx-blue-5
-//    &.selected
-//      .today-daypart-wxphrase
-//        display: block
-//      &:after
-//        width: 0
-//        height: 0
-//        border-style: solid
-//        border-width: 16px 12px 0 12px
-//
-//.looking-ahead
-//  .today-daypart
-//    &.daypart-1,
-//    &.daypart-2,
-//    &.daypart-3
-//      display: block
-//    &.daypart-4,
-//    &.daypart-5
-//      display: none
-//
-//  .today-daypart
-//    &.selected
-//      flex-basis: 25%
+.looking-ahead
+  .panel-body, .panel-footer
+    padding: 0 15px
+  h2
+    display: inline
+  .today-next-link
+    text-transform: uppercase
+    float: right
+    margin: 15px 15px 10px
+    a
+      color: $wx-light-blue
+      font-weight: 600
+  .today-looking-ahead
+    background-color: #FFF
+  .today-daypart-hilo
+    font-size: 12px
+  +display-flex
+  +flex-direction(row)
+
+  .today-daypart
+    //max-width: 125px
+    +flex-basis(125px)
+    +flex(0 0 25px)
+    outline: 0
+    transition: flex-basis 0.3s linear
+    -webkit-transition: flex-basis 0.3s linear
+    -moz-transition: flex-basis 0.3s linear
+    //transition: width 0.3s linear
+    color: #FFF
+    text-align: center
+    padding: 25px 8px
+    display: inline
+    position: relative
+    margin-bottom: 30px
+    justify-content: center
+    cursor: pointer
+    &:after
+      top: 100%
+      left: 50%
+      border: solid transparent
+      content: " "
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+      border-color: transparent
+      border-width: 20px
+      margin-left: -14px
+    .today-daypart-top
+      min-height: 55px
+      min-width: 65px
+    .today-daypart-content
+      max-width: 95px
+      margin: auto
+
+    .today-daypart-wxphrase
+      opacity: 0
+      display: none
+      transition: opacity .35s ease-in-out
+      -moz-transition: opacity .35s ease-in-out
+      -webkit-transition: opacity .35s ease-in-out
+
+    &.selected
+      max-width: none
+      cursor: default
+      +flex-basis(15%)
+      .today-daypart-wxphrase
+        opacity: 1
+      &:after
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 16px 12px 0 12px
+      .today-daypart-content
+        max-width: 100%
+        margin: auto
+
+  .condition-icon
+    width: 45px
+    margin: 10px auto
+    height: 50px
+    margin-bottom: 10px
+
+  .today-daypart-title
+    font-weight: 600
+    margin-bottom: 4px
+  //letter-spacing: 0.1em
+
+  .today-daypart-title,
+  .today-daypart-wxphrase,
+  .today-daypart-hilo
+    text-transform: uppercase
+
+  .today-daypart-temp
+    font-size: 32px
+  .today-daypart-precip,
+  .today-daypart-wxphrase
+    color: $frosted-glass
+  .today-daypart-wxphrase
+    font-size: px-to-rem(11px)
+  .today-daypart-precip
+    font-size: px-to-rem(13px)
+
+
+  .today-daypart-title,
+  .today-daypart-hilo,
+  .today-daypart-temp,
+  .today-daypart-precip
+    display: block
+
+  .today-daypart-title,
+  .today-daypart-wxphrase,
+  .today-daypart-hilo,
+  .today-daypart-temp,
+  .today-daypart-precip
+    text-align: center
+
+  .today-daypart-temp
+    margin: -5px 0 10px 0
+    position: relative
+  .today-daypart-title-lg
+    display: none
+  .deg-unit
+    position: absolute
+  .wx-detail
+    .wx-icon-sunrise-sunset
+      line-height: 0.3em
+      font-size: px-to-rem(22px)
+      position: relative
+      top: 3px
+  .wx-details-block
+    margin: 20px 0
+    +pie-clearfix
+    .wx-detail
+      display: block
+      padding: 8px 0
+    .wx-detail-icon
+      float: left
+      padding-right: 6px
+      font-size: px-to-rem(14px)
+      color: $gray-dark
+    .wx-detail-value
+      float: right
+      text-align: right
+    .wx-detail-label
+      text-transform: uppercase
+      font-weight: 600
+  .show-lg
+    display: none
+@media (min-width: 481px)
+  .looking-ahead
+    .today-daypart-title-sm
+      display: none
+    .today-daypart-title-lg
+      display: inline
+
+.looking-ahead
+  .show-lg
+    display: inline
+
+  .today-daypart
+    &.daypart-1
+      background-color: $wx-blue-1
+      -webkit-flex-grow: 1
+      flex-grow: 1
+      &.selected
+        &:after
+          border-top-color: $wx-blue-1
+    &.daypart-2
+      background-color: $wx-blue-2
+      -webkit-flex-grow: 1
+      flex-grow: 1
+      &.selected
+        &:after
+          border-top-color: $wx-blue-2
+    &.daypart-3
+      background-color: $wx-blue-3
+      -webkit-flex-grow: 1
+      flex-grow: 1
+      &.selected
+        &:after
+          border-top-color: $wx-blue-3
+    &.daypart-4
+      background-color: $wx-blue-4
+      -webkit-flex-grow: 1
+      flex-grow: 1
+      &.selected
+        &:after
+          border-top-color: $wx-blue-4
+    &.daypart-5
+      background-color: $wx-blue-5
+      -webkit-flex-grow: 1
+      flex-grow: 1
+      &.selected
+        &:after
+          border-top-color: $wx-blue-5
+    &.selected
+      .today-daypart-wxphrase
+        display: block
+      &:after
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 16px 12px 0 12px
+
+.looking-ahead
+  .today-daypart
+    &.daypart-1,
+    &.daypart-2,
+    &.daypart-3
+      display: block
+    &.daypart-4,
+    &.daypart-5
+      display: none
+
+  .today-daypart
+    &.selected
+      flex-basis: 25%
