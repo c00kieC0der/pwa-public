@@ -48,12 +48,12 @@
     </header>
     <div class="nav-suite">
         <ul class="page-nav nav menubar">
-            <li class="page-nav-li active" onclick="changeNav(this)"><a href="#"><span class="link-text">TODAY</span></a></li>
-            <li class="page-nav-li" onclick="changeNav(this)"><a href="#"><span class="link-text">HOURLY</span></a></li>
-            <li class="page-nav-li" onclick="changeNav(this)"><a href="#"><span class="link-text">5 DAY</span></a></li>
-            <li class="page-nav-li" onclick="changeNav(this)"><a href="#"><span class="link-text">10 DAY</span></a></li>
-            <li class="page-nav-li" onclick="changeNav(this)"><a href="#"><span class="link-text">WEEKEND</span></a></li>
-            <li class="page-nav-li"onclick="changeNav(this)" ><a href="#"><span class="link-text">MAP</span></a></li>
+            <li class="page-nav-li today active" onclick="changeNav(this)"><a href="#today"><span class="link-text">TODAY</span></a></li>
+            <li class="page-nav-li hourly" onclick="changeNav(this)"><a href="#hourly"><span class="link-text">HOURLY</span></a></li>
+            <li class="page-nav-li fiveday" onclick="changeNav(this)"><a href="#fiveday"><span class="link-text">5 DAY</span></a></li>
+            <li class="page-nav-li tenday" onclick="changeNav(this)"><a href="#tenday"><span class="link-text">10 DAY</span></a></li>
+            <li class="page-nav-li weekend" onclick="changeNav(this)"><a href="#weekend"><span class="link-text">WEEKEND</span></a></li>
+            <li class="page-nav-li map" onclick="changeNav(this)" ><a href="#map"><span class="link-text">MAP</span></a></li>
         </ul>
     </div>
 
@@ -119,10 +119,7 @@
                         <button class="current-location" onclick="_Locations.callGeoLocation()">Update Current Location</button>
                     </div>
                     <p class="heading-search">RECENT SEARCHES</p>
-                    <ul class="recent nav">
-                        <li class="results"><a class="name"><span class="wx-iconfont-global condition-icon wx-icon-code-32"></span> Atlanta, GA </a></li>
-                        <li class="results"><a class="name"><span class="wx-iconfont-global condition-icon wx-icon-code-32"></span> North Decatur, GA </a></li>
-                        <li class="results"><a class="name"><span class="wx-iconfont-global condition-icon wx-icon-code-32"></span> Sao Paulo, Brazil </a></li>
+                    <ul id="recently-searched" class="recent nav">
                     </ul>
                 </div>
                 <div class="animate-switch" id="search-results">
@@ -176,13 +173,12 @@
     <script src="/js/models/wx_data_model.js"></script>
     <script src="/js/init.js"></script>
 
-    <script src="/js/vendor/location-bar.js"></script>
     <script src="/js/models/router_model.js"></script>
 
     <script src="/js/vendor/leaflet.min.js"></script>
 
 
-    <script src="/service_worker.js"></script>
+  <!--  <script src="/service_worker.js"></script>  -->
     <script src="/js/appShell.js"></script>
 
 

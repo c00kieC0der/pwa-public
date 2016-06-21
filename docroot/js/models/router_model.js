@@ -1,10 +1,7 @@
 var _Router = {};
 (function(){
-    _History.start({
-        pushState: true
-    });
     _Router = {
-        page : 'today'
+        page : ''
     };
 
     var pageAssignment = {
@@ -35,15 +32,34 @@ var _Router = {};
     };
     _Router.changePage = function(pageName){
         pageName = pageName.replace(' ', '');
-
         var changeTo = pageAssignment[pageName].name;
         if(_Router.page !== changeTo){
             _Router.page = changeTo;
             helper.loadTemplate('page-content', 'pages', changeTo);
             document.title = pageAssignment[pageName].title;
-            _History.update('#' + changeTo);
         }
+    };
+
+    if(window.location.hash === ''){
+        console.log('null? ');
+        window.location = '#today';
+        _Router.changePage('TODAY');
+    } else {
+        var hash = window.location.hash.replace('#', '');
+        var lis = document.getElementsByClassName('page-nav-li');
+        for(var i=0; i < lis.length; i++){
+            lis[i].className = lis[i].className.replace('active', '');
+        }
+        document.getElementsByClassName('page-nav-li ' + hash)[0].className += ' active';
+        var hashMap = {
+            today : 'TODAY',
+            hourly : 'HOURLY',
+            fiveday : '5DAY',
+            tenday : '10DAY',
+            weekend : 'WEEKEND',
+            map : 'MAP'
+        };
+        console.log(hashMap[hash]);
+        _Router.changePage(hashMap[hash]);
     }
-    ;
-    //_History.onChange(_Router.changePage('DAILY'));
 })();
