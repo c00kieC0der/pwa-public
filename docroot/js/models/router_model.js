@@ -1,7 +1,7 @@
 var _Router = {};
 (function(){
     _Router = {
-        page : 'today'
+        page : ''
     };
 
     var pageAssignment = {
@@ -32,7 +32,6 @@ var _Router = {};
     };
     _Router.changePage = function(pageName){
         pageName = pageName.replace(' ', '');
-
         var changeTo = pageAssignment[pageName].name;
         if(_Router.page !== changeTo){
             _Router.page = changeTo;
@@ -42,6 +41,7 @@ var _Router = {};
     };
 
     if(window.location.hash === ''){
+        console.log('null? ');
         window.location = '#today';
         _Router.changePage('TODAY');
     } else {
@@ -59,7 +59,7 @@ var _Router = {};
             weekend : 'WEEKEND',
             map : 'MAP'
         };
+        console.log(hashMap[hash]);
         _Router.changePage(hashMap[hash]);
-
     }
 })();

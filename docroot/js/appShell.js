@@ -210,6 +210,8 @@ function showMainSearch() {
     showHide('saved-results', 1);
     document.getElementById('search').value = '';
     showHide('search-results', 0);
+    helper.empty('recently-searched');
+    helper.ngRepeatReverse('recently-searched', 'dropdown-li', recentLocsMap, _User.locations, 'all');
 }
 
 /**
@@ -399,8 +401,6 @@ function showRecentlySearched(){
     if(downArrayClicked == false) {
         showHide('drop-down-array-list', 1);
         downArrayClicked = true;
-        helper.empty('drop-down-array-list');
-        helper.ngRepeatReverse('drop-down-array-list', 'dropdown-li', recentLocsMap, _User.locations, 'all');
     }else{
         showHide('drop-down-array-list', 0);
         downArrayClicked=false;
