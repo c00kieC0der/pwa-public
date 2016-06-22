@@ -41,7 +41,6 @@ var _Router = {};
     };
 
     if(window.location.hash === ''){
-        console.log('null? ');
         window.location = '#today';
         _Router.changePage('TODAY');
     } else {
@@ -59,7 +58,6 @@ var _Router = {};
             weekend : 'WEEKEND',
             map : 'MAP'
         };
-        console.log(hashMap[hash]);
         _Router.changePage(hashMap[hash]);
     }
 })();

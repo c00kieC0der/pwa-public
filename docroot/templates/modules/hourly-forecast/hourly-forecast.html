@@ -1,8 +1,4 @@
-<link rel="stylesheet" type="text/css" href="templates/components/vertical-wx-row/vertical-wx-row.css">
 <link rel="stylesheet" type="text/css" href="styles/modules/hourly-forecast.css">
-
-
-<div id="vertical-wx-row-div">
 
 <section class="ls-hourly-wwir" data-ng-if="::lsHourlyVm.showWWIR">
   <!-- <span data-wxicon data-vector-optimized="true" data-sky-code="::lsHourlyVm.iconClass"></span> -->
@@ -28,43 +24,7 @@
           <th id="wind" scope="col">Wind</th>
         </tr>
       </thead>
-      <tbody class="ls-row-wrap">
-
-
-<!-- TEST Row till we get the data in here.  -->
-
-<!--         <tr>
-          <td class="twc-sticky-col" headers="time">
-            <span class="time-detail">1:00 pm</span>
-            <span data-gm-wx-alert-badge="::hour.iconExtended"></span>
-            <span data-wxicon data-sky-code="::hour.icon"></span>
-            <span
-              data-dsxdate
-              data-datetime="::hour.processTime" data-timezone="::locTz" class="day-detail clearfix"
-              data-format="::'EEE, MMM d' | pfTranslate: {context: 'weather_dateformats'}"></span>
-              <div class="twc-table-shadow sticky"></div>
-          </td>
-          <td headers="description" class="description">
-            <p>Partly Cloudy</p>
-          </td>
-          <td headers="temp" class="temp">
-            <span>85</span>&deg;
-          </td>
-          <td headers="feels" class="feels">
-            <span>79</span>&deg;
-          </td>
-          <td headers="precip" class="precip">
-            <span aria-hidden="true" class="wx-iconfont-global wx-icon-precip-rain-1"></span>
-            <span>20</span>%
-          </td>
-          <td headers="humidity" class="humidity">
-            <span>69</span>%
-          </td>
-          <td headers="wind" class="wind">
-            <span>WNW 7mph</span>
-          </td>
-        </tr> -->
-      </tbody>
+      <tbody id="ls-row-wrap" class="ls-row-wrap"></tbody>
     </table>
   </div>
   <div class="twc-table-shadow"></div>
@@ -88,4 +48,4 @@
     </a>
   </div>
 
-</div>
+

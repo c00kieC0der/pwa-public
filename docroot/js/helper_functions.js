@@ -40,7 +40,7 @@ helper.empty = function(divId){
     document.getElementById(divId).innerHTML = '';
 };
 
-// helper.ngRepeat('vertical-wx-row', 'components', 'vertical-wx-row', ngRepeatMap, _Data.hourly, 6);
+
 helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
     multiplier = multiplier === 'all' ? dataMap.length : multiplier;
     var path = 'templates/components/' + componentName + '/' + componentName + '.html';
