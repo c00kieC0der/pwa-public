@@ -211,7 +211,10 @@ function showMainSearch() {
     document.getElementById('search').value = '';
     showHide('search-results', 0);
     helper.empty('recently-searched');
-    helper.ngRepeatReverse('recently-searched', 'dropdown-li', recentLocsMap, _User.locations, 'all');
+    var container = document.getElementById('recently-searched');
+    for(var i in _User.locations){
+        container.innerHTML += '<li class="results"><a onclick="javascript:searchResultsClicked(this, ' + _User.locations[i].lat + ', ' + _User.locations[i].long + ', false)" class="dropdown-name">' + _User.locations[i].prsntNm + '</a></li>';
+    }
 }
 
 /**
@@ -231,7 +234,7 @@ function searchResults() {
             var cityList = '';
             for (i=0; i<_Locations.results.length; i++ ) {
                 var latLongArray = _Locations.results[i].geocode.split(',');
-                cityList += '<li class="results"><a class="name" onclick="searchResultsClicked(this, '+latLongArray[0]+','+latLongArray[1]+')"> '+_Locations.results[i].cityNm+', '+_Locations.results[i].stCd+'  </a></li>';
+                cityList += '<li class="results"><a class="name" onclick="searchResultsClicked(this, ' +latLongArray[0] + ',' + latLongArray[1] + ', true)"> '+_Locations.results[i].cityNm+', '+_Locations.results[i].stCd+'  </a></li>';
             }
             document.getElementById('search-results-list').innerHTML = cityList;
         }
@@ -241,13 +244,13 @@ function searchResults() {
 
 
 
-function searchResultsClicked(ele, lat, long) {
+function searchResultsClicked(ele, lat, long, updateList) {
     document.getElementById('activeLocName').innerHTML = ele.innerHTML;
-    _User.activeLocation.prsntNm = ele.innerHTML;
-    _User.activeLocation.lat = lat;
-    _User.activeLocation.long = long;
-    // _User.newActiveLocation(currentObj);
-    // console.log( _User.activeLocation);
+    _User.newActiveLocation({
+        lat     : lat,
+        long    : long,
+        prsntNm : ele.innerHTML
+    }, updateList);
     hideMainSearch();
 }
 
@@ -375,18 +378,20 @@ function lookupLocations(term){
 }
 
 /*  This is triggered when we have location results from the term in the above function */
+/*
 document.getElementById('event-anchor').addEventListener('builder-locations', function(){
     console.log(_Locations.results);
 });
-
+*/
 function getGeolocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     }
 }
+/*
 function showPosition(position){
     console.log(position);
-}
+} */
 /**
  * showRecentlySearched() shows and hides the drop down recent search list
  * and fills in the drop down with recently searched items.

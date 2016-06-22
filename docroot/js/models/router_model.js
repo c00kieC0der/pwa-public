@@ -40,26 +40,36 @@ var _Router = {};
         }
     };
 
-    if(window.location.hash === ''){
-        console.log('null? ');
-        window.location = '#today';
-        _Router.changePage('TODAY');
-    } else {
-        var hash = window.location.hash.replace('#', '');
+    var hashMap = {
+        today : 'TODAY',
+        hourly : 'HOURLY',
+        fiveday : '5DAY',
+        tenday : '10DAY',
+        weekend : 'WEEKEND',
+        map : 'MAP'
+    };
+
+    var preChangePage = function(hash){
         var lis = document.getElementsByClassName('page-nav-li');
         for(var i=0; i < lis.length; i++){
             lis[i].className = lis[i].className.replace('active', '');
         }
         document.getElementsByClassName('page-nav-li ' + hash)[0].className += ' active';
-        var hashMap = {
-            today : 'TODAY',
-            hourly : 'HOURLY',
-            fiveday : '5DAY',
-            tenday : '10DAY',
-            weekend : 'WEEKEND',
-            map : 'MAP'
-        };
-        console.log(hashMap[hash]);
         _Router.changePage(hashMap[hash]);
+    };
+    //Handles Onload checking.
+    if(window.location.hash === ''){
+        window.location = '#today';
+        _Router.changePage('TODAY');
+    } else {
+        var hash = window.location.hash.replace('#', '');
+        preChangePage(hash);
     }
+    //Handles forward or backward clicking.
+    window.onhashchange = function () {
+        var hash = window.location.hash.replace('#', '');
+        if(hashMap[hash] !== undefined && hash !== _Router.page){
+             preChangePage(hash);
+        }
+    };
 })();

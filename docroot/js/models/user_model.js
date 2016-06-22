@@ -64,9 +64,12 @@ _User.addLocation = function(locationObj){
     saveUser();
 };
 
-_User.newActiveLocation = function(locationObj){
-    _User.locations.push(_User.activeLocation);
+_User.newActiveLocation = function(locationObj, updateRecents){
+    if(_User.activeLocation.prsntNm && updateRecents) {
+        _User.locations.push(_User.activeLocation);
+    }
     _User.activeLocation = locationObj;
+
     saveUser();
 };
 

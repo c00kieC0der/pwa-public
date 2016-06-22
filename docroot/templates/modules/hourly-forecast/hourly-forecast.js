@@ -3,12 +3,15 @@
  */
 (function(){
     var ngRepeatMap = [
-        ['time-td',        'processTime'],
+        ['time-td',        'time'],
+        ['date-td',        'date'],
         ['temp-td',        'temperature'],
         ['feels-td',       'feelsLike'],
         ['description-td', 'phrase'],
         ['precip-td',      'precipPct'],
-        ['humidity-td',    'rh']
+        ['humidity-td',    'rh'],
+        ['wind-direction-td',        'windDirCompass'],
+        ['wind-speed-td',  'windSpeed']
     ];
     /*
         What div,
@@ -17,10 +20,12 @@
         data
         do it how many times?
      */
-    helper.ngRepeat('vertical-wx-row-div', 'vertical-wx-row', ngRepeatMap, _Data.hourly, 6);
+    if(_Data.hourly){
+        helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12);
+    }
 
-    console.log(_Data.hourly) ;
     document.getElementById('event-anchor').addEventListener('builder', function() {
-        helper.ngRepeat('vertical-wx-row-div', 'vertical-wx-row', ngRepeatMap, _Data.hourly, 6);
+        console.log(_Data.hourly);
+        helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12);
     });
 })();
