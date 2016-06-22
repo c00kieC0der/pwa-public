@@ -7,8 +7,7 @@
   color: #ffffff;
   letter-spacing: 0.02rem;
   background-color: #257BDA;
-  font-size: 18px;
-  margin-bottom: -10px; }
+  font-size: 18px; }
   .today .nowcard a {
     color: #FFF; }
   .today .nowcard .deg {
@@ -107,4 +106,197 @@
   background-color: #ededed; }
 
 .looking-ahead {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row; }
+  .looking-ahead .panel-body, .looking-ahead .panel-footer {
+    padding: 0 15px; }
+  .looking-ahead h2 {
+    display: inline; }
+  .looking-ahead .today-next-link {
+    text-transform: uppercase;
+    float: right;
+    margin: 15px 15px 10px; }
+    .looking-ahead .today-next-link a {
+      color: #5F99E1;
+      font-weight: 600; }
+  .looking-ahead .today-looking-ahead {
+    background-color: #FFF; }
+  .looking-ahead .today-daypart-hilo {
+    font-size: 12px; }
+  .looking-ahead .today-daypart {
+    -webkit-flex-basis: 125px;
+    flex-basis: 125px;
+    -webkit-flex: 0 0 25px;
+    flex: 0 0 25px;
+    outline: 0;
+    transition: flex-basis 0.3s linear;
+    -webkit-transition: flex-basis 0.3s linear;
+    -moz-transition: flex-basis 0.3s linear;
+    color: #FFF;
+    text-align: center;
+    padding: 25px 8px;
+    display: inline;
+    position: relative;
+    margin-bottom: 30px;
+    justify-content: center;
+    cursor: pointer; }
+    .looking-ahead .today-daypart:after {
+      top: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: transparent;
+      border-width: 20px;
+      margin-left: -14px; }
+    .looking-ahead .today-daypart .today-daypart-top {
+      min-height: 55px;
+      min-width: 65px; }
+    .looking-ahead .today-daypart .today-daypart-content {
+      max-width: 95px;
+      margin: auto; }
+    .looking-ahead .today-daypart .today-daypart-wxphrase {
+      opacity: 0;
+      display: none;
+      transition: opacity 0.35s ease-in-out;
+      -moz-transition: opacity 0.35s ease-in-out;
+      -webkit-transition: opacity 0.35s ease-in-out; }
+    .looking-ahead .today-daypart.selected {
+      max-width: none;
+      cursor: default;
+      -webkit-flex-basis: 15%;
+      flex-basis: 15%; }
+      .looking-ahead .today-daypart.selected .today-daypart-wxphrase {
+        opacity: 1; }
+      .looking-ahead .today-daypart.selected:after {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 16px 12px 0 12px; }
+      .looking-ahead .today-daypart.selected .today-daypart-content {
+        max-width: 100%;
+        margin: auto; }
+  .looking-ahead .condition-icon {
+    width: 45px;
+    margin: 10px auto;
+    height: 50px;
+    margin-bottom: 10px; }
+  .looking-ahead .today-daypart-title {
+    font-weight: 600;
+    margin-bottom: 4px; }
+  .looking-ahead .today-daypart-title,
+  .looking-ahead .today-daypart-wxphrase,
+  .looking-ahead .today-daypart-hilo {
+    text-transform: uppercase; }
+  .looking-ahead .today-daypart-temp {
+    font-size: 32px; }
+  .looking-ahead .today-daypart-precip,
+  .looking-ahead .today-daypart-wxphrase {
+    color: rgba(255, 255, 255, 0.75); }
+  .looking-ahead .today-daypart-wxphrase {
+    font-size: 0.78571rem; }
+  .looking-ahead .today-daypart-precip {
+    font-size: 0.92857rem; }
+  .looking-ahead .today-daypart-title,
+  .looking-ahead .today-daypart-hilo,
+  .looking-ahead .today-daypart-temp,
+  .looking-ahead .today-daypart-precip {
+    display: block; }
+  .looking-ahead .today-daypart-title,
+  .looking-ahead .today-daypart-wxphrase,
+  .looking-ahead .today-daypart-hilo,
+  .looking-ahead .today-daypart-temp,
+  .looking-ahead .today-daypart-precip {
+    text-align: center; }
+  .looking-ahead .today-daypart-temp {
+    margin: -5px 0 10px 0;
+    position: relative; }
+  .looking-ahead .today-daypart-title-lg {
+    display: none; }
+  .looking-ahead .deg-unit {
+    position: absolute; }
+  .looking-ahead .wx-detail .wx-icon-sunrise-sunset {
+    line-height: 0.3em;
+    font-size: 1.57143rem;
+    position: relative;
+    top: 3px; }
+  .looking-ahead .wx-details-block {
+    margin: 20px 0;
+    *zoom: 1; }
+    .looking-ahead .wx-details-block:after {
+      content: "";
+      display: table;
+      clear: both; }
+    .looking-ahead .wx-details-block .wx-detail {
+      display: block;
+      padding: 8px 0; }
+    .looking-ahead .wx-details-block .wx-detail-icon {
+      float: left;
+      padding-right: 6px;
+      font-size: 1rem;
+      color: #999999; }
+    .looking-ahead .wx-details-block .wx-detail-value {
+      float: right;
+      text-align: right; }
+    .looking-ahead .wx-details-block .wx-detail-label {
+      text-transform: uppercase;
+      font-weight: 600; }
+  .looking-ahead .show-lg {
+    display: none; }
+
+@media (min-width: 481px) {
+  .looking-ahead .today-daypart-title-sm {
+    display: none; }
+  .looking-ahead .today-daypart-title-lg {
+    display: inline; } }
+.looking-ahead .show-lg {
+  display: inline; }
+.looking-ahead .today-daypart.daypart-1 {
+  background-color: #1f4371;
+  -webkit-flex-grow: 1;
+  flex-grow: 1; }
+  .looking-ahead .today-daypart.daypart-1.selected:after {
+    border-top-color: #1f4371; }
+.looking-ahead .today-daypart.daypart-2 {
+  background-color: #2962a9;
+  -webkit-flex-grow: 1;
+  flex-grow: 1; }
+  .looking-ahead .today-daypart.daypart-2.selected:after {
+    border-top-color: #2962a9; }
+.looking-ahead .today-daypart.daypart-3 {
+  background-color: #347bd5;
+  -webkit-flex-grow: 1;
+  flex-grow: 1; }
+  .looking-ahead .today-daypart.daypart-3.selected:after {
+    border-top-color: #347bd5; }
+.looking-ahead .today-daypart.daypart-4 {
+  background-color: #609ae1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1; }
+  .looking-ahead .today-daypart.daypart-4.selected:after {
+    border-top-color: #609ae1; }
+.looking-ahead .today-daypart.daypart-5 {
+  background-color: #76a7e3;
+  -webkit-flex-grow: 1;
+  flex-grow: 1; }
+  .looking-ahead .today-daypart.daypart-5.selected:after {
+    border-top-color: #76a7e3; }
+.looking-ahead .today-daypart.selected .today-daypart-wxphrase {
+  display: block; }
+.looking-ahead .today-daypart.selected:after {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 16px 12px 0 12px; }
+
+.looking-ahead .today-daypart.daypart-1, .looking-ahead .today-daypart.daypart-2, .looking-ahead .today-daypart.daypart-3 {
+  display: block; }
+.looking-ahead .today-daypart.daypart-4, .looking-ahead .today-daypart.daypart-5 {
   display: none; }
+.looking-ahead .today-daypart.selected {
+  flex-basis: 25%; }
