@@ -21,11 +21,11 @@ var _User = {
 
 var savedPco = window.localStorage.jStorage ? JSON.parse(window.localStorage.jStorage) : {};
 _User.locations = savedPco.user && savedPco.user.recentSearchLocations ? savedPco.user.recentSearchLocations : [];
-_User.lang = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : 'en-US';
+//_User.lang = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : 'en-US';
 _User.unitPref = savedPco.user && savedPco.user.unit ? savedPco.user.unit : 'e';
 
 if(window.localStorage._Stored_User){
-    _User = JSON.parse(window.localStorage._Stored_User);
+   // _User = JSON.parse(window.localStorage._Stored_User);
 } else {
     window.localStorage._Stored_User = JSON.stringify(_User);
 }
@@ -70,9 +70,12 @@ _User.getLocationObj = function(locName){
     }
 };
 */
-_User.newActiveLocation = function(locationObj){
-    if(_User.activeLocation.prsntNm) _User.locations.push(_User.activeLocation);
+_User.newActiveLocation = function(locationObj, updateRecents){
+    if(_User.activeLocation.prsntNm && updateRecents) {
+        _User.locations.push(_User.activeLocation);
+    }
     _User.activeLocation = locationObj;
+
     saveUser();
 };
 

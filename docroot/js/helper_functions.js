@@ -66,12 +66,10 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
         }
     };
     xhr.send();
-
-
 };
 
 helper.ngRepeatReverse = function(divId, componentName, dataMap, data, multiplier){
-    multiplier = multiplier === 'all' ? dataMap.length : multiplier;
+    multiplier = multiplier === 'all' ? data.length : multiplier;
     var path = 'templates/components/' + componentName + '/' + componentName + '.html';
     var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     var classXes = '', x = 0, i = 0, j = 0 ;

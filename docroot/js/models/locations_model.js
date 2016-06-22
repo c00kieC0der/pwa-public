@@ -1,4 +1,7 @@
 var _Locations = {};
+(function(){
+
+
 var term = '';
 var eventLocations = document.createEvent('Event');
 eventLocations.initEvent('builder-locations', true, true);
@@ -34,6 +37,7 @@ _Locations.getGeoCoordinates = function(position){
                 'url' : locUrl,
                 'generateUniqueUrl' : false,
                 'onSuccess':function(req){
+                    console.log(req);
                     _User.newActiveLocation(JSON.parse(req.responseText));
                 }
             }
@@ -52,3 +56,4 @@ _Locations.callGeoLocation = function(){  console.log('called');
         navigator.geolocation.getCurrentPosition(_Locations.getGeoCoordinates);
     }
 };
+})();

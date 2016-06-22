@@ -68,7 +68,6 @@ var _Data = {};
         _Data.hourly.time = [];
         _Data.hourly.date = [];
         for(var i in _Data.hourly.processTime){
-            console.log(formatTime(_Data.hourly.processTime[i]));
             _Data.hourly.time[i] = formatTime(_Data.hourly.processTime[i]);
             _Data.hourly.date[i] = formatDate(_Data.hourly.processTime[i]);
         }
