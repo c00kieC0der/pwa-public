@@ -1,3 +1,9 @@
+var map = window._map = new wx.maps.Map(document.getElementsByClassName('static-map')[0], new wx.maps.MapOptions({
+    zoomLevel: 7,
+    latitude: _User.activeLocation.lat,
+    longitude: _User.activeLocation.long
+}));
+
 window.addLayer = function (index) {
     var layer = map.createLayer(new wx.layers.SunTileLayerOptions(layers[index]));
     map.stack[1] && map.removeLayer(map.stack[1]);
@@ -7,15 +13,6 @@ window.addLayer = function (index) {
         $el.css('display', ($el.val() == layer.options.layerKey) ? 'none' : 'block');
     });
 };
-
-(function(){
-    document.getElementById('event-anchor').addEventListener('builder', function() {
-
-        var map = window._map = new wx.maps.Map(document.getElementsByClassName('static-map')[0], new wx.maps.MapOptions({
-            zoomLevel: 7,
-            latitude: _User.activeLocation.lat,
-            longitude: _User.activeLocation.long
-        }));
 
         var layers = [{
             id: "SUN Radar Observation",
@@ -37,6 +34,11 @@ window.addLayer = function (index) {
             version: "2"
         }];
 
+    document.getElementById('event-anchor').addEventListener('builder', function() {
+
+
+
+
 
         map.configuration.mapboxAccessToken = "pk.eyJ1Ijoid2VhdGhlciIsImEiOiJjaWlxNG01czkwMjM2dnFtNTdlMjVidTByIn0.Ml63Jx_BQtTx4CEXihwjyA";
         map.configuration.sunTileProductsUrl = "//api.weather.com/v2/TileServer/series?apiKey={apiKey}";
@@ -50,6 +52,5 @@ window.addLayer = function (index) {
             maximumZoom: 19
         }));
         map.addLayer(baseLayer);
-        addLayer(2);
+        addLayer(0);
     });
-})();

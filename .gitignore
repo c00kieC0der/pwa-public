@@ -4,6 +4,11 @@
 # Vagrant
 .vagrant
 
+
+docroot/node_modules
+docroot/translations.zip
+
+
 # Vagrant ruby hinted
 Vagrantfile.rb
 
@@ -51,9 +56,6 @@ twc_cms.esproj
 site-testing/pull-request.json
 site-testing/git-credential-osxkeychain
 coverage/
-docroot/sites/all/modules/wu/jspm_packages
-docroot/sites/all/modules/wu/node_modules
-docroot/sites/all/modules/wu/build
 docroot/sites/all/modules/custom/angularmods_ng2/build
 site-testing/git-credential-osxkeychain
 site-testing/reports

@@ -27,7 +27,7 @@ self.oninstall = function(event) {
                 '/pwa/js/models/router_model.js',
                 '/pwa/js/models/user_model.js',
                 '/pwa/js/models/wx_data_model.js',
-                '/pwa/styles/core.css',
+                '/pwa/styles/core.css'
             ]);
         })
     );
