@@ -1,8 +1,6 @@
 var _Locations = {};
 (function(){
-
-
-var term = '';
+    
 var eventLocations = document.createEvent('Event');
 eventLocations.initEvent('builder-locations', true, true);
 
@@ -46,14 +44,17 @@ _Locations.getGeoCoordinates = function(position){
     }
 };
 
-//   If a user does not have a default location, let's try to geolocate them.
-if (!_User.activeLocation.prsntNm) {
-   _Locations.callGeoLocation();
-}
-
 _Locations.callGeoLocation = function(){  console.log('called');
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(_Locations.getGeoCoordinates);
     }
 };
+
+//   If a user does not have a default location, let's try to geolocate them
+setTimeout(function(){
+    if (!_User.activeLocation.prsntNm) {
+       _Locations.callGeoLocation();
+    }
+}, 100);
+
 })();
