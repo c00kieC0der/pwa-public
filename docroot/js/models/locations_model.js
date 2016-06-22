@@ -1,6 +1,6 @@
 var _Locations = {};
 (function(){
-    
+
 var eventLocations = document.createEvent('Event');
 eventLocations.initEvent('builder-locations', true, true);
 
