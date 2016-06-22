@@ -5,7 +5,7 @@
     </header>
     <div class="forecast">
         <div class="condition">
-            <div class="condition-icon wx-weather-icon wx-icon-bg vector"></div>
+            <div class="condition-icon wx-weather-icon vector" aria-hidden="true" id="nowcard-icon"></div>
         </div>
         <div class="temp">
             <span>
@@ -74,6 +74,7 @@
 
 
 <div class="card">
+    <p style="font-size: 10px">Don't test me yet, I still need data and animations</p>
     <div class="looking-ahead">
         <div class="today-daypart daypart-1 selected">
             <div class="today-daypart-content">
@@ -82,8 +83,7 @@
                     <span class="today-daypart-wxphrase">Mostly Clear</span>
                 </div>
 
-                <div class="condition-icon wx-weather-icon vector" alt="mostly clear-night">
-                </div>
+                <div class="condition-icon wx-weather-icon vector" aria-hidden="true" id="nowcard-la-part1-icon"></div>
 
                 <span class="today-daypart-hilo">Low</span>
                 <span class="today-daypart-temp dir-ltr">
@@ -103,11 +103,7 @@
                     <span class="today-daypart-wxphrase">PM Thunderstorms</span>
                 </div>
 
-                <div class="condition-icon wx-weather-icon vector"
-                     aria-hidden="true" alt="scattered thunderstorms">
-                    <div class="svg-icon">
-                    </div>
-                </div>
+                <div class="condition-icon wx-weather-icon vector" aria-hidden="true" id="nowcard-la-part2-icon"></div>
 
                 <span class="today-daypart-hilo">High</span>
                 <span class="today-daypart-temp dir-ltr">
@@ -128,10 +124,7 @@
                     <span class="today-daypart-wxphrase">Thunderstorms Early</span>
                 </div>
 
-                <div class="condition-icon wx-weather-icon vector" aria-hidden="true" alt="scattered thunderstorms-night">
-                    <div class="svg-icon">
-                    </div>
-                </div>
+                <div class="condition-icon wx-weather-icon vector" aria-hidden="true" id="nowcard-la-part3-icon"></div>
 
                 <span class="today-daypart-hilo">Low</span>
                 <span class="today-daypart-temp dir-ltr">

@@ -31,8 +31,21 @@
         var highTemp = _Data.obs.temperatureMaxSince7am ? _Data.obs.temperatureMaxSince7am : _Data.dailyForecast.day.temperature[0] !== null ? _Data.dailyForecast.day.temperature[0] : '--';
         dataAssignment.push(['nowcard-hi-value', highTemp]);
 
-        //Input the weather icon.
-        document.getElementsByClassName('condition-icon wx-weather-icon vector')[0].innerHTML = getWxIcon(_Data.obs.icon);
+        //Input the weather icon - Nowcard.
+        document.getElementById('nowcard-icon').innerHTML = getWxIcon(_Data.obs.icon);
+
+
+       //Input the weather icon - Looking Ahead. This is NOT correct -- needs to be today, tonight, tomorrow / 36 hr
+        document.getElementById('nowcard-la-part1-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[1]);
+        document.getElementById('nowcard-la-part2-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[2]);
+        document.getElementById('nowcard-la-part3-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[3]);
+
+
+
+
+
+
+        console.dir(getWxIcon(_Data.dailyForecast.day));
     };
     document.getElementById('event-anchor').addEventListener('builder', function(){
         mapData();
