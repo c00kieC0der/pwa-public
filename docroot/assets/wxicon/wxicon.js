@@ -68,7 +68,7 @@ var getWxIcon = function(skyCode){
             iconName = 'na';
         }
 
-       // iconName += '-optimized';
+        // iconName += '-optimized';
         return iconName;
     };
     function getIconUrl() {
