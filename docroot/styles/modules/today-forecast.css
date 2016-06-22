@@ -7,7 +7,8 @@
   color: #ffffff;
   letter-spacing: 0.02rem;
   background-color: #257BDA;
-  font-size: 18px; }
+  font-size: 18px;
+  padding-bottom: 20px; }
   .today .nowcard a {
     color: #FFF; }
   .today .nowcard .deg {
