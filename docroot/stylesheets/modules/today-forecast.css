@@ -1,0 +1,470 @@
+/* line 6, ../../sass/modules/today-forecast.sass */
+.card {
+  margin: 0 8px 15px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px 0px;
+}
+
+/* line 15, ../../sass/modules/today-forecast.sass */
+.today .nowcard {
+  color: #ffffff;
+  letter-spacing: 0.02rem;
+  background-color: #257BDA;
+  font-size: 18px;
+  margin-bottom: -10px;
+}
+/* line 21, ../../sass/modules/today-forecast.sass */
+.today .nowcard a {
+  color: #FFF;
+}
+/* line 23, ../../sass/modules/today-forecast.sass */
+.today .nowcard .deg {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.2em;
+  left: -0.3em;
+}
+/* line 30, ../../sass/modules/today-forecast.sass */
+.today .nowcard .wx-weather-icon {
+  float: right;
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+/* line 36, ../../sass/modules/today-forecast.sass */
+.today .nowcard .wx-weather-icon .svg-icon {
+  width: 100%;
+  height: 100%;
+}
+/* line 40, ../../sass/modules/today-forecast.sass */
+.today .nowcard header {
+  text-align: center;
+  padding: 15px;
+}
+/* line 43, ../../sass/modules/today-forecast.sass */
+.today .nowcard .location {
+  padding: 0 10px;
+  font-weight: 700;
+}
+/* line 46, ../../sass/modules/today-forecast.sass */
+.today .nowcard .forecast {
+  padding: 0 25px;
+}
+/* line 48, ../../sass/modules/today-forecast.sass */
+.today .nowcard .content {
+  margin: 10px 5px;
+  padding: 15px 15px 50px;
+}
+/* line 51, ../../sass/modules/today-forecast.sass */
+.today .nowcard .content .content-block {
+  border-top: solid 1px rgba(255, 255, 255, 0.3);
+  border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+  padding: 15px 0;
+}
+/* line 55, ../../sass/modules/today-forecast.sass */
+.today .nowcard .thumbnail {
+  margin-right: 15px;
+  vertical-align: middle;
+}
+/* line 58, ../../sass/modules/today-forecast.sass */
+.today .nowcard .wx-weather-icon {
+  float: right;
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  font-size: 45px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+/* line 65, ../../sass/modules/today-forecast.sass */
+.today .nowcard .wx-weather-icon .svg-icon {
+  width: 100%;
+  height: 100%;
+}
+/* line 69, ../../sass/modules/today-forecast.sass */
+.today .nowcard .video {
+  cursor: pointer;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: solid 1px rgba(255, 255, 255, 0.3);
+  border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+}
+/* line 76, ../../sass/modules/today-forecast.sass */
+.today .nowcard .content-link {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+/* line 82, ../../sass/modules/today-forecast.sass */
+.today .nowcard .content-title {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  -webkit-flex-basis: 0px;
+  flex-basis: 0px;
+  padding-left: 10px;
+}
+/* line 90, ../../sass/modules/today-forecast.sass */
+.today .nowcard .video .wx-iconfont-global {
+  padding-left: 10px;
+  font-size: 1.42857rem;
+}
+/* line 94, ../../sass/modules/today-forecast.sass */
+.today .nowcard .hilo {
+  font-weight: 600;
+}
+/* line 96, ../../sass/modules/today-forecast.sass */
+.today .nowcard .hilo .btn-text {
+  font-weight: normal;
+}
+/* line 99, ../../sass/modules/today-forecast.sass */
+.today .nowcard .feels {
+  font-weight: 600;
+}
+/* line 101, ../../sass/modules/today-forecast.sass */
+.today .nowcard .feels .btn-text {
+  font-weight: normal;
+}
+/* line 104, ../../sass/modules/today-forecast.sass */
+.today .nowcard .phrase {
+  text-transform: uppercase;
+  font-size: 1.14286rem;
+  font-weight: 600;
+}
+/* line 109, ../../sass/modules/today-forecast.sass */
+.today .nowcard .temp {
+  font-weight: 600;
+  font-size: 2.85714rem;
+  line-height: 1;
+}
+/* line 115, ../../sass/modules/today-forecast.sass */
+.today .nowcard-details {
+  padding: 10px;
+  background-color: #FFF;
+}
+/* line 118, ../../sass/modules/today-forecast.sass */
+.today .nowcard-details .wx-detail-row {
+  width: 100%;
+  margin-bottom: 5px;
+}
+/* line 123, ../../sass/modules/today-forecast.sass */
+.today .nowcard-details .wx-detail-label,
+.today .nowcard-details .wx-detail-value {
+  display: inline-block;
+  width: 49%;
+}
+/* line 127, ../../sass/modules/today-forecast.sass */
+.today .nowcard-details .wx-detail-value {
+  text-align: right;
+}
+/* line 132, ../../sass/modules/today-forecast.sass */
+.today.preload .nowcard-details .wx-detail-row {
+  background-color: #ededed;
+}
+
+/* line 136, ../../sass/modules/today-forecast.sass */
+.looking-ahead {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+/* line 137, ../../sass/modules/today-forecast.sass */
+.looking-ahead .panel-body, .looking-ahead .panel-footer {
+  padding: 0 15px;
+}
+/* line 139, ../../sass/modules/today-forecast.sass */
+.looking-ahead h2 {
+  display: inline;
+}
+/* line 141, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-next-link {
+  text-transform: uppercase;
+  float: right;
+  margin: 15px 15px 10px;
+}
+/* line 145, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-next-link a {
+  color: #5F99E1;
+  font-weight: 600;
+}
+/* line 148, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-looking-ahead {
+  background-color: #FFF;
+}
+/* line 150, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart-hilo {
+  font-size: 12px;
+}
+/* line 155, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart {
+  -webkit-flex-basis: 125px;
+  flex-basis: 125px;
+  -webkit-flex: 0 0 25px;
+  flex: 0 0 25px;
+  outline: 0;
+  transition: flex-basis 0.3s linear;
+  -webkit-transition: flex-basis 0.3s linear;
+  -moz-transition: flex-basis 0.3s linear;
+  color: #FFF;
+  text-align: center;
+  padding: 25px 8px;
+  display: inline;
+  position: relative;
+  margin-bottom: 30px;
+  justify-content: center;
+  cursor: pointer;
+}
+/* line 172, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart:after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: transparent;
+  border-width: 20px;
+  margin-left: -14px;
+}
+/* line 184, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart .today-daypart-top {
+  min-height: 55px;
+  min-width: 65px;
+}
+/* line 187, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart .today-daypart-content {
+  max-width: 95px;
+  margin: auto;
+}
+/* line 191, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart .today-daypart-wxphrase {
+  opacity: 0;
+  display: none;
+  transition: opacity 0.35s ease-in-out;
+  -moz-transition: opacity 0.35s ease-in-out;
+  -webkit-transition: opacity 0.35s ease-in-out;
+}
+/* line 198, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.selected {
+  max-width: none;
+  cursor: default;
+  -webkit-flex-basis: 15%;
+  flex-basis: 15%;
+}
+/* line 202, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.selected .today-daypart-wxphrase {
+  opacity: 1;
+}
+/* line 204, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.selected:after {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 16px 12px 0 12px;
+}
+/* line 209, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.selected .today-daypart-content {
+  max-width: 100%;
+  margin: auto;
+}
+/* line 213, ../../sass/modules/today-forecast.sass */
+.looking-ahead .condition-icon {
+  width: 45px;
+  margin: 10px auto;
+  height: 50px;
+  margin-bottom: 10px;
+}
+/* line 219, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+/* line 224, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart-title,
+.looking-ahead .today-daypart-wxphrase,
+.looking-ahead .today-daypart-hilo {
+  text-transform: uppercase;
+}
+/* line 229, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart-temp {
+  font-size: 32px;
+}
+/* line 231, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart-precip,
+.looking-ahead .today-daypart-wxphrase {
+  color: rgba(255, 255, 255, 0.75);
+}
+/* line 234, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart-wxphrase {
+  font-size: 0.78571rem;
+}
+/* line 236, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart-precip {
+  font-size: 0.92857rem;
+}
+/* line 240, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart-title,
+.looking-ahead .today-daypart-hilo,
+.looking-ahead .today-daypart-temp,
+.looking-ahead .today-daypart-precip {
+  display: block;
+}
+/* line 246, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart-title,
+.looking-ahead .today-daypart-wxphrase,
+.looking-ahead .today-daypart-hilo,
+.looking-ahead .today-daypart-temp,
+.looking-ahead .today-daypart-precip {
+  text-align: center;
+}
+/* line 253, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart-temp {
+  margin: -5px 0 10px 0;
+  position: relative;
+}
+/* line 256, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart-title-lg {
+  display: none;
+}
+/* line 258, ../../sass/modules/today-forecast.sass */
+.looking-ahead .deg-unit {
+  position: absolute;
+}
+/* line 261, ../../sass/modules/today-forecast.sass */
+.looking-ahead .wx-detail .wx-icon-sunrise-sunset {
+  line-height: 0.3em;
+  font-size: 1.57143rem;
+  position: relative;
+  top: 3px;
+}
+/* line 266, ../../sass/modules/today-forecast.sass */
+.looking-ahead .wx-details-block {
+  margin: 20px 0;
+  *zoom: 1;
+}
+/* line 38, ../../../../../../.rvm/gems/ruby-2.1.1/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.looking-ahead .wx-details-block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 269, ../../sass/modules/today-forecast.sass */
+.looking-ahead .wx-details-block .wx-detail {
+  display: block;
+  padding: 8px 0;
+}
+/* line 272, ../../sass/modules/today-forecast.sass */
+.looking-ahead .wx-details-block .wx-detail-icon {
+  float: left;
+  padding-right: 6px;
+  font-size: 1rem;
+  color: #999999;
+}
+/* line 277, ../../sass/modules/today-forecast.sass */
+.looking-ahead .wx-details-block .wx-detail-value {
+  float: right;
+  text-align: right;
+}
+/* line 280, ../../sass/modules/today-forecast.sass */
+.looking-ahead .wx-details-block .wx-detail-label {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+/* line 283, ../../sass/modules/today-forecast.sass */
+.looking-ahead .show-lg {
+  display: none;
+}
+
+@media (min-width: 481px) {
+  /* line 287, ../../sass/modules/today-forecast.sass */
+  .looking-ahead .today-daypart-title-sm {
+    display: none;
+  }
+  /* line 289, ../../sass/modules/today-forecast.sass */
+  .looking-ahead .today-daypart-title-lg {
+    display: inline;
+  }
+}
+/* line 293, ../../sass/modules/today-forecast.sass */
+.looking-ahead .show-lg {
+  display: inline;
+}
+/* line 297, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.daypart-1 {
+  background-color: #1f4371;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+/* line 302, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.daypart-1.selected:after {
+  border-top-color: #1f4371;
+}
+/* line 304, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.daypart-2 {
+  background-color: #2962a9;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+/* line 309, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.daypart-2.selected:after {
+  border-top-color: #2962a9;
+}
+/* line 311, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.daypart-3 {
+  background-color: #347bd5;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+/* line 316, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.daypart-3.selected:after {
+  border-top-color: #347bd5;
+}
+/* line 318, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.daypart-4 {
+  background-color: #609ae1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+/* line 323, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.daypart-4.selected:after {
+  border-top-color: #609ae1;
+}
+/* line 325, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.daypart-5 {
+  background-color: #76a7e3;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+/* line 330, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.daypart-5.selected:after {
+  border-top-color: #76a7e3;
+}
+/* line 333, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.selected .today-daypart-wxphrase {
+  display: block;
+}
+/* line 335, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.selected:after {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 16px 12px 0 12px;
+}
+
+/* line 343, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.daypart-1, .looking-ahead .today-daypart.daypart-2, .looking-ahead .today-daypart.daypart-3 {
+  display: block;
+}
+/* line 347, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.daypart-4, .looking-ahead .today-daypart.daypart-5 {
+  display: none;
+}
+/* line 352, ../../sass/modules/today-forecast.sass */
+.looking-ahead .today-daypart.selected {
+  flex-basis: 25%;
+}

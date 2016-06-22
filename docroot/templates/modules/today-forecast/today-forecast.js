@@ -31,10 +31,8 @@
         var highTemp = _Data.obs.temperatureMaxSince7am ? _Data.obs.temperatureMaxSince7am : _Data.dailyForecast.day.temperature[0] !== null ? _Data.dailyForecast.day.temperature[0] : '--';
         dataAssignment.push(['nowcard-hi-value', highTemp]);
 
-
         //Input the weather icon.
-        document.getElementsByClassName('condition-icon wx-weather-icon vector')[0].innerHTML =
-            '<span class="wx-iconfont-global wx-icon-' + _Data.obs.phrase.toLowerCase() + '"></span>';
+        document.getElementsByClassName('condition-icon wx-weather-icon vector')[0].innerHTML = getWxIcon(_Data.obs.icon);
     };
     document.getElementById('event-anchor').addEventListener('builder', function(){
         mapData();
