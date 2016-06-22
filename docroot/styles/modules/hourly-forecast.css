@@ -20,7 +20,8 @@
   display: block;
   overflow: auto;
   table-layout: fixed;
-  color: #393939; }
+  color: #393939;
+  /*rtl:ignore */ }
   .twc-table th {
     border: none;
     color: #999;
@@ -76,14 +77,9 @@
     .twc-table .twc-sticky-col .wx-dsxdate {
       font-weight: 600;
       text-transform: uppercase; }
+  html[lang="fa-IR"] .twc-table .twc-table th.twc-sticky-col, html[lang="ar-AE"] .twc-table .twc-table th.twc-sticky-col, html[lang="fa-IR"] .twc-table .twc-table td.twc-sticky-col, html[lang="ar-AE"] .twc-table .twc-table td.twc-sticky-col {
+    padding-right: 25px; }
 
-@media (min-width: 767px) {
-  html[lang="fa-IR"] .twc-table .twc-sticky-col, html[lang="ar-AE"] .twc-table .twc-sticky-col {
-    width: 152px; }
-
-  /*rtl:ignore */
-  html[lang="fa-IR"] .twc-table th.twc-sticky-col, html[lang="ar-AE"] .twc-table th.twc-sticky-col, html[lang="fa-IR"] .twc-table td.twc-sticky-col, html[lang="ar-AE"] .twc-table td.twc-sticky-col {
-    padding-right: 25px; } }
 .twc-table-shadow {
   pointer-events: none;
   position: absolute;

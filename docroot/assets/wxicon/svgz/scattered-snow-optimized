@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" class="svg-scattered-snow">
+  <defs>
+    <mask id="svg-cloud-mask-scattered-snow">
+      <rect x="0" y="0" width="100%" height="100%" fill="#FFF"/>
+      <use xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/cloud.svgz#svg-cloud" transform="scale(1.785) translate(-3, -14)" fill="#000" stroke="#000" stroke-width="13"/>
+    </mask>
+  </defs>
+  <g transform="translate(0, -16)">
+    <use class="svg-sun" xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/sun.svgz#svg-sun" transform="scale(0.56) translate(20, 30)" mask="url(#svg-cloud-mask-scattered-snow)"/>
+    <use class="svg-cloud" fill="#ABABAB" xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/cloud.svgz#svg-cloud" transform="scale(0.95) translate(11, 5)" stroke="none" stroke-width="0" />
+  </g>
+  <use class="svg-snowflake" xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/snowflake.svgz#svg-snowflake" fill="#AAA" stroke="#AAA" transform="scale(0.17) translate(270, 800)"/>
+  <use class="svg-snowflake" xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/snowflake.svgz#svg-snowflake" fill="#ABABAB" stroke="#ABABAB" transform="scale(0.3) translate(315, 465)" />
+</svg>
