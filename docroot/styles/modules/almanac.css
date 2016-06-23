@@ -1,0 +1,54 @@
+/*
+Error: Invalid CSS after ".almanac-sass-test": expected selector, was "{"
+        on line 1 of /Users/crystalgardner/workspace/github/pwa/docroot/sass/modules/almanac.sass
+
+1: .almanac-sass-test{
+2:  background-color: aquamarine
+3: }
+
+Backtrace:
+/Users/crystalgardner/workspace/github/pwa/docroot/sass/modules/almanac.sass:1
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/scss/parser.rb:1162:in `expected'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/scss/parser.rb:1098:in `expected'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/scss/static_parser.rb:21:in `parse_selector'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:425:in `visit_rule'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/stack.rb:79:in `block in with_base'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/stack.rb:115:in `with_frame'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/stack.rb:79:in `with_base'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/tree/root_node.rb:20:in `render'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/engine.rb:278:in `render'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/listen-2.10.1/lib/listen/listener.rb:305:in `call'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/listen-2.10.1/lib/listen/listener.rb:305:in `_process_changes'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/listen-2.10.1/lib/listen/listener.rb:269:in `block in _wait_for_changes'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/listen-2.10.1/lib/listen/listener.rb:252:in `loop'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/listen-2.10.1/lib/listen/listener.rb:252:in `_wait_for_changes'
+/Users/crystalgardner/.rvm/gems/ruby-2.1.1/gems/listen-2.10.1/lib/listen/listener.rb:341:in `block in _start_wait_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \".almanac-sass-test\": expected selector, was \"{\"\A         on line 1 of /Users/crystalgardner/workspace/github/pwa/docroot/sass/modules/almanac.sass\A \A 1: .almanac-sass-test{\A 2:  background-color: aquamarine\A 3: }"; }
