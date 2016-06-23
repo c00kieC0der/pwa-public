@@ -259,6 +259,11 @@ function searchResults() {
 
 
 function searchResultsClicked(ele, lat, long, updateList) {
+    var pwaHeader = document.getElementById('pwa-header');
+    if(pwaHeader.className.match('.pwa-header-active')){
+        pwaHeader.className = 'header';
+        showHide('main-search', 0);
+    }
     document.getElementById('activeLocName').innerHTML = ele.innerHTML;
     _User.newActiveLocation({
         lat     : lat,

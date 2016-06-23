@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c371f82e-de6a-4583-a536-e9276f979925" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docroot/iconfont/wx-iconfont-global/style.css" afterPath="$PROJECT_DIR$/docroot/iconfont/wx-iconfont-global/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docroot/index.html" afterPath="$PROJECT_DIR$/docroot/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docroot/js/appShell.js" afterPath="$PROJECT_DIR$/docroot/js/appShell.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docroot/sass/partials/_nav.sass" afterPath="$PROJECT_DIR$/docroot/sass/partials/_nav.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docroot/styles/core.css" afterPath="$PROJECT_DIR$/docroot/styles/core.css" />
     </list>
     <ignored path="pwa.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +25,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_nav.sass" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_nav.sass" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docroot/sass/partials/_nav.sass">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="354">
@@ -39,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="appShell.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="appShell.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docroot/js/appShell.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="323" column="8" selection-start-line="323" selection-start-column="8" selection-end-line="323" selection-end-column="8" />
+            <state relative-caret-position="555">
+              <caret line="265" column="5" selection-start-line="265" selection-start-column="5" selection-end-line="265" selection-end-column="5" />
               <folding>
                 <element signature="e#125#3254#0" expanded="false" />
                 <element signature="e#3307#7996#0" expanded="false" />
@@ -414,12 +410,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1466485990397</updated>
-      <workItem from="1466601061551" duration="6874000" />
+      <workItem from="1466601061551" duration="7482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6874000" />
+    <option name="totallyTimeSpent" value="7482000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -841,10 +837,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docroot/sass/partials/_nav.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="451" column="24" selection-start-line="451" selection-start-column="24" selection-end-line="451" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/docroot/js/appShell.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="323" column="8" selection-start-line="323" selection-start-column="8" selection-end-line="323" selection-end-column="8" />
+        <state relative-caret-position="555">
+          <caret line="265" column="5" selection-start-line="265" selection-start-column="5" selection-end-line="265" selection-end-column="5" />
           <folding>
             <element signature="e#125#3254#0" expanded="false" />
             <element signature="e#3307#7996#0" expanded="false" />
@@ -852,14 +856,6 @@
             <element signature="e#10925#14557#0" expanded="false" />
             <element signature="e#14617#15830#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docroot/sass/partials/_nav.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="451" column="24" selection-start-line="451" selection-start-column="24" selection-end-line="451" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
