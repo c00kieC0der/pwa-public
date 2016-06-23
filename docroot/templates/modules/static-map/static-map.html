@@ -1,4 +1,14 @@
 <link rel="stylesheet" type="text/css" href="templates/modules/static-map/static-map.css">
+<div class="menu" onclick="menuShowHide()">
+    <div id="menuTitle" class="menu-title">MAPS
+        <span class="wx-iconfont-global wx-icon-arrow-down-2"></span>
+    </div>
+</div>
+<ul id="menuDropdown" class="dropdown">
+    <li onclick="addAMapLayer(0);">RADAR</li>
+    <li onclick="addAMapLayer(1);">CLOUDS</li>
+    <li onclick="addAMapLayer(2);">RADAR & CLOUDS</li>
+</ul>
 <div class="static-map-container">
     <div class="static-map" style="height: 100%;"></div>
 </div>
