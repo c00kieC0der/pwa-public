@@ -71,6 +71,33 @@ var _Data = {};
             _Data.hourly.time[i] = formatTime(_Data.hourly.processTime[i]);
             _Data.hourly.date[i] = formatDate(_Data.hourly.processTime[i]);
         }
+
+
+        //This is ugly and temporary
+        _Data.dailyForecast.sunriseTime = [];
+        _Data.dailyForecast.sunriseDate = [];
+        for(var i in _Data.dailyForecast.sunrise){
+            _Data.dailyForecast.sunriseTime[i] = formatTime(_Data.dailyForecast.sunrise[i]);
+            _Data.dailyForecast.sunriseDate[i] = formatDate(_Data.dailyForecast.sunrise[i]);
+        }
+        _Data.dailyForecast.sunsetTime = [];
+        _Data.dailyForecast.sunsetDate = [];
+        for(var i in _Data.dailyForecast.sunset){
+            _Data.dailyForecast.sunsetTime[i] = formatTime(_Data.dailyForecast.sunset[i]);
+            _Data.dailyForecast.sunsetDate[i] = formatDate(_Data.dailyForecast.sunset[i]);
+        }_Data.dailyForecast.moonriseTime = [];
+        _Data.dailyForecast.moonriseDate = [];
+        for(var i in _Data.dailyForecast.moonrise){
+            _Data.dailyForecast.moonriseTime[i] = formatTime(_Data.dailyForecast.moonrise[i]);
+            _Data.dailyForecast.moonriseDate[i] = formatDate(_Data.dailyForecast.moonrise[i]);
+        }
+        _Data.dailyForecast.moonsetTime = [];
+        _Data.dailyForecast.moonsetDate = [];
+        for(var i in _Data.dailyForecast.moonset){
+            _Data.dailyForecast.moonsetTime[i] = formatTime(_Data.dailyForecast.moonset[i]);
+            _Data.dailyForecast.moonsetDate[i] = formatDate(_Data.dailyForecast.moonset[i]);
+        }
+
     };
 })();
 
