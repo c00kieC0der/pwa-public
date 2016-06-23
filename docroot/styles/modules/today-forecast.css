@@ -302,3 +302,18 @@
   display: none; }
 .looking-ahead .today-daypart.selected {
   flex-basis: 25%; }
+
+.nowcard {
+  height: 250px;
+  background-size: cover;
+  background-repeat: no-repeat; }
+  .nowcard.day-clear {
+    background-image: url(/assets/wxcards/day-clear.jpg); }
+  .nowcard.day-ice {
+    background-image: url(/assets/wxcards/day-ice.jpg); }
+  .nowcard.day-mostly-cloudy {
+    background-image: url(/assets/wxcards/day-mostly-cloudy.jpg); }
+  .nowcard.day-partly-cloudy {
+    background-image: url(/assets/wxcards/day-partly-cloudy.jpg); }
+  .nowcard.day-rainy {
+    background-image: url(/assets/wxcards/day-rainy.jpg); }
