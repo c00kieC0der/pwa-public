@@ -39,12 +39,6 @@
         document.getElementById('nowcard-la-part1-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[1]);
         document.getElementById('nowcard-la-part2-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[2]);
         document.getElementById('nowcard-la-part3-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[3]);
-
-
-
-
-
-
         console.dir(getWxIcon(_Data.dailyForecast.day));
     };
     document.getElementById('event-anchor').addEventListener('builder', function(){
