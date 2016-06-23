@@ -406,3 +406,6 @@
     content: "\e913";
 }
 
+.wx-icon-code-32:before {
+    content: "\e63c"
+}

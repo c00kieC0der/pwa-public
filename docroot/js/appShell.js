@@ -195,21 +195,35 @@ var categories = [{"catName":"Americas","countryName":[
  */
 
 function showMainMenu() {
+    var pwaHeader = document.getElementById('pwa-header');
+    if(pwaHeader.className.match('.pwa-header-active')){
+        pwaHeader.className = 'header';
+        showHide('main-search', 0);
+    }
     //Displays the main menu page which was hidden
     showHide('main-nav', 1);
     //Displays only the current-location div and hides all other layouts
     showHide('loc-layout',1);
     showHide('category-layout',0);
     showHide('areas-layout',0);
+
 }
 /**
  * showMainSearch() shows the Search layout
  */
 function showMainSearch() {
-    showHide('main-search', 1);
-    showHide('saved-results', 1);
-    document.getElementById('search').value = '';
-    showHide('search-results', 0);
+    var pwaHeader = document.getElementById('pwa-header');
+    if(pwaHeader.className.match('.pwa-header-active')){
+        pwaHeader.className = 'header';
+        showHide('main-search', 0);
+    }else{
+        pwaHeader.className += ' pwa-header-active';
+        showHide('main-search', 1);
+        showHide('saved-results', 1);
+        document.getElementById('search').value = '';
+        showHide('search-results', 0);
+    }
+
     helper.empty('recently-searched');
     var container = document.getElementById('recently-searched');
     for(var i in _User.locations){
@@ -419,3 +433,6 @@ document.getElementById('event-anchor').addEventListener('builder', function(){
     ];
     helper.setContent(dataAssignment);
 });
+
+
+
