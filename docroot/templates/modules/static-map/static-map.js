@@ -1,82 +1,82 @@
+var mapInited = false;
+var map, layers;
+var runTheMap = function(){
+    mapInited = true;
 
-(function() {
-    document.getElementById('event-anchor').addEventListener('builder', function () {
+    map = window._map = new wx.maps.Map(document.getElementsByClassName('static-map')[0], new wx.maps.MapOptions({
+        zoomLevel: 7,
+        latitude: _User.activeLocation.lat,
+        longitude: _User.activeLocation.long
+    }));
 
-        var map = window._map = new wx.maps.Map(document.getElementsByClassName('static-map')[0], new wx.maps.MapOptions({
-            zoomLevel: 7,
-            latitude: _User.activeLocation.lat,
-            longitude: _User.activeLocation.long
-        }));
+    layers = [{
+        id: "SUN Radar Observation",
+        layerKey: "radar",
+        value: "Radar",
+        active: true,
+        version: "2"
+    }, {
+        id: "SUN Clouds Observation",
+        layerKey: "ussat",
+        value: "Clouds",
+        active: false,
+        version: "2"
+    }, {
+        id: "SUN Radar/Clouds Observation",
+        layerKey: "satrad",
+        value: "Radar / Clouds",
+        active: false,
+        version: "2"
+    }];
 
-        window.addLayer = function (index) {
-            var layer = map.createLayer(new wx.layers.SunTileLayerOptions(layers[index]));
-            map.stack[1] && map.removeLayer(map.stack[1]);
-            map.addLayer(layer);
-            $("input").each(function (i, el) {
-                var $el = $(el);
-                $el.css('display', ($el.val() == layer.options.layerKey) ? 'none' : 'block');
-            });
-        };
+    map.configuration.mapboxAccessToken = "pk.eyJ1Ijoid2VhdGhlciIsImEiOiJjaWlxNG01czkwMjM2dnFtNTdlMjVidTByIn0.Ml63Jx_BQtTx4CEXihwjyA";
+    map.configuration.sunTileProductsUrl = "//api.weather.com/v2/TileServer/series?apiKey={apiKey}";
+    map.configuration.sunApiKey = "3d498bd0777076fb2aa967aa67114c7e";
 
-        var layers = [{
-            id: "SUN Radar Observation",
-            layerKey: "radar",
-            value: "Radar",
-            active: true,
-            version: "2"
-        }, {
-            id: "SUN Clouds Observation",
-            layerKey: "ussat",
-            value: "Clouds",
-            active: false,
-            version: "2"
-        }, {
-            id: "SUN Radar/Clouds Observation",
-            layerKey: "satrad",
-            value: "Radar / Clouds",
-            active: false,
-            version: "2"
-        }];
+    window.addLayer = function (index) {
+        var layer = map.createLayer(new wx.layers.SunTileLayerOptions(layers[index]));
+        map.stack[1] && map.removeLayer(map.stack[1]);
+        map.addLayer(layer);
+        setMarker();
+    };
 
-        document.getElementById('event-anchor').addEventListener('builder', function () {
+    // Base Layer
+    var baseLayer = map.createLayer(new wx.layers.MapboxTileLayerOptions({
+        id: "Mapbox Streets",
+        mapBoxId: "mapbox.streets",
+        minimumZoom: 0,
+        maximumZoom: 19
+    }));
+    map.addLayer(baseLayer);
+    addLayer(0);
 
-
-            map.configuration.mapboxAccessToken = "pk.eyJ1Ijoid2VhdGhlciIsImEiOiJjaWlxNG01czkwMjM2dnFtNTdlMjVidTByIn0.Ml63Jx_BQtTx4CEXihwjyA";
-            map.configuration.sunTileProductsUrl = "//api.weather.com/v2/TileServer/series?apiKey={apiKey}";
-            map.configuration.sunApiKey = "3d498bd0777076fb2aa967aa67114c7e";
-
-            // Base Layer
-            var baseLayer = map.createLayer(new wx.layers.MapboxTileLayerOptions({
-                id: "Mapbox Streets",
-                mapBoxId: "mapbox.streets",
-                minimumZoom: 0,
-                maximumZoom: 19
-            }));
-            map.addLayer(baseLayer);
-            addLayer(0);
-        });
-
-        // Insert a marker
-        var overlayLayer = map.createLayer(new wx.layers.OverlayLayerOptions({
-            id: "imageMarker"
-        }));
-        var image = "https://s.w-x.co/map-pin-hex-393939-v1.png";
-        var point = map.geoCenter;
-        var options = new wx.overlays.ImageMarkerOptions({
-            size: new wx.Size(26, 33),
-            title: "Image Marker",
-            isClickable: false
-        });
-        var overlay = new wx.overlays.ImageMarker(point, image, options);
-        map.addLayer(overlayLayer);
-        overlayLayer.addOverlay(overlay);
-
-
-     //   map.doubleClickZoom.disable();
-     //   map.scrollWheelZoom.disable();
-     //   map.dragging.disable();
+    setMarker();
+    map.doubleClickZoom.disable();
+    map.scrollWheelZoom.disable();
+    map.dragging.disable();
+};
+var setMarker = function(){
+    // Insert a marker
+    var overlayLayer = map.createLayer(new wx.layers.OverlayLayerOptions({
+        id: "imageMarker"
+    }));
+    var image = "https://s.w-x.co/map-pin-hex-393939-v1.png";
+    var point = map.geoCenter;
+    var options = new wx.overlays.ImageMarkerOptions({
+        size: new wx.Size(26, 33),
+        title: "Image Marker",
+        isClickable: false
     });
-})();
+    var overlay = new wx.overlays.ImageMarker(point, image, options);
+    map.addLayer(overlayLayer);
+    overlayLayer.addOverlay(overlay);
+};
+
+
+/*
+  Handle the map drop down.
+ */
+
 var dropdownShowing = false;
 var menuShowHide = function(){
     if(dropdownShowing){
@@ -100,4 +100,7 @@ var addAMapLayer = function(layerKey){
     menuShowHide();
     addLayer(layerKey);
 };
+setTimeout(function(){
 
+runTheMap();
+}, 100);
