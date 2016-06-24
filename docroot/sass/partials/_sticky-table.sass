@@ -1,9 +1,16 @@
 @import compass
-//@import breakpoint
+@import breakpoint
+// @import atlas_partials
 
 $pinned-col-width: 134px
 $th-bg: #eef6fb
 $RTL-pinned-col-width: 152px
+
+// PWA Specifics
+$text-color: #393939
+$border: #999
+$screen-md: 768px
+
 
 .twc-table-wrapper
   position: relative
@@ -25,38 +32,39 @@ $RTL-pinned-col-width: 152px
   display: block
   overflow: auto
   table-layout: fixed
-  color: #393939
+  color: $text-color
   th
     border: none
-    color: #999
+    color: $gray-darkest
     padding: 10px
     text-align: left
     text-shadow: 1px 1px 1px #fff
     white-space: nowrap
     text-transform: uppercase
     font-weight: 600
-    border-bottom: solid 1px #393939
+    border-bottom: solid 1px $border
     background-color: $th-bg
     &.twc-sticky-col
       border-right: none
   td
-    border-bottom: solid 1px #393939
+    border-bottom: solid 1px $border
     padding: 5px 10px
     white-space: nowrap
     height: 50px
     &.twc-sticky-col
       background-color: #fff
+      z-index: 1
   tr.open td,
   tr.details td
     background-color: $gray-light
-    border-bottom: solid 1px #393939
+    border-bottom: solid 1px $border
     +transition(background-color .3s ease)
   .clickable
     cursor: pointer
   .no-data
     cursor: inherit
   .wx-alert-badge
-    color: red
+    color: $alert-1
     position: absolute
     top: 5px
     right: 5px
@@ -74,17 +82,31 @@ $RTL-pinned-col-width: 152px
     -webkit-transform: translate3d(0,0,0)
     -webkit-backface-visibility: hidden
     -webkit-perspective: 1000
-    .date-td
+    .wx-dsxdate,
+    .day-detail,
+    .date-time
       font-weight: 600
       text-transform: uppercase
+      display: inline-block
+    .day-detail
       display: block
 
-  //+breakpoint(767px)
-  //  .twc-table
-  //    .twc-sticky-col
-  //      html[lang="fa-IR"] &,
-  //      html[lang="ar-AE"] &
-  //        width: $RTL-pinned-col-width
+.ls-display-control
+  +display-flex
+.ls-display-btn
+  +flex(1)
+  padding: 16px 4px
+  text-align: center
+  background: white
+  border-bottom: 1px solid $gray-dark
+
+
++breakpoint($screen-md)
+  .twc-table
+    .twc-sticky-col
+      html[lang="fa-IR"] &,
+      html[lang="ar-AE"] &
+        width: $RTL-pinned-col-width
 
   /*rtl:ignore*/
   .twc-table
