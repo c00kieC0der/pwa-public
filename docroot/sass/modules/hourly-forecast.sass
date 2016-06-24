@@ -3,7 +3,6 @@
 @import '../partials/sticky-table'
 @import 'compass'
 
-
 .ls-hourly-wrap
   background: white
   position: relative
@@ -13,35 +12,36 @@
   .wx-weather-icon
     width: 36px
     height: 36px
-    float: right
     position: absolute
     right: 10px
   .description
     padding-left: 15px
     width: 30%
-    @media only screen and (max-width: 500px)
+    // +pane-parent-eq-sm-down
+    @media only screen and (max-width: 767px)
       display: none
   .wind
     width: 70%
-    @media only screen and (max-width: 500px)
+    // +pane-parent-eq-sm-down
+    @media only screen and (max-width: 767px)
       width: 100%
   .feels
-    color: #333
+    color: $gray-dark
     font-style: italic
   .temp,
   .feels
     font-weight: 600
   .day-detail
     font-size: px-to-rem(11px)
-    color: #393939
+    color: $gray
   .open,
   .details
     .day-detail
-      color: #333
+      color: $gray-dark
       +transition(color .3s ease)
 
 .ls-hourly-wwir
-  color: #393939
+  color: $text-color
   font-size: px-to-rem(16px)
   padding: 10px 5px
   margin-top: -15px
@@ -52,20 +52,3 @@
     font-size: px-to-rem(20px)
   .wwir-data
     margin-left: 2em
-
-.ls-hourly-control
-  +display-flex
-.ls-hourly-btn
-  +flex(1)
-  padding: 16px 4px
-  text-align: center
-  background: white
-  border-bottom: 1px solid #333
-
-
-// Crystal added these styles. Remove if necessary
-.wxicon-td
-  height: 20px
-  width: 20px
-  display: block
-  margin: auto

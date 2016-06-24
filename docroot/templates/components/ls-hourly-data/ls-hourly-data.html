@@ -8,31 +8,31 @@
           data-track-str="{{::lsHourlyVm.moduleId}}_toggle"
           class="ls-row-repeat">
           <td class="twc-sticky-col" headers="time">
-            <span class="time-td time-detail"></span>
-            <span data-gm-wx-alert-badge="::hour.iconExtended"></span>
-            <span data-wxicon class="wxicon-td"></span>
-            <span class="date-td"></span>
+            <span class="time js-time time-detail"></span>
+            <!-- <span data-gm-wx-alert-badge="::hour.iconExtended"></span> -->
+            <span class="wx-weather-icon js-wxicon"></span>
+            <span class="date js-date day-detail"></span>
               <div class="twc-table-shadow sticky"></div>
           </td>
           <td headers="description" class="description">
-            <p class="description-td"></p>
+            <p class="js-description"></p>
           </td>
           <td headers="temp" class="temp">
-            <span class="temp-td"></span>&deg;
+            <span class="js-temp"></span>&deg;
           </td>
           <td headers="feels" class="feels">
-            <span class="feels-td"></span>&deg;
+            <span class="js-feels"></span>&deg;
           </td>
           <td headers="precip" class="precip">
             <span aria-hidden="true" class="wx-iconfont-global wx-icon-precip-rain-1"></span>
-            <span class="precip-td"></span>%
+            <span class="js-precip"></span>%
           </td>
           <td headers="humidity" class="humidity">
-            <span class="humidity-td"></span>%
+            <span class="js-humidity"></span>%
           </td>
           <td headers="wind" class="wind">
-            <span class="wind-direction-td"></span>
+            <span class="wind-direction js-wind-direction"></span>
               <!-- TODO:: This needs to be dynamic -->
-            <span class="wind-speed-td"></span> MPH
+            <span class="wind-speed js-wind-speed"></span> MPH
           </td>
       </tr>

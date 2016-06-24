@@ -20,32 +20,32 @@
   display: block;
   overflow: auto;
   table-layout: fixed;
-  color: #393939;
-  /*rtl:ignore */ }
+  color: #393939; }
   .twc-table th {
     border: none;
-    color: #999;
+    color: #393939;
     padding: 10px;
     text-align: left;
     text-shadow: 1px 1px 1px #fff;
     white-space: nowrap;
     text-transform: uppercase;
     font-weight: 600;
-    border-bottom: solid 1px #393939;
+    border-bottom: solid 1px #999;
     background-color: #eef6fb; }
     .twc-table th.twc-sticky-col {
       border-right: none; }
   .twc-table td {
-    border-bottom: solid 1px #393939;
+    border-bottom: solid 1px #999;
     padding: 5px 10px;
     white-space: nowrap;
     height: 50px; }
     .twc-table td.twc-sticky-col {
-      background-color: #fff; }
+      background-color: #fff;
+      z-index: 1; }
   .twc-table tr.open td,
   .twc-table tr.details td {
     background-color: #dadada;
-    border-bottom: solid 1px #393939;
+    border-bottom: solid 1px #999;
     -moz-transition: background-color 0.3s ease;
     -o-transition: background-color 0.3s ease;
     -webkit-transition: background-color 0.3s ease;
@@ -55,7 +55,7 @@
   .twc-table .no-data {
     cursor: inherit; }
   .twc-table .wx-alert-badge {
-    color: red;
+    color: #aa050e;
     position: absolute;
     top: 5px;
     right: 5px; }
@@ -74,13 +74,34 @@
     -webkit-transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
     -webkit-perspective: 1000; }
-    .twc-table .twc-sticky-col .date-td {
+    .twc-table .twc-sticky-col .wx-dsxdate,
+    .twc-table .twc-sticky-col .day-detail,
+    .twc-table .twc-sticky-col .date-time {
       font-weight: 600;
       text-transform: uppercase;
+      display: inline-block; }
+    .twc-table .twc-sticky-col .day-detail {
       display: block; }
-  html[lang="fa-IR"] .twc-table .twc-table th.twc-sticky-col, html[lang="ar-AE"] .twc-table .twc-table th.twc-sticky-col, html[lang="fa-IR"] .twc-table .twc-table td.twc-sticky-col, html[lang="ar-AE"] .twc-table .twc-table td.twc-sticky-col {
-    padding-right: 25px; }
 
+.ls-display-control {
+  display: -webkit-flex;
+  display: flex; }
+
+.ls-display-btn {
+  -webkit-flex: 1;
+  flex: 1;
+  padding: 16px 4px;
+  text-align: center;
+  background: white;
+  border-bottom: 1px solid #999999; }
+
+@media (min-width: 768px) {
+  html[lang="fa-IR"] .twc-table .twc-sticky-col, html[lang="ar-AE"] .twc-table .twc-sticky-col {
+    width: 152px; }
+
+  /*rtl:ignore */
+  html[lang="fa-IR"] .twc-table th.twc-sticky-col, html[lang="ar-AE"] .twc-table th.twc-sticky-col, html[lang="fa-IR"] .twc-table td.twc-sticky-col, html[lang="ar-AE"] .twc-table td.twc-sticky-col {
+    padding-right: 25px; } }
 .twc-table-shadow {
   pointer-events: none;
   position: absolute;
@@ -116,32 +137,31 @@
   .ls-hourly-wrap .wx-weather-icon {
     width: 36px;
     height: 36px;
-    float: right;
     position: absolute;
     right: 10px; }
   .ls-hourly-wrap .description {
     padding-left: 15px;
     width: 30%; }
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 767px) {
       .ls-hourly-wrap .description {
         display: none; } }
   .ls-hourly-wrap .wind {
     width: 70%; }
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 767px) {
       .ls-hourly-wrap .wind {
         width: 100%; } }
   .ls-hourly-wrap .feels {
-    color: #333;
+    color: #999999;
     font-style: italic; }
   .ls-hourly-wrap .temp,
   .ls-hourly-wrap .feels {
     font-weight: 600; }
   .ls-hourly-wrap .day-detail {
     font-size: 0.78571rem;
-    color: #393939; }
+    color: #cccccc; }
   .ls-hourly-wrap .open .day-detail,
   .ls-hourly-wrap .details .day-detail {
-    color: #333;
+    color: #999999;
     -moz-transition: color 0.3s ease;
     -o-transition: color 0.3s ease;
     -webkit-transition: color 0.3s ease;
@@ -160,21 +180,3 @@
     font-size: 1.42857rem; }
   .ls-hourly-wwir .wwir-data {
     margin-left: 2em; }
-
-.ls-hourly-control {
-  display: -webkit-flex;
-  display: flex; }
-
-.ls-hourly-btn {
-  -webkit-flex: 1;
-  flex: 1;
-  padding: 16px 4px;
-  text-align: center;
-  background: white;
-  border-bottom: 1px solid #333; }
-
-.wxicon-td {
-  height: 20px;
-  width: 20px;
-  display: block;
-  margin: auto; }
