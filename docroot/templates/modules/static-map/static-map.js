@@ -14,19 +14,22 @@ var runTheMap = function(){
         layerKey: "radar",
         value: "Radar",
         active: true,
-        version: "2"
+        version: "2",
+        opacity: ".6"
     }, {
         id: "SUN Clouds Observation",
         layerKey: "ussat",
         value: "Clouds",
         active: false,
-        version: "2"
+        version: "2",
+        opacity: ".6"
     }, {
         id: "SUN Radar/Clouds Observation",
         layerKey: "satrad",
         value: "Radar / Clouds",
         active: false,
-        version: "2"
+        version: "2",
+        opacity: ".6"
     }];
 
     map.configuration.mapboxAccessToken = "pk.eyJ1Ijoid2VhdGhlciIsImEiOiJjaWlxNG01czkwMjM2dnFtNTdlMjVidTByIn0.Ml63Jx_BQtTx4CEXihwjyA";
@@ -35,7 +38,11 @@ var runTheMap = function(){
 
     window.addLayer = function (index) {
         var layer = map.createLayer(new wx.layers.SunTileLayerOptions(layers[index]));
-        map.stack[1] && map.removeLayer(map.stack[1]);
+        for(var i in map.stack){
+            if(map.stack[i] !== 'Mapbox Streets' && map.stack[i] !== 'imageMarker'){
+                map.removeLayer(map.stack[i]);
+            }
+        }
         map.addLayer(layer);
         setMarker();
     };

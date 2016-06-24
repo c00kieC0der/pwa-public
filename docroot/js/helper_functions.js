@@ -59,7 +59,12 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
                 classXes = document.getElementsByClassName(dataMap[i][0]);
                 //for each element, place its piece of data in it.
                 for(j=0; j < classXes.length; j++){
-                    classXes[j].innerHTML = data[dataMap[i][1]][j];
+
+                    if(dataMap[i][1] === 'icon'){
+                        classXes[j].innerHTML = getWxIcon(data[dataMap[i][1]][j]);
+                    } else {
+                        classXes[j].innerHTML = data[dataMap[i][1]][j];
+                    }
                 }
             }
 

@@ -5,6 +5,7 @@
     var ngRepeatMap = [
         ['time-td',        'time'],
         ['date-td',        'date'],
+        ['wxicon-td',      'icon'],
         ['temp-td',        'temperature'],
         ['feels-td',       'feelsLike'],
         ['description-td', 'phrase'],
@@ -25,7 +26,6 @@
     }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {
-        console.log(_Data.hourly);
         helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12);
     });
 })();
