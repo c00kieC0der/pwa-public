@@ -74,9 +74,10 @@
     -webkit-transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
     -webkit-perspective: 1000; }
-    .twc-table .twc-sticky-col .wx-dsxdate {
+    .twc-table .twc-sticky-col .date-td {
       font-weight: 600;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      display: block; }
   html[lang="fa-IR"] .twc-table .twc-table th.twc-sticky-col, html[lang="ar-AE"] .twc-table .twc-table th.twc-sticky-col, html[lang="fa-IR"] .twc-table .twc-table td.twc-sticky-col, html[lang="ar-AE"] .twc-table .twc-table td.twc-sticky-col {
     padding-right: 25px; }
 
