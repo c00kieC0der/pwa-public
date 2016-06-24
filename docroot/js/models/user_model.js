@@ -5,6 +5,7 @@
  */
 
 var _User = {
+    loggedIn : false,
     unitPref : 'e',
     lang : 'en-US',
     locations: [],
@@ -20,7 +21,15 @@ var _User = {
 */
 
 var savedPco = window.localStorage.jStorage ? JSON.parse(window.localStorage.jStorage) : {};
+
+_User.loggedIn = savedPco.profile && savedPco.profile.userid ? true : false;
 _User.webPush = savedPco.products && savedPco.products.WebPushNotifications ? savedPco.products.WebPushNotifications : {};
+/*
+{
+    PushStatus : "NoPushNotification"
+    timeStamp : "2016-06-10T22:33:29.140Z"
+ }
+ */
 _User.locations = savedPco.user && savedPco.user.recentSearchLocations ? savedPco.user.recentSearchLocations : [];
 _User.lang = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : 'en-US';
 _User.unitPref = savedPco.user && savedPco.user.unit ? savedPco.user.unit : 'e';
@@ -42,9 +51,10 @@ if(!_User.activeLocation.prsntNm && _User.locations.length > 0){
 
 var saveUser = function(){
     window.localStorage._Stored_User = JSON.stringify(_User);
-    window.localStorage.products.WebPushNotifications = _User.webPush;
+    savedPco.products || {};
+    savedPco.products.WebPushNotifications = _User.webPush;
+    window.localStorage.jStorage = JSON.stringify(savedPco);
     _Data.collectNew();
-
 };
 
 /*
@@ -76,6 +86,20 @@ _User.newActiveLocation = function(locationObj, updateRecents){
     saveUser();
 };
 
+_User.updatePushNotifications = function(answer){
+    if(answer){
+        _User.webPush = {
+            PushStatus : "confirmNotification",
+            timeStamp : new Date().getTime()
+        }
+    } else {
+        _User.webPush = {
+            PushStatus : "noPushNotification",
+            timeStamp : new Date().getTime()
+        }
+    }
+    saveUser();
+};
 
-
-
+_User.updatePushNotifications(true);
+console.log(JSON.parse(window.localStorage.jStorage));
