@@ -1,5 +1,10 @@
 var _Data = {};
 (function(){
+    //Variables and events for dsx call. Required for solar noon data
+    var astroURl = '';
+    var astroEventData = document.createEvent('Event');
+    astroEventData.initEvent('astro-builder',true,true);
+
 
     var dataUrl = '';
     var eventData = document.createEvent('Event');
@@ -32,6 +37,31 @@ var _Data = {};
                 }
             }
         );
+
+
+        //For dsx request
+        astroURl = "https://dsx.weather.com/wxd/v2/Astro/"
+        +_User.lang+ "/0/3/("+
+            _User.activeLocation.lat + ',' + _User.activeLocation.long +
+        ")?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
+
+        AjaxRequest.get(
+            {
+                'url' : astroURl,
+                'generateUniqueUrl' : false,
+                'onSuccess':function(req){
+
+                    var data = JSON.parse(req.responseText);
+                    _Data.solarNoon = data[0].doc.AstroData[0].sun.zenith.local;
+                    console.log(_Data.solarNoon);
+
+                    //Removing massageData call, and adding call to format here. Currently only one value being pulled
+                    document.getElementById('event-anchor').dispatchEvent(astroEventData);
+                }
+            }
+        );
+
+
     };
     if(_User.activeLocation.prsntNm){
         _Data.collectNew();
