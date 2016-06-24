@@ -20,6 +20,7 @@ var _User = {
 */
 
 var savedPco = window.localStorage.jStorage ? JSON.parse(window.localStorage.jStorage) : {};
+_User.webPush = savedPco.products && savedPco.products.WebPushNotifications ? savedPco.products.WebPushNotifications : {};
 _User.locations = savedPco.user && savedPco.user.recentSearchLocations ? savedPco.user.recentSearchLocations : [];
 _User.lang = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : 'en-US';
 _User.unitPref = savedPco.user && savedPco.user.unit ? savedPco.user.unit : 'e';
@@ -41,7 +42,9 @@ if(!_User.activeLocation.prsntNm && _User.locations.length > 0){
 
 var saveUser = function(){
     window.localStorage._Stored_User = JSON.stringify(_User);
+    window.localStorage.products.WebPushNotifications = _User.webPush;
     _Data.collectNew();
+
 };
 
 /*

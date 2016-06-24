@@ -26,7 +26,14 @@
             ['nowcard-dewpoint',    _Data.obs.dewPoint],
             ['nowcard-pressure',    _Data.obs.altimeter + ' ' + pressureUnit + ' ' + pressureArrow],
             ['nowcard-visibility',  _Data.obs.visibility + visibilityUnit],
-            ['nowcard-uv-index',    uvIndex]
+            ['nowcard-uv-index',    uvIndex],
+            ['dp1-daypartName', _Data.lookingAhead[0].daypartName],
+            ['dp1-phrase', _Data.lookingAhead[0].phrase],
+            ['nowcard-la-part1-icon', _Data.lookingAhead[0].wxicon],
+            ['dp1-highLow', _Data.lookingAhead[0].highLow],
+            ['dp1-temperature', _Data.lookingAhead[0].temperature],
+            ['dp1-precip', _Data.lookingAhead[0].precip],
+            ['dp2-daypartName', _Data.lookingAhead[1].daypartName]
         ];
         var highTemp = _Data.obs.temperatureMaxSince7am ? _Data.obs.temperatureMaxSince7am : _Data.dailyForecast.day.temperature[0] !== null ? _Data.dailyForecast.day.temperature[0] : '--';
         dataAssignment.push(['nowcard-hi-value', highTemp]);
@@ -36,10 +43,10 @@
 
 
        //Input the weather icon - Looking Ahead. This is NOT correct -- needs to be today, tonight, tomorrow / 36 hr
-        document.getElementById('nowcard-la-part1-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[1]);
-        document.getElementById('nowcard-la-part2-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[2]);
-        document.getElementById('nowcard-la-part3-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[3]);
-        console.dir(getWxIcon(_Data.dailyForecast.day));
+     //   document.getElementById('nowcard-la-part1-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[1]);
+     //   document.getElementById('nowcard-la-part2-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[2]);
+     //   document.getElementById('nowcard-la-part3-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[3]);
+       // console.dir(getWxIcon(_Data.dailyForecast.day));
     };
     document.getElementById('event-anchor').addEventListener('builder', function(){
         mapData();

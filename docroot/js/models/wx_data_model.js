@@ -67,10 +67,70 @@ var _Data = {};
     var massageData = function(){
         _Data.hourly.time = [];
         _Data.hourly.date = [];
+        _Data.lookingAhead = getLookingAhead();
         for(var i in _Data.hourly.processTime){
             _Data.hourly.time[i] = formatTime(_Data.hourly.processTime[i]);
             _Data.hourly.date[i] = formatDate(_Data.hourly.processTime[i]);
         }
+    };
+
+    var getLookingAhead = function(){
+       var daily = _Data.dailyForecast, retData = [];
+        if(daily.day.dayPartName[0] === null){
+            //its nighttime.
+            retData = [{
+                daypartName: daily.night.dayPartName[0],
+                highLow: 'Low',
+                phrase: daily.night.phrase[0],
+                wxicon: getWxIcon(daily.night.icon[0]),
+                temperature: daily.night.temperature[0],
+                narrative: daily.night.narrative[0],
+                precip: daily.night.precipPct[0]
+            }, {
+                daypartName: daily.day.dayPartName[1],
+                highLow: 'High',
+                phrase: daily.day.phrase[1],
+                wxicon: getWxIcon(daily.day.icon[1]),
+                temperature: daily.day.temperature[1],
+                narrative: daily.day.narrative[1],
+                precip: daily.day.precipPct[1]
+            }, {
+                daypartName: daily.night.dayPartName[1],
+                highLow: 'Low',
+                phrase: daily.night.phrase[1],
+                wxicon: getWxIcon(daily.night.icon[1]),
+                temperature: daily.night.temperature[1],
+                narrative: daily.night.narrative[1],
+                precip: daily.night.precipPct[1]
+            }];
+        } else {
+            retData = [{
+                daypartName: daily.day.dayPartName[0],
+                highLow: 'High',
+                phrase: daily.day.phrase[0],
+                wxicon: getWxIcon(daily.day.icon[0]),
+                temperature: daily.day.temperature[0],
+                narrative: daily.day.narrative[0],
+                precip: daily.day.precipPct[0]
+            }, {
+                daypartName: daily.night.dayPartName[0],
+                highLow: 'Low',
+                phrase: daily.night.phrase[0],
+                wxicon: getWxIcon(daily.night.icon[0]),
+                temperature: daily.night.temperature[0],
+                narrative: daily.night.narrative[0],
+                precip: daily.night.precipPct[0]
+            }, {
+                daypartName: daily.day.dayPartName[1],
+                highLow: 'High',
+                phrase: daily.day.phrase[1],
+                wxicon: getWxIcon(daily.day.icon[1]),
+                temperature: daily.day.temperature[1],
+                narrative: daily.day.narrative[1],
+                precip: daily.day.precipPct[1]
+            }];
+        }
+        return retData;
     };
 })();
 
