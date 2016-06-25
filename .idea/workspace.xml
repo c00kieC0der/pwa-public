@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c371f82e-de6a-4583-a536-e9276f979925" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docroot/sass/modules/page-toast.sass" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docroot/templates/modules/page-toast/page-toast.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docroot/templates/modules/page-toast/page-toast.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vagrant/machines/web/virtualbox/action_provision" afterPath="$PROJECT_DIR$/.vagrant/machines/web/virtualbox/action_provision" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vagrant/machines/web/virtualbox/action_set_name" afterPath="$PROJECT_DIR$/.vagrant/machines/web/virtualbox/action_set_name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vagrant/machines/web/virtualbox/chef_node_name" afterPath="$PROJECT_DIR$/.vagrant/machines/web/virtualbox/chef_node_name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vagrant/machines/web/virtualbox/id" afterPath="$PROJECT_DIR$/.vagrant/machines/web/virtualbox/id" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vagrant/machines/web/virtualbox/index_uuid" afterPath="$PROJECT_DIR$/.vagrant/machines/web/virtualbox/index_uuid" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vagrant/machines/web/virtualbox/synced_folders" afterPath="$PROJECT_DIR$/.vagrant/machines/web/virtualbox/synced_folders" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docroot/index.html" afterPath="$PROJECT_DIR$/docroot/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docroot/js/init.js" afterPath="$PROJECT_DIR$/docroot/js/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docroot/js/models/user_model.js" afterPath="$PROJECT_DIR$/docroot/js/models/user_model.js" />
-    </list>
+    <list default="true" id="c371f82e-de6a-4583-a536-e9276f979925" name="Default" comment="" />
     <ignored path="pwa.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -515,12 +501,12 @@
       <option name="presentableId" value="Default" />
       <updated>1466485990397</updated>
       <workItem from="1466687950739" duration="64000" />
-      <workItem from="1466814960637" duration="3950000" />
+      <workItem from="1466814960637" duration="4019000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4014000" />
+    <option name="totallyTimeSpent" value="4083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
