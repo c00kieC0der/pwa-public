@@ -51,7 +51,7 @@ if(!_User.activeLocation.prsntNm && _User.locations.length > 0){
 
 var saveUser = function(){
     window.localStorage._Stored_User = JSON.stringify(_User);
-    savedPco.products || {};
+    savedPco.products = savedPco.products ? savedPco.products : {};
     savedPco.products.WebPushNotifications = _User.webPush;
     window.localStorage.jStorage = JSON.stringify(savedPco);
     _Data.collectNew();
@@ -101,5 +101,3 @@ _User.updatePushNotifications = function(answer){
     saveUser();
 };
 
-_User.updatePushNotifications(true);
-console.log(JSON.parse(window.localStorage.jStorage));

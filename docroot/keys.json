@@ -1,0 +1,6 @@
+{
+    "smartling": {
+        "userIdentifier": "Smartling user identifier",
+        "userSecret": "Smartling user secret"
+    }
+}

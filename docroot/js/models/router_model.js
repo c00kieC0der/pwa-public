@@ -1,3 +1,4 @@
+
 var _Router = {};
 (function(){
     _Router = {
@@ -5,71 +6,71 @@ var _Router = {};
     };
 
     var pageAssignment = {
-        'TODAY'   : {
+        'today'   : {
             name  : 'today',
             title : 'Your Current Conditions'
         },
-        'HOURLY'  : {
+        'hourly'  : {
             name  : 'hourly',
             title : 'Hourly Forecast'
         },
-        '5DAY'   : {
-            name  : '5day',
-            title : 'Your Daily Forecast'
+        'fiveday'   : {
+            name  : 'fiveday',
+            title : 'Your Five Day Forecast'
         },
-        '10DAY'   : {
-            name  : '10day',
-            title : 'Your Daily Forecast'
+        'tenday'   : {
+            name  : 'tenday',
+            title : 'Your Ten Day Forecast'
         },
-        'WEEKEND' : {
+        'weekend' : {
             name  : 'weekend',
             title : 'Your Weekend Forecast'
         },
-        'MAP' : {
+        'map' : {
             name  : 'map',
             title : 'Your Radar Map'
         }
     };
-    _Router.changePage = function(pageName){
-        pageName = pageName.replace(' ', '');
-        var changeTo = pageAssignment[pageName].name;
-        if(_Router.page !== changeTo){
-            _Router.page = changeTo;
-            helper.loadTemplate('page-content', 'pages', changeTo);
-            document.title = pageAssignment[pageName].title;
-        }
-    };
-
-    var hashMap = {
-        today : 'TODAY',
-        hourly : 'HOURLY',
-        fiveday : '5DAY',
-        tenday : '10DAY',
-        weekend : 'WEEKEND',
-        map : 'MAP'
-    };
-
-    var preChangePage = function(hash){
-        var lis = document.getElementsByClassName('page-nav-li');
+    var changeTo = '', lis;
+    _Router.changePage = function(page){
+        lis = document.getElementsByClassName('page-nav-li');
         for(var i=0; i < lis.length; i++){
             lis[i].className = lis[i].className.replace('active', '');
         }
-        document.getElementsByClassName('page-nav-li ' + hash)[0].className += ' active';
-        _Router.changePage(hashMap[hash]);
-    };
-    //Handles Onload checking.
-    if(window.location.hash === ''){
-        window.location = '#today';
-        _Router.changePage('TODAY');
-    } else {
-        var hash = window.location.hash.replace('#', '');
-        preChangePage(hash);
-    }
-    //Handles forward or backward clicking.
-    window.onhashchange = function () {
-        var hash = window.location.hash.replace('#', '');
-        if(hashMap[hash] !== undefined && hash !== _Router.page){
-             preChangePage(hash);
+        document.getElementsByClassName('page-nav-li ' + page)[0].className += ' active';
+        changeTo = page;
+        if(_Router.page !== changeTo){
+            _Router.page = changeTo;
+            helper.loadTemplate('page-content', 'pages', changeTo);
+            document.title = pageAssignment[page].title;
+            var loc = _User.activeLocation.lat ? _User.activeLocation.lat + ','+  _User.activeLocation.long : '';
+            history.pushState({changeTo:page}, page, '/weather/' + changeTo + '/l/' + loc);
         }
     };
+
+
+    var pathArr = [];
+    var handlePath = function(){
+        if(history.state && history.state.changeTo){
+            _Router.changePage(history.state.changeTo);
+        } else {
+            if(window.location.pathname === '/'){
+                _Router.changePage('today');
+            } else {
+                pathArr = window.location.pathname.split('/');
+                if(pageAssignment[pathArr[2]]){
+                    _Router.changePage(pathArr[2]);
+                }
+            }
+            //Else, its not a valid URL.  We should probably 404 on this.
+        }
+    };
+    //Handles Onload checking.
+    handlePath();
+
+    window.onpopstate = function(){
+       handlePath();
+    };
+
 })();
+

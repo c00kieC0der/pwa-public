@@ -1,23 +1,39 @@
 var _Data = {};
 (function(){
-
-    var dataUrl = '';
+    var dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1pollenforecast;vt1dailyForecast;vt1observation;vt1alerts?units=" +
+        _User.unitPref +
+        '&language=' + _User.lang +
+        '&geocode=' +
+        _User.activeLocation.lat + ',' + _User.activeLocation.long +
+        '&format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
+    var dataAstroUrl = '';
     var eventData = document.createEvent('Event');
+    var eventAstroData = document.createEvent('Event');
+    eventAstroData.initEvent('astro-builder', true, true);
     eventData.initEvent('builder', true, true);
 
-    _Data.collectNew = function(){
-        dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1pollenforecast;vt1dailyForecast;vt1observation;vt1alerts?units=" +
-            _User.unitPref +
-            '&language=' + _User.lang +
-            '&geocode=' +
-            _User.activeLocation.lat + ',' + _User.activeLocation.long +
-            '&format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
 
+    _Data.collectNew = function() {
+        /*
+
+         AjaxRequest.get({
+         'url' : dataAstroUrl,
+         'generateUniqueUrl' : false,
+         'onSuccess':function(req){
+
+         var data = JSON.parse(req.responseText);
+         _Data.Astro = data; ///something in data.
+         //massageAstroData();
+         document.getElementById('event-anchor').dispatchEvent(eventAstroData);
+         }
+         });
+
+         */
         AjaxRequest.get(
             {
-                'url' : dataUrl,
-                'generateUniqueUrl' : false,
-                'onSuccess':function(req){
+                'url': dataUrl,
+                'generateUniqueUrl': false,
+                'onSuccess': function (req) {
 
                     var data = JSON.parse(req.responseText);
                     _Data.obs = data.vt1observation;
@@ -131,6 +147,7 @@ var _Data = {};
             }];
         }
         return retData;
+
     };
 })();
 
