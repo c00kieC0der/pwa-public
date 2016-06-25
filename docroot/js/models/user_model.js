@@ -101,5 +101,5 @@ _User.updatePushNotifications = function(answer){
     saveUser();
 };
 
-_User.updatePushNotifications(true);
-console.log(JSON.parse(window.localStorage.jStorage));
+// _User.updatePushNotifications(true);
+// console.log(JSON.parse(window.localStorage.jStorage));
