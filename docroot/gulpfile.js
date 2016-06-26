@@ -20,7 +20,38 @@ var childProcess = require('child_process');
 var jshint = require('gulp-jshint')
 var jasmine = require('gulp-jasmine');
 var exec = childProcess.exec;
-//var minify = require('gulp-minify');
+var minify = require('gulp-minify');
+
+var concat = require('gulp-concat');
+
+gulp.task('js-concat', function() {
+    return gulp.src(['./js-min/user_model-min.js', './js-min/locations_model-min.js', './js-min/helper_functions-min.js', './js-min/router_model-min.js', './js-min/*-min.js'])
+        .pipe(concat('backend.js'))
+        .pipe(gulp.dest('./'));
+});
+
+gulp.task('js-minify', function() {
+    gulp.src('./js-src/models/*.js')
+        .pipe(minify({
+            ext:{
+                src:'-debug.js',
+                min:'-min.js'
+            },
+           // exclude: ['tasks'],
+            ignoreFiles: ['-min.js', 'content_model.js']
+        }))
+        .pipe(gulp.dest('js-min'));
+    gulp.src('./js-src/*.js')
+        .pipe(minify({
+            ext:{
+                src:'-debug.js',
+                min:'-min.js'
+            },
+            // exclude: ['tasks'],
+            ignoreFiles: ['-min.js']
+        }))
+        .pipe(gulp.dest('js-min'));
+});
 
 gulp.task('lint', function(){
     gulp.src('./js/models/*.js')
@@ -40,20 +71,8 @@ gulp.task('unit', function(){
         // gulp-jasmine works on filepaths so you can't have any plugins before it
         .pipe(jasmine())
 });
-/*
-gulp.task('js-minify', function() {
-    gulp.src('./js/models/*.js')
-        .pipe(minify({
-            ext:{
-                src:'-debug.js',
-                min:'.js'
-            },
-           // exclude: ['tasks'],
-            ignoreFiles: ['-min.js']
-        }))
-        .pipe(gulp.dest('dist'))
-});
-*/
+
+
 gulp.task('css-minify', function() {
     // place code for your default task here
 });
@@ -288,4 +307,4 @@ gulp.task('all', function(){
     //all default tasks.
 });
 
-gulp.task('all', ['lint', 'unit']);
+gulp.task('all', ['lint', 'unit', 'js-minify', 'js-concat']);

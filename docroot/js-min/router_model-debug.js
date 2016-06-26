@@ -7,28 +7,40 @@ var _Router = {};
 
     var pageAssignment = {
         'today'   : {
-            name  : 'today',
-            title : 'Your Current Conditions'
+            name       : 'today',
+            metricName : 'today-forecast',
+            title      : 'Your Current Conditions',
+            pos        : '1'
         },
         'hourly'  : {
-            name  : 'hourly',
-            title : 'Hourly Forecast'
+            name       : 'hourly',
+            metricName : 'hourly-forecast',
+            title      : 'Your Hourly Forecast',
+            pos        : '2'
         },
         'fiveday'   : {
-            name  : 'fiveday',
-            title : 'Your Five Day Forecast'
+            name       : 'fiveday',
+            metricName : '5day-forecast',
+            title      : 'Your Five Day Forecast',
+            pos        : '3'
         },
         'tenday'   : {
-            name  : 'tenday',
-            title : 'Your Ten Day Forecast'
+            name       : 'tenday',
+            metricName : '10day-forecast',
+            title      : 'Your Ten Day Forecast',
+            pos        : '4'
         },
         'weekend' : {
-            name  : 'weekend',
-            title : 'Your Weekend Forecast'
+            name       : 'weekend',
+            metricName : 'weekend-forecast',
+            title      : 'Your Weekend Forecast',
+            pos        : '5'
         },
         'map' : {
-            name  : 'map',
-            title : 'Your Radar Map'
+            name        : 'map',
+            metricName  : 'map',
+            title       : 'Your Radar Map',
+            pos         : '6'
         }
     };
     var changeTo = '', lis;
@@ -40,12 +52,15 @@ var _Router = {};
         document.getElementsByClassName('page-nav-li ' + page)[0].className += ' active';
         changeTo = page;
         if(_Router.page !== changeTo){
+            if(!_Router.page){
+                _Router.page = 'today'; 
+            }
+            _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[changeTo].metricName, pageAssignment[page].pos);
             _Router.page = changeTo;
             helper.loadTemplate('page-content', 'pages', changeTo);
             document.title = pageAssignment[page].title;
             var loc = _User.activeLocation.lat ? _User.activeLocation.lat + ','+  _User.activeLocation.long : '';
             history.pushState({changeTo:page}, page, '/weather/' + changeTo + '/l/' + loc);
-            _Metrics.pageLoad();
         }
     };
 

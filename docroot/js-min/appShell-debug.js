@@ -310,13 +310,15 @@ function showTemperature(ele) {
             tempElements[i].className = "temp-red";
         }
         ele.className += ' active';
+        if(ele.innerHTML === '°C'){
+            _User.setUnitPreference('m');
+            _Metrics.clickTrack(ele, _Router.page, 'menu', 'celsius');
+        } else {
+            _User.setUnitPreference('e');
+            _Metrics.clickTrack(ele, _Router.page, 'menu', 'fahrenheit');
+        }
     }
 
-    if(ele.innerHTML === '°C'){
-        _User.setUnitPreference('m');
-    } else {
-        _User.setUnitPreference('e');
-    }
 }
 
 
