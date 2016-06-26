@@ -1,3 +1,3 @@
-/**
- * Created by ecook on 6/19/16.
- */
+(function(){
+    helper.loadTemplate('24-hour-forecast', 'modules', '24-hour-forecast');
+})();
