@@ -57,7 +57,9 @@ var _Data = {};
         var dateBase = new Date(fullDate);
         var hours = dateBase.getHours();
         var minutes = dateBase.getMinutes();
-        if(minutes === 0) minutes = '00';
+        if(minutes === 0){
+            minutes = '00';
+        }
         var meridian = 'AM';
         if(hours === 12){
             meridian = 'PM';

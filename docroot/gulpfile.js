@@ -1,12 +1,39 @@
+/*
+ LICENSE
+ The MIT License (MIT)
+
+ Copyright (c) 2015 Spencer Alger
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
 var gulp = require('gulp');
 var fs = require('fs');
 var _ = require('underscore');
 var request = require('request');
 var localesConfig = require('./locales.json');
 var childProcess = require('child_process');
+var jshint = require('gulp-jshint')
 
 var exec = childProcess.exec;
 
+
+gulp.task('lint', function(){
+    gulp.src('./js/models/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+    gulp.src('./js/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+    gulp.src('./templates/*/*/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+    return;
+});
 gulp.task('js-minify', function() {
     // place code for your default task here
 });
@@ -109,7 +136,7 @@ gulp.task('upload-translations', function() {
 console.log(data);
         var keys = JSON.parse(data);
 
-        var projectId = 'bc36bacc6';
+        var projectId = '2cac53913';
 
         // Get access token
         var options = {
@@ -123,8 +150,9 @@ console.log(data);
         };
 
         request(options, function(error, response, body) {
-            var accessToken = body.response.data.accessToken;
-
+            console.log(body.response);
+           // var accessToken = body.response.data.accessToken;
+return;
         // Upload files
         var options = {
             url: 'https://api.smartling.com/files-api/v2/projects/' + projectId + '/file',

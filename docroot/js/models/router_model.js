@@ -45,6 +45,7 @@ var _Router = {};
             document.title = pageAssignment[page].title;
             var loc = _User.activeLocation.lat ? _User.activeLocation.lat + ','+  _User.activeLocation.long : '';
             history.pushState({changeTo:page}, page, '/weather/' + changeTo + '/l/' + loc);
+            _Metrics.pageLoad();
         }
     };
 

@@ -91,12 +91,12 @@ _User.updatePushNotifications = function(answer){
         _User.webPush = {
             PushStatus : "confirmNotification",
             timeStamp : new Date().getTime()
-        }
+        };
     } else {
         _User.webPush = {
             PushStatus : "noPushNotification",
             timeStamp : new Date().getTime()
-        }
+        };
     }
     saveUser();
 };

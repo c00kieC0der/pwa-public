@@ -102,7 +102,7 @@ var addRemoveActiveClass = function(ele, add){
     } else {
         document.getElementById(ele).className = document.getElementById(ele).className.replace('active', '');
     }
-}
+};
 var addAMapLayer = function(layerKey){
     menuShowHide();
     addLayer(layerKey);

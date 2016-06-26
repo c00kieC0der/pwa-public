@@ -2,10 +2,10 @@ var helper = {};
 
 helper.loadTemplate = function(elementId, type, name){
     var path = 'https://' + window.location.hostname + '/templates/' + type + '/' + name + '/' + name + '.html';
-    var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             document.getElementById(elementId).innerHTML = xhr.responseText;
         }
     };
@@ -45,11 +45,11 @@ helper.empty = function(divId){
 helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
     multiplier = multiplier === 'all' ? dataMap.length : multiplier;
     var path = 'https://' + window.location.hostname + '/templates/components/' + componentName + '/' + componentName + '.html';
-    var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     var classXes = '', x = 0, i = 0, j = 0 ;
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             var rawTemplate = xhr.responseText;
             //put the template in x times.
             for(x=0; x < multiplier; x++){
@@ -79,11 +79,11 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
 helper.ngRepeatReverse = function(divId, componentName, dataMap, data, multiplier){
     multiplier = multiplier === 'all' ? dataMap.length : multiplier;
     var path = 'templates/components/' + componentName + '/' + componentName + '.html';
-    var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     var classXes = '', x = 0, i = 0, j = 0 ;
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             var rawTemplate = xhr.responseText;
             //put the template in x times.
             for(x=0; x < multiplier; x++){
@@ -105,4 +105,4 @@ helper.ngRepeatReverse = function(divId, componentName, dataMap, data, multiplie
 
 helper.isNumeric = function(num){
     return typeof num === 'number' && num !== 'NaN';
-}
+};
