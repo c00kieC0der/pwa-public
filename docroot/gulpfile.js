@@ -20,7 +20,7 @@ var childProcess = require('child_process');
 var jshint = require('gulp-jshint')
 var jasmine = require('gulp-jasmine');
 var exec = childProcess.exec;
-
+//var minify = require('gulp-minify');
 
 gulp.task('lint', function(){
     gulp.src('./js/models/*.js')
@@ -40,10 +40,20 @@ gulp.task('unit', function(){
         // gulp-jasmine works on filepaths so you can't have any plugins before it
         .pipe(jasmine())
 });
+/*
 gulp.task('js-minify', function() {
-    // place code for your default task here
+    gulp.src('./js/models/*.js')
+        .pipe(minify({
+            ext:{
+                src:'-debug.js',
+                min:'.js'
+            },
+           // exclude: ['tasks'],
+            ignoreFiles: ['-min.js']
+        }))
+        .pipe(gulp.dest('dist'))
 });
-
+*/
 gulp.task('css-minify', function() {
     // place code for your default task here
 });
