@@ -54,10 +54,10 @@ gulp.task('js-minify', function() {
 });
 
 gulp.task('lint', function(){
-    gulp.src('./js/models/*.js')
+    gulp.src('./js-src/models/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
-    gulp.src('./js/*.js')
+    gulp.src('./js-src/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
     gulp.src('./templates/*/*/*.js')
