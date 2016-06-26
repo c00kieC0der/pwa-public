@@ -25,7 +25,7 @@ var minify = require('gulp-minify');
 var concat = require('gulp-concat');
 
 gulp.task('js-concat', function() {
-    return gulp.src('./js-min/*-min.js')
+    return gulp.src(['./js-min/user_model-min.js', './js-min/locations_model-min.js', './js-min/helper_functions-min.js', './js-min/router_model-min.js', './js-min/*-min.js'])
         .pipe(concat('backend.js'))
         .pipe(gulp.dest('./'));
 });
@@ -38,7 +38,7 @@ gulp.task('js-minify', function() {
                 min:'-min.js'
             },
            // exclude: ['tasks'],
-            ignoreFiles: ['-min.js']
+            ignoreFiles: ['-min.js', 'content_model.js']
         }))
         .pipe(gulp.dest('js-min'));
     gulp.src('./js-src/*.js')
@@ -307,4 +307,4 @@ gulp.task('all', function(){
     //all default tasks.
 });
 
-gulp.task('all', ['lint', 'unit']);
+gulp.task('all', ['lint', 'unit', 'js-minify', 'js-concat']);
