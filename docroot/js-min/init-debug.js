@@ -2,7 +2,6 @@
 //helper.loadTemplate('page-content', 'pages', 'today');
 //helper.loadTemplate('page-toast-div', 'modules', 'page-toast');
 
-
 ////initialize the service worker file.
 //if('serviceWorker' in navigator){
 //    navigator.serviceWorker.register(
@@ -10,3 +9,4 @@
 //        {scope: '/pwa/*'}
 //    ).then(_SW.success(), _SW.failure());
 //}
+
