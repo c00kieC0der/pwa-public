@@ -77,11 +77,6 @@ gulp.task('css-minify', function() {
     // place code for your default task here
 });
 
-
-gulp.task('fuduciary', function() {
-    // place code for your default task here
-});
-
 gulp.task('download-translations', function() {
     fs.readFile('./keys.json', 'utf-8', function(err, data) {
         if (err) {
@@ -307,4 +302,4 @@ gulp.task('all', function(){
     //all default tasks.
 });
 
-gulp.task('all', ['lint', 'unit', 'js-minify', 'js-concat']);
+gulp.task('all', ['lint', 'js-minify', 'js-concat']);
