@@ -8,18 +8,26 @@
   width: 100%; }
   .gm-push .push-wrapper {
     background: #3c8ed2;
+    margin: 0;
     padding: 0;
     border: transparent;
-    height: 100%;
-    margin: 0 1px; }
+    height: 100%; }
+  .gm-push .push-alert {
+    display: inline-block;
+    display: flex;
+    background: inherit; }
   .gm-push .push-message {
+    display: inline-block;
+    display: flex;
     margin: 5px 0; }
     .gm-push .push-message img {
-      margin: 0 10px; }
+      margin: 0 10px;
+      height: 50px;
+      width: 50px !important; }
   .gm-push .close {
     margin: 3px 8px 20px 15px;
     color: white;
-    font-size: 25px; }
+    font-size: 16px; }
   .gm-push .push-content {
     margin: 7px 0;
     padding-left: 5px;

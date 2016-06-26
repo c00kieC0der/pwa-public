@@ -90,7 +90,7 @@ _User.updatePushNotifications = function(answer){
     if(answer){
         _User.webPush = {
             PushStatus : "confirmNotification",
-            timeStamp : new Date().getTime() //Put a UTC time stamp
+            timeStamp : new Date().getTime() //Put a UTC time stamp ("2016-06-10T22:33:29.140Z")
         };
     } else {
         _User.webPush = {

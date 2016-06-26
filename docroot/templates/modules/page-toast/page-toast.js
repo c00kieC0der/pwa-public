@@ -32,6 +32,11 @@
 //    b. confirmNotifications (boolean) = this means that they declared that they want notifications
 // vars jStorage = jStorage + webPushNotifications
 // localStorage.setItem(jStorage)
+var today = new Date();
+var utcTime = today.toISOString();
+
+console.log(utcTime);
+
 
 var requestFileSystem = window.RequestFileSystem || window.webkitRequestFileSystem;
 requestFileSystem && requestFileSystem(window.TEMPORARY, 100, GmPushNotIncognito);

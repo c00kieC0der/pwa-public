@@ -4,18 +4,16 @@
     <div class="push-wrapper">
         <section class="push-alert">
             <div class="push-message">
-                <img class="TWC-logo"  height="50" width="50"
-                     alt="The Weather Channel Logo" title="The Weather Channel Logo">
-                <div class="push-content" >
-                    <div onclick="toastClicked()">
-                        <span class="alert-text">Get browser notifications for severe weather in your area. Activate Now</span>
-                        <span class="wx-iconfont-global wx-icon-arrow-right-4 alert-arrow"></span>
-                    </div>
+                <img class="TWC-logo" src="https://s.w-x.co/twc-white.png" alt="The Weather Channel Logo" title="The Weather Channel Logo">
+                <div onclick="toastClicked()" class="push-content">
+                    <span class="alert-text">Get browser notifications for severe weather in your area. Activate Now</span>
+                    <span class="wx-iconfont-global wx-icon-arrow-right-4 alert-arrow"></span>
                 </div>
+                    <!--<button style="width: 20px; height: 20px;" onclick="closeToast()">-->
+                        <!--<span class="wx-iconfont-global wx-icon-close"></span>-->
+                    <!--</button>-->
             </div>
-            <button style="width: 20px; height: 20px; background-color: blue" onclick="closeToast()">
-                <span> x </span>
-            </button>
+            <span onclick="closeToast()" class="wx-iconfont-global wx-icon-close close"></span>
         </section>
     </div>
 </div>
