@@ -18,7 +18,7 @@ var request = require('request');
 var localesConfig = require('./locales.json');
 var childProcess = require('child_process');
 var jshint = require('gulp-jshint')
-
+var jasmine = require('gulp-jasmine');
 var exec = childProcess.exec;
 
 
@@ -33,6 +33,12 @@ gulp.task('lint', function(){
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
     return;
+});
+
+gulp.task('unit', function(){
+    gulp.src('./spec/test.js')
+        // gulp-jasmine works on filepaths so you can't have any plugins before it
+        .pipe(jasmine())
 });
 gulp.task('js-minify', function() {
     // place code for your default task here
@@ -267,3 +273,9 @@ gulp.task('download-translations', function() {
     });
     });
 });
+
+gulp.task('all', function(){
+    //all default tasks.
+});
+
+gulp.task('all', ['lint', 'unit']);

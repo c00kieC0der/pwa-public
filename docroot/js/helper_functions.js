@@ -106,3 +106,9 @@ helper.ngRepeatReverse = function(divId, componentName, dataMap, data, multiplie
 helper.isNumeric = function(num){
     return typeof num === 'number' && num !== 'NaN';
 };
+
+// Export node module.
+if ( typeof module !== 'undefined' && module.hasOwnProperty('exports') )
+{
+    module.exports = helper;
+}
