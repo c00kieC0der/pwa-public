@@ -1,9 +1,6 @@
 /**
  * Created by omkard on 6/24/16.
  */
-
-console.log('This is the page toast');
-var toast = document.getElementById('page-div-toast');
 /**
  * Cases whether to show the toast or not
  * Case 1: Check if User is logged in or not - If yes don't show the toast,    => Not showing the toast
@@ -40,14 +37,20 @@ var requestFileSystem = window.RequestFileSystem || window.webkitRequestFileSyst
 requestFileSystem && requestFileSystem(window.TEMPORARY, 100, GmPushNotIncognito);
 
 function GmPushNotIncognito() {
-    console.log('This is GmPushNotIncognito');
     if(getPCOStatus()){
         var toast = document.getElementById('page-div-toast');
-        slideUp(toast);
-        console.log('showed');
+        var finalHeight = 0;
+        var startingHeight = -200;
+        var id = setInterval(frame, 10);
 
-    }else{
-        console.log('not showed');
+        function frame() {
+            if (startingHeight === finalHeight) {
+                clearInterval(id);
+            } else {
+                startingHeight += 5;
+                toast.style.bottom = startingHeight + 'px';
+            }
+        }
     }
 }
 
@@ -56,19 +59,13 @@ function getPCOStatus(){
     var daysToWait = 14;
     if (_User.loggedIn) {
         // UP user, do not show the banner:
-        console.log('logged in');
         return false;
-
     } else if ((!webPush || Object.keys(webPush).length === 0)) {
         // New user, show the banner:
-        console.log('object length is 0');
         return true;
-
     } else if (webPush && webPush.PushStatus === 'ConfirmedPushNotification') {
         // Existing user, already subscribed
-        console.log('ConfirmedPushNotification');
         return false;
-
     } else if (webPush && webPush.PushStatus === 'NoPushNotification' && webPush.timeStamp) {
         // Existing user, but reject/closed banner, need to ask them again after 14 days
         var time = new Date(webPush.timeStamp), currentTime = new Date();
@@ -77,38 +74,14 @@ function getPCOStatus(){
 }
 
 function toastClicked(){
+    console.log('Clicked toast')
     document.getElementById('page-div-toast').style.display = 'none';
     _User.updatePushNotifications(true);
 }
 
 function closeToast() {
+    console.log('Closed toast')
     document.getElementById('page-div-toast').style.display = 'none';
     _User.updatePushNotifications(false);
-    console.log('called')
 }
 
-/**
- * Like jQuery's slideDown function - uses CSS3 transitions
- * @param  {Node} elem Element to show and hide
- */
-function slideUp(elem) {
-    elem.style.maxHeight = '200px';
-    // We're using a timer to set opacity = 0 because setting max-height = 0 doesn't (completely) hide the element.
-    elem.style.opacity   = '1';
-    console.log('slideUp')
-}
-/**
- * Call once after timeout
- * @param  {Number}   seconds  Number of seconds to wait
- * @param  {Function} callback Callback function
- */
-function once (seconds, callback) {
-    var counter = 0;
-    var time = window.setInterval(function () {
-        counter++;
-        if (counter >= seconds) {
-            callback();
-            window.clearInterval(time);
-        }
-    }, 400);
-}

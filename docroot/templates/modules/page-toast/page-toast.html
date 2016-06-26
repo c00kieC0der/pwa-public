@@ -7,19 +7,18 @@
                 <img class="TWC-logo"  height="50" width="50"
                      alt="The Weather Channel Logo" title="The Weather Channel Logo">
                 <div class="push-content" >
-                    <div>
+                    <div onclick="toastClicked()">
                         <span class="alert-text">Get browser notifications for severe weather in your area. Activate Now</span>
                         <span class="wx-iconfont-global wx-icon-arrow-right-4 alert-arrow"></span>
                     </div>
                 </div>
             </div>
+            <button style="width: 20px; height: 20px; background-color: blue" onclick="closeToast()">
+                <span> x </span>
+            </button>
         </section>
-        <button style="width: 20px; height: 20px; background-color: blue" onclick="closeToast()">
-            <span> x </span>
-        </button>
+
     </div>
-
-
 </div>
 
 <!--&lt;!&ndash; Web Push Notification&ndash;&gt;-->
