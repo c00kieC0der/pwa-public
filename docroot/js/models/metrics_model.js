@@ -1,6 +1,14 @@
 // To add and controller metrics.
 
+_Metrics = {};
+
+//var s = account != null ? s_gi(account) : s_gi(s_account);var sc_actionId = actionId;s.prop35 = sc_actionId;s.linkTrackVars = 'prop35';s.linkTrackEvents = 'None';s.tl(obj,'o',sc_actionId);
+
+
 /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+(function(){
+        /* jshint ignore:start */
+
 var s_code='',s_objectID;function s_gi(un,pg,ss){var c="s.version='H.26';s.an=s_an;s.logDebug=function(m){var s=this,tcf=new Function('var e;try{console.log(\"'+s.rep(s.rep(s.rep(m,\"\\\\\",\"\\\\\\"
         +"\\\"),\"\\n\",\"\\\\n\"),\"\\\"\",\"\\\\\\\"\")+'\");}catch(e){}');tcf()};s.cls=function(x,c){var i,y='';if(!c)c=this.an;for(i=0;i<x.length;i++){n=x.substring(i,i+1);if(c.indexOf(n)>=0)y+=n}return "
         +"y};s.fl=function(x,l){return x?(''+x).substring(0,l):x};s.co=function(o){return o};s.num=function(x){x=''+x;for(var p=0;p<x.length;p++)if(('0123456789').indexOf(x.substring(p,p+1))<0)return 0;retur"
@@ -170,3 +178,29 @@ var s_code='',s_objectID;function s_gi(un,pg,ss){var c="s.version='H.26';s.an=s_
         +"'+c.substring(e+1);s=c.indexOf('=function(')}return c;");
     c=s_d(c);if(e>0){a=parseInt(i=v.substring(e+5));if(a>3)a=parseFloat(i)}else if(m>0)a=parseFloat(u.substring(m+10));else a=parseFloat(v);if(a<5||v.indexOf('Opera')>=0||u.indexOf('Opera')>=0)c=s_ft(c);if(!s){s=new Object;if(!w.s_c_in){w.s_c_il=new Array;w.s_c_in=0}s._il=w.s_c_il;s._in=w.s_c_in;s._il[s._in]=s;w.s_c_in++;}s._c='s_c';(new Function("s","un","pg","ss",c))(s,un,pg,ss);return s}
 function s_giqf(){var w=window,q=w.s_giq,i,t,s;if(q)for(i=0;i<q.length;i++){t=q[i];s=s_gi(t.oun);s.sa(t.un);s.setTagContainer(t.tagContainerName)}w.s_giq=0}s_giqf()
+        /* jshint ignore:end */
+        var s=s_gi("pwa");
+        _Metrics.clickTrack = function(obj, trackStr){
+                if(!obj || !trackStr){
+                        return;
+                }
+                s.prop35 = trackStr;
+                s.tl(obj, 'o', trackStr);
+        };
+
+        _Metrics.pageLoad = function(){
+                console.log('page load metric');
+                if(window['s'] === undefined){
+                        setTimeout(function(){
+                                s.linkTrackVars='eVar39,eVar60';s.linkTrackEvents='event2';
+                                s.eVar39 = JSON.stringify(_User);
+                                s.eVar60 = _Router.page;
+                                s.t();
+                        }, 500);
+                } else {
+                        s.eVar39 = _User;
+                        s.eVar60 = _Router.page;
+                        s.t();
+                }
+        };
+})();

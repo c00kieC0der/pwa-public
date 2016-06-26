@@ -51,7 +51,7 @@ if(!_User.activeLocation.prsntNm && _User.locations.length > 0){
 
 var saveUser = function(){
     window.localStorage._Stored_User = JSON.stringify(_User);
-    savedPco.products || {};
+    savedPco.products = savedPco.products ? savedPco.products : {};
     savedPco.products.WebPushNotifications = _User.webPush;
     window.localStorage.jStorage = JSON.stringify(savedPco);
     _Data.collectNew();
@@ -91,15 +91,13 @@ _User.updatePushNotifications = function(answer){
         _User.webPush = {
             PushStatus : "confirmNotification",
             timeStamp : new Date().getTime()
-        }
+        };
     } else {
         _User.webPush = {
             PushStatus : "noPushNotification",
             timeStamp : new Date().getTime()
-        }
+        };
     }
     saveUser();
 };
 
-// _User.updatePushNotifications(true);
-// console.log(JSON.parse(window.localStorage.jStorage));
