@@ -237,14 +237,14 @@ function showMainSearch() {
 
 function searchResults() {
     var currentValue = document.getElementById('search').value;
-    if(currentValue == '' || currentValue.length <= 3 ) {
+    if(currentValue === '' || currentValue.length <= 3 ) {
         showHide('saved-results', 1);
         showHide('search-results', 0);
     } else {
         showHide('saved-results', 0);
         showHide('search-results', 1);
         var searchResults = lookupLocations(currentValue);
-        if(_Locations.results != undefined) {
+        if(_Locations.results !== undefined) {
             var cityList = '';
             for (i=0; i<_Locations.results.length; i++ ) {
                 var latLongArray = _Locations.results[i].geocode.split(',');
@@ -383,7 +383,7 @@ function showAreas(ele,rowId ) {
  * @param show
  */
 function showHide(element, show) {
-    if(show == 0) {
+    if(show === 0) {
         document.getElementById(element).style.display = 'none';
     } else {
         document.getElementById(element).style.display = 'block';
@@ -422,7 +422,7 @@ var recentLocsMap = [
 
 function showRecentlySearched(){
     //Show the dropdown to recently searched locations.
-    if(downArrayClicked == false) {
+    if(downArrayClicked === false) {
         showHide('drop-down-array-list', 1);
         downArrayClicked = true;
     }else{

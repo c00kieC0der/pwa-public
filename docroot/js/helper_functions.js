@@ -1,20 +1,21 @@
 var helper = {};
 
 helper.loadTemplate = function(elementId, type, name){
-    var path = 'templates/' + type + '/' + name + '/' + name + '.html';
-    var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var path = 'https://' + window.location.hostname + '/templates/' + type + '/' + name + '/' + name + '.html';
+    var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             document.getElementById(elementId).innerHTML = xhr.responseText;
         }
     };
     xhr.send();
     //Then load the js
+
     var body = document.getElementsByTagName('head')[0];
     var script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = 'templates/' + type + '/' + name + '/' + name + '.js';
+    script.src = 'https://' + window.location.hostname + '/templates/' + type + '/' + name + '/' + name + '.js';
 
     // Then bind the event to the callback function.
     // There are several events for cross browser compatibility.
@@ -43,12 +44,12 @@ helper.empty = function(divId){
 // helper.ngRepeat('vertical-wx-row', 'components', 'vertical-wx-row', ngRepeatMap, _Data.hourly, 6);
 helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
     multiplier = multiplier === 'all' ? dataMap.length : multiplier;
-    var path = 'templates/components/' + componentName + '/' + componentName + '.html';
-    var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var path = 'https://' + window.location.hostname + '/templates/components/' + componentName + '/' + componentName + '.html';
+    var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     var classXes = '', x = 0, i = 0, j = 0 ;
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             var rawTemplate = xhr.responseText;
             //put the template in x times.
             for(x=0; x < multiplier; x++){
@@ -78,11 +79,11 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
 helper.ngRepeatReverse = function(divId, componentName, dataMap, data, multiplier){
     multiplier = multiplier === 'all' ? dataMap.length : multiplier;
     var path = 'templates/components/' + componentName + '/' + componentName + '.html';
-    var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     var classXes = '', x = 0, i = 0, j = 0 ;
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             var rawTemplate = xhr.responseText;
             //put the template in x times.
             for(x=0; x < multiplier; x++){
@@ -104,4 +105,10 @@ helper.ngRepeatReverse = function(divId, componentName, dataMap, data, multiplie
 
 helper.isNumeric = function(num){
     return typeof num === 'number' && num !== 'NaN';
+};
+
+// Export node module.
+if ( typeof module !== 'undefined' && module.hasOwnProperty('exports') )
+{
+    module.exports = helper;
 }

@@ -50,4 +50,4 @@ var _WXICON = {
     '45' : 'rain',
     '46' : 'snow',
     '47' : 'thunderstorm'
-}
+};
