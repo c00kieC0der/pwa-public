@@ -319,6 +319,20 @@ function showTemperature(ele) {
     }
 }
 
+
+function pwaNavClicked(e) {
+    var windowWidth = window.innerWidth;
+    var clientWidth = e.clientX;
+    var pwaUlwidth = document.getElementsByClassName('menubar')[0].clientWidth;
+    var thirtyPercentVal = 0.3 * windowWidth;
+    var seventyPercentVal = 0.7 * windowWidth;
+    if(clientWidth < thirtyPercentVal){
+        document.getElementsByClassName('nav-suite')[0].scrollLeft =  '0';
+    }else if(clientWidth > seventyPercentVal) {
+        document.getElementsByClassName('nav-suite')[0].scrollLeft = pwaUlwidth - windowWidth;
+    }
+}
+
 /**
  * changeNav(ele) is used to changes the nav pages
  * @param ele

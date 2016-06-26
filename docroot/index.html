@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title>Today's Forecast</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/styles/core.css">
     <link rel="stylesheet" type="text/css" href="/assets/wxicon/css/wxicon.css">
     <link rel="stylesheet" type="text/css" href="/iconfont/wx-iconfont-global/style.css">
@@ -48,7 +49,7 @@
         </button>
     </header>
     <div class="nav-suite">
-        <ul class="page-nav nav menubar">
+        <ul class="page-nav nav menubar" onmouseup="pwaNavClicked(event)">
             <li class="page-nav-li today active" onclick="changeNav(this)"><a href="#today"><span class="link-text">TODAY</span></a></li>
             <li class="page-nav-li hourly" onclick="changeNav(this)"><a href="#hourly"><span class="link-text">HOURLY</span></a></li>
             <li class="page-nav-li fiveday" onclick="changeNav(this)"><a href="#fiveday"><span class="link-text">5 DAY</span></a></li>
@@ -135,16 +136,16 @@
         <a href="#" id="event-anchor"></a>
 
     <footer >
-        <ul class="company-logos">
-            <li class="twc-footer-logo">
+        <div class="company-logos">
+            <div class="twc-footer-logo">
                 <img src="https://s.w-x.co/the-weather-channel-compressor.png" alt="The Weather Channel">
                 <div>
                     <span>The Weather Channel</span> <br><span> An IBM Business</span>
                 </div>
 
-            </li>
-            <li class="wu-footer-logo"><img src="https://s.w-x.co/footer-logo-companies.png" alt="The Weather Company, an IBM Business; The Weather Channel; Wunderground"></li>
-        </ul>
+            </div>
+            <div class="wu-footer-logo"><img src="https://s.w-x.co/footer-logo-companies.png" alt="The Weather Company, an IBM Business; The Weather Channel; Wunderground"></div>
+        </div>
 
         <ul class="legal-text">
             <li class="text-left"><a href="#">Terms of Use</a></li>

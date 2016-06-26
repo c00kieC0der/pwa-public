@@ -39,6 +39,7 @@ body {
   align-items: stretch;
   -webkit-align-content: stretch;
   -ms-flex-line-pack: stretch;
+  font-family: "Roboto";
   align-content: stretch;
   background: linear-gradient(to top, #ededed, #999999);
   background-position-x: center;
@@ -191,15 +192,15 @@ body {
   text-align: center;
   white-space: nowrap;
   display: inline-block;
-  width: 15.8%; }
+  width: 15.6%; }
 
 a {
-  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 0.5px; }
 
 .page-nav > li > a {
+  color: rgba(255, 255, 255, 0.6);
   padding: 7px 7px;
   display: block;
   position: relative;
@@ -368,13 +369,17 @@ ul {
       background-color: rgba(255, 255, 255, 0.16);
       border: 0;
       font-size: 16px;
-      font-family: "Open Sans";
+      font-family: "Roboto";
       color: #666666;
       font-style: italic; }
       .main-nav .unified-search #search-container input:focus {
         outline: none; }
     .main-nav .unified-search #search-container .animate-switch {
       display: none; }
+      .main-nav .unified-search #search-container .animate-switch .recent li, .main-nav .unified-search #search-container .animate-switch .main-results li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16); }
+      .main-nav .unified-search #search-container .animate-switch .recent li:first-child, .main-nav .unified-search #search-container .animate-switch .main-results li:first-child {
+        border-top: 1px solid rgba(255, 255, 255, 0.16); }
     .main-nav .unified-search #search-container .btn-mobile {
       position: absolute;
       top: 0;
@@ -418,20 +423,28 @@ footer {
   footer ul {
     margin: 0 0 10px 0;
     text-align: center; }
-  footer .company-logos .twc-footer-logo img {
-    vertical-align: top;
-    width: 50px;
-    height: 28px;
-    display: inline; }
-  footer .company-logos .twc-footer-logo div {
-    vertical-align: top;
-    font-size: 10px;
-    padding: 0;
-    display: inline-block;
-    text-align: left; }
-  footer .company-logos .wu-footer-logo img {
-    max-height: 40px;
-    max-width: 110px; }
+  footer .company-logos {
+    text-align: center; }
+    footer .company-logos .twc-footer-logo {
+      display: inline-block;
+      vertical-align: top;
+      padding-top: 10px; }
+      footer .company-logos .twc-footer-logo img {
+        vertical-align: top;
+        width: 50px;
+        height: 28px;
+        display: inline; }
+      footer .company-logos .twc-footer-logo div {
+        vertical-align: top;
+        font-size: 10px;
+        padding: 0;
+        display: inline-block;
+        text-align: left; }
+    footer .company-logos .wu-footer-logo {
+      display: inline-block; }
+      footer .company-logos .wu-footer-logo img {
+        max-height: 40px;
+        max-width: 110px; }
   footer .copyrights {
     font-size: 10px; }
     footer .copyrights li img {

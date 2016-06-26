@@ -187,16 +187,16 @@
   text-align: center
   white-space: nowrap
   display: inline-block
-  width: 15.8%
+  width: 15.6%
 
 
 a
-  color: rgba(255, 255, 255, 0.6)
   text-decoration: none
   font-size: 14px
   letter-spacing: 0.5px
 
 .page-nav > li > a
+  color: rgba(255, 255, 255, 0.6)
   padding: 7px 7px
   display: block
   position: relative
@@ -367,6 +367,7 @@ ul
   padding: 0
 
 
+
 .main-nav
   .unified-search
     margin: 55px 20px 20px 20px
@@ -380,13 +381,17 @@ ul
         background-color: rgba(255, 255, 255, 0.16)
         border: 0
         font-size: 16px
-        font-family: "Open Sans"
+        font-family: "Roboto"
         color: #666666
         font-style: italic
         &:focus
           outline: none
       .animate-switch
         display: none
+        .recent li, .main-results li
+          border-bottom: 1px solid rgba(255, 255, 255, 0.16)
+        .recent li:first-child, .main-results li:first-child
+          border-top: 1px solid rgba(255, 255, 255, 0.16)
       .btn-mobile
         position: absolute
         top: 0
@@ -439,7 +444,11 @@ footer
     margin: 0 0 10px 0
     text-align: center
   .company-logos
+    text-align: center
     .twc-footer-logo
+      display: inline-block
+      vertical-align: top
+      padding-top: 10px
       img
         vertical-align: top
         width: 50px
@@ -452,6 +461,7 @@ footer
         display: inline-block
         text-align: left
     .wu-footer-logo
+      display: inline-block
       img
         max-height: 40px
         max-width: 110px
