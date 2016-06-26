@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAQ;EACN,UAAU,EAAE,CAAC;EACb,MAAM,EAAE,KAAK;EACb,OAAO,EAAE,CAAC;EACV,OAAO,EAAE,GAAG;EACZ,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,uBAAuB",
+"sources": ["page-toast.sass"],
+"names": [],
+"file": "page-toast.css"
+}
