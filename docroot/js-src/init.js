@@ -1,6 +1,6 @@
 //This would be the today page, on initial load. Below is just for testing.
 //helper.loadTemplate('page-content', 'pages', 'today');
-//helper.loadTemplate('page-toast-div', 'modules', 'page-toast');
+helper.loadTemplate('page-toast-div', 'modules', 'page-toast');
 
 ////initialize the service worker file.
 //if('serviceWorker' in navigator){

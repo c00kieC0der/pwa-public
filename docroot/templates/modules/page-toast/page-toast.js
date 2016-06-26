@@ -79,13 +79,13 @@ function getPCOStatus(){
 }
 
 function toastClicked(){
-    console.log('Clicked toast')
+    console.log('Clicked toast');
     document.getElementById('page-div-toast').style.display = 'none';
     _User.updatePushNotifications(true);
 }
 
 function closeToast() {
-    console.log('Closed toast')
+    console.log('Closed toast');
     document.getElementById('page-div-toast').style.display = 'none';
     _User.updatePushNotifications(false);
 }
