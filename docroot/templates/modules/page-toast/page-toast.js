@@ -3,7 +3,7 @@
  */
 
 console.log('This is the page toast');
-
+var toast = document.getElementById('page-div-toast');
 /**
  * Cases whether to show the toast or not
  * Case 1: Check if User is logged in or not - If yes don't show the toast,    => Not showing the toast
@@ -25,58 +25,66 @@ console.log('This is the page toast');
  *           Call the _User.updatePushNotifications(by passing false)
  */
 
+// console.log(window.localStorage._Stored_User);
+//** upUsers = if the user has logged in we cannot show the module
+//if (document.cookie.indexOf('uplogin') !== -1), then do not display the banner
+// ** webpush **
+// 1. If the web notification object does not exist in jStorage, that means user did not interact with the toast
+// 2. If jStorage web notification object does exist  there is always be a timestamp
+//    a. noPushNotifications (boolean) = this means that user has clicked on the close icon (check timestamp)
+//    b. confirmNotifications (boolean) = this means that they declared that they want notifications
+// vars jStorage = jStorage + webPushNotifications
+// localStorage.setItem(jStorage)
+
 var requestFileSystem = window.RequestFileSystem || window.webkitRequestFileSystem;
 requestFileSystem && requestFileSystem(window.TEMPORARY, 100, GmPushNotIncognito);
 
-var storedUserDecline = false;
-var userDateDecline = '6/6/2016';
-
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-
-var yyyy = today.getFullYear();
-today = mm+'/'+dd+'/'+yyyy;
-var date1 = new Date(userDateDecline);
-var date2 = new Date(today);
-
-var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-
 function GmPushNotIncognito() {
     console.log('This is GmPushNotIncognito');
+    if(getPCOStatus()){
+        var toast = document.getElementById('page-div-toast');
+        slideUp(toast);
+        console.log('showed');
 
-    // console.log(window.localStorage._Stored_User);
-    //** upUsers = if the user has logged in we cannot show the module
-    //if (document.cookie.indexOf('uplogin') !== -1), then do not display the banner
-    // ** webpush **
-    // 1. If the web notification object does not exist in jStorage, that means user did not interact with the toast
-    // 2. If jStorage web notification object does exist  there is always be a timestamp
-    //    a. noPushNotifications (boolean) = this means that user has clicked on the close icon (check timestamp)
-    //    b. confirmNotifications (boolean) = this means that they declared that they want notifications
-    // vars jStorage = jStorage + webPushNotifications
-    // localStorage.setItem(jStorage)
-
-
-    if(_User.loggedIn){
-        console.log('Yes');
     }else{
-        console.log('No');
-    }
-
-    if(!storedUserDecline){
-        if(userDateDecline == null || diffDays >= 14){
-            var toast = document.getElementById('page-div-toast');
-            slideUp(toast);
-        }
+        console.log('not showed');
     }
 }
 
+function getPCOStatus(){
+    var webPush = _User.webPush;
+    var daysToWait = 14;
+    if (_User.loggedIn) {
+        // UP user, do not show the banner:
+        console.log('logged in');
+        return false;
+
+    } else if ((!webPush || Object.keys(webPush).length === 0)) {
+        // New user, show the banner:
+        console.log('object length is 0');
+        return true;
+
+    } else if (webPush && webPush.PushStatus === 'ConfirmedPushNotification') {
+        // Existing user, already subscribed
+        console.log('ConfirmedPushNotification');
+        return false;
+
+    } else if (webPush && webPush.PushStatus === 'NoPushNotification' && webPush.timeStamp) {
+        // Existing user, but reject/closed banner, need to ask them again after 14 days
+        var time = new Date(webPush.timeStamp), currentTime = new Date();
+        return (currentTime > new Date(time.setDate(time.getDate() + daysToWait)));
+    }
+}
+
+function toastClicked(){
+    document.getElementById('page-div-toast').style.display = 'none';
+    _User.updatePushNotifications(true);
+}
 
 function closeToast() {
-    var userDateDecline = today;
     document.getElementById('page-div-toast').style.display = 'none';
+    _User.updatePushNotifications(false);
+    console.log('called')
 }
 
 /**

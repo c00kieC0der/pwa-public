@@ -1,0 +1,42 @@
+@import '../partials/colors'
+@import 'compass'
+
+
+.gm-push
+  max-height: 0
+  height: 200px
+  opacity: 0
+  z-index: 100
+  width: 100%
+  transition: max-height 0.4s ease 0s
+  .push-wrapper
+    background: #3c8ed2
+    margin: 0
+    padding: 0
+    border: transparent
+    height: 100%
+  .push-message
+    margin: 5px 0
+    img
+      margin: 0 10px
+  .close
+    margin: 3px 8px 20px 15px
+    color: white
+    font-size: 25px
+  .push-content
+    margin: 7px 0
+    padding-left: 5px
+    font-size: 14px
+    color: white
+    cursor: pointer
+  .alert-text
+    margin: 0
+  //text-transform: capitalize
+  .wx-content
+    white-space: nowrap
+  .alert-arrow
+    vertical-align: middle
+    padding-left: 5px
+    font-size: 14px
+    font-weight: bold
+
