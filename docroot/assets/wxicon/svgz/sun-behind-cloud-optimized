@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <symbol id="svg-sun-behind-cloud">
-      <use xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/sun.svgz#svg-sun" stroke="000" fill="#f00" transform="scale(0.56) translate(20, 30)" />
-      <use fill="#ABABAB" xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/cloud.svgz#svg-cloud" transform="translate(5, 0)" stroke-width="5.7"  />
-    </symbol>
-</svg>
