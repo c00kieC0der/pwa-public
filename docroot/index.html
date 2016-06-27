@@ -10,16 +10,51 @@
     <link rel="stylesheet" type="text/css" href="/assets/wxicon/css/wxicon.css">
     <link rel="stylesheet" type="text/css" href="/iconfont/wx-iconfont-global/style.css">
     <link rel="manifest" href="manifest.json">
+    <script src="https://js-sec.indexww.com/ht/ls-weather.js"></script>
+    <script>
+        window.renderStartTime = new Date().getTime();
+        window.TWC = window.TWC || {};
+        TWC.adUtils = TWC.adUtils || {};
+
+        TWC.adUtils.addLoadEvent = function(func) {
+            var oldonload = window.onload;
+            if (typeof window.onload != 'function') {
+                window.onload = func;
+            } else {
+                window.onload = function() {
+                    if (oldonload) {
+                        oldonload();
+                    }
+                    func();
+                }
+            }
+        };
+
+        TWC.Deferred = function() {
+            var _self = this;
+            this.resolve = null;
+            this.reject = null;
+            this.promise = new Promise(function(resolve, reject) {
+                _self.resolve = resolve;
+                _self.reject = reject;
+            });
+        }
+    </script>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script async="async" src="/3rd-party-calls.js"></script>
+
 </head>
 <body onclick="">
 <div class="main-div">
+    <div id="WX_Hidden"></div>
+    <div id="WX_WindowShade"></div>
     <header class="header" id="pwa-header">
         <a href="index.html">
             <img class="twc-logo" src="data:image/gif;base64,R0lGODlhZABkAPcAAL/M5oCZzEBms+/y+RBAn5+z2WCAvyBNpjBZrM/Z7N/m8nCMxlBzuY+m0q+/3////wAzmQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgTWFjaW50b3NoIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjIwOTFDMDRCRkQzQzExRTI4M0ZBRUVBMjFFNDc2MzZFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjIwOTFDMDRDRkQzQzExRTI4M0ZBRUVBMjFFNDc2MzZFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjA5MUMwNDlGRDNDMTFFMjgzRkFFRUEyMUU0NzYzNkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MjA5MUMwNEFGRDNDMTFFMjgzRkFFRUEyMUU0NzYzNkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4B//79/Pv6+fj39vX08/Lx8O/u7ezr6uno5+bl5OPi4eDf3t3c29rZ2NfW1dTT0tHQz87NzMvKycjHxsXEw8LBwL++vby7urm4t7a1tLOysbCvrq2sq6qpqKempaSjoqGgn56dnJuamZiXlpWUk5KRkI+OjYyLiomIh4aFhIOCgYB/fn18e3p5eHd2dXRzcnFwb25tbGtqaWhnZmVkY2JhYF9eXVxbWllYV1ZVVFNSUVBPTk1MS0pJSEdGRURDQkFAPz49PDs6OTg3NjU0MzIxMC8uLSwrKikoJyYlJCMi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" />
         </a>
         <ul class="locations nav nav-tabs">
             <li class="saved-locations left-block">
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs">`
                     <li>
                         <a>
                             <span class="active-loc-condition-icon wx-iconfont-global condition-icon"></span>
@@ -165,6 +200,156 @@
   <!--  <script src="/service_worker.js"></script>  -->
 
 
+<script>
 
+    window.googletag = window.googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    window.ls_dfp_slots = window.ls_dfp_slots || [];
+
+    !function($$) {
+
+        var isMobile = window.innerWidth < 768;
+        var isTablet = window.innerWidth > 769 && window.innerWidth < 1025;
+        var isDesktop = window.innerWidth > 1024;
+        var adstest = getCookie('adstest');
+        var nc = isMobile && '7646-weatherMW' || '7646-weatherBW';
+        var src = "//ox-d.weatherus.servedbyopenx.com/w/1.0/jstag?nc=" + nc;
+        var openx = document.createElement('script');
+        var node = document.getElementsByTagName('script') && document.getElementsByTagName('script')[0];
+        var network, adUnit, adZone, NCTAU, adMapping, cust_params;
+        openx.src = src;
+        openx.async = true;
+        node.parentNode.insertBefore(openx, node);
+        $$.amznSlotsPromise = new TWC.Deferred();
+        $$.wxftgPromise = new TWC.Deferred();
+        $$.criteoPromise = new TWC.Deferred();
+
+        /** network */
+        network = "/7646/";
+        /** ad unit */
+        adUnit = isMobile ? "mobile_smart_us" : "web_weather_us";
+        adUnit = adstest ? 'test_' + adUnit : adUnit;
+        /** ad zone */
+        adZone = '/home';
+        NCTAU = network + adUnit + adZone;
+
+        adMapping = {
+            "desktop": {
+                "WX_WindowShade": {
+                    pos: "wx_ws",
+                    sizes: [[300,276],[728,91],[970,90],[728,50]]
+                },
+                "WX_Top300Variable": {
+                    pos: "wx_300var",
+                    sizes: [[300, 251],[300,600],[300,1050],[300,276]]
+                },
+                "WX_Mid300": {
+                    pos: "wx_mid300",
+                    sizes: [300, 251]
+                },
+                "WX_Hidden": {
+                    pos: "wx_hdn",
+                    sizes: [1,1]
+                }
+            },
+            "mobile": {
+                "MW_Position1": {
+                    pos: "mw_p1",
+                    sizes: [[320,51],[300,276],[300,45]]
+                },
+                "MW_Position2": {
+                    pos: "mw_p2",
+                    sizes: [300, 251]
+                }
+            }
+
+        };
+
+        cust_params =  {
+            cat: "fcst",
+            ch: "fcst",
+            fam: "fcst",
+            ad_unit: "%2F7646%2Fweb_weather_us"
+
+        };
+
+
+        if (adstest) {
+            cust_params['adstest'] = adstest;
+        }
+        $$.custParams = cust_params;
+
+        var gptSlots = [];
+
+        function getCookie(name) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+            if (parts.length == 2) return parts.pop().split(";").shift();
+        }
+
+        function setAd(el) {
+            var id = el.getAttribute('id');
+            var screen = isMobile && 'mobile' || 'desktop';
+            googletag.cmd.push(function () {
+                var slot = googletag.defineSlot(NCTAU, adMapping[screen][id].sizes, id)
+                        .addService(googletag.pubads())
+                        .setTargeting("pos", adMapping[screen][id].pos);
+                window.ls_dfp_slots.push(slot);
+                gptSlots.push(slot);
+            });
+        }
+
+        function displayAd(el) {
+            var id = el.getAttribute('id');
+            googletag.display(id);
+        }
+
+        $$.addLoadEvent(function() {
+            var selector = isMobile ? '[id^="MW_"]' : '[id^="WX_"]';
+            var adDivs = document.querySelectorAll(selector);
+            adDivs.forEach(function (el) {
+                setAd(el);
+            });
+
+                googletag.cmd.push(function () {
+                    Promise.all([$$.wxftgPromise, $$.amznSlotsPromise]).then(function() {
+                        for (var p in $$.custParams) {
+                            if ($$.custParams.hasOwnProperty(p)) {
+                                googletag.pubads().setTargeting(p, $$.custParams[p]);
+                            }
+                        }
+                        googletag.pubads().enableSingleRequest();
+                        googletag.enableServices();
+
+                        if (typeof index_headertag_lightspeed !== 'undefined') {
+                            var cb = (function (adDivs, ls_dfp_slots) {
+                                return function () {
+                                    index_headertag_lightspeed.set_slot_targeting(ls_dfp_slots)
+                                    for (f = 0; f < adDivs.length; f++) {
+                                        if (document.getElementById(adDivs[f].getAttribute('id'))) {
+                                            googletag.display(adDivs[f].getAttribute('id'));
+                                        }
+                                    }
+                                };
+                            })(adDivs, window.ls_dfp_slots);
+                            index_headertag_lightspeed.add_session_end_hook(cb, true);
+                            index_headertag_lightspeed.refresh();
+
+//                        adDivs.forEach(function (el) {
+//                            displayAd(el);
+//                        });
+                        } else {
+                            adDivs.forEach(function (el) {
+                                displayAd(el);
+                            });
+                        }
+                    });
+                });
+            //});
+
+        });
+
+    }(TWC.adUtils || {});
+</script>
 </body>
 </html>
