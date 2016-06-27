@@ -33,11 +33,23 @@
             ['dp1-highLow', _Data.lookingAhead[0].highLow],
             ['dp1-temperature', _Data.lookingAhead[0].temperature],
             ['dp1-precip', _Data.lookingAhead[0].precip],
-            ['dp2-daypartName', _Data.lookingAhead[1].daypartName]
+            ['dp2-daypartName', _Data.lookingAhead[1].daypartName],
+            ['dp2-phrase', _Data.lookingAhead[1].phrase],
+            ['nowcard-la-part2-icon', _Data.lookingAhead[1].wxicon],
+            ['dp2-highLow', _Data.lookingAhead[1].highLow],
+            ['dp2-temperature', _Data.lookingAhead[1].temperature],
+            ['dp2-precip', _Data.lookingAhead[1].precip],
+            ['dp3-daypartName', _Data.lookingAhead[2].daypartName],
+            ['dp3-phrase', _Data.lookingAhead[2].phrase],
+            ['nowcard-la-part3-icon', _Data.lookingAhead[2].wxicon],
+            ['dp3-highLow', _Data.lookingAhead[2].highLow],
+            ['dp3-temperature', _Data.lookingAhead[2].temperature],
+            ['dp3-precip', _Data.lookingAhead[2].precip]
         ];
         var highTemp = _Data.obs.temperatureMaxSince7am ? _Data.obs.temperatureMaxSince7am : _Data.dailyForecast.day.temperature[0] !== null ? _Data.dailyForecast.day.temperature[0] : '--';
         dataAssignment.push(['nowcard-hi-value', highTemp]);
 
+        console.dir(_Data.lookingAhead);
         //Input the weather icon - Nowcard.
         document.getElementById('nowcard-icon').innerHTML = getWxIcon(_Data.obs.icon);
 
