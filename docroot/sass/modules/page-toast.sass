@@ -1,5 +1,5 @@
 #page-div-toast
-  height: 100px
+  max-height: 100px
   position: absolute
   bottom: -200px
 
@@ -7,7 +7,7 @@
   z-index: 100
   width: 100%
   .push-wrapper
-    background: #3c8ed2
+    background: #3B8BCD
     margin: 0
     padding: 0
     border: transparent
@@ -19,17 +19,20 @@
   .push-message
     display: inline-block //fallback
     display: flex
-    margin: 5px 0
+    margin: 10px 0
+  .twc-logo-div
+    height: 55px
+    width: 55px !important
+    margin: 0 10px
     img
-      margin: 0 10px
-      height: 50px
-      width: 50px !important
+      height: 55px
+      width: 55px !important
   .close
-    margin: 3px 8px 20px 15px
+    margin: 10px 8px 20px 15px
     color: white
-    font-size: 16px
+    font-size: 10px
+    float: right
   .push-content
-    margin: 7px 0
     padding-left: 5px
     font-size: 14px
     color: white
