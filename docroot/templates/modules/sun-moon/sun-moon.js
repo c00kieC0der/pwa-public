@@ -7,9 +7,9 @@ console.log('Running sunMoon');
     var solarAssignment = [];
     var mapData = function () {
         dataAssignment = [
-            ['sunmoon-moonPhrase', _Data.dailyForecast.moonPhrase[0]],
             ['sunmoon-sunrise', _Data.dailyForecast.sunriseTime[0]],
             ['sunmoon-sunset', _Data.dailyForecast.sunsetTime[0]],
+            ['sunmoon-moonphrase', _Data.dailyForecast.moonPhrase[0]],
             ['sunmoon-moonrise', _Data.dailyForecast.moonriseTime[0]],
             ['sunmoon-moonset', _Data.dailyForecast.moonsetTime[0]]
         ];
