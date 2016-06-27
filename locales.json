@@ -1,0 +1,907 @@
+[
+  {
+    "siteLocale": "ar-AE",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-BH",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-DJ",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-DZ",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-EG",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-ER",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-IQ",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-JO",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-KM",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-KW",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-LB",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-LY",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-MA",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-MR",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-OM",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-QA",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-SA",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-SD",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-SO",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-SY",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-TD",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-TN",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "ar-YE",
+    "sunLocale": "ar-AE",
+    "smartlingLocale": "ar"
+  },
+  {
+    "siteLocale": "bn-BD",
+    "sunLocale": "bn-BD",
+    "smartlingLocale": "bn-BD"
+  },
+  {
+    "siteLocale": "ca-AD",
+    "sunLocale": "ca-ES",
+    "smartlingLocale": "ca-ES"
+  },
+  {
+    "siteLocale": "cs-CZ",
+    "sunLocale": "cs-CZ",
+    "smartlingLocale": "cs-CZ"
+  },
+  {
+    "siteLocale": "da-DK",
+    "sunLocale": "da-DK",
+    "smartlingLocale": "da-DK"
+  },
+  {
+    "siteLocale": "de-AT",
+    "sunLocale": "de-AT",
+    "smartlingLocale": "de-DE"
+  },
+  {
+    "siteLocale": "de-CH",
+    "sunLocale": "de-DE",
+    "smartlingLocale": "de-DE"
+  },
+  {
+    "siteLocale": "de-DE",
+    "sunLocale": "de-DE",
+    "smartlingLocale": "de-DE"
+  },
+  {
+    "siteLocale": "de-LI",
+    "sunLocale": "de-DE",
+    "smartlingLocale": "de-DE"
+  },
+  {
+    "siteLocale": "el-CY",
+    "sunLocale": "el-GR",
+    "smartlingLocale": "el-GR"
+  },
+  {
+    "siteLocale": "el-GR",
+    "sunLocale": "el-GR",
+    "smartlingLocale": "el-GR"
+  },
+  {
+    "siteLocale": "en-AG",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-AS",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-AU",
+    "sunLocale": "en-AU",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-BB",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-BS",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-BZ",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-CA",
+    "sunLocale": "en-US",
+    "smartlingLocale": "en-CA"
+  },
+  {
+    "siteLocale": "en-CM",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-DM",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-FJ",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-FM",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-GB",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-GD",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-GH",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-GM",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-GY",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-IE",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-IN",
+    "sunLocale": "en-IN",
+    "smartlingLocale": "en-IN"
+  },
+  {
+    "siteLocale": "en-JM",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-KE",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-KI",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-KN",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-LC",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-LR",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-LS",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-MH",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-MT",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-MU",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-NA",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-NG",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-NZ",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-PA",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-PH",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-PK",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-PW",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-RW",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-SB",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-SG",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-SL",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-SS",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-SZ",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-TO",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-TT",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-TV",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-TZ",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-UG",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-US",
+    "sunLocale": "en-US",
+    "smartlingLocale": "en-US"
+  },
+  {
+    "siteLocale": "en-VC",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-VU",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-ZA",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-ZM",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "en-ZW",
+    "sunLocale": "en-GB",
+    "smartlingLocale": "en-GB"
+  },
+  {
+    "siteLocale": "es-AR",
+    "sunLocale": "es-AR",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-BO",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-CL",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-CO",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-CR",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-DO",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-EC",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-ES",
+    "sunLocale": "es-ES",
+    "smartlingLocale": "es-ES"
+  },
+  {
+    "siteLocale": "es-GQ",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-GT",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-HN",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-MX",
+    "sunLocale": "es-MX",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-NI",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-PA",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-PE",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-PY",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-SV",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-US",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-US"
+  },
+  {
+    "siteLocale": "es-UY",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "es-VE",
+    "sunLocale": "es-US",
+    "smartlingLocale": "es-LA"
+  },
+  {
+    "siteLocale": "fa-IR",
+    "sunLocale": "fa-IR",
+    "smartlingLocale": "fa-IR"
+  },
+  {
+    "siteLocale": "fi-FI",
+    "sunLocale": "fi-FI",
+    "smartlingLocale": "fi-FI"
+  },
+  {
+    "siteLocale": "fr-AD",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-BE",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-BF",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-BI",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-BJ",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-CA",
+    "sunLocale": "fr-CA",
+    "smartlingLocale": "fr-CA"
+  },
+  {
+    "siteLocale": "fr-CD",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-CF",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-CG",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-CI",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-CM",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-DJ",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-DZ",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-FR",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-GA",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-GN",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-HT",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-KM",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-LU",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-MA",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-MC",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-MG",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-ML",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-MU",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-NE",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-RW",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-SN",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-TD",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-TG",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "fr-VU",
+    "sunLocale": "fr-FR",
+    "smartlingLocale": "fr-FR"
+  },
+  {
+    "siteLocale": "he-IL",
+    "sunLocale": "he-IL",
+    "smartlingLocale": "he-IL"
+  },
+  {
+    "siteLocale": "hi-IN",
+    "sunLocale": "hi-IN",
+    "smartlingLocale": "hi-IN"
+  },
+  {
+    "siteLocale": "hr-BA",
+    "sunLocale": "hr-HR",
+    "smartlingLocale": "hr-HR"
+  },
+  {
+    "siteLocale": "hr-HR",
+    "sunLocale": "hr-HR",
+    "smartlingLocale": "hr-HR"
+  },
+  {
+    "siteLocale": "hu-HU",
+    "sunLocale": "hu-HU",
+    "smartlingLocale": "hu-HU"
+  },
+  {
+    "siteLocale": "id-ID",
+    "sunLocale": "id-ID",
+    "smartlingLocale": "id-ID"
+  },
+  {
+    "siteLocale": "it-IT",
+    "sunLocale": "it-IT",
+    "smartlingLocale": "it-IT"
+  },
+  {
+    "siteLocale": "it-SM",
+    "sunLocale": "it-IT",
+    "smartlingLocale": "it-IT"
+  },
+  {
+    "siteLocale": "it-VA",
+    "sunLocale": "it-IT",
+    "smartlingLocale": "it-IT"
+  },
+  {
+    "siteLocale": "ja-JP",
+    "sunLocale": "ja-JP",
+    "smartlingLocale": "ja-JP"
+  },
+  {
+    "siteLocale": "ko-KP",
+    "sunLocale": "ko-KR",
+    "smartlingLocale": "ko-KR"
+  },
+  {
+    "siteLocale": "ko-KR",
+    "sunLocale": "ko-KR",
+    "smartlingLocale": "ko-KR"
+  },
+  {
+    "siteLocale": "ms-BN",
+    "sunLocale": "ms-MY",
+    "smartlingLocale": "ms-MY"
+  },
+  {
+    "siteLocale": "ms-MY",
+    "sunLocale": "ms-MY",
+    "smartlingLocale": "ms-MY"
+  },
+  {
+    "siteLocale": "nl-BE",
+    "sunLocale": "nl-NL",
+    "smartlingLocale": "nl-NL"
+  },
+  {
+    "siteLocale": "nl-NL",
+    "sunLocale": "nl-NL",
+    "smartlingLocale": "nl-NL"
+  },
+  {
+    "siteLocale": "nl-SR",
+    "sunLocale": "nl-NL",
+    "smartlingLocale": "nl-NL"
+  },
+  {
+    "siteLocale": "no-NO",
+    "sunLocale": "no-NO",
+    "smartlingLocale": "no-NO"
+  },
+  {
+    "siteLocale": "pl-PL",
+    "sunLocale": "pl-PL",
+    "smartlingLocale": "pl"
+  },
+  {
+    "siteLocale": "pt-AO",
+    "sunLocale": "pt-PT",
+    "smartlingLocale": "pt-PT"
+  },
+  {
+    "siteLocale": "pt-BR",
+    "sunLocale": "pt-BR",
+    "smartlingLocale": "pt-BR"
+  },
+  {
+    "siteLocale": "pt-CV",
+    "sunLocale": "pt-PT",
+    "smartlingLocale": "pt-PT"
+  },
+  {
+    "siteLocale": "pt-GW",
+    "sunLocale": "pt-PT",
+    "smartlingLocale": "pt-PT"
+  },
+  {
+    "siteLocale": "pt-MZ",
+    "sunLocale": "pt-PT",
+    "smartlingLocale": "pt-PT"
+  },
+  {
+    "siteLocale": "pt-PT",
+    "sunLocale": "pt-PT",
+    "smartlingLocale": "pt-PT"
+  },
+  {
+    "siteLocale": "pt-ST",
+    "sunLocale": "pt-PT",
+    "smartlingLocale": "pt-PT"
+  },
+  {
+    "siteLocale": "pt-TP",
+    "sunLocale": "pt-PT",
+    "smartlingLocale": "pt-PT"
+  },
+  {
+    "siteLocale": "ro-RO",
+    "sunLocale": "ro-RO",
+    "smartlingLocale": "ro-RO"
+  },
+  {
+    "siteLocale": "ru-BY",
+    "sunLocale": "ru-RU",
+    "smartlingLocale": "ru-RU"
+  },
+  {
+    "siteLocale": "ru-EE",
+    "sunLocale": "ru-RU",
+    "smartlingLocale": "ru-RU"
+  },
+  {
+    "siteLocale": "ru-KG",
+    "sunLocale": "ru-RU",
+    "smartlingLocale": "ru-RU"
+  },
+  {
+    "siteLocale": "ru-RU",
+    "sunLocale": "ru-RU",
+    "smartlingLocale": "ru-RU"
+  },
+  {
+    "siteLocale": "se-SV",
+    "sunLocale": "sv-SE",
+    "smartlingLocale": "sv-SE"
+  },
+  {
+    "siteLocale": "sk-SK",
+    "sunLocale": "sk-SK",
+    "smartlingLocale": "sk-SK"
+  },
+  {
+    "siteLocale": "th-TH",
+    "sunLocale": "th-TH",
+    "smartlingLocale": "th-TH"
+  },
+  {
+    "siteLocale": "tl-PH",
+    "sunLocale": "tl-PH",
+    "smartlingLocale": "tl-PH"
+  },
+  {
+    "siteLocale": "tr-TR",
+    "sunLocale": "tr-TR",
+    "smartlingLocale": "tr-TR"
+  },
+  {
+    "siteLocale": "uk-UA",
+    "sunLocale": "uk-UA",
+    "smartlingLocale": "uk-UA"
+  },
+  {
+    "siteLocale": "ur-PK",
+    "sunLocale": "ur-PK",
+    "smartlingLocale": "ur"
+  },
+  {
+    "siteLocale": "vi-VN",
+    "sunLocale": "vi-VN",
+    "smartlingLocale": "vi-VN"
+  },
+  {
+    "siteLocale": "zh-CN",
+    "sunLocale": "zh-CN",
+    "smartlingLocale": "zh-CN"
+  },
+  {
+    "siteLocale": "zh-SG",
+    "sunLocale": "zh-CN",
+    "smartlingLocale": "zh-CN"
+  },
+  {
+    "siteLocale": "zh-TW",
+    "sunLocale": "zh-TW",
+    "smartlingLocale": "zh-TW"
+  },
+  {
+    "siteLocale": "zh-TW",
+    "sunLocale": "zh-TW",
+    "smartlingLocale": "zh-TW"
+  }
+]
