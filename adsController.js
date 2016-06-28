@@ -10,6 +10,7 @@
     }
     // Wait for Data call to resolve
     document.addEventListener('builder', function() {
+        console.log("Builder start:", new Date().getTime() - window.renderStartTime);
         console.log("Data", _Data);
         if(_Data && _Data.obs){
             var obs = _Data.obs;
@@ -44,6 +45,8 @@
             $$.custParams["snw"] = obs.snowDepth+ '';
 
         }
+        $$.weatherDataPromise.resolve();
+
         //if (_Data.dailyForecast) {
         //    _self.set("fcst", dailyForecast);
         //    $$.custParams["fcst"] = dailyForecast;
@@ -76,15 +79,36 @@
     openx.async = true;
     node.parentNode.insertBefore(openx, node);
 
-    /** network */
-    network = "/7646/";
-    /** ad unit */
-    adUnit = isMobile ? "mobile_smart_us" : "web_weather_us";
-    adUnit = adstest ? 'test_' + adUnit : adUnit;
-    /** ad zone */
-    adZone = '/home';
-    NCTAU = network + adUnit + adZone;
-    NCAU = network + adUnit;
+
+    function loadJSON(callback) {
+
+        var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+        xobj.open('GET', '/localeToAdUnit.json', true); // Replace 'my_data' with the path to your file
+        xobj.onreadystatechange = function () {
+            if (xobj.readyState == 4 && xobj.status == "200") {
+                // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+                callback(xobj.responseText);
+            }
+        };
+        xobj.send(null);
+    }
+    loadJSON(function(response){
+        var localeToAdUnitMap = JSON.parse(response);
+        var savedPco = window.localStorage.jStorage ? JSON.parse(window.localStorage.jStorage) : {};
+        var locale = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-'): "en-US",
+            /** network */
+        network = "/7646/";
+        /** ad unit */
+
+        adUnit = isMobile ? localeToAdUnitMap[locale].m_mweb_wx : localeToAdUnitMap[locale].wx_online;
+        adUnit = adstest ? 'test_' + adUnit : adUnit;
+        /** ad zone */
+        adZone = '/home';
+        NCTAU = network + adUnit + adZone;
+        NCAU = network + adUnit;
+    });
+
 
 
     adMapping = {
@@ -174,7 +198,9 @@
         googletag.cmd.push(function () {
             Promise.all([$$.wxftgPromise.promise,
                          $$.amznSlotsPromise.promise,
-                         $$.criteoPromise.promise]).then(function() {
+                         $$.criteoPromise.promise,
+                         $$.weatherDataPromise]).then(function() {
+                console.log("all promises done: ", new Date().getTime() - window.renderStartTime);
                 $$.custParams = extend({}, $$.custParams, cust_params);
                 for (var p in $$.custParams) {
                     if ($$.custParams.hasOwnProperty(p)) {

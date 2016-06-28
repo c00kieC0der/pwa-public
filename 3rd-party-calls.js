@@ -1,6 +1,7 @@
 
 //window.renderStartTime = new Date().getTime();
 window.TWC = window.TWC || {};
+window.renderStartTime = new Date().getTime();
 TWC.adUtils = TWC.adUtils || {};
 
 TWC.Deferred = function() {
@@ -16,7 +17,7 @@ TWC.Deferred = function() {
 TWC.adUtils.amznSlotsPromise = new TWC.Deferred();
 TWC.adUtils.wxftgPromise = new TWC.Deferred();
 TWC.adUtils.criteoPromise = new TWC.Deferred();
-
+TWC.adUtils.weatherDataPromise = new TWC.Deferred();
 
 function jsonp(url, callback) {
     var head = document.getElementsByTagName('head')[0];
