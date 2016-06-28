@@ -43,6 +43,7 @@ var _Router = {};
             pos         : '6'
         }
     };
+    var urlParams = '', loc, urlPush;
     var changeTo = '', lis;
     _Router.changePage = function(page){
         lis = document.getElementsByClassName('page-nav-li');
@@ -60,14 +61,23 @@ var _Router = {};
 
             helper.loadTemplate('page-content', 'pages', changeTo);
             document.title = pageAssignment[page].title;
-            var loc = _User.activeLocation.lat ? _User.activeLocation.lat + ','+  _User.activeLocation.long : '';
-            history.pushState({changeTo:page}, page, '/weather/' + changeTo + '/l/' + loc);
+            loc = _User.activeLocation.lat ? _User.activeLocation.lat + ','+  _User.activeLocation.long : '';
+            urlPush = '/weather/' + changeTo + '/l/' + loc;
+            if(urlParams){
+                urlPush += urlParams;
+            }
+            history.pushState({changeTo:page}, page, urlPush);
         }
     };
 
 
     var pathArr = [];
     var handlePath = function(){
+        if(window.location.search){
+            urlParams = window.location.search;
+        } else {
+            urlParams = '';
+        }
         if(history.state && history.state.changeTo){
             _Router.changePage(history.state.changeTo);
         } else {
@@ -77,6 +87,8 @@ var _Router = {};
                 pathArr = window.location.pathname.split('/');
                 if(pageAssignment[pathArr[2]]){
                     _Router.changePage(pathArr[2]);
+                } else {
+                    _Router.changePage('today');
                 }
             }
             //Else, its not a valid URL.  We should probably 404 on this.
