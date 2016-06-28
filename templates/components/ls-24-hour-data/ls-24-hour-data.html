@@ -1,15 +1,13 @@
         <tr class="clickable">
           <td class="twc-sticky-col" headers="day" title="{{::daypart.narrative}}">
-            <span
-              class="date-time js-day"></span>
+            <span class="date-time js-day"></span>
             <span data-gm-wx-alert-badge="::daypart.iconExtended"></span>
-            <span data-wxicon data-sky-code="::daypart.icon"></span>
+            <span class="wx-weather-icon js-wxicon"></span>
             <span class="js-date"></span>
               <div class="twc-table-shadow sticky"></div>
           </td>
           <td headers="description" class="description">
-            <p
-              data-ng-bind="::daypart.phrase"></p>
+            <p class="js-description"></p>
           </td>
           <td headers="hi-low" class="temp">
             <span data-ng-if="daypart.parent === -1">
