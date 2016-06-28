@@ -16,6 +16,18 @@ function jsonp(url, callback) {
     document.body.appendChild(script);
 }
 
+function loadScript(url, callback) {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange=function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            callback();
+        }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.send();}
+
+
 window.googletag = window.googletag || {};
 googletag.cmd = googletag.cmd || [];
 window.ls_dfp_slots = window.ls_dfp_slots || [];
@@ -68,29 +80,28 @@ TWC.Deferred = function() {
             feelsLikeC = (units === 'm') ? obs.feelsLike : convertTemp(obs.feelsLike, units);
 
             $$.custParams = $$.custParams || {};
-            $$.custParams["hmid"] = obs.humidity;
-            $$.custParams["wind"] = obs.windSpeed;
-            $$.custParams["uv"] = obs.uvIndex;
-            $$.custParams["realTemp"] = tempF;
+            $$.custParams["hmid"] = obs.humidity + '';
+            $$.custParams["wind"] = obs.windSpeed+ '';
+            $$.custParams["uv"] = obs.uvIndex+ '';
+            $$.custParams["realTemp"] = tempF+ '';
             $$.custParams["tmp"] = [tempF,tempC];
-            $$.custParams["tempc"] = tempC;
+            $$.custParams["tempc"] = tempC+ '';
             $$.custParams["tempR"] = {
-                val: tempF
+                val: tempF+ ''
             };
             $$.custParams["tempRC"] = {
-                val: tempC
+                val: tempC+ ''
             };
-            $$.custParams["wxIcon"] = obs.icon;
-
-            $$.custParams['flsLkF'] = feelsLikeF;
-            $$.custParams['flsLkC'] = feelsLikeC;
-
+            $$.custParams["wxIcon"] = obs.icon+ '';
+            $$.custParams['flsLkF'] = feelsLikeF+ '';
+            $$.custParams['flsLkC'] = feelsLikeC+ '';
             if (obs.iconExt) {
-                $$.custParams["wxExtIcon"] = obs.iconExt; /*not in turbo data. not needed per Pavan.*/
+                $$.custParams["wxExtIcon"] = obs.iconExt+ ''; /*not in turbo data. not needed per Pavan.*/
             }
-            $$.custParams["cnd"] = obs.icon;
-            $$.custParams["baro"] = obs.barometerCode;
-            $$.custParams["snw"] = obs.snowDepth;
+            $$.custParams["cnd"] = obs.icon+ '';
+            $$.custParams["baro"] = obs.barometerCode+ '';
+            $$.custParams["snw"] = obs.snowDepth+ '';
+
         }
         //if (_Data.dailyForecast) {
         //    _self.set("fcst", dailyForecast);
@@ -222,7 +233,9 @@ TWC.Deferred = function() {
         });
 
         googletag.cmd.push(function () {
-            Promise.all([$$.wxftgPromise, $$.amznSlotsPromise]).then(function() {
+            Promise.all([$$.wxftgPromise.promise,
+                         $$.amznSlotsPromise.promise,
+                         $$.criteoPromise.promise]).then(function() {
                 $$.custParams = extend({}, $$.custParams, cust_params);
                 for (var p in $$.custParams) {
                     if ($$.custParams.hasOwnProperty(p)) {
@@ -316,7 +329,7 @@ TWC.Deferred = function() {
         $$.custParams['scatter_zcs'] = zcs;
         $$.custParams['scatter_nzcs'] = nzcs;
         $$.custParams['scatter_cxtg'] = cxtg;
-        $$.wxftgPromise = Promise.resolve("wxftg");
+        $$.wxftgPromise.resolve();
 
     };
 
@@ -397,10 +410,9 @@ TWC.Deferred = function() {
             $$.custParams['cig'] = output.join(",");
         }
         $$.criteoPromise.resolve("criteo");
-        clearTimeout(timeout);
     };
     $$.addLoadEvent(function() {
-        jsonp(criteoUrl, successCallback);
+        loadScript(criteoUrl, successCallback);
     });
 })(TWC.adUtils || {});
 
