@@ -69,17 +69,19 @@ var getPCOStatus = function(){
     }
 };
 
-var toastClicked = function(){
-    console.log('Clicked toast');
-    document.getElementById('page-div-toast').style.display = 'none';
-    _User.updatePushNotifications(true);
-};
-
-var closeToast = function() {
-    console.log('Closed toast');
-    document.getElementById('page-div-toast').style.display = 'none';
-    _User.updatePushNotifications(false);
-};
 
 })();
+var toastFunctions = {
+    toastClicked : function(){
+        console.log('Clicked toast');
+        document.getElementById('page-div-toast').style.display = 'none';
+        _User.updatePushNotifications(true);
+    },
+    closeToast : function() {
+        console.log('Closed toast');
+        document.getElementById('page-div-toast').style.display = 'none';
+        _User.updatePushNotifications(false);
+    }
+};
+
 /* jshint ignore:end */

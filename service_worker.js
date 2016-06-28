@@ -1,8 +1,4 @@
-/**
- * Created by ecook on 6/5/16.
- */
 
-(function(){
 
 
 console.log('hello there');
@@ -84,4 +80,3 @@ self.onfetch = function(event) {
         );
     }
 };*/
-})();
