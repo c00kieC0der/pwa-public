@@ -100,6 +100,7 @@ TWC.adUtils.addLoadEvent = function(func) {
     acctid = (locale === 'de_DE') && 'B98RXZ' || acctid;
     var wxftgUrl = "//triggers.wfxtriggers.com/json/?resp_type=json&acctid=" + acctid + "&current=true&zcs=" + zcs + "&nzcs=" + nzcs;
     var successCallBack = function(data){
+        console.log('wfxtgReturned', new Date().getTime() - window.renderStartTime);
         var triggers = data && data.wfxtg,
           wfxtg = Array.isArray(data.wfxtg.current) && data.wfxtg.current.join(',') || "",
           scatterSegs = Array.isArray(triggers.scatterSegs) && triggers.scatterSegs,
@@ -121,9 +122,7 @@ TWC.adUtils.addLoadEvent = function(func) {
     };
 
     //  AJAX request for weather fx
-    // $$.addLoadEvent(function(){
-        jsonp(wxftgUrl, successCallBack);
-    // });
+    jsonp(wxftgUrl, successCallBack);
 
 })(TWC.adUtils || {});
 
@@ -171,9 +170,7 @@ TWC.adUtils.addLoadEvent = function(func) {
         },
         timeout: 2000
     };
-//    $$.addLoadEvent(function() {
-        jsonp('//c.amazon-adsystem.com/aax2/amzn_ads.js');
-//    });
+    jsonp('//c.amazon-adsystem.com/aax2/amzn_ads.js');
 })(window.amznads || {}, TWC.adUtils || {});
 
 
@@ -205,8 +202,6 @@ TWC.adUtils.addLoadEvent = function(func) {
         $$.criteoPromise.resolve("criteo");
         console.log('criteoResolved', new Date().getTime() - window.renderStartTime);
     };
-//    $$.addLoadEvent(function() {
-        loadScript(criteoUrl, successCallback);
-//    });
+    loadScript(criteoUrl, successCallback);
 })(TWC.adUtils || {});
 
