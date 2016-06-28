@@ -5,11 +5,15 @@
 
 // GET WEATHER DATA FOR CUST PARAMS
 (function($$){
+
     function convertTemp(temp, unit) {
         return (unit === 'e') ? Math.round((temp - 32) * 5 / 9) /*F to C*/: Math.round((temp * 9 / 5) + 32) /*C to F*/;
     }
+
+
     // Wait for Data call to resolve
     document.addEventListener('builder', function() {
+        console.log('cust_params', new Date().getTime() - window.renderStartTime);
         console.log("Data", _Data);
         if(_Data && _Data.obs){
             var obs = _Data.obs;
@@ -114,6 +118,14 @@
             "MW_Position2": {
                 pos: "mw_p2",
                 sizes: [300, 251]
+            },
+            "MW_Position3":{
+                pos: "mw_p3",
+                sizes: [300, 251]
+            },
+            "MW_Position4":{
+                pos: "mw_p4",
+                sizes: [300, 251]
             }
         }
 
@@ -175,6 +187,7 @@
             Promise.all([$$.wxftgPromise.promise,
                          $$.amznSlotsPromise.promise,
                          $$.criteoPromise.promise]).then(function() {
+                console.log('allPromisesDone', new Date().getTime() - window.renderStartTime);
                 $$.custParams = extend({}, $$.custParams, cust_params);
                 for (var p in $$.custParams) {
                     if ($$.custParams.hasOwnProperty(p)) {
