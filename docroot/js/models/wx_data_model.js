@@ -29,10 +29,10 @@ var _Data = {};
                 'url': astroURl,
                 'generateUniqueUrl': false,
                 'onSuccess': function (req) {
-
                     var data = JSON.parse(req.responseText);
-                    _Data.solarNoon = data[0].doc.AstroData[0].sun.zenith.local;
-                    //This data needs to be "massaged"
+                    //_Data.solarNoonData = formatTime(data[0].doc.AstroData[0].sun.zenith.local);
+                    _Data.solarData =data[0].doc;
+                    massageSolarData();
                     document.getElementById('event-anchor').dispatchEvent(astroEventData);
                 }
             },
@@ -89,8 +89,10 @@ var _Data = {};
         return daysOfWeek[dateBase.getDay()] + ', ' + monthsOfYear[dateBase.getMonth()] + ' ' + dateBase.getDate();
     };
 
-
-    var formatDateTimes = function(dataObj){
+    /*
+    Formats dailyforecast datetimes, currently used for sunrise/sunset, and moonrise/moonset
+     */
+    var formatDFDateTimes = function(dataObj){
         for(var key in dataObj){
             if(dataObj.hasOwnProperty(key)){
 
@@ -115,7 +117,7 @@ var _Data = {};
             moonrise: _Data.dailyForecast.moonrise,
             moonset: _Data.dailyForecast.moonset
         };
-        formatDateTimes(sunMoonData);
+        formatDFDateTimes(sunMoonData);
 
         _Data.hourly.time = [];
         _Data.hourly.date = [];
@@ -126,5 +128,20 @@ var _Data = {};
             }
         }
     };
+
+    /*
+     Formats solar noon dates and times.
+     */
+    var massageSolarData = function(){
+        _Data.solarData.noonTime=[];
+        _Data.solarData.noonDate=[];
+        for(var j in _Data.solarData.AstroData){
+            if(_Data.solarData.AstroData.hasOwnProperty(j)) {
+                _Data.solarData.noonTime[j] = formatTime(_Data.solarData.AstroData[j].sun.zenith.local);
+                _Data.solarData.noonDate[j] = formatDate(_Data.solarData.AstroData[j].sun.zenith.local);
+            }
+        }
+    };
+
 })();
 

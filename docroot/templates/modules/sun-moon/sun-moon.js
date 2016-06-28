@@ -1,7 +1,6 @@
 /**
  * Created by avery.horton on 6/23/16.
  */
-console.log('Running sunMoon');
 (function () {
     var dataAssignment = [];
     var solarAssignment = [];
@@ -9,15 +8,17 @@ console.log('Running sunMoon');
         dataAssignment = [
             ['sunmoon-sunrise', _Data.dailyForecast.sunriseTime[0]],
             ['sunmoon-sunset', _Data.dailyForecast.sunsetTime[0]],
+            ['sunmoon-moonphrase-icon', _Data.dailyForecast.moonIcon[0]],
             ['sunmoon-moonphrase', _Data.dailyForecast.moonPhrase[0]],
             ['sunmoon-moonrise', _Data.dailyForecast.moonriseTime[0]],
             ['sunmoon-moonset', _Data.dailyForecast.moonsetTime[0]]
         ];
 
     };
+    
     var mapSolarNoon = function () {
         solarAssignment = [
-            ['sunmoon-noon', _Data.solarNoon]
+            ['sunmoon-noon', _Data.solarData.noonTime[0]]
         ];
     };
 
@@ -35,7 +36,7 @@ console.log('Running sunMoon');
         mapData();
         helper.setContent(dataAssignment);
     }
-    if (_Data.solarNoon) {
+    if (_Data.solarData) {
         mapSolarNoon();
         helper.setContent(solarAssignment);
     }
