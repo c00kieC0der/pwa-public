@@ -8,7 +8,7 @@ Error: File to import not found or unreadable: compass.
 3: @import '../partials/sticky-table'
 4: @import 'compass'
 5: 
-6: 
+6: .ls-hourly-wrap
 
 Backtrace:
 ../partials/_sticky-table.sass:1
@@ -68,4 +68,4 @@ hourly-forecast.sass:3
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: compass.\A         on line 1 of ../partials/_sticky-table.sass\A         from line 3 of hourly-forecast.sass\A \A 1: @import '../partials/colors'\A 2: @import '../partials/typography'\A 3: @import '../partials/sticky-table'\A 4: @import 'compass'\A 5: \A 6: "; }
+  content: "Error: File to import not found or unreadable: compass.\A         on line 1 of ../partials/_sticky-table.sass\A         from line 3 of hourly-forecast.sass\A \A 1: @import '../partials/colors'\A 2: @import '../partials/typography'\A 3: @import '../partials/sticky-table'\A 4: @import 'compass'\A 5: \A 6: .ls-hourly-wrap"; }

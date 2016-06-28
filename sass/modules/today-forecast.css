@@ -9,7 +9,7 @@ Error: File to import not found or unreadable: compass.
 5: // Global
 6: .card
 7:   margin: 0 8px 15px
-8:   background-color: white
+8:   padding: 10px
 
 Backtrace:
 today-forecast.sass:3
@@ -55,4 +55,4 @@ today-forecast.sass:3
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: compass.\A         on line 3 of today-forecast.sass\A \A 1: @import '../partials/colors'\A 2: @import '../partials/typography'\A 3: @import 'compass'\A 4: \A 5: // Global\A 6: .card\A 7:   margin: 0 8px 15px\A 8:   background-color: white"; }
+  content: "Error: File to import not found or unreadable: compass.\A         on line 3 of today-forecast.sass\A \A 1: @import '../partials/colors'\A 2: @import '../partials/typography'\A 3: @import 'compass'\A 4: \A 5: // Global\A 6: .card\A 7:   margin: 0 8px 15px\A 8:   padding: 10px"; }
