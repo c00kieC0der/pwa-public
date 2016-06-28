@@ -1,7 +1,7 @@
 var helper = {};
 
 helper.loadTemplate = function(elementId, type, name){
-    var path = 'https://' + window.location.hostname + '/templates/' + type + '/' + name + '/' + name + '.html';
+    var path = '/templates/' + type + '/' + name + '/' + name + '.html';
     var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
@@ -15,7 +15,7 @@ helper.loadTemplate = function(elementId, type, name){
     var body = document.getElementsByTagName('head')[0];
     var script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = 'https://' + window.location.hostname + '/templates/' + type + '/' + name + '/' + name + '.js';
+    script.src = '/templates/' + type + '/' + name + '/' + name + '.js';
 
     // Then bind the event to the callback function.
     // There are several events for cross browser compatibility.

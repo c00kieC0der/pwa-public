@@ -30,7 +30,7 @@ gulp.task('webserver', function() {
         .pipe(webserver({
             livereload: false,
             host: '127.0.0.1',
-            port: 9000,
+            port: 5001,
             open: true,
             https: true,
             fallback : 'index.html'
@@ -63,6 +63,16 @@ gulp.task('js-minify', function() {
             ignoreFiles: ['-min.js']
         }))
         .pipe(gulp.dest('js-min'));
+    gulp.src('./templates/*/*/*.js')
+        .pipe(minify({
+            ext:{
+                src:'-debug.js',
+                min:'-min.js'
+            },
+            // exclude: ['tasks'],
+            ignoreFiles: ['-min.js']
+        }))
+        .pipe(gulp.dest('./templates/js-min'));
 });
 
 gulp.task('lint', function(){
