@@ -110,7 +110,15 @@ var _Data = {}, app = {};
                 wxicon: getWxIcon(daily.night.icon[0]),
                 temperature: daily.night.temperature[0],
                 narrative: daily.night.narrative[0],
-                precip: daily.night.precipPct[0]
+                precip: daily.night.precipPct[0],
+                windDirCompass: daily.night.windDirCompass[0],
+                windDirDegrees: daily.night.windDirDegrees[0],
+                windSpeed: daily.night.windSpeed[0],
+                humidity: daily.night.humidityPct[0],
+                uvIndex: daily.night.uvIndex[0],
+                sunrise: daily.night.sunrise[0],
+                sunset: daily.night.sunset[0]
+
             }, {
                 daypartName: daily.day.dayPartName[1],
                 highLow: 'High',
@@ -118,7 +126,15 @@ var _Data = {}, app = {};
                 wxicon: getWxIcon(daily.day.icon[1]),
                 temperature: daily.day.temperature[1],
                 narrative: daily.day.narrative[1],
-                precip: daily.day.precipPct[1]
+                precip: daily.day.precipPct[1],
+                windDirCompass: daily.day.windDirCompass[1],
+                windDirDegrees: daily.day.windDirDegrees[1],
+                windSpeed: daily.day.windSpeed[1],
+                humidity: daily.day.humidityPct[1],
+                uvIndex: daily.day.uvIndex[1],
+                sunrise: daily.day.sunrise[1],
+                sunset: daily.day.sunset[1]
+
             }, {
                 daypartName: daily.night.dayPartName[1],
                 highLow: 'Low',
@@ -126,7 +142,15 @@ var _Data = {}, app = {};
                 wxicon: getWxIcon(daily.night.icon[1]),
                 temperature: daily.night.temperature[1],
                 narrative: daily.night.narrative[1],
-                precip: daily.night.precipPct[1]
+                precip: daily.night.precipPct[1],
+                windDirCompass: daily.night.windDirCompass[1],
+                windDirDegrees: daily.night.windDirDegrees[1],
+                windSpeed: daily.night.windSpeed[1],
+                humidity: daily.night.humidityPct[1],
+                uvIndex: daily.night.uvIndex[1],
+                sunrise: daily.night.sunrise[1],
+                sunset: daily.night.sunset[1]
+
             }];
         } else {
             retData = [{
@@ -136,7 +160,15 @@ var _Data = {}, app = {};
                 wxicon: getWxIcon(daily.day.icon[0]),
                 temperature: daily.day.temperature[0],
                 narrative: daily.day.narrative[0],
-                precip: daily.day.precipPct[0]
+                precip: daily.day.precipPct[0],
+                windDirCompass: daily.day.windDirCompass[0],
+                windDirDegrees: daily.day.windDirDegrees[0],
+                windSpeed: daily.day.windSpeed[0],
+                humidity: daily.day.humidityPct[0],
+                uvIndex: daily.day.uvIndex[0],
+                sunrise: formatTime(daily.sunrise[0]),
+                sunset: formatTime(daily.sunset[0])
+
             }, {
                 daypartName: daily.night.dayPartName[0],
                 highLow: 'Low',
@@ -144,7 +176,15 @@ var _Data = {}, app = {};
                 wxicon: getWxIcon(daily.night.icon[0]),
                 temperature: daily.night.temperature[0],
                 narrative: daily.night.narrative[0],
-                precip: daily.night.precipPct[0]
+                precip: daily.night.precipPct[0],
+                windDirCompass: daily.night.windDirCompass[0],
+                windDirDegrees: daily.night.windDirDegrees[0],
+                windSpeed: daily.night.windSpeed[0],
+                humidity: daily.night.humidityPct[0],
+                uvIndex: daily.night.uvIndex[0],
+                sunrise: formatTime(daily.sunrise[0]),
+                sunset: formatTime(daily.sunset[0])
+
             }, {
                 daypartName: daily.day.dayPartName[1],
                 highLow: 'High',
@@ -152,7 +192,15 @@ var _Data = {}, app = {};
                 wxicon: getWxIcon(daily.day.icon[1]),
                 temperature: daily.day.temperature[1],
                 narrative: daily.day.narrative[1],
-                precip: daily.day.precipPct[1]
+                precip: daily.day.precipPct[1],
+                windDirCompass: daily.day.windDirCompass[1],
+                windDirDegrees: daily.day.windDirDegrees[1],
+                windSpeed: daily.day.windSpeed[1],
+                humidity: daily.day.humidityPct[1],
+                uvIndex: daily.day.uvIndex[1],
+                sunrise: formatTime(daily.sunrise[1]),
+                sunset: formatTime(daily.sunset[1])
+
             }];
         }
         return retData;
