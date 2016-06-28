@@ -3,16 +3,13 @@
  */
 (function(){
     var ngRepeatMap = [
-        ['js-time',        'time'],
+        ['js-day',        'dayPartName'],
         ['js-date',        'date'],
         ['js-wxicon',      'icon'],
         ['js-temp',        'temperature'],
-        ['js-feels',       'feelsLike'],
         ['js-description', 'phrase'],
         ['js-precip',      'precipPct'],
-        ['js-humidity',    'rh'],
-        ['js-wind-direction',        'windDirCompass'],
-        ['js-wind-speed',  'windSpeed']
+        ['js-humidity',    'humidityPct']
     ];
     /*
         What div,
@@ -21,12 +18,12 @@
         data
         do it how many times?
      */
-    if(_Data.hourly){
-        helper.ngRepeat('ls-row-wrap', 'ls-24-hour-data', ngRepeatMap, _Data.hourly, 12);
+    if(_Data.dailyForecast){
+        helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.day, 5);
     }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {
         console.log('STUFF...', '_User.activeLocation.prsntNm');
-        helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12);
+        helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.day, 5);
     });
 })();
