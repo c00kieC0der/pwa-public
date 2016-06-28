@@ -206,7 +206,12 @@
             setAd(el);
         });
 
-        googletag.cmd.push(function () {
+    //$$.wxftgPromise.resolve();
+    //$$.amznSlotsPromise.resolve();
+    //$$.criteoPromise.resolve();
+    //$$.weatherDataPromise.resolve();
+
+    googletag.cmd.push(function () {
             Promise.all([$$.wxftgPromise.promise,
                 $$.amznSlotsPromise.promise,
                 $$.criteoPromise.promise,
