@@ -1,3 +1,11 @@
+.panel-heading > h2,
+.panel-heading .heading {
+  font-size: 1.42857rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 5px 0 10px; }
+
 .twc-table-wrapper {
   position: relative; }
 
@@ -142,6 +150,9 @@
   .ls-hourly-wrap .description {
     padding-left: 15px;
     width: 30%; }
+    .ls-hourly-wrap .description p {
+      height: auto;
+      display: inherit; }
     @media only screen and (max-width: 767px) {
       .ls-hourly-wrap .description {
         display: none; } }
