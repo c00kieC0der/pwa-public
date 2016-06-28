@@ -45,10 +45,27 @@
             ['dp3-highLow', _Data.lookingAhead[2].highLow],
             ['dp3-temperature', _Data.lookingAhead[2].temperature],
             ['dp3-precip', _Data.lookingAhead[2].precip],
+
+            // Weather Details
             ['dp1-details-narrative', _Data.lookingAhead[0].narrative],
             ['dp1-details-wind', _Data.lookingAhead[0].windSpeed + ' ' + windUnit + ' ' + _Data.lookingAhead[0].windDirCompass],
             ['dp1-details-humidity', _Data.lookingAhead[0].humidity],
-            ['dp1-details-uvIndex', _Data.lookingAhead[0].uvIndex]
+            ['dp1-details-uvIndex', _Data.lookingAhead[0].uvIndex],
+            ['dp1-details-sunrise', _Data.lookingAhead[0].sunrise],
+            ['dp1-details-sunset', _Data.lookingAhead[0].sunset],
+            ['dp2-details-narrative', _Data.lookingAhead[1].narrative],
+            ['dp2-details-wind', _Data.lookingAhead[1].windSpeed + ' ' + windUnit + ' ' + _Data.lookingAhead[1].windDirCompass],
+            ['dp2-details-humidity', _Data.lookingAhead[1].humidity],
+            ['dp2-details-uvIndex', _Data.lookingAhead[1].uvIndex],
+            ['dp2-details-sunrise', _Data.lookingAhead[1].sunrise],
+            ['dp2-details-sunset', _Data.lookingAhead[1].sunset],
+            ['dp3-details-narrative', _Data.lookingAhead[2].narrative],
+            ['dp3-details-wind', _Data.lookingAhead[2].windSpeed + ' ' + windUnit + ' ' + _Data.lookingAhead[2].windDirCompass],
+            ['dp3-details-humidity', _Data.lookingAhead[2].humidity],
+            ['dp3-details-uvIndex', _Data.lookingAhead[2].uvIndex],
+            ['dp3-details-sunrise', _Data.lookingAhead[2].sunrise],
+            ['dp3-details-sunset', _Data.lookingAhead[2].sunset],
+
         ];
         var highTemp = _Data.obs.temperatureMaxSince7am ? _Data.obs.temperatureMaxSince7am : _Data.dailyForecast.day.temperature[0] !== null ? _Data.dailyForecast.day.temperature[0] : '--';
         dataAssignment.push(['nowcard-hi-value', highTemp]);
