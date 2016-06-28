@@ -1,0 +1,62 @@
+@import '../partials/colors'
+@import '../partials/typography'
+@import '../partials/sticky-table'
+@import 'compass'
+
+.ls-24-hour-wrap
+  background: white
+  position: relative
+  @media only screen and (max-width: 767px)
+    margin: 5px
+    +box-shadow(0 0 3px rgba(black, .3))
+  .wx-weather-icon
+    width: 36px
+    height: 36px
+    position: absolute
+    right: 10px
+  .description
+    padding-left: 15px
+    width: 30%
+    @media only screen and (max-width: 767px)
+      display: none
+  .humidity
+    width: 70%
+    @media only screen and (max-width: 767px)
+      width: 100%
+  .lo
+    color: $gray-dark
+    font-style: italic
+  .temp,
+  .lo
+    font-weight: 600
+  .day-detail
+    font-size: px-to-rem(11px)
+    color: $gray
+  .open,
+  .details
+    .day-detail
+      color: $gray-dark
+  .details + .details td,
+  .twc-table tr.open td
+    border-bottom: none
+  .twc-table
+    tr.open td,
+    tr.details td
+      +transition(none)
+
+  .desc-details
+    padding-left: 15px
+    border-bottom: none
+  .narrative
+    display: block
+    width: 100%
+    white-space: normal
+  .slash
+    display: inline-block
+    margin-left: -2px
+    height: 14px
+    border-right: 1px solid $gray-dark
+    +transform(skewX(-30deg))
+    position: relative
+    bottom: -2px
+

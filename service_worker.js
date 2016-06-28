@@ -1,38 +1,36 @@
-/**
- * Created by ecook on 6/5/16.
- */
-var _SW = {};
 
+
+
+console.log('hello there');
+
+/*
 //require('serviceworker-cache-polyfill');
 
 var version = 'v1';
 var staticCacheName = 'twc-pwa-static';
 
-self.oninstall = function(event) {
+self.addEventListener('install', function(e) {
+    console.log('installed? ');
     self.skipWaiting();
 
-    event.waitUntil(
+    e.waitUntil(
         caches.open(staticCacheName).then(function(cache) {
             return cache.addAll([
-                '/pwa/',
-                '/pwa/iconfont/wx-iconfont-global/fonts/wx-iconfont-global.eot',
-                '/pwa/iconfont/wx-iconfont-global/fonts/wx-iconfont-global.svg',
-                '/pwa/iconfont/wx-iconfont-global/fonts/wx-iconfont-global.ttf',
-                '/pwa/iconfont/wx-iconfont-global/fonts/wx-iconfont-global.woff',
-                '/pwa/iconfont/wx-iconfont-global/style.css',
-                '/pwa/js/models/language_model.js',
-                '/pwa/js/models/locations_model.js',
-                '/pwa/js/models/map_model.js',
-                '/pwa/js/models/metrics_model.js',
-                '/pwa/js/models/router_model.js',
-                '/pwa/js/models/user_model.js',
-                '/pwa/js/models/wx_data_model.js',
-                '/pwa/styles/core.css'
+                '/',
+                '/iconfont/wx-iconfont-global/fonts/wx-iconfont-global.eot',
+                '/iconfont/wx-iconfont-global/fonts/wx-iconfont-global.svg',
+                '/docroot/iconfont/wx-iconfont-global/fonts/wx-iconfont-global.ttf',
+                '/docroot/iconfont/wx-iconfont-global/fonts/wx-iconfont-global.woff',
+                '/docroot/iconfont/wx-iconfont-global/style.css',
+                '/docroot/backend.js',
+                '/docroot/styles/core.css'
             ]);
         })
     );
 };
 
+
+console.log(caches);
 var expectedCaches = [
     staticCacheName,
     'twc-pwa-imgs',
@@ -58,23 +56,27 @@ self.onactivate = function(event) {
         })
     );
 };
-
-/*self.onfetch = function(event) {
-    var requestURL = new URL(event.request.url);
-
-    //if (requestURL.hostname == '/something_specific') {  //do something};
-    //otherwise.
-    event.respondWith(
-        caches.match(event.request,
-       {
-            ignoreVary: true
-        })
-    );
+console.log('service worker on');
+self.onfetch = function(event) {
+    console.log('on fetch?? ');
+    var dataUrl = 'https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1pollenforecast;vt1dailyForecast;vt1observation;vt1alerts?';
+    if (e.request.url.indexOf(dataUrl) === 0) {
+        e.respondWith(
+            fetch(e.request)
+                .then(function(response) {
+                    return caches.open('twc-pwa-data').then(function(cache) {
+                        cache.put(e.request.url, response.clone());
+                        console.log('[ServiceWorker] Fetched&Cached Data');
+                        return response;
+                    });
+                })
+        );
+    } else {
+        event.respondWith(
+            caches.match(event.request,
+                {
+                    ignoreVary: true
+                })
+        );
+    }
 };*/
-
-_SW.success = function(){
-
-};
-_SW.failure = function(){
-  //Someway to fail gracefully?
-};
