@@ -116,8 +116,8 @@ var _Data = {}, app = {};
                 windSpeed: daily.night.windSpeed[0],
                 humidity: daily.night.humidityPct[0],
                 uvIndex: daily.night.uvIndex[0],
-                sunrise: daily.night.sunrise[0],
-                sunset: daily.night.sunset[0]
+                sunrise: formatTime(daily.sunrise[0]),
+                sunset: formatTime(daily.sunset[0])
 
             }, {
                 daypartName: daily.day.dayPartName[1],
@@ -132,8 +132,8 @@ var _Data = {}, app = {};
                 windSpeed: daily.day.windSpeed[1],
                 humidity: daily.day.humidityPct[1],
                 uvIndex: daily.day.uvIndex[1],
-                sunrise: daily.day.sunrise[1],
-                sunset: daily.day.sunset[1]
+                sunrise: formatTime(daily.sunrise[1]),
+                sunset: formatTime(daily.sunset[1])
 
             }, {
                 daypartName: daily.night.dayPartName[1],
@@ -148,8 +148,8 @@ var _Data = {}, app = {};
                 windSpeed: daily.night.windSpeed[1],
                 humidity: daily.night.humidityPct[1],
                 uvIndex: daily.night.uvIndex[1],
-                sunrise: daily.night.sunrise[1],
-                sunset: daily.night.sunset[1]
+                sunrise: formatTime(daily.sunrise[2]),
+                sunset: formatTime(daily.sunset[2])
 
             }];
         } else {

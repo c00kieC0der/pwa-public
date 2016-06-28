@@ -159,6 +159,12 @@ body {
 .nav-tabs > li {
   float: left; }
 
+.unique-text-wrap-class {
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
 .nav {
   width: 100%;
   margin: 0 auto;
