@@ -35,19 +35,19 @@
       .sunmoon-mod .mod-body .sunmoon-list li .list-element {
         display: table-cell;
         padding: 10px 0px;
-        white-space: nowrap;
         width: 100%;
         text-transform: capitalize; }
       .sunmoon-mod .mod-body .sunmoon-list li #sunmoon-moonphrase {
         text-transform: capitalize; }
       .sunmoon-mod .mod-body .sunmoon-list li .period-name {
-        color: #444444; }
+        color: #444444;
+        white-space: nowrap; }
       .sunmoon-mod .mod-body .sunmoon-list li .period-value {
+        white-space: nowrap;
         color: #444444;
         display: table-cell;
         padding: 10px 0px;
         text-align: right;
-        white-space: nowrap;
         text-transform: lowercase; }
     .sunmoon-mod .mod-body .sunmoon-list li:first-child {
       border-top: 0px; }

@@ -147,10 +147,15 @@ var _Data = {}, app = {};
     var massageSolarData = function(){
         _Data.solarData.noonTime=[];
         _Data.solarData.noonDate=[];
+        _Data.solarData.moonIcons =[];
+        var moonIcCount=0;
         for(var j in _Data.solarData.AstroData){
             if(_Data.solarData.AstroData.hasOwnProperty(j)) {
                 _Data.solarData.noonTime[j] = formatTime(_Data.solarData.AstroData[j].sun.zenith.local);
                 _Data.solarData.noonDate[j] = formatDate(_Data.solarData.AstroData[j].sun.zenith.local);
+                _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet.riseIcon);
+                _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet["setIcon"]);
+
             }
         }
     };

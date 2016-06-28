@@ -8,7 +8,6 @@
         dataAssignment = [
             ['sunmoon-sunrise', _Data.dailyForecast.sunriseTime[0]],
             ['sunmoon-sunset', _Data.dailyForecast.sunsetTime[0]],
-            ['sunmoon-moonphrase-icon', _Data.dailyForecast.moonIcon[0]],
             ['sunmoon-moonphrase', _Data.dailyForecast.moonPhrase[0]],
             ['sunmoon-moonrise', _Data.dailyForecast.moonriseTime[0]],
             ['sunmoon-moonset', _Data.dailyForecast.moonsetTime[0]]
@@ -17,8 +16,10 @@
     };
     
     var mapSolarNoon = function () {
+        var moonIcon = "wx-iconfont-moon moon-phase-"+_Data.solarData.moonIcons[0]+ " moon-icon";
+        document.getElementById('sunmoon-moonphrase-icon').setAttribute("class", moonIcon);
         solarAssignment = [
-            ['sunmoon-noon', _Data.solarData.noonTime[0]]
+            ['sunmoon-noon', _Data.solarData.noonTime[0]],
         ];
     };
 
