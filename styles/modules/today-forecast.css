@@ -258,6 +258,8 @@
     display: inline; } }
 .looking-ahead .show-lg {
   display: inline; }
+.looking-ahead .dp-details {
+  width: 100%; }
 .looking-ahead .today-daypart.daypart-1 {
   background-color: #1f4371;
   -webkit-flex-grow: 1;
