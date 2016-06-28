@@ -10,12 +10,15 @@
     <link rel="stylesheet" type="text/css" href="/assets/wxicon/css/wxicon.css">
     <link rel="stylesheet" type="text/css" href="/iconfont/wx-iconfont-global/style.css">
     <link rel="manifest" href="manifest.json">
-    <script async="async" src="https://js-sec.indexww.com/ht/ls-weather.js"></script>
-    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
-    <script async="async" src="/adsController.js"></script>
+    <script>
+        window.renderStartTime = new Date().getTime();
+    </script>
+    <script async src="https://js-sec.indexww.com/ht/ls-weather.js"></script>
+    <script async src="https://www.googletagservices.com/tag/js/gpt.js"></script>
 
 </head>
 <body onclick="">
+<script src="/3rd-party-calls.js"></script>
 <div class="main-div">
     <div id="WX_Hidden"></div>
     <div id="WX_WindowShade"></div>
@@ -161,6 +164,7 @@
 
     </footer>
 
+<script async src="/adsController.js"></script>
 <script src="/js-src/vendor/metrics.js"></script>
 <script src="/js-src/vendor/ajax.js"></script>
 <script src="/assets/wxicon/wxicon.js"></script>
