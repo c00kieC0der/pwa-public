@@ -44,7 +44,7 @@ helper.empty = function(divId){
 // helper.ngRepeat('vertical-wx-row', 'components', 'vertical-wx-row', ngRepeatMap, _Data.hourly, 6);
 helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
     multiplier = multiplier === 'all' ? dataMap.length : multiplier;
-    var path = 'https://' + window.location.hostname + '/templates/components/' + componentName + '/' + componentName + '.html';
+    var path = '/templates/components/' + componentName + '/' + componentName + '.html';
     var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     var classXes = '', x = 0, i = 0, j = 0 ;
     xhr.open('get', path, true);

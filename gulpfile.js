@@ -29,7 +29,6 @@ gulp.task('webserver', function() {
     gulp.src('')
         .pipe(webserver({
             livereload: false,
-            host: '127.0.0.1',
             port: 5001,
             open: true,
             https: true,
