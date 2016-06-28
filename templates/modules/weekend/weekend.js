@@ -4,7 +4,7 @@
 (function(){
     var ngRepeatMap = [
         ['js-day',        'dayPartName'],
-        ['js-date',        'date'],
+        ['js-date',        'validDate'],
         ['js-wxicon',      'icon'],
         ['js-temp',        'temperature'],
         ['js-description', 'phrase'],
@@ -18,8 +18,10 @@
         data
         do it how many times?
      */
-    if(_Data.dailyForecast){
+    if(_Data.dailyForecast.day){
         helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.day, 5);
+    } else {
+        helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.night, 5);
     }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {

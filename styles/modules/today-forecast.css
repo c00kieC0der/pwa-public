@@ -1,3 +1,11 @@
+.panel-heading > h2,
+.panel-heading .heading {
+  font-size: 1.42857rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 5px 0 10px; }
+
 .card {
   margin: 0 8px 15px;
   padding: 10px;

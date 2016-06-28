@@ -295,7 +295,11 @@ function hideMainMenu() {
  * hideMainSearch() hides the search box and displays the home page
  */
 function hideMainSearch() {
-    showHide('main-search', 0);
+    var pwaHeader = document.getElementById('pwa-header');
+    if(pwaHeader.className.match('.pwa-header-active')){
+        pwaHeader.className = 'header';
+        showHide('main-search', 0);
+    }
 }
 
 /**
