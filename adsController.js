@@ -49,6 +49,66 @@ TWC.Deferred = function() {
     });
 };
 
+
+// GET WEATHER DATA FOR CUST PARAMS
+(function($$){
+    function convertTemp(temp, unit) {
+        return (unit === 'e') ? Math.round((temp - 32) * 5 / 9) /*F to C*/: Math.round((temp * 9 / 5) + 32) /*C to F*/;
+    }
+    // Wait for Data call to resolve
+    document.getElementById('event-anchor').addEventListener('builder', function() {
+        console.log("Data", _Data);
+        if(_Data && _Data.obs){
+            var obs = _Data.obs;
+            var units, tempF, tempC, feelsLikeF, feelsLikeC, secondsToCache = 0;
+            units = _User && _User.unitPref || "m";
+            tempF = (units === 'e') ? obs.temperature : convertTemp(obs.temperature, units);
+            tempC = (units === 'm') ? obs.temperature : convertTemp(obs.temperature, units);
+            feelsLikeF = (units === 'e') ? obs.feelsLike : convertTemp(obs.feelsLike, units);
+            feelsLikeC = (units === 'm') ? obs.feelsLike : convertTemp(obs.feelsLike, units);
+
+            $$.custParams = $$.custParams || {};
+            $$.custParams["hmid"] = obs.humidity;
+            $$.custParams["wind"] = obs.windSpeed;
+            $$.custParams["uv"] = obs.uvIndex;
+            $$.custParams["realTemp"] = tempF;
+            $$.custParams["tmp"] = [tempF,tempC];
+            $$.custParams["tempc"] = tempC;
+            $$.custParams["tempR"] = {
+                val: tempF
+            };
+            $$.custParams["tempRC"] = {
+                val: tempC
+            };
+            $$.custParams["wxIcon"] = obs.icon;
+
+            $$.custParams['flsLkF'] = feelsLikeF;
+            $$.custParams['flsLkC'] = feelsLikeC;
+
+            if (obs.iconExt) {
+                $$.custParams["wxExtIcon"] = obs.iconExt; /*not in turbo data. not needed per Pavan.*/
+            }
+            $$.custParams["cnd"] = obs.icon;
+            $$.custParams["baro"] = obs.barometerCode;
+            $$.custParams["snw"] = obs.snowDepth;
+        }
+        //if (_Data.dailyForecast) {
+        //    _self.set("fcst", dailyForecast);
+        //    $$.custParams["fcst"] = dailyForecast;
+        //}
+        //if (alert) {
+        //    _self.set("severe", alertsMap);
+        //}
+        //if (pollenForecast) {
+        //    _self.set("pollen", pollenForecast);
+        //}
+    });
+})(TWC.adUtils || {});
+
+
+
+// SETUP AD CONTROLLER
+
 !function($$) {
 
     var isMobile = window.innerWidth < 768;
@@ -217,306 +277,13 @@ TWC.Deferred = function() {
      *
      *  utag_dataReady waits on pcoReady, so pcoReady has already fired
      */
-    var user = {
-            "savedLocations":[
-            ],
-            "recentSearchLocations":[
-                {
-                    "key":"",
-                    "id":"",
-                    "locId":"30339",
-                    "locType":4,
-                    "cntryCd":"US",
-                    "cityNm":"Atlanta",
-                    "address":"",
-                    "nickname":"",
-                    "loc":"30339:4:US",
-                    "lat":33.87,
-                    "long":-84.47,
-                    "cntyNm":"COBB",
-                    "_gprId":"NAM",
-                    "position":"",
-                    "prsntNm":"Atlanta, GA (30339)",
-                    "_country":"Vereinigte Staaten Von Amerika",
-                    "stNm":"Georgia",
-                    "stCd":"GA",
-                    "tag":"",
-                    "zipCd":"30339",
-                    "tmZnAbbr":"EDT",
-                    "dmaCd":524
-                },
-                {
-                    "key":"",
-                    "id":"",
-                    "locId":"12345",
-                    "locType":4,
-                    "cntryCd":"US",
-                    "cityNm":"Schenectady",
-                    "address":"",
-                    "nickname":"",
-                    "loc":"12345:4:US",
-                    "lat":42.81,
-                    "long":-73.94,
-                    "cntyNm":"SCHENECTADY",
-                    "_gprId":"NAM",
-                    "position":"",
-                    "prsntNm":"Schenectady, NY (12345)",
-                    "_country":"United States Of America",
-                    "stNm":"New York",
-                    "stCd":"NY",
-                    "tag":"",
-                    "zipCd":"12345",
-                    "tmZnAbbr":"EDT",
-                    "dmaCd":532
-                },
-                {
-                    "key":"",
-                    "id":"",
-                    "locId":"USGA0028",
-                    "locType":1,
-                    "cntryCd":"US",
-                    "cityNm":"Atlanta",
-                    "address":"",
-                    "nickname":"",
-                    "loc":"USGA0028:1:US",
-                    "lat":33.75,
-                    "long":-84.39,
-                    "cntyNm":"FULTON",
-                    "_gprId":"NAM",
-                    "position":"",
-                    "prsntNm":"Atlanta, GA",
-                    "_country":"United States Of America",
-                    "stNm":"Georgia",
-                    "stCd":"GA",
-                    "tag":"",
-                    "zipCd":"30337",
-                    "tmZnAbbr":"EDT",
-                    "dmaCd":524
-                }
-            ],
-            "locale":"en_US",
-            "browser":{
-                "chrome":true,
-                "version":"51.0.2704.84",
-                "webkit":true,
-                "flash":true,
-                "sl":false,
-                "pdf":false,
-                "qtime":false,
-                "wmp":false,
-                "shk":true,
-                "rp":false,
-                "java":false
-            },
-            "flash":{
-                "chrome":true,
-                "version":"51.0.2704.84",
-                "webkit":true,
-                "flash":true,
-                "sl":false,
-                "pdf":false,
-                "qtime":false,
-                "wmp":false,
-                "shk":true,
-                "rp":false,
-                "java":false
-            },
-            "unit":"m",
-            "rmid":"7b834df8-b20a-49a4-8935-0aa6cef070d1",
-            "currentBackTo":{
-                "url":"https://burda-dev-edit.weather.com/",
-                "pagetype":"N/A"
-            },
-            "anonCreated":true,
-            "currentLocation":{
-                "locType":1,
-                "locId":"USDC0001",
-                "procTm":"20160620115127",
-                "cityNm":"Washington",
-                "stCd":"DC",
-                "prsntNm":"Washington, DC",
-                "cntryCd":"US",
-                "coopId":"72405000",
-                "lat":38.89,
-                "long":-77.03,
-                "obsStn":"KDCA",
-                "secObsStn":"KCGS",
-                "tertObsStn":"KADW",
-                "gmtDiff":-5,
-                "regSat":"ec",
-                "cntyId":"DCC001",
-                "cntyNm":"DISTRICT OF COLUMBIA",
-                "zoneId":"DCZ001",
-                "zoneNm":"District of Columbia",
-                "cntyFips":"11001",
-                "active":1,
-                "dySTInd":"Y",
-                "dmaCd":511,
-                "zipCd":"20023",
-                "elev":26,
-                "cliStn":"448906",
-                "tmZnNm":"Eastern Daylight Time",
-                "tmZnAbbr":"EDT",
-                "dySTAct":"Y",
-                "clsRad":"DCA",
-                "metRad":"DCA",
-                "ultRad":"DCA",
-                "ssRad":"ec",
-                "lsRad":"ne",
-                "siteId":"WW",
-                "idxId":"KDCA",
-                "primTecci":"T72405000",
-                "arptId":"DCA",
-                "mrnZoneId":"ANZ535",
-                "pllnId":"ADW",
-                "skiId":"376",
-                "tideId":"E8594900",
-                "epaId":"dc001",
-                "_arptNear":[
-                    "DCA",
-                    "IAD",
-                    "BWI"
-                ],
-                "_arptNearDist":[
-                    {
-                        "key":"DCA:9:US",
-                        "dist":2
-                    },
-                    {
-                        "key":"IAD:9:US",
-                        "dist":24
-                    },
-                    {
-                        "key":"BWI:9:US",
-                        "dist":26
-                    }
-                ],
-                "_skiNear":[
-                    {
-                        "key":"381:11:US",
-                        "tLifts":8,
-                        "dist":18
-                    },
-                    {
-                        "key":"376:11:US",
-                        "tLifts":8,
-                        "dist":24
-                    },
-                    {
-                        "key":"383:11:US",
-                        "tLifts":5,
-                        "dist":38
-                    },
-                    {
-                        "key":"480:11:US",
-                        "tLifts":5,
-                        "dist":50
-                    },
-                    {
-                        "key":"498:11:US",
-                        "tLifts":9,
-                        "dist":55
-                    },
-                    {
-                        "key":"3639:11:US",
-                        "tLifts":4,
-                        "dist":56
-                    },
-                    {
-                        "key":"83:11:US",
-                        "tLifts":6,
-                        "dist":56
-                    },
-                    {
-                        "key":"76:11:US",
-                        "tLifts":5,
-                        "dist":57
-                    },
-                    {
-                        "key":"140:11:US",
-                        "tLifts":3,
-                        "dist":63
-                    }
-                ],
-                "_gprId":"NAM",
-                "_dstDates":{
-                    "startDate":"2016-03-13T07:00:00.000Z",
-                    "endDate":"2016-11-06T06:00:00.000Z"
-                },
-                "wmId":"D74",
-                "offShoreId":"ANZ670",
-                "PollenIds":{
-                    "tree":"KADW",
-                    "grass":"KADW",
-                    "ragweed":"KADW"
-                },
-                "isBoatBeach":true,
-                "stNm":"District Of Columbia",
-                "_country":"United States Of America",
-                "loc":"USDC0001:1:US",
-                "expirationTime":1466519621621
-            },
-            "lotame":{
-            },
-            "backTo":{
-                "url":"https://burda-dev-edit.weather.com/l/",
-                "pagetype":"N/A"
-            },
-            "lastVisitedLocation":{
-                "key":"",
-                "id":"",
-                "locId":"30339",
-                "locType":4,
-                "cntryCd":"US",
-                "cityNm":"Atlanta",
-                "address":"",
-                "nickname":"",
-                "loc":"30339:4:US",
-                "lat":33.87,
-                "long":-84.47,
-                "cntyNm":"COBB",
-                "_gprId":"NAM",
-                "position":"",
-                "prsntNm":"Atlanta, GA (30339)",
-                "_country":"Vereinigte Staaten Von Amerika",
-                "stNm":"Georgia",
-                "stCd":"GA",
-                "tag":"",
-                "zipCd":"30339",
-                "tmZnAbbr":"EDT",
-                "dmaCd":524
-            },
-            "preferredLocation":{
-                "key":"",
-                "id":"",
-                "locId":"30339",
-                "locType":4,
-                "cntryCd":"US",
-                "cityNm":"Atlanta",
-                "address":"",
-                "nickname":"",
-                "loc":"30339:4:US",
-                "lat":33.87,
-                "long":-84.47,
-                "cntyNm":"COBB",
-                "_gprId":"NAM",
-                "prsntNm":"Atlanta, GA (30339)",
-                "_country":"Vereinigte Staaten Von Amerika",
-                "stNm":"Georgia",
-                "stCd":"GA",
-                "position":"",
-                "tag":"",
-                "zipCd":"30339",
-                "tmZnAbbr":"EDT",
-                "dmaCd":524
-            },
-            "weather_bg":{
-                "locId":"12345:4:US",
-                "image":"https://dsx-stage.weather.com/util/image/mw/wxbkb_default_cloudy_day_1_mezz_dark.jpg",
-                "expirationTime":1461677659864
-            }
-        },
-        locale = "en_US",
+
+    // check for saved locs
+    var savedPco = window.localStorage.jStorage ? JSON.parse(window.localStorage.jStorage) : {};
+
+    var user = savedPco.user && savedPco.user.recentSearchLocations ? savedPco.user.recentSearchLocations : [];
+
+    var locale = savedPco.user && savedPco.user.locale ? savedPco.user.locale : "en_US",
         pageLoc = window.explicit_location_obj,
         zcs = pageLoc && pageLoc.zipCd || user && user.lastVisitedLocation && user.lastVisitedLocation.zipCd ||
             user && user.savedLocations && user.savedLocations[0] && user.savedLocations[0].zipCd ||
