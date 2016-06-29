@@ -1,13 +1,9 @@
 <link rel="stylesheet" type="text/css" href="/styles/modules/24-hour-forecast.css">
 
 <header class="heading">
-    <h2 data-ng-bind="::(daypart.title || daypart.day.dayPartName)"></h2>
-    <span class="sub-heading">
-    <span data-ng-if="::daypart.holidayName" data-ng-bind="::daypart.holidayName"></span>
-    <span data-ng-if="::!daypart.holidayName" data-dsxdate data-datetime="::daypart.validDate" data-format="::'MMM d' | pfTranslate: {context: 'weather_dateformats'}" data-placeholder="''"></span>
-    </span>
+    <h2 class="js-day"></h2>
 </header>
-  <article class="ls-24-hour-wrap twc-table-wrap" data-ng-cloak>
+  <article class="ls-24-hour-wrap twc-table-wrap">
   <div id="twc-scrollable" class="twc-table-scroller">
     <table class="twc-table">
       <thead>
@@ -19,14 +15,13 @@
           <th class="wind" id="wind" scope="col" data-pf-translate="Wind" data-pf-translate-context="weather_terms"></th>
           <th class="humidity" id="humidity" scope="col" data-pf-translate="Humidity" data-pf-translate-context="weather_terms"></th>
           <th class="uv" id="uv-index" scope="col" data-pf-translate="UV Index" data-pf-translate-context="weather_terms"></th>
-          <!-- <th class="desc-details" title="Please scroll to see more..." id="desc-details" scope="col" data-pf-translate="Details" data-pf-translate-context="weather_terms"></th> -->
           <th class="sunrise" id="sunrise" scope="col" data-pf-translate="Sunrise" data-pf-translate-context="weather_terms"></th>
           <th class="sunset" id="sunset" scope="col" data-pf-translate="Sunset" data-pf-translate-context="weather_terms"></th>
           <th class="moonrise" id="moonrise" scope="col" data-pf-translate="Moonrise" data-pf-translate-context="weather_terms"></th>
           <th class="moonset" id="moonset" scope="col" data-pf-translate="Moonset" data-pf-translate-context="weather_terms"></th>
         </tr>
       </thead>
-      <tbody id="ls-row-wrap" class="ls-row-wrap"></tbody>
+      <tbody id="ls-row-wrap-24" class="ls-row-wrap-24"></tbody>
 
       </tbody>
     </table>

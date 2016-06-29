@@ -25,9 +25,7 @@
         data
         do it how many times?
      */
-    if(_Data.dailyForecast){
-        helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.day, 5);
-    }
+    helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.day, 5);
 
     document.getElementById('event-anchor').addEventListener('builder', function() {
         console.log('STUFF...', '_User.activeLocation.prsntNm');

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Today's Forecast</title>
+    <title></title>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/styles/core.css">
     <link rel="stylesheet" type="text/css" href="/assets/wxicon/css/wxicon.css">
@@ -39,12 +39,12 @@
     </header>
     <div class="nav-suite">
         <ul class="page-nav nav menubar" onmouseup="pwaNavClicked(event)">
-            <li class="page-nav-li today active" onclick="_Router.changePage('today')"><a><span class="link-text">TODAY</span></a></li>
-            <li class="page-nav-li hourly" onclick="_Router.changePage('hourly')"><a><span class="link-text">HOURLY</span></a></li>
-            <li class="page-nav-li fiveday" onclick="_Router.changePage('fiveday')"><a><span class="link-text">5 DAY</span></a></li>
-            <li class="page-nav-li tenday" onclick="_Router.changePage('tenday')"><a><span class="link-text">10 DAY</span></a></li>
-            <li class="page-nav-li weekend" onclick="_Router.changePage('weekend')"><a><span class="link-text">WEEKEND</span></a></li>
-            <li class="page-nav-li map" onclick="_Router.changePage('map')" ><a><span class="link-text">MAP</span></a></li>
+            <li class="page-nav-li today active" onclick="_Router.changePage('today')"><a><span class="link-text" id="nav-today"></span></a></li>
+            <li class="page-nav-li hourly" onclick="_Router.changePage('hourly')"><a><span class="link-text" id="nav-hourly"></span></a></li>
+            <li class="page-nav-li fiveday" onclick="_Router.changePage('fiveday')"><a><span class="link-text" id="nav-fiveday"></span></a></li>
+            <li class="page-nav-li tenday" onclick="_Router.changePage('tenday')"><a><span class="link-text" id="nav-tenday"></span></a></li>
+            <li class="page-nav-li weekend" onclick="_Router.changePage('weekend')"><a><span class="link-text" id="nav-weekend"></span></a></li>
+            <li class="page-nav-li map" onclick="_Router.changePage('map')" ><a><span class="link-text" id="nav-map"></span></a></li>
         </ul>
     </div>
 </div>
@@ -159,12 +159,11 @@
 <script src="/js-src/init.js"></script>
 
 <script src="/js-src/models/user_model.js"></script>
+<script src="/js-src/models/language_model.js"></script>
 <script src="/js-src/models/locations_model.js"></script>
 <script src="/js-src/models/router_model.js"></script>
 <script src="/js-src/models/wxicon_model.js"></script>
 <script src="/js-src/models/wx_data_model.js"></script>
-
-<!-- <script src="/service_worker.js"></script> -->
 
 <!--   <script src="/backend.js"></script>  -->
 
