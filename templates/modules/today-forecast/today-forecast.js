@@ -98,7 +98,16 @@
             ['today-dew-point', helper.capitalize(_Lang['dew point'])],
             ['today-pressure', helper.capitalize(_Lang.pressure)],
             ['today-visibility', helper.capitalize(_Lang.visibility)],
-            ['today-uv-index', helper.capitalize(_Lang['uv index'])]
+            ['today-uv-index', helper.capitalize(_Lang['uv index'])],
+            ['dp1-lb-wind', helper.capitalize(_Lang['wind'])],
+            ['dp1-lb-humidity', helper.capitalize(_Lang['humidity'])],
+            ['dp1-lb-uv-index', helper.capitalize(_Lang['uv index'])],
+            ['dp2-lb-wind', helper.capitalize(_Lang['wind'])],
+            ['dp2-lb-humidity', helper.capitalize(_Lang['humidity'])],
+            ['dp2-lb-uv-index', helper.capitalize(_Lang['uv index'])],
+            ['dp3-lb-wind', helper.capitalize(_Lang['wind'])],
+            ['dp3-lb-humidity', helper.capitalize(_Lang['humidity'])],
+            ['dp3-lb-uv-index', helper.capitalize(_Lang['uv index'])]
         ];
         helper.setContent(todayForecastLangs);
     };

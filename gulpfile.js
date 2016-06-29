@@ -32,7 +32,7 @@ gulp.task('generate-service-worker', function(callback) {
         staticFileGlobs: [
             rootDir + '/assets/**/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
             rootDir + '/iconfont/**/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
-            rootDir + '/templates/**/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
+            rootDir + '//**/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
             rootDir + '/js-src/**/*.js',
             rootDir + '/js-src/*.js'
         ],

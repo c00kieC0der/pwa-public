@@ -18,7 +18,7 @@ helper.loadTemplate('page-toast-div', 'modules', 'page-toast');
 
 /* eslint-env browser */
 'use strict';
-
+/*
 if ('serviceWorker' in navigator) {
     // Your service-worker.js *must* be located at the top-level directory relative to your site.
     // It won't be able to control pages unless it's located at the same level or higher than them.
@@ -56,4 +56,4 @@ if ('serviceWorker' in navigator) {
     }).catch(function(e) {
         console.error('Error during service worker registration:', e);
     });
-}
+}*/

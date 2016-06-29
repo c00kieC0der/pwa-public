@@ -120,7 +120,7 @@ var refreshMapText = function(){
       // ["map-clouds", _Lang.clouds],
       // ["map-radar-clouds", _Lang.radar + '&' + _Land.clouds]
     ];
-    helper.setContent(mapTextMap); 
+    helper.setContent(mapTextMap);
 };
 if(window['_Lang'] && _Lang.maps){ console.log('here');
     refreshMapText();

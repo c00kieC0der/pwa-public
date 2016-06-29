@@ -51,6 +51,7 @@
     "Get browser notifications for severe weather in your area. Activate Now" : "Get browser notifications for severe weather in your area. Activate Now",
     "radar" : "radar",
     "clouds" : "clouds",
+    "sun" : "sun",
     "MONTH": [
         "January",
         "February",
@@ -247,8 +248,5 @@
         "Qatar"              :  "Qatar",
         "Saudi Arabia"       :  "Saudi Arabia",
         "United Arab Emirates"  :  "United Arab Emirates"
-
-
-
-}
+    }
 }
