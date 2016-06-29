@@ -35,7 +35,6 @@ _Locations.getGeoCoordinates = function(position){
                 'url' : locUrl,
                 'generateUniqueUrl' : false,
                 'onSuccess':function(req){
-                    console.log(req);
                     _User.newActiveLocation(JSON.parse(req.responseText));
                 }
             }
@@ -44,7 +43,7 @@ _Locations.getGeoCoordinates = function(position){
     }
 };
 
-_Locations.callGeoLocation = function(){  console.log('called');
+_Locations.callGeoLocation = function(){
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(_Locations.getGeoCoordinates);
     }

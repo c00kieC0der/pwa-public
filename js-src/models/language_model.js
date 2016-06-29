@@ -17,11 +17,11 @@ var _Lang = {};
         xobj.onreadystatechange = function () {
             if (xobj.readyState == 4 && xobj.status == "200") {
                 // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-                _Lang = xobj.responseText;
+                _Lang = JSON.parse(xobj.responseText);
+
                 document.getElementById('event-anchor').dispatchEvent(eventData);
             }
         };
-        console.log(xobj);
         xobj.send(null);
     };
    if(_User.lang){

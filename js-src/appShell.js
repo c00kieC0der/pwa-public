@@ -494,3 +494,25 @@ function toggleClass(elem, className) {
     }
 }
 
+/*
+ *  Translations
+ */
+
+
+var langMap;
+var assignAppShellLang = function(){
+    langMap = [
+        ['nav-today', _Lang.today.toUpperCase()],
+        ['nav-hourly', _Lang.hourly.toUpperCase()],
+        ['nav-fiveday', _Lang['5 day'].toUpperCase()],
+        ['nav-tenday', _Lang['10 day'].toUpperCase()],
+        ['nav-weekend', 'weekend'],//_Lang['weekend'].toUpperCase()],
+        ['nav-map', _Lang.maps.toUpperCase()]
+    ];
+    helper.setContent(langMap);
+};
+
+document.getElementById('event-anchor').addEventListener('lang-builder', function(){
+    assignAppShellLang();
+});
+

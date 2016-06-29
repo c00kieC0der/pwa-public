@@ -16,7 +16,7 @@ var _Data = {}, app = {};
     _Data.collectNew = function () {
         app.hasRequestPending = true;
         if ('caches' in window) {
-            console.log(caches);
+           // console.log(caches);
             caches.match(dataUrl).then(function (response) {
                 if (response) {
                     response.json().then(function (json) {
