@@ -16,8 +16,12 @@
     };
     
     var mapSolarNoon = function () {
-        var moonIcon = "wx-iconfont-moon moon-phase-"+_Data.solarData.moonIcons[0]+ " moon-icon";
-        document.getElementById('sunmoon-moonphrase-icon').setAttribute("class", moonIcon);
+        if(_Data.solarData.moonIcons[0] ||_Data.solarData.moonIcons[1]) {
+            var moonIcon = "wx-iconfont-moon moon-phase-"
+                + (_Data.solarData.moonIcons[0]?_Data.solarData.moonIcons[0]:_Data.solarData.moonIcons[1])
+                + " sunmoon-icon";
+            document.getElementById('sunmoon-moonphrase-icon').setAttribute("class", moonIcon);
+        }
         solarAssignment = [
             ['sunmoon-noon', _Data.solarData.noonTime[0]],
         ];

@@ -3,36 +3,46 @@
 
 .sunmoon-mod
   background-color: #ffffff
-  padding: 0px 15px
   margin: 7px
   box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.2)
   white-space: nowrap
   .mod-header
     font-family: "Roboto", 'Helvetica', sans-serif
     text-transform: uppercase
-    font-weight: 600
-    font-size: px-to-rem(19px)
-    padding: 15px 0px 5px 0px
-    //word-spacing: px-to-rem(-2px)
-    //letter-spacing: px-to-rem(-1px)
+    font-weight: 700
+    font-size: px-to-rem(16px)
+    padding: 10px 0px 5px 10px
     color: #000000
   .mod-body
     .sunmoon-list
       margin: 0px
       color: #000000
       li
+        display: table
+        height: 41px
         border-top: 1px solid #cccccc
         font-size: px-to-rem(14px)
         font-weight: 300
-        .sun-icon
-          padding-right: 15px
+        .sunmoon-icon
+          display: table-cell
+          vertical-align: middle
+          min-width: 38px
+          text-align: center
+        .wx-icon-sunrise, .wx-icon-sunset
+          font-size: px-to-rem(17px)
           color: #dea225
-        .moon-icon
-          padding-right: 15px
+        .wx-icon-sunny
+          color: #dea225
+
+        .moon-rise, .moon-set
+          font-size: px-to-rem(17px)
           color: #1f4371
+        #sunmoon-moonphrase-icon
+          color: #1f4371
+
         .list-element
           display: table-cell
-          padding: 10px 0px
+          vertical-align: middle
           width: 100%
           text-transform: capitalize
         #sunmoon-moonphrase
@@ -44,7 +54,8 @@
           white-space: nowrap
           color: #444444
           display: table-cell
-          padding: 10px 0px
+          vertical-align: middle
+          padding-right: 10px
           text-align: right
           text-transform: lowercase
       li:first-child
