@@ -479,7 +479,7 @@ var language =  savedPco.user && savedPco.user.locale ? savedPco.user.locale.rep
         googletag.display(id);
     }
 
-//    $$.addLoadEvent(function() {
+    $$.addLoadEvent(function(){
         var selector = isMobile ? '[id^="MW_"]' : '[id^="WX_"]';
         var adDivs = document.querySelectorAll(selector);
         adDivs.forEach(function (el) {
@@ -493,9 +493,9 @@ var language =  savedPco.user && savedPco.user.locale ? savedPco.user.locale.rep
 
     googletag.cmd.push(function () {
             Promise.all([$$.wxftgPromise.promise,
-                         $$.amznSlotsPromise.promise,
-                         $$.criteoPromise.promise,
-                         $$.weatherDataPromise]).then(function() {
+                $$.amznSlotsPromise.promise,
+                $$.criteoPromise.promise,
+                $$.weatherDataPromise]).then(function () {
                 console.log("all promises done: ", new Date().getTime() - window.renderStartTime);
                 $$.custParams = extend({}, $$.custParams, cust_params);
                 for (var p in $$.custParams) {
@@ -515,26 +515,22 @@ var language =  savedPco.user && savedPco.user.locale ? savedPco.user.locale.rep
                                     googletag.display(adDivs[f].getAttribute('id'));
                                 }
                             }
-                            document.getElementById("windowshade_info").innerHTML = "Pubads Call Time : " +  (new Date().getTime() - window.renderStartTime)/1000 + " secs";
-                            console.dir("Pubads Call Time : " +  (new Date().getTime() - window.renderStartTime)/1000 + "secs");
+                            document.getElementById("windowshade_info").innerHTML = "Pubads Call Time : " + (new Date().getTime() - window.renderStartTime) / 1000 + " secs";
+                            console.dir("Pubads Call Time : " + (new Date().getTime() - window.renderStartTime) / 1000 + "secs");
                         };
                     })(adDivs, window.ls_dfp_slots);
                     index_headertag_lightspeed.add_session_end_hook(cb, true);
                     index_headertag_lightspeed.refresh();
 
-    //                        adDivs.forEach(function (el) {
-    //                            displayAd(el);
-    //                        });
                 } else {
                     adDivs.forEach(function (el) {
                         displayAd(el);
                     });
-                    document.getElementById("windowshade_info").innerHTML = "Pubads Call Time : " +  (new Date().getTime() - window.renderStartTime)/1000 + " secs";
-                    console.dir("Pubads Call Time : " +  (new Date().getTime() - window.renderStartTime)/1000 + "secs");
+                    document.getElementById("windowshade_info").innerHTML = "Pubads Call Time : " + (new Date().getTime() - window.renderStartTime) / 1000 + " secs";
+                    console.dir("Pubads Call Time : " + (new Date().getTime() - window.renderStartTime) / 1000 + "secs");
                 }
             });
-        //  });
-//    });
+        });
 
     });
 
