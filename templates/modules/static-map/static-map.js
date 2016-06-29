@@ -115,13 +115,16 @@ runTheMap();
 var mapTextMap = [];
 var refreshMapText = function(){
     mapTextMap = [
-       ["menuTitle", _Lang.maps],
+       ["menuTitleText", _Lang.maps]
       // ["map-radar", _Lang.radar],
       // ["map-clouds", _Lang.clouds],
       // ["map-radar-clouds", _Lang.radar + '&' + _Land.clouds]
     ];
+    helper.setContent(mapTextMap); 
 };
-
+if(window['_Lang'] && _Lang.maps){ console.log('here');
+    refreshMapText();
+}
 document.getElementById('event-anchor').addEventListener('lang-builder', function(){
     refreshMapText();
 });
