@@ -123,10 +123,9 @@ gulp.task('download-translations', function() {
             }
         };
         request(options, function(error, response, body) {
-          //  var accessToken = body.response.data.accessToken;
-            var accessToken = 'eyJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJiNjA4ZWJlZC1lMmJkLTQxOTEtOTcwMy02NDgyN2IzMzNlMmYiLCJleHAiOjE0NjcxMjg5OTUsIm5iZiI6MCwiaWF0IjoxNDY3MTI4Njk1LCJpc3MiOiJodHRwczovL3Nzby5zbWFydGxpbmcuY29tL2F1dGgvcmVhbG1zL1NtYXJ0bGluZyIsImF1ZCI6ImF1dGhlbnRpY2F0aW9uLXNlcnZpY2UiLCJzdWIiOiIwYTIzYzY2MC0xMjExLTQ4YjUtODM4MC03ZTJiZjE5MWY5OTMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhdXRoZW50aWNhdGlvbi1zZXJ2aWNlIiwic2Vzc2lvbl9zdGF0ZSI6ImMwMDRhYWM5LTc3ZDQtNDljYy04MzgzLWIxOWRiZjkyZDQzNyIsImNsaWVudF9zZXNzaW9uIjoiMTYwYmQ2ZTMtYjEwZS00MDdlLWFlNDYtNzYyYzE0NDU2Y2E4IiwiYWxsb3dlZC1vcmlnaW5zIjpbXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlJPTEVfQVBJX1VTRVIiLCJ1c2VyIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsInZpZXctcHJvZmlsZSJdfX0sInVpZCI6IjJjYWM1MzkxMyIsIm5hbWUiOiJwd2EtYXV0aC11c2VyIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYXBpOmZ3c3V2bXVhcmtqZGtrcHZ5eWxxbHVibWh5ZXVtZyIsImVtYWlsIjoiYXBpVXNlcitwcm9qZWN0KzJjYWM1MzkxM0BzbWFydGxpbmcuY29tIn0.Whn1rw5W7zjOe0xMJ3dO4NXJeSVgUZ2kuJv-np3_Whk5aJ8ygEKVMa6NHXXo3A7BjuoBkIiRnp6QI3-mEZoSMLlXAwf7H75QqokKZdqRhfqlvws5voRfMqUAT8nnV1D7ukeMaD4uhASxbDWPcaRx9-gpf2A2PiuWI0OJuqT1alk';
+            var accessToken = body.response.data.accessToken;
             console.log('error', error, ' body', body);
-console.log(locales);
+//console.log(locales);
             // Download files
             var options = {
                 url: 'https://api.smartling.com/files-api/v2/projects/' + projectId + '/files/zip',
@@ -139,17 +138,17 @@ console.log(locales);
                     arrayFormat: 'brackets'
                 },
                 headers: {
-                    Authorization: 'Bearer' + accessToken
+                    Authorization: 'Bearer ' + accessToken
                 }
             };
-console.log(request)
+
             request(options)
                 .on('error', function(err) {
                     console.log(err);
                 })
                 .pipe(fs.createWriteStream('./translations.zip'))
                 .on('close', function() {
-                    var destinationDir = 'js-src/translated';
+                    var destinationDir = './js-src/translated';
                     var unzipError = false;
                     var child = exec('unzip -o translations.zip -d ' + destinationDir, {async: true});
 
