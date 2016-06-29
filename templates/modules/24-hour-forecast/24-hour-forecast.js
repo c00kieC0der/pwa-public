@@ -6,9 +6,10 @@
         ['js-dayPartName',        'dayPartName'],
         ['js-date',        'date'], // 'MMM d'
         ['js-wxicon',      'icon'],
+        ['js-iconExended',      'iconExtended'],
         ['js-tempHi',        'tempHi'],
         ['js-tempLo',        'tempLo'],
-        ['js-phrase', 'phrase'],
+        ['js-phrase',           'phrase'],
         ['js-precipPct',      'precipPct'],
         ['js-humidityPct',    'humidityPct'],
         ['js-uvIndex',    'uvIndex'],
