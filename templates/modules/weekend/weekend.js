@@ -7,8 +7,8 @@
         ['js-date',        'date'], // 'MMM d'
         ['js-wxicon',      'icon'],
         ['js-iconExended',      'iconExtended'],
-        ['js-tempHi',        'tempHi'],
-        ['js-tempLo',        'tempLo'],
+        ['js-tempHi',        'highs'],
+        ['js-tempLo',        'lows'],
         ['js-phrase',           'phrase'],
         ['js-precipPct',      'precipPct'],
         ['js-humidityPct',    'humidityPct'],
@@ -25,10 +25,12 @@
         data
         do it how many times?
      */
-    helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.day, 5);
+    if(_Data.dailyForecast.dayData){
+        helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 5);
+    }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {
         console.log('STUFF...', '_User.activeLocation.prsntNm');
-        helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.day, 5);
+        helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 5);
     });
 })();
