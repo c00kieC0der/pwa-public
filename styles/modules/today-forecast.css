@@ -1,3 +1,11 @@
+.panel-heading > h2,
+.panel-heading .heading {
+  font-size: 1.42857rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 5px 0 10px; }
+
 .card {
   margin: 0 8px 15px;
   padding: 10px;
@@ -258,6 +266,8 @@
     display: inline; } }
 .looking-ahead .show-lg {
   display: inline; }
+.looking-ahead .dp-details {
+  width: 100%; }
 .looking-ahead .today-daypart.daypart-1 {
   background-color: #1f4371;
   -webkit-flex-grow: 1;

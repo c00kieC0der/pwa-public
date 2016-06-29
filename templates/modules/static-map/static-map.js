@@ -111,3 +111,17 @@ setTimeout(function(){
 
 runTheMap();
 }, 100);
+
+var mapTextMap = [];
+var refreshMapText = function(){
+    mapTextMap = [
+       ["menuTitle", _Lang.maps],
+      // ["map-radar", _Lang.radar],
+      // ["map-clouds", _Lang.clouds],
+      // ["map-radar-clouds", _Lang.radar + '&' + _Land.clouds]
+    ];
+};
+
+document.getElementById('event-anchor').addEventListener('lang-builder', function(){
+    refreshMapText();
+});
