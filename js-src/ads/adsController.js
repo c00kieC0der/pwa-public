@@ -77,7 +77,7 @@
     var src = "//ox-d.weatherus.servedbyopenx.com/w/1.0/jstag?nc=" + nc;
     var openx = document.createElement('script');
     var node = document.getElementsByTagName('script') && document.getElementsByTagName('script')[0];
-    var network, adUnit, adZone, NCTAU, NCAU, adMapping, cust_params;
+    var network, adUnit, adZone, NCTAU, NCAU, adMapping, cust_params, metrics_suite;
     openx.src = src;
     openx.async = true;
     node.parentNode.insertBefore(openx, node);
@@ -87,7 +87,7 @@
 
         var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
-        xobj.open('GET', '/localeToAdUnit.json', true); // Replace 'my_data' with the path to your file
+        xobj.open('GET', '/js-src/ads/adMaps.json', true); // Replace 'my_data' with the path to your file
         xobj.onreadystatechange = function () {
             if (xobj.readyState == 4 && xobj.status == "200") {
                 // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
@@ -97,19 +97,26 @@
         xobj.send(null);
     }
     loadJSON(function(response){
-        var localeToAdUnitMap = JSON.parse(response);
+        var adMaps = JSON.parse(response);
         var savedPco = window.localStorage.jStorage ? JSON.parse(window.localStorage.jStorage) : {};
-        var locale = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-'): "en-US",
-            /** network */
-        network = "/7646/";
-        /** ad unit */
+        var locale = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-'): "en-US";
+        var urlZone = location.pathname.match(/\/(weather\/.*?)\//);
+        urlZone = urlZone && urlZone.length > 1 && urlZone[1];
 
-        adUnit = isMobile ? localeToAdUnitMap[locale].m_mweb_wx : localeToAdUnitMap[locale].wx_online;
+            /** network */
+        var network = "/" + adMaps.localeToAdUnitMap[locale].network + "/";
+        
+        /** ad unit */
+        adUnit = isDesktop && adMaps.localeToAdUnitMap[locale].desktop ||
+                 isTablet && adMaps.localeToAdUnitMap[locale].tablet ||
+                 adMaps.localeToAdUnitMap[locale].mobile;
         adUnit = adstest ? 'test_' + adUnit : adUnit;
+        
         /** ad zone */
-        adZone = '/home';
+        adZone = adMaps.urlToAdZone[urlZone] || '/local_forecasts/today';
         NCTAU = network + adUnit + adZone;
         NCAU = network + adUnit;
+        metrics_suite = adMaps.localeToAdUnitMap[locale].metrics ? adMaps.localeToAdUnitMap[locale].metrics : 'twcigls';
     });
 
 
