@@ -107,6 +107,10 @@ helper.isNumeric = function(num){
     return typeof num === 'number' && num !== 'NaN';
 };
 
+helper.capitalize = function(str){
+    return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
 // Export node module.
 if ( typeof module !== 'undefined' && module.hasOwnProperty('exports') )
 {

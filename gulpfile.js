@@ -23,7 +23,22 @@ var exec = childProcess.exec;
 var minify = require('gulp-minify');
 var concat = require('gulp-concat');
 var webserver = require('gulp-webserver');
-var cors = require('cors');
+var path = require('path');
+var swPrecache = require('sw-precache');
+
+gulp.task('generate-service-worker', function(callback) {
+    var rootDir = './';
+    swPrecache.write(path.join(rootDir, 'service-worker.js'), {
+        staticFileGlobs: [
+            rootDir + '/assets/**/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
+            rootDir + '/iconfont/**/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
+            rootDir + '/templates/**/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
+            rootDir + '/js-src/**/*.js',
+            rootDir + '/js-src/*.js'
+        ],
+        stripPrefix: rootDir
+    }, callback);
+});
 
 gulp.task('webserver', function() {
     gulp.src('')
