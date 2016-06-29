@@ -34,7 +34,7 @@ function preCache(callback) {
       urlPattern: /jspm_packages/,
       handler: 'networkFirst'
     }, {
-      urlPattern: /.js|.json/,
+      urlPattern: /5001.js|.json}|.json/,
       handler: 'fastest',
       options: {
         cache: {

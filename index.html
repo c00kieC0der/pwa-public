@@ -12,6 +12,11 @@
     <link rel="manifest" href="manifest.json">
 
     <script>
+        var myWorker = new Worker("/web-worker.js");
+        myWorker.onmessage = function(e) {
+//            gtSetup();
+            console.log('Message from worker', new Date().getTime() - window.renderStartTime);
+        };
         window.renderStartTime = new Date().getTime();
     </script>
     <script async src="https://js-sec.indexww.com/ht/ls-weather.js"></script>
