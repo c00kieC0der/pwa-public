@@ -10,15 +10,16 @@
     <link rel="stylesheet" type="text/css" href="/assets/wxicon/css/wxicon.css">
     <link rel="stylesheet" type="text/css" href="/iconfont/wx-iconfont-global/style.css">
     <link rel="manifest" href="manifest.json">
+
     <script>
         window.renderStartTime = new Date().getTime();
     </script>
-    <!--script async src="https://js-sec.indexww.com/ht/ls-weather.js"></script-->
+    <script async src="https://js-sec.indexww.com/ht/ls-weather.js"></script>
     <script async src="https://www.googletagservices.com/tag/js/gpt.js"></script>
 
 </head>
 <body onclick="">
-<script src="/3rd-party-calls.js"></script>
+<script src="/3rd-party-calls.min.js"></script>
 <div class="main-div">
     <div id="WX_Hidden"></div>
     <div id="WX_WindowShade"></div>
@@ -164,19 +165,9 @@
 
     </footer>
 
-<script async src="/adsController.js"></script>
-<script src="/js-src/vendor/metrics.js"></script>
-<script src="/js-src/vendor/ajax.js"></script>
-<script src="/assets/wxicon/wxicon.js"></script>
-<script src="/js-src/helper_functions.js"></script>
-<script src="/js-src/appShell.js"></script>
-<script src="/js-src/init.js"></script>
-
-<script src="/js-src/models/user_model.js"></script>
-<script src="/js-src/models/locations_model.js"></script>
-<script src="/js-src/models/router_model.js"></script>
-<script src="/js-src/models/wxicon_model.js"></script>
-<script src="/js-src/models/wx_data_model.js"></script>
+<script async src="/adsController.min.js"></script>
+<script async src="/dist/bundle.min.js"></script>
+<script src="/pwa-service-worker-registration.min.js"></script>
 
 <!-- <script src="/service_worker.js"></script> -->
 
