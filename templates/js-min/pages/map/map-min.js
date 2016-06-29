@@ -1,0 +1,1 @@
+helper.loadTemplate("static-map-div","modules","static-map");

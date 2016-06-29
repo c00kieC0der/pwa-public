@@ -29,10 +29,8 @@ gulp.task('webserver', function() {
     gulp.src('')
         .pipe(webserver({
             livereload: false,
-            host: '127.0.0.1',
             port: 5001,
             open: true,
-            https: true,
             fallback : 'index.html'
         }));
 });
@@ -108,10 +106,7 @@ gulp.task('download-translations', function() {
         }
 
         var keys = JSON.parse(data);
-
-
-        var projectId = 'bc36bacc6';
-
+        var projectId = '2cac53913';
         var locales = _.uniq(_.pluck(localesConfig, 'smartlingLocale'));
 
         // Remove en-US locale
@@ -127,55 +122,53 @@ gulp.task('download-translations', function() {
                 userSecret: keys.smartling.userSecret
             }
         };
- //return console.log(options);
         request(options, function(error, response, body) {
-            var accessToken = body.response.data.accessToken;
+          //  var accessToken = body.response.data.accessToken;
+            var accessToken = 'eyJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJiNjA4ZWJlZC1lMmJkLTQxOTEtOTcwMy02NDgyN2IzMzNlMmYiLCJleHAiOjE0NjcxMjg5OTUsIm5iZiI6MCwiaWF0IjoxNDY3MTI4Njk1LCJpc3MiOiJodHRwczovL3Nzby5zbWFydGxpbmcuY29tL2F1dGgvcmVhbG1zL1NtYXJ0bGluZyIsImF1ZCI6ImF1dGhlbnRpY2F0aW9uLXNlcnZpY2UiLCJzdWIiOiIwYTIzYzY2MC0xMjExLTQ4YjUtODM4MC03ZTJiZjE5MWY5OTMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhdXRoZW50aWNhdGlvbi1zZXJ2aWNlIiwic2Vzc2lvbl9zdGF0ZSI6ImMwMDRhYWM5LTc3ZDQtNDljYy04MzgzLWIxOWRiZjkyZDQzNyIsImNsaWVudF9zZXNzaW9uIjoiMTYwYmQ2ZTMtYjEwZS00MDdlLWFlNDYtNzYyYzE0NDU2Y2E4IiwiYWxsb3dlZC1vcmlnaW5zIjpbXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlJPTEVfQVBJX1VTRVIiLCJ1c2VyIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsInZpZXctcHJvZmlsZSJdfX0sInVpZCI6IjJjYWM1MzkxMyIsIm5hbWUiOiJwd2EtYXV0aC11c2VyIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYXBpOmZ3c3V2bXVhcmtqZGtrcHZ5eWxxbHVibWh5ZXVtZyIsImVtYWlsIjoiYXBpVXNlcitwcm9qZWN0KzJjYWM1MzkxM0BzbWFydGxpbmcuY29tIn0.Whn1rw5W7zjOe0xMJ3dO4NXJeSVgUZ2kuJv-np3_Whk5aJ8ygEKVMa6NHXXo3A7BjuoBkIiRnp6QI3-mEZoSMLlXAwf7H75QqokKZdqRhfqlvws5voRfMqUAT8nnV1D7ukeMaD4uhASxbDWPcaRx9-gpf2A2PiuWI0OJuqT1alk';
+            console.log('error', error, ' body', body);
+console.log(locales);
+            // Download files
+            var options = {
+                url: 'https://api.smartling.com/files-api/v2/projects/' + projectId + '/files/zip',
+                method: 'GET',
+                qs: {
+                    fileUris: ['app.json'],
+                    localeIds: ['fr-FR']
+                },
+                qsStringifyOptions: {
+                    arrayFormat: 'brackets'
+                },
+                headers: {
+                    Authorization: 'Bearer' + accessToken
+                }
+            };
+console.log(request)
+            request(options)
+                .on('error', function(err) {
+                    console.log(err);
+                })
+                .pipe(fs.createWriteStream('./translations.zip'))
+                .on('close', function() {
+                    var destinationDir = 'js-src/translated';
+                    var unzipError = false;
+                    var child = exec('unzip -o translations.zip -d ' + destinationDir, {async: true});
 
-        // Download files
-        var options = {
-            url: 'https://api.smartling.com/files-api/v2/projects/' + projectId + '/files/zip',
-            method: 'GET',
-            qs: {
-                fileUris: ['app.json'],
-                localeIds: locales
-            },
-            qsStringifyOptions: {
-                arrayFormat: 'brackets'
-            },
-            headers: {
-                Authorization: 'Bearer' + accessToken
-            }
-        };
+                    child.stderr.on('data', function(error) {
+                        console.log(error);
+                        unzipError = true;
+                    });
 
-        request(options)
-            .on('error', function(err) {
-                console.log(err);
-            })
-            .pipe(fs.createWriteStream('./translations.zip'))
-            .on('close', function() {
-            var destinationDir = 'js/translated';
-
-        var unzipError = false;
-
-        var child = exec('unzip -o translations.zip -d ' + destinationDir, {async: true});
-
-        child.stderr.on('data', function(error) {
-            console.log(error);
-        unzipError = true;
+                    child.stdout.on('close', function(data) {
+                        if (!unzipError) {
+                            console.log('Translations successfully downloaded to ' + destinationDir);
+                        } else {
+                            console.log('There was an error unzipping the translations ZIP file');
+                        }
+                    });
+                });
+        });
     });
-
-        child.stdout.on('close', function(data) {
-            if (!unzipError) {
-            console.log('Translations successfully downloaded to ' + destinationDir);
-        } else {
-            console.log('There was an error unzipping the translations ZIP file');
-        }
-    });
-    });
-
-    });
-    });
-    });
+});
 
 gulp.task('upload-translations', function() {
 
@@ -185,9 +178,7 @@ gulp.task('upload-translations', function() {
             console.log('No keys.json file exists with Smartling credentials');
             return;
         }
-console.log(data);
         var keys = JSON.parse(data);
-
         var projectId = '2cac53913';
 
         // Get access token
@@ -205,118 +196,25 @@ console.log(data);
             console.log(body.response);
             var accessToken = body.response.data.accessToken;
 
-        // Upload files
-        var options = {
-            url: 'https://api.smartling.com/files-api/v2/projects/' + projectId + '/file',
-            method: 'POST',
-            formData: {
-                file: fs.createReadStream('./js-src/translations/app.json'),
-                fileUri: ['app.json'],
-                fileType: 'json',
-                authorize: 'true'
-            },
-            headers: {
-                Authorization: 'Bearer ' + accessToken
-            }
-        };
+            // Upload files
+            var options = {
+                url: 'https://api.smartling.com/files-api/v2/projects/' + projectId + '/file',
+                method: 'POST',
+                formData: {
+                    file: fs.createReadStream('./js-src/translations/app.json'),
+                    fileUri: ['app.json'],
+                    fileType: 'json',
+                    authorize: 'true'
+                },
+                headers: {
+                    Authorization: 'Bearer ' + accessToken
+                }
+            };
 
-        request(options, function(error, response, body) {
-            console.log(error, body);
-    });
-    });
-    });
-});
-
-gulp.task('download-translations', function() {
-    fs.readFile('./keys.json', 'utf-8', function(err, data) {
-        if (err) {
-            // If no keys.json file exists then return
-            console.log('No keys.json file exists with Smartling credentials');
-            return;
-        }
-
-        var keys = JSON.parse(data);
-
-        var projectId = 'bc36bacc6';
-
-        var locales = _.map(localesConfig, function(val, key) {
-                var locale = key;
-        if (smartlingLocalesMap[locale]) {
-            // Check if Smartling uses a different version of this locale
-            return smartlingLocalesMap[locale];
-        }
-        return locale;
-    });
-
-        locales = _.uniq(locales);
-
-        // Remove en-US locale
-        locales = _.without(locales, 'en-US');
-
-        // Get access token
-        var options = {
-            url: `https://api.smartling.com/auth-api/v2/authenticate`,
-            method: 'POST',
-            json: true,
-            body: {
-                userIdentifier: keys.smartling.userIdentifier,
-                userSecret: keys.smartling.userSecret
-            }
-        };
-
-        glob('src/translations/**/*.json', function(err, files) {
-            var urisMap = _.map(files, function(file) {
-                    var uri = file.replace('src/translations/', '');
-        return uri;
-    });
-
-        request(options, function(error, response, body) {
-            var accessToken = body.response.data.accessToken;
-
-        // Download files
-        var options = {
-            url: `https://api.smartling.com/files-api/v2/projects/${projectId}/files/zip`,
-            method: 'GET',
-            qs: {
-                fileUris: urisMap,
-                localeIds: locales
-            },
-            qsStringifyOptions: {
-                arrayFormat: 'brackets'
-            },
-            headers: {
-                Authorization: `Bearer ${accessToken}`
-            }
-        };
-
-        request(options)
-            .on('error', function(err) {
-                console.log(err);
-            })
-            .pipe(fs.createWriteStream('./translations.zip'))
-            .on('close', function() {
-            var destinationDir = 'src/translated';
-
-        var unzipError = false;
-
-        var child = exec(`unzip -o translations.zip -d ${destinationDir}`, {async: true});
-
-        child.stderr.on('data', function(error) {
-            console.log(error);
-        unzipError = true;
-    });
-
-        child.stdout.on('close', function(data) {
-            if (!unzipError) {
-            console.log(`Translations successfully downloaded to ${destinationDir}`);
-        } else {
-            console.log('There was an error unzipping the translations ZIP file');
-        }
-    });
-    });
-
-    });
-    });
+            request(options, function(error, response, body) {
+                console.log(error, body);
+            });
+        });
     });
 });
 

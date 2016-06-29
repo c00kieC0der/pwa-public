@@ -8,6 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/styles/core.css">
     <link rel="stylesheet" type="text/css" href="/assets/wxicon/css/wxicon.css">
+    <link rel="stylesheet" type="text/css" href="/iconfont/wx-iconfont-moon/moon_icon.css">
     <link rel="stylesheet" type="text/css" href="/iconfont/wx-iconfont-global/style.css">
     <link rel="manifest" href="manifest.json">
     <script async src="https://www.googletagservices.com/tag/js/gpt.js"></script>
@@ -30,18 +31,14 @@
         </a>
         <ul class="locations nav nav-tabs">
             <li class="saved-locations left-block">
-                <ul class="nav nav-tabs">
-                    <li>
-                        <a>
-                            <span class="active-loc-condition-icon wx-iconfont-global condition-icon"></span>
+                <a class="unique-text-wrap-class">
+                    <span class="active-loc-condition-icon wx-iconfont-global condition-icon"></span>
                             <span class="text">
                                 <span id="activeLocTemp"></span>
                                 <span class="degree">°</span>
                                 <span id="activeLocName"></span>
                             </span>
-                        </a>
-                    </li>
-                </ul>
+                </a>
             </li>
         </ul>
         <button class="search-open-btn wx-iconfont-global wx-icon-search" onclick="showMainSearch()">
@@ -107,7 +104,7 @@
         </div>
     </div>
 
-    <div class="main-nav" id="main-search" style="z-index: 1000;">
+    <div class="main-nav" id="main-search">
         <div class="unified-search">
             <div class="search-box" id="search-container">
                 <input type="text" placeholder="Search city, zip or place " id="search" onkeyup="searchResults()">
