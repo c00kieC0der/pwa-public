@@ -1,4 +1,7 @@
-        <tr class="clickable">
+        <tr class="js-weekend">
+          <h3>This Weekend</h3>
+        </tr>
+        <tr class="clickable day expanded">
           <td class="twc-sticky-col" headers="day" title="{{::daypart.narrative}}">
             <span class="date-time js-day"></span>
             <span data-gm-wx-alert-badge="::daypart.iconExtended"></span>
@@ -81,7 +84,7 @@
               data-placeholder="'--'"></span>
           </td>
         </tr>
-        <tr class="details clickable"
+        <tr class="details night expanded"
           data-ng-click="ls24HourVm.openDayDetail($index)"
           data-ng-if="(daypart.parent === ls24HourVm.selectedDayIndex && ls24HourVm.selectedDayIndex !== -1)
             || $index === ls24HourVm.selectedDayIndex"
