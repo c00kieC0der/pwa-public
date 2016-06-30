@@ -82,6 +82,7 @@ var toastFunctions = {
         console.log('Clicked toast');
         document.getElementById('page-div-toast').style.display = 'none';
         _User.updatePushNotifications(true);
+        window.open('https://weather.com/life/manage-notifications"', '_blank');
     },
     closeToast : function() {
         console.log('Closed toast');

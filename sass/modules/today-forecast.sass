@@ -266,7 +266,7 @@
     +pie-clearfix
     .wx-detail
       display: block
-      padding: 8px 0
+      padding: 4px 0
     .wx-detail-icon
       float: left
       padding-right: 6px
@@ -275,9 +275,9 @@
     .wx-detail-value
       float: right
       text-align: right
-    .wx-detail-label
-      text-transform: uppercase
-      font-weight: 600
+    //.wx-detail-label
+    //  text-transform: uppercase
+    //  font-weight: 600
   .show-lg
     display: none
 @media (min-width: 481px)
@@ -351,6 +351,11 @@
     &.selected
       flex-basis: 25%
 
+  &.panel-footer
+    .dp-details
+      display: none
+      &:first-child
+        display: block
 
 .nowcard
   height: 250px
@@ -366,3 +371,5 @@
     background-image: url(/assets/wxcards/day-partly-cloudy.jpg)
   &.day-rainy
     background-image: url(/assets/wxcards/day-rainy.jpg)
+
+

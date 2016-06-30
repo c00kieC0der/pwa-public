@@ -3,20 +3,23 @@
  */
 (function(){
     var ngRepeatMap = [
-        ['js-dayPartName',        'dayPartName'],
-        ['js-date',        'date'], // 'MMM d'
-        ['js-wxicon',      'icon'],
+        ['js-dayPartName',      'dayPartName'],
+        ['js-date',             'date'], // 'MMM d'
+        ['js-wxicon',           'icon'],
         ['js-iconExended',      'iconExtended'],
-        ['js-tempHi',        'tempHi'],
-        ['js-tempLo',        'tempLo'],
+        ['js-tempHi',           'highs'],
+        ['js-tempLo',           'lows'],
         ['js-phrase',           'phrase'],
-        ['js-precipPct',      'precipPct'],
-        ['js-humidityPct',    'humidityPct'],
-        ['js-uvIndex',    'uvIndex'],
-        ['js-sunrise',    'sunrise'],
-        ['js-sunset',    'sunset'],
-        ['js-moonrise',    'moonrise'],
-        ['js-moonset',    'moonset']
+        ['js-narrative',        'narrative'],
+        ['js-precipPct',        'precipPct'],
+        ['js-windDirCompass',   'windDirCompass'],
+        ['js-windSpeed',        'windSpeed'],
+        ['js-humidityPct',      'humidityPct'],
+        ['js-uvIndex',          'uvIndex'],
+        ['js-sunrise',          'sunrise'],
+        ['js-sunset',           'sunset'],
+        ['js-moonrise',         'moonrise'],
+        ['js-moonset',          'moonset']
     ];
     /*
         What div,

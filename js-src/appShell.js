@@ -380,13 +380,27 @@ function showCategories() {
 function showAreas(ele,rowId ) {
     var languageHTML = '';
     for(l=0; l< categories[rowId].countryName.length; l++){
-        languageHTML += '<li><a href="#"><span> '+categories[rowId].countryName[l].name+' </span> <span>'+categories[rowId].countryName[l].code+'</span> </a></li>';
+        languageHTML += '<li><a href="javascript:changeLang("' + categories[rowId].countryName[l].code + '")"><span> '+categories[rowId].countryName[l].name+' </span> <span>'+categories[rowId].countryName[l].code+'</span> </a></li>';
     }
     document.getElementById('country-languages').innerHTML = languageHTML;
     document.getElementById('area-value').innerHTML = ele.innerHTML;
     showHide('loc-layout',0);
     showHide('category-layout',0);
     showHide('areas-layout',1);
+}
+
+/**
+ * changeLang(lang code)
+ * @param(code)
+ * updates user lang parameter
+ * fetches new lang strings
+ * closes the menu
+ */
+function changeLang(code){
+    _User.lang = code;
+    _Lang.updateTranslations();
+    _Router.updateUrl()
+    showHide('main-nav', 0);
 }
 
 /**
@@ -501,7 +515,11 @@ var assignAppShellLang = function(){
         ['nav-fiveday', _Lang['5 day'].toUpperCase()],
         ['nav-tenday', _Lang['10 day'].toUpperCase()],
         ['nav-weekend', 'weekend'],//_Lang['weekend'].toUpperCase()],
-        ['nav-map', _Lang.maps.toUpperCase()]
+        ['nav-map', _Lang.maps.toUpperCase()],
+        ['footer-terms-of-use', capitalizeEachWord(_Lang['terms of use'])],
+        ['footer-privacy-policy', capitalizeEachWord(_Lang['privacy policy'])],
+        ['footer-parental-controls', capitalizeEachWord(_Lang['parental controls'])],
+        ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])]
     ];
     helper.setContent(langMap);
 };
@@ -510,3 +528,10 @@ document.getElementById('event-anchor').addEventListener('lang-builder', functio
     assignAppShellLang();
 });
 
+
+function capitalizeEachWord(str) {
+    console.log(str);
+    return str.replace(/\w\S*/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
