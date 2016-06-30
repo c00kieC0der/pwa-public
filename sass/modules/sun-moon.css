@@ -1,0 +1,66 @@
+.panel-heading > h2,
+.panel-heading .heading {
+  font-size: 1.42857rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 5px 0 10px; }
+
+.sunmoon-mod {
+  background-color: #ffffff;
+  margin: 7px;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+  white-space: nowrap; }
+  .sunmoon-mod .mod-header {
+    font-family: "Roboto", "Helvetica", sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.14286rem;
+    padding: 10px 0px 5px 10px;
+    color: #000000; }
+  .sunmoon-mod .mod-body .sunmoon-list {
+    margin: 0px;
+    color: #000000; }
+    .sunmoon-mod .mod-body .sunmoon-list li {
+      display: table;
+      height: 41px;
+      border-top: 1px solid #cccccc;
+      font-size: 1rem;
+      font-weight: 300; }
+      .sunmoon-mod .mod-body .sunmoon-list li .sunmoon-icon {
+        display: table-cell;
+        vertical-align: middle;
+        min-width: 38px;
+        text-align: center; }
+      .sunmoon-mod .mod-body .sunmoon-list li .wx-icon-sunrise, .sunmoon-mod .mod-body .sunmoon-list li .wx-icon-sunset {
+        font-size: 1.21429rem;
+        color: #dea225; }
+      .sunmoon-mod .mod-body .sunmoon-list li .wx-icon-sunny {
+        color: #dea225; }
+      .sunmoon-mod .mod-body .sunmoon-list li .moon-rise, .sunmoon-mod .mod-body .sunmoon-list li .moon-set {
+        font-size: 1.21429rem;
+        color: #1f4371; }
+      .sunmoon-mod .mod-body .sunmoon-list li #sunmoon-moonphrase-icon {
+        color: #1f4371; }
+      .sunmoon-mod .mod-body .sunmoon-list li .list-element {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        text-transform: capitalize; }
+      .sunmoon-mod .mod-body .sunmoon-list li #sunmoon-moonphrase {
+        text-transform: capitalize; }
+      .sunmoon-mod .mod-body .sunmoon-list li .period-name {
+        color: #444444;
+        white-space: nowrap; }
+      .sunmoon-mod .mod-body .sunmoon-list li .period-value {
+        white-space: nowrap;
+        color: #444444;
+        display: table-cell;
+        vertical-align: middle;
+        padding-right: 10px;
+        text-align: right;
+        text-transform: lowercase; }
+    .sunmoon-mod .mod-body .sunmoon-list li:first-child {
+      border-top: 0px; }
+
+/*# sourceMappingURL=sun-moon.css.map */

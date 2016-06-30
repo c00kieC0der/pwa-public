@@ -1,15 +1,15 @@
 var _Data = {}, app = {};
 (function() {
-    var dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1pollenforecast;vt1dailyForecast;vt1observation?units=" +
+    var dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1dailyForecast;vt1observation?units=" +
         _User.unitPref +
         '&language=' + _User.lang +
         '&geocode=' +
         _User.activeLocation.lat + ',' + _User.activeLocation.long +
         '&format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
-    var dataAstroUrl = '';
+    var dataAstroUrl = "https://dsx.weather.com/wxd/v2/Astro/" + _User.lang + "/0/3/(" + _User.activeLocation.lat + ',' + _User.activeLocation.long + ")?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
     var eventData = document.createEvent('Event');
-    var eventAstroData = document.createEvent('Event');
-    eventAstroData.initEvent('astro-builder', true, true);
+    var astroEventData = document.createEvent('Event');
+    astroEventData.initEvent('astro-builder', true, true);
     eventData.initEvent('builder', true, true);
 
 
@@ -54,6 +54,19 @@ var _Data = {}, app = {};
                 console.log(err);
             }
         });
+        AjaxRequest.get({
+            'url': dataAstroUrl,
+            'generateUniqueUrl': false,
+            'onSuccess': function (req) {
+                var data = JSON.parse(req.responseText);
+                //_Data.solarNoonData = formatTime(data[0].doc.AstroData[0].sun.zenith.local);
+                _Data.solarData =data[0].doc;
+                massageSolarData();
+                document.getElementById('event-anchor').dispatchEvent(astroEventData);
+            }, 'onError' : function(err) {
+                console.log(err);
+            }
+        });
     };
     if (_User.activeLocation.prsntNm) {
         _Data.collectNew();
@@ -86,20 +99,48 @@ var _Data = {}, app = {};
         var dateBase = new Date(fullDate);
         return daysOfWeek[dateBase.getDay()] + ', ' + monthsOfYear[dateBase.getMonth()] + ' ' + dateBase.getDate();
     };
+
+    /*
+     Formats dailyforecast datetimes, currently used for sunrise/sunset, and moonrise/moonset
+     */
+    var formatDFDateTimes = function(dataObj){
+        for(var key in dataObj){
+            if(dataObj.hasOwnProperty(key)){
+
+                _Data.dailyForecast[key + 'Time'] = [];
+                _Data.dailyForecast[key + 'Date'] = [];
+
+                dataObj[key].forEach(function(item, index){
+                    _Data.dailyForecast[key + 'Time'][index] = formatTime(dataObj[key][index]);
+                    _Data.dailyForecast[key + 'Date'][index] = formatTime(dataObj[key][index]);
+                });
+            }
+        }
+    };
+
     /*
      Any after retrieval data massaging.
      */
     var massageData = function () {
+        var sunMoonData = {
+            sunrise: _Data.dailyForecast.sunrise,
+            sunset: _Data.dailyForecast.sunset,
+            moonrise: _Data.dailyForecast.moonrise,
+            moonset: _Data.dailyForecast.moonset
+        };
+        formatDFDateTimes(sunMoonData);
+        _Data.tenDay = _Data.dailyForecast.day;
+
         getDayData();
         _Data.hourly.time = [];
         _Data.hourly.date = [];
         _Data.lookingAhead = getLookingAhead();
-        _Data.tenDay = _Data.dailyForecast.day;
         for (var i in _Data.hourly.processTime) {
             _Data.hourly.time[i] = formatTime(_Data.hourly.processTime[i]);
             _Data.hourly.date[i] = formatDate(_Data.hourly.processTime[i]);
         }
     };
+
 
     var getDayData = function () {
         //Day night data, should be optimized
@@ -236,6 +277,25 @@ var _Data = {}, app = {};
             }];
         }
         return retData;
+    };
+
+    /*
+     Formats solar noon dates and times.
+     */
+    var massageSolarData = function(){
+        _Data.solarData.noonTime=[];
+        _Data.solarData.noonDate=[];
+        _Data.solarData.moonIcons =[];
+        var moonIcCount=0;
+        for(var j in _Data.solarData.AstroData){
+            if(_Data.solarData.AstroData.hasOwnProperty(j)) {
+                _Data.solarData.noonTime[j] = formatTime(_Data.solarData.AstroData[j].sun.zenith.local);
+                _Data.solarData.noonDate[j] = formatDate(_Data.solarData.AstroData[j].sun.zenith.local);
+                _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet.riseIcon);
+                _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet["setIcon"]);
+
+            }
+        }
     };
 })();
 
