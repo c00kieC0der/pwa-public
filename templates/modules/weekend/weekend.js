@@ -11,6 +11,8 @@
         ['js-tempLo',        'lows'],
         ['js-phrase',           'phrase'],
         ['js-precipPct',      'precipPct'],
+        ['js-windDirCompass', 'windDirCompass'],
+        ['js-windSpeed', 'windSpeed'],
         ['js-humidityPct',    'humidityPct'],
         ['js-uvIndex',    'uvIndex'],
         ['js-sunrise',    'sunrise'],
