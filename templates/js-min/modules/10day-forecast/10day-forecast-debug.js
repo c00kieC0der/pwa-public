@@ -3,14 +3,14 @@
  */
 (function(){
     var ngRepeatMap = [
-        ['js-daypartname',      'dayPartName'],
+        ['js-daypartname',      'daypart'],
         ['phrase-td',           'phrase'],
-        ['temphi-td',           'temperature'],
-        ['templo-td',           'temperature'],
+        ['temphi-td',           'tempHi'],
+        ['templo-td',           'tempLo'],
         ['precip-td',           'precip'],
         ['wind-td',             'windDirCompass'],
         ['humidity-td',         'rh'],
-        ['uvindex-td',          'uvIndex' + ' of 10'],
+        ['uvindex-td',          'uvIndex'],
         ['sunrise-td',          'sunrise'],
         ['sunset-td',           'sunset'],
         ['moonrise-td',         'moonrise'],
@@ -27,7 +27,8 @@
     //(divId, componentName, dataMap, data, multiplier)
 
     if(_Data.dailyForecast){
-        helper.ngRepeat('ls-row-wrap-10day', 'ls-10day-data', ngRepeatMap, _Data.tenDay, 10);
+        helper.ngRepeat('ls-row-wrap-10day', 'ls-10day-data', ngRepeatMap, _Data.tenDay.day, 10);
+        console.dir(_Data.dailyForecast);
     }
 
     //document.getElementById('event-anchor').addEventListener('builder', function() {

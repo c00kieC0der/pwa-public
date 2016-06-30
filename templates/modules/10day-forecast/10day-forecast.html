@@ -1,4 +1,5 @@
-<link rel="stylesheet" type="text/css" href="styles/modules/10day-forecast.css">
+<link rel="stylesheet" type="text/css" href="/styles/modules/10day-forecast.css">
+
 
 <header class="heading">
     <h2 data-ng-bind="::(daypart.title || daypart.day.dayPartName)"></h2>
@@ -7,6 +8,7 @@
     <span data-ng-if="::!daypart.holidayName" data-dsxdate data-datetime="::daypart.validDate" data-format="::'MMM d' | pfTranslate: {context: 'weather_dateformats'}" data-placeholder="''"></span>
     </span>
 </header>
+
 <article class="ls-24-hour-wrap twc-table-wrap" data-ng-cloak>
     <div id="twc-scrollable" class="twc-table-scroller">
         <table class="twc-table">
@@ -67,60 +69,3 @@
         <span class="wx-iconfont-global wx-icon-arrow-right ls-right-arrow"></span>
     </a>
 </div>
-
-
-
-
-
-
-<!--<link rel="stylesheet" type="text/css" href="styles/modules/hourly-forecast.css">-->
-
-<!--<section class="ls-hourly-wwir" data-ng-if="::lsHourlyVm.showWWIR">-->
-    <!--&lt;!&ndash; <span data-wxicon data-vector-optimized="true" data-sky-code="::lsHourlyVm.iconClass"></span> &ndash;&gt;-->
-    <!--&lt;!&ndash; TODO: Update logic to use rain or snow icon from above directive &ndash;&gt;-->
-    <!--<span aria-hidden="true" class="wwir-icon wx-iconfont-global {{::lsHourlyVm.iconClass}}"></span>-->
-    <!--<p class="wwir-data">-->
-        <!--<span class="wwir-phrase" data-ng-bind="::lsHourlyVm.textPhrase"></span>-->
-        <!--<span class="wwir-time" data-ng-bind="::lsHourlyVm.timePhrase"></span>-->
-    <!--</p>-->
-<!--</section>-->
-
-<!--<article class="ls-hourly-wrap twc-table-wrap" data-ng-cloak>-->
-    <!--<div id="twc-scrollable" class="twc-table-scroller">-->
-        <!--<table class="twc-table">-->
-            <!--<thead>-->
-            <!--<tr>-->
-                <!--<th class="twc-sticky-col" id="time" scope="col">Time</th>-->
-                <!--<th class="description" id="description" scope="col">Description</th>-->
-                <!--<th id="temp" scope="col">Temp</th>-->
-                <!--<th id="feels" scope="col">Feels</th>-->
-                <!--<th id="precip" scope="col">Precip</th>-->
-                <!--<th id="humidity" scope="col">Humidity</th>-->
-                <!--<th id="wind" scope="col">Wind</th>-->
-            <!--</tr>-->
-            <!--</thead>-->
-            <!--<tbody id="ls-row-wrap" class="ls-row-wrap"></tbody>-->
-        <!--</table>-->
-    <!--</div>-->
-    <!--<div class="twc-table-shadow"></div>-->
-
-
-<!--</article>-->
-<!--<div class="ls-hourly-control">-->
-    <!--<a href="" class="ls-hourly-btn"-->
-       <!--data-ng-if="lsHourlyVm.canNextHourly"-->
-       <!--data-ng-click="::lsHourlyVm.loadMoreHourly()"-->
-       <!--data-track-str="{{::lsHourlyVm.moduleId}}_next">-->
-        <!--<span class="hourly-text" data-ng-bind="::'Next 8 Hours' | pfTranslate: {context: 'weather_terms'}"></span>-->
-        <!--<span aria-hidden="true" class="wx-iconfont-global wx-icon-arrow-down-5 hourly-down-arrow"></span>-->
-    <!--</a>-->
-    <!--<a class="ls-hourly-btn"-->
-       <!--data-ng-if="!lsHourlyVm.canNextHourly"-->
-       <!--data-ng-href="{{::lsHourlyVm.tendayLink}}"-->
-       <!--data-from-str="{{::lsHourlyVm.moduleId}}_moreHourly-10Day">-->
-        <!--<span class="hourly-text" data-ng-bind="::'10 Day Forecast' | pfTranslate: {context: 'weather_terms'}"></span>-->
-        <!--<span class="wx-iconfont-global wx-icon-arrow-right hourly-right-arrow"></span>-->
-    <!--</a>-->
-<!--</div>-->
-
-
