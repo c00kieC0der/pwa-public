@@ -11,6 +11,9 @@ $text-color: #393939
 $border: #999
 $screen-md: 768px
 
+h3
+  margin: 1em 10px .7em
+  font-weight: normal
 
 .twc-table-wrapper
   position: relative
@@ -54,6 +57,11 @@ $screen-md: 768px
     &.twc-sticky-col
       background-color: #fff
       z-index: 1
+    p
+      padding: 0
+      margin: 0
+  tr.closed
+    display: none
   tr.open td,
   tr.details td
     background-color: $gray-light

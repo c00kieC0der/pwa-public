@@ -1,6 +1,6 @@
 var _Data = {}, app = {};
 (function() {
-    var dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1pollenforecast;vt1dailyForecast;vt1observation;vt1alerts?units=" +
+    var dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1pollenforecast;vt1dailyForecast;vt1observation?units=" +
         _User.unitPref +
         '&language=' + _User.lang +
         '&geocode=' +
@@ -90,12 +90,43 @@ var _Data = {}, app = {};
      Any after retrieval data massaging.
      */
     var massageData = function () {
+        getDayData();
         _Data.hourly.time = [];
         _Data.hourly.date = [];
         _Data.lookingAhead = getLookingAhead();
         for (var i in _Data.hourly.processTime) {
             _Data.hourly.time[i] = formatTime(_Data.hourly.processTime[i]);
             _Data.hourly.date[i] = formatDate(_Data.hourly.processTime[i]);
+        }
+    };
+
+    var getDayData = function () {
+        //Day night data, should be optimized
+        _Data.dailyForecast.dayData = {};
+        _Data.dailyForecast.dayData.day = _Data.dailyForecast.day;
+        _Data.dailyForecast.dayData.night =_Data.dailyForecast.night;
+        _Data.dailyForecast.dayData.day.date =[];
+        _Data.dailyForecast.dayData.day.sunrise =[];
+        _Data.dailyForecast.dayData.day.sunset =[];
+        _Data.dailyForecast.dayData.day.moonrise =[];
+        _Data.dailyForecast.dayData.day.moonset =[];
+        _Data.dailyForecast.dayData.night.date =[];
+        for (var i in _Data.dailyForecast.validDate) {
+            _Data.dailyForecast.dayData.day.date[i] = formatDate(_Data.dailyForecast.validDate[i]);
+            _Data.dailyForecast.dayData.night.date[i] = formatDate(_Data.dailyForecast.validDate[i]);
+            _Data.dailyForecast.dayData.day.sunrise[i] = formatTime(_Data.dailyForecast.sunrise[i]);
+            _Data.dailyForecast.dayData.day.sunset[i] = formatTime(_Data.dailyForecast.sunset[i]);
+            console.log(_Data.dailyForecast.dayData.day.sunset[i]);
+            _Data.dailyForecast.dayData.day.moonrise[i] = formatTime(_Data.dailyForecast.moonrise[i]);
+            _Data.dailyForecast.dayData.day.moonset[i] = formatTime(_Data.dailyForecast.moonset[i]);
+        }
+        //_Data.dailyForecast.dayData.day.date = _Data.dailyForecast.validDate;
+        _Data.dailyForecast.dayData.day.highs = _Data.dailyForecast.day.temperature;
+        _Data.dailyForecast.dayData.day.lows = _Data.dailyForecast.night.temperature;
+        _Data.dailyForecast.dayData.night.lows = _Data.dailyForecast.night.temperature;
+        //For replacing null values. Will rewrite and finish
+        for(var i in _Data.dailyForecast.dayData.day.highs = _Data.dailyForecast.day.temperature){
+            if(_Data.dailyForecast.dayData.day.highs[i]==null){};
         }
     };
 

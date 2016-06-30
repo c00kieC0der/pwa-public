@@ -1,5 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/styles/modules/hourly-forecast.css">
-
+<header class="heading">
+    <h3 class="">Hourly Forecast</h3>
+</header>
 <section class="ls-hourly-wwir" data-ng-if="::lsHourlyVm.showWWIR">
   <!-- <span data-wxicon data-vector-optimized="true" data-sky-code="::lsHourlyVm.iconClass"></span> -->
   <!-- TODO: Update logic to use rain or snow icon from above directive -->
@@ -15,13 +17,13 @@
     <table class="twc-table">
       <thead>
         <tr>
-          <th class="twc-sticky-col" id="time" scope="col">Time</th>
-          <th class="description" id="description" scope="col">Description</th>
-          <th id="temp" scope="col">Temp</th>
-          <th id="feels" scope="col">Feels</th>
-          <th id="precip" scope="col">Precip</th>
-          <th id="humidity" scope="col">Humidity</th>
-          <th id="wind" scope="col">Wind</th>
+          <th class="twc-sticky-col" id="hourly-time" scope="col"></th>
+          <th class="description" id="hourly-description" scope="col"></th>
+          <th id="hourly-temp" scope="col"></th>
+          <th id="hourly-feels" scope="col"></th>
+          <th id="hourly-precip" scope="col"></th>
+          <th id="hourly-humidity" scope="col"></th>
+          <th id="hourly-wind" scope="col"></th>
         </tr>
       </thead>
       <tbody id="ls-row-wrap" class="ls-row-wrap"></tbody>

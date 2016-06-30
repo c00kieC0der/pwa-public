@@ -46,14 +46,18 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
     multiplier = multiplier === 'all' ? dataMap.length : multiplier;
     var path = '/templates/components/' + componentName + '/' + componentName + '.html';
     var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    var classXes = '', x = 0, i = 0, j = 0 ;
+    var classXes = '', x = 0, i = 0, j = 0, div ;
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var rawTemplate = xhr.responseText;
             //put the template in x times.
             for(x=0; x < multiplier; x++){
-                document.getElementById(divId).innerHTML += rawTemplate;
+                div = document.getElementById(divId);
+                if(div){
+                    div.innerHTML += rawTemplate;
+                }
+                //document.getElementById(divId).innerHTML += rawTemplate;
             }
             //for each item in the map, get all the elements with that class.
             for(i=0; i < dataMap.length; i++){
@@ -105,6 +109,10 @@ helper.ngRepeatReverse = function(divId, componentName, dataMap, data, multiplie
 
 helper.isNumeric = function(num){
     return typeof num === 'number' && num !== 'NaN';
+};
+
+helper.capitalize = function(str){
+    return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
 // Export node module.
