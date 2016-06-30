@@ -9,9 +9,15 @@
 .hide {
   display: none !important; }
 
+.page-title {
+  padding: 0 10px; }
+  .page-title::first-letter {
+    text-transform: capitalize; }
+
 h3 {
   margin: 1em 10px 0.7em;
-  font-weight: normal; }
+  color: white;
+  text-transform: capitalize; }
 
 .twc-table-wrapper {
   position: relative; }
@@ -60,8 +66,6 @@ h3 {
     .twc-table td p {
       padding: 0;
       margin: 0; }
-  .twc-table tr.closed {
-    display: none; }
   .twc-table tr.open td,
   .twc-table tr.details td {
     background-color: #dadada;
