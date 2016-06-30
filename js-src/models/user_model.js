@@ -7,7 +7,8 @@
 var _User = {
     loggedIn : false,
     unitPref : 'e',
-    lang : 'fr-FR',
+    lang : 'en-US',
+    //lang : 'fr-FR',
     locations: [],
     activeLocation : {
         lat : '',
