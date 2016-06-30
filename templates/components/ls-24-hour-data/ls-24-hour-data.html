@@ -1,96 +1,109 @@
-        <tr class="clickable">
-          <td class="twc-sticky-col" headers="day" title="{{::daypart.narrative}}">
-            <span class="date-time js-day"></span>
-            <span data-gm-wx-alert-badge="::daypart.iconExtended"></span>
+        <tr class="clickable"> <!-- Need to toggle the class here for open or closed -->
+          <td class="twc-sticky-col" headers="day">
+            <span class="date-time js-dayPartName"></span>
+            <span class="wx-alert-icon js-iconExtended"></span>
             <span class="wx-weather-icon js-wxicon"></span>
-            <span class="js-date"></span>
-              <div class="twc-table-shadow sticky"></div>
+            <span class="js-date day-detail"></span>
+            <div class="twc-table-shadow sticky"></div>
           </td>
           <td headers="description" class="description">
-            <p class="js-description"></p>
+            <p class="js-phrase"></p>
           </td>
           <td headers="hi-low" class="temp">
-            <span data-ng-if="daypart.parent === -1">
-              <span
-                data-ng-bind="::daypart.tempHi"></span>
-              <span
-                data-ng-if="(daypart.tempHi !== '--')">&deg;</span>
-              <span class="slash"></span>
-              <span
-                data-ng-bind="::daypart.tempLo"></span>
-              <span
-                data-ng-if="(daypart.tempLo !== '--')">&deg;</span>
-            </span>
-            <span data-ng-if="daypart.parent !== -1">
-              <span>--</span>
-              <span class="slash"></span>
-              <span
-                data-ng-bind="::daypart.tempLo"></span>
-              <span
-                data-ng-if="(daypart.tempLo !== '--')">&deg;</span>
-            </span>
+            <span class="js-tempHi"></span>&deg;
+            <span class="slash"></span>
+            <span class="js-tempLo"></span>&deg;
           </td>
           <td headers="precip" class="precip">
             <span aria-hidden="true" class="wx-iconfont-global wx-icon-precip-rain-1"></span>
-            <span
-              data-ng-bind="::daypart.precipPct"></span>%
+            <span class="js-precipPct"></span>%
           </td>
           <td headers="wind" class="wind">
-            <span
-              data-gm-wx-wind-direction="::daypart.windDirCompass"
-              data-wx-wind-speed="::daypart.windSpeed"></span>
+            <span class="js-windDirCompass"></span>
+            <span class="js-windSpeed"></span>
           </td>
           <td headers="humidity" class="humidity">
-            <span
-              data-ng-bind="::daypart.humidityPct"></span>%
+            <span class="js-humidityPct"></span>%
           </td>
           <td headers="uv-index" class="uv-index">
-            <span
-              data-gm-wx-uv-index="::daypart.uvIndex"></span>
+            <span class="js-uvIndex"></span>
           </td>
           <td headers="sunrise" class="sunrise">
-            <span data-ng-if="::daypart.sunrise" aria-hidden="true" class="wx-iconfont-global wx-icon-sunrise"></span>
-            <span
-              data-dsxdate
-              data-datetime="daypart.sunrise"
-              data-format="'h:mm a' | pfTranslate: {context: 'weather_dateformats'}"
-              data-placeholder="'--'"></span>
+            <span aria-hidden="true" class="wx-iconfont-global wx-icon-sunrise"></span>
+            <span class="js-sunrise"></span>
           </td>
           <td headers="sunset" class="sunset">
-            <span data-ng-if="::daypart.sunset" aria-hidden="true" class="wx-iconfont-global wx-icon-sunset"></span>
-            <span
-              data-dsxdate
-              data-datetime="daypart.sunset"
-              data-format="::'h:mm a' | pfTranslate: {context: 'weather_dateformats'}"
-              data-placeholder="'--'"></span>
+            <span aria-hidden="true" class="wx-iconfont-global wx-icon-sunset"></span>
+            <span class="js-sunset"></span>
           </td>
           <td headers="moonrise" class="moonrise">
-            <span data-ng-if="::daypart.moonrise" aria-hidden="true" class="wx-iconfont-moon moon-rise"></span>
-            <span
-              data-dsxdate
-              data-datetime="::daypart.moonrise"
-              data-format="::'h:mm a' | pfTranslate: {context: 'weather_dateformats'}"
-              data-placeholder="'--'"></span>
+            <span aria-hidden="true" class="wx-iconfont-moon moon-rise"></span>
+            <span class="js-moonrise"></span>
           </td>
           <td headers="moonset" class="moonset">
-            <span data-ng-if="::daypart.moonset" aria-hidden="true" class="wx-iconfont-moon moon-set"></span>
-            <span
-              data-dsxdate
-              data-datetime="::daypart.moonset"
-              data-format="::'h:mm a' | pfTranslate: {context: 'weather_dateformats'}"
-              data-placeholder="'--'"></span>
+            <span aria-hidden="true" class="wx-iconfont-moon moon-set"></span>
+            <span class="js-moonset"></span>
           </td>
         </tr>
-        <tr class="details clickable"
-          data-ng-click="ls24HourVm.openDayDetail($index)"
-          data-ng-if="(daypart.parent === ls24HourVm.selectedDayIndex && ls24HourVm.selectedDayIndex !== -1)
-            || $index === ls24HourVm.selectedDayIndex"
-          data-ng-repeat-end>
-          <td class="twc-sticky-col" headers="day" title="{{::daypart.narrative}}">
+        <tr class="details">
+          <td class="twc-sticky-col" headers="day">
             <div class="twc-table-shadow sticky"></div>
           </td>
-          <td colspan="10" headers="desc-details" class="desc-details">
-            <span
-              data-ng-bind="::daypart.narrative" class="narrative"></span>
+          <td colspan="10" headers="desc-details" class="desc-details hide">
+            <span class="js-narrative"></span>
+          </td>
+        </tr>        <tr class="clickable">
+          <td class="twc-sticky-col" headers="day">
+            <span class="date-time js-dayPartName"></span>
+            <span class="wx-alert-icon js-iconExtended"></span>
+            <span class="wx-weather-icon js-wxicon"></span>
+            <span class="js-date day-detail"></span>
+            <div class="twc-table-shadow sticky"></div>
+          </td>
+          <td headers="description" class="description">
+            <p class="js-phrase"></p>
+          </td>
+          <td headers="hi-low" class="temp">
+            <span class="js-tempHi"></span>&deg;
+            <span class="slash"></span>
+            <span class="js-tempLo"></span>&deg;
+          </td>
+          <td headers="precip" class="precip">
+            <span aria-hidden="true" class="wx-iconfont-global wx-icon-precip-rain-1"></span>
+            <span class="js-precipPct"></span>%
+          </td>
+          <td headers="wind" class="wind">
+            <span class="js-windDirCompass"></span>
+            <span class="js-windSpeed"></span>
+          </td>
+          <td headers="humidity" class="humidity">
+            <span class="js-humidityPct"></span>%
+          </td>
+          <td headers="uv-index" class="uv-index">
+            <span class="js-uvIndex"></span>
+          </td>
+          <td headers="sunrise" class="sunrise">
+            <span aria-hidden="true" class="wx-iconfont-global wx-icon-sunrise"></span>
+            <span class="js-sunrise"></span>
+          </td>
+          <td headers="sunset" class="sunset">
+            <span aria-hidden="true" class="wx-iconfont-global wx-icon-sunset"></span>
+            <span class="js-sunset"></span>
+          </td>
+          <td headers="moonrise" class="moonrise">
+            <span aria-hidden="true" class="wx-iconfont-moon moon-rise"></span>
+            <span class="js-moonrise"></span>
+          </td>
+          <td headers="moonset" class="moonset">
+            <span aria-hidden="true" class="wx-iconfont-moon moon-set"></span>
+            <span class="js-moonset"></span>
+          </td>
+        </tr>
+        <tr class="details closed">
+          <td class="twc-sticky-col" headers="day">
+            <div class="twc-table-shadow sticky"></div>
+          </td>
+          <td colspan="10" headers="desc-details" class="desc-details hide">
+            <span class="js-narrative"></span>
           </td>
         </tr>

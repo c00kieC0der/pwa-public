@@ -22,11 +22,31 @@
         do it how many times?
      */
     if(_Data.hourly){
-        helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12);
+        helper.ngRepeat('ls-row-wrap-10day', 'ls-row-wrap-10day', ngRepeatMap, _Data.hourly, 12);
     }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {
-        console.log('STUFF...', '_User.activeLocation.prsntNm');
         helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12);
     });
+
+    var hourlyForecastLangs = [];
+    var updateHourlyForecastLangs = function(){
+        hourlyForecastLangs = [
+            ['hourly-time', _Lang['time'].toUpperCase()],
+            ['hourly-description', _Lang['description'].toUpperCase()],
+            ['hourly-temp', _Lang['temp'].toUpperCase()],
+            ['hourly-feels', _Lang['feels'].toUpperCase()],
+            ['hourly-precip', _Lang['precip'].toUpperCase()],
+            ['hourly-humidity', _Lang['humidity'].toUpperCase()],
+            ['hourly-wind', _Lang['wind'].toUpperCase()]
+        ];
+        helper.setContent(hourlyForecastLangs);
+    };
+    if(window['_Lang'] && window['_Lang']['feels like']){
+        updateHourlyForecastLangs();
+    }
+    document.getElementById('event-anchor').addEventListener('lang-builder', function(){
+        updateHourlyForecastLangs();
+    });
+
 })();

@@ -1,4 +1,3 @@
-
 <div class="nowcard day-clear">
     <header>
         <div id="nowcard-location" class="location"></div>
@@ -15,7 +14,7 @@
         </div>
         <div id="nowcard-phrase" class="phrase"></div>
         <div class="feels">
-            <span id="nowcard-feels-label" class="btn-text">feels like</span>
+            <span id="nowcard-feels-label" class="btn-text"></span>
             <span>
                 <span id="nowcard-feels-value"></span>
                 <sup class="deg">&deg;</sup>
@@ -23,16 +22,16 @@
         </div>
         <div class="hilo">
             <span id="nowcard-hi-label" class="btn-text">H</span>
-        <span>
-            <span id="nowcard-hi-value">--</span>
-            <sup class="deg">&deg;</sup>
-        </span>
+            <span>
+                <span id="nowcard-hi-value">--</span>
+                <sup class="deg">&deg;</sup>
+            </span>
             <span>/</span>
             <span id="nowcard-lo-label" class="btn-text">L</span>
-        <span>
-            <span id="nowcard-lo-value">--</span>
-            <sup class="deg">&deg;</sup>
-        </span>
+            <span>
+                <span id="nowcard-lo-value">--</span>
+                <sup class="deg">&deg;</sup>
+            </span>
         </div>
     </div>
 </div>
@@ -40,35 +39,36 @@
 
 <div class="nowcard-details card">
     <div class="wx-detail-row">
-        <span class="wx-detail-label">Humidity</span>
+        <span class="wx-detail-label" id="today-humidity"></span>
         <span class="wx-detail-value">
-            <span id="nowcard-humidity"></span><span>%</span>
+            <span id="nowcard-humidity"></span>
+            <span>%</span>
         </span>
     </div>
     <div class="wx-detail-row">
-        <span class="wx-detail-label">Wind</span>
+        <span class="wx-detail-label" id="today-wind"></span>
         <span id="nowcard-wind" class="wx-detail-value wx-wind"></span>
     </div>
     <div class="wx-detail-row">
-        <span class="wx-detail-label">Dew Point</span>
-            <span class="wx-detail-value">
-                <span id="nowcard-dewpoint">43</span>
-                <sup class="deg">&deg;</sup>
-            </span>
+        <span class="wx-detail-label" id="today-dew-point"></span>
+        <span class="wx-detail-value">
+            <span id="nowcard-dewpoint"></span>
+            <sup class="deg">&deg;</sup>
+        </span>
     </div>
     <div class="wx-detail-row">
-        <span class="wx-detail-label">Pressure</span>
-                <span class="wx-detail-value">
-                    <span id="nowcard-pressure"></span>
-                </span>
+        <span class="wx-detail-label" id="today-pressure"></span>
+        <span class="wx-detail-value">
+            <span id="nowcard-pressure"></span>
+        </span>
     </div>
     <div class="wx-detail-row">
-        <span class="wx-detail-label">Visibility</span>
+        <span class="wx-detail-label" id="today-visibility"></span>
         <span id="nowcard-visibility" class="wx-detail-value"></span>
     </div>
     <div class="wx-detail-row">
-        <span class="wx-detail-label">UV Index</span>
-        <span id="nowcard-uv-index" class="wx-detail-value">4 of 10</span>
+        <span class="wx-detail-label" id="today-uv-index"></span>
+        <span id="nowcard-uv-index" class="wx-detail-value"></span>
     </div>
 </div>
 
@@ -163,10 +163,11 @@
                         <span class="wx-iconfont-global wx-icon-wind"></span>
                     </span>
                     <span class="wx-detail-text">
-                        <span class="wx-detail-label" id="dp1-deials-wind">Wind</span>
+                        <span class="wx-detail-label" id="dp1-lb-wind"></span>
                         <span class="wx-detail-value wx-wind dir-ltr">
                             <span id="dp1-details-wind"></span>
                         </span>
+                    </span>
                 </li>
 
                 <li class="wx-detail">
@@ -174,9 +175,10 @@
                         <span class="wx-iconfont-global wx-icon-humidity"></span>
                     </span>
                     <span class="wx-detail-text">
-                        <span class="wx-detail-label">Humidity</span>
+                        <span class="wx-detail-label" id="dp1-lb-humidity"></span>
                         <span class="wx-detail-value">
                             <span id="dp1-details-humidity"></span>%
+                        </span>
                     </span>
                 </li>
 
@@ -185,7 +187,7 @@
                         <span class="wx-iconfont-global wx-icon-uv-index"></span>
                     </span>
                     <span class="wx-detail-text">
-                        <span class="wx-detail-label">UV Index</span>
+                        <span class="wx-detail-label" id="dp1-lb-uv-index"></span>
                         <span class="wx-detail-value" id="dp1-details-uvIndex"></span>
                     </span>
                 </li>
@@ -217,10 +219,11 @@
                         <span class="wx-iconfont-global wx-icon-wind"></span>
                     </span>
                     <span class="wx-detail-text">
-                        <span class="wx-detail-label" id="dp2-deials-wind">Wind</span>
+                        <span class="wx-detail-label" id="dp2-lb-wind"></span>
                         <span class="wx-detail-value wx-wind dir-ltr">
                             <span id="dp2-details-wind"></span>
                         </span>
+                    </span>
                 </li>
 
                 <li class="wx-detail">
@@ -228,9 +231,10 @@
                         <span class="wx-iconfont-global wx-icon-humidity"></span>
                     </span>
                     <span class="wx-detail-text">
-                        <span class="wx-detail-label">Humidity</span>
+                        <span class="wx-detail-label" id="dp2-lb-humidity"></span>
                         <span class="wx-detail-value">
                             <span id="dp2-details-humidity"></span>%
+                        </span>
                     </span>
                 </li>
 
@@ -239,7 +243,7 @@
                         <span class="wx-iconfont-global wx-icon-uv-index"></span>
                     </span>
                     <span class="wx-detail-text">
-                        <span class="wx-detail-label">UV Index</span>
+                        <span class="wx-detail-label" id="dp2-lb-uv-index"></span>
                         <span class="wx-detail-value" id="dp2-details-uvIndex"></span>
                     </span>
                 </li>
@@ -271,10 +275,11 @@
                         <span class="wx-iconfont-global wx-icon-wind"></span>
                     </span>
                     <span class="wx-detail-text">
-                        <span class="wx-detail-label" id="dp3-deials-wind">Wind</span>
+                        <span class="wx-detail-label" id="dp3-lb-wind"></span>
                         <span class="wx-detail-value wx-wind dir-ltr">
                             <span id="dp3-details-wind"></span>
                         </span>
+                    </span>
                 </li>
 
                 <li class="wx-detail">
@@ -282,9 +287,10 @@
                         <span class="wx-iconfont-global wx-icon-humidity"></span>
                     </span>
                     <span class="wx-detail-text">
-                        <span class="wx-detail-label">Humidity</span>
+                        <span class="wx-detail-label" id="dp3-lb-humidity"></span>
                         <span class="wx-detail-value">
                             <span id="dp3-details-humidity"></span>%
+                        </span>
                     </span>
                 </li>
 
@@ -293,7 +299,7 @@
                         <span class="wx-iconfont-global wx-icon-uv-index"></span>
                     </span>
                     <span class="wx-detail-text">
-                        <span class="wx-detail-label">UV Index</span>
+                        <span class="wx-detail-label" id="dp3-lb-uv-index"></span>
                         <span class="wx-detail-value" id="dp3-details-uvIndex"></span>
                     </span>
                 </li>
@@ -318,5 +324,4 @@
     </div>
 
 
-    
 </div>

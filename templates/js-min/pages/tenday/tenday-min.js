@@ -1,1 +1,1 @@
-!function(){helper.loadTemplate("24-hour-forecast","modules","24-hour-forecast")}();
+!function(){helper.loadTemplate("10day-forecast","modules","10day-forecast")}();

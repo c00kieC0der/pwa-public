@@ -2,7 +2,9 @@
     "today":"today",
     "hourly":"hourly",
     "10 day":"10 day",
+    "tenday" : "tenday",
     "5 day":"5 day",
+    "fiveday" : "fiveday",
     "monthly":"monthly",
     "almanac":"almanac",
     "terms of use":"terms of use",
@@ -21,6 +23,9 @@
     "temp":"temp",
     "feels":"feels",
     "precip":"precip",
+    "weekend forecast for {0}":"weekend forecast for {0}",
+    "5 day forecast for {0}":"5 day forecast for {0}",
+    "10 day forecast for {0}":"10 day forecast for {0}",
     "hourly forecast for {0}":"hourly forecast for {0}",
     "more hours": "more hours",
     "weather":"weather",
@@ -51,6 +56,7 @@
     "Get browser notifications for severe weather in your area. Activate Now" : "Get browser notifications for severe weather in your area. Activate Now",
     "radar" : "radar",
     "clouds" : "clouds",
+    "sun" : "sun",
     "MONTH": [
         "January",
         "February",
@@ -247,8 +253,5 @@
         "Qatar"              :  "Qatar",
         "Saudi Arabia"       :  "Saudi Arabia",
         "United Arab Emirates"  :  "United Arab Emirates"
-
-
-
-}
+    }
 }

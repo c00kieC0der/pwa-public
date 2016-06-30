@@ -82,13 +82,46 @@
         mapData();
         helper.setContent(dataAssignment);
     }
-
+    // Hide other details on first paint
     document.getElementById("dp2-details").style.display = 'none';
     document.getElementById("dp3-details").style.display = 'none';
+
+    /*
+      Translations Handling
+     */
+    var todayForecastLangs = [];
+    var updateTodayForecastLangs = function(){
+        todayForecastLangs = [
+            ['nowcard-feels-label', _Lang['feels like'].toUpperCase()],
+            ['today-humidity' , helper.capitalize(_Lang.humidity)],
+            ['today-wind', helper.capitalize(_Lang.wind)],
+            ['today-dew-point', helper.capitalize(_Lang['dew point'])],
+            ['today-pressure', helper.capitalize(_Lang.pressure)],
+            ['today-visibility', helper.capitalize(_Lang.visibility)],
+            ['today-uv-index', helper.capitalize(_Lang['uv index'])],
+            ['dp1-lb-wind', helper.capitalize(_Lang['wind'])],
+            ['dp1-lb-humidity', helper.capitalize(_Lang['humidity'])],
+            ['dp1-lb-uv-index', helper.capitalize(_Lang['uv index'])],
+            ['dp2-lb-wind', helper.capitalize(_Lang['wind'])],
+            ['dp2-lb-humidity', helper.capitalize(_Lang['humidity'])],
+            ['dp2-lb-uv-index', helper.capitalize(_Lang['uv index'])],
+            ['dp3-lb-wind', helper.capitalize(_Lang['wind'])],
+            ['dp3-lb-humidity', helper.capitalize(_Lang['humidity'])],
+            ['dp3-lb-uv-index', helper.capitalize(_Lang['uv index'])]
+        ];
+        helper.setContent(todayForecastLangs);
+    };
+    if(window['_Lang'] && window['_Lang']['feels like']){
+        updateTodayForecastLangs();
+    }
+    document.getElementById('event-anchor').addEventListener('lang-builder', function(){
+        updateTodayForecastLangs();
+    });
 
 })();
 
 
+//Looking ahead interactions
 
 function dayPartClick(detail, clickedId) {
     //addClass(this, 'selected');

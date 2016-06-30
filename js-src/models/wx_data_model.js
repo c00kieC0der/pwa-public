@@ -1,22 +1,22 @@
 var _Data = {}, app = {};
 (function() {
-    var dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1pollenforecast;vt1dailyForecast;vt1observation;vt1alerts?units=" +
+    var dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1dailyForecast;vt1observation?units=" +
         _User.unitPref +
         '&language=' + _User.lang +
         '&geocode=' +
         _User.activeLocation.lat + ',' + _User.activeLocation.long +
         '&format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
-    var dataAstroUrl = '';
+    var dataAstroUrl = "https://dsx.weather.com/wxd/v2/Astro/" + _User.lang + "/0/3/(" + _User.activeLocation.lat + ',' + _User.activeLocation.long + ")?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
     var eventData = document.createEvent('Event');
-    var eventAstroData = document.createEvent('Event');
-    eventAstroData.initEvent('astro-builder', true, true);
+    var astroEventData = document.createEvent('Event');
+    astroEventData.initEvent('astro-builder', true, true);
     eventData.initEvent('builder', true, true);
 
 
     _Data.collectNew = function () {
         app.hasRequestPending = true;
         if ('caches' in window) {
-           // console.log(caches);
+            // console.log(caches);
             caches.match(dataUrl).then(function (response) {
                 if (response) {
                     response.json().then(function (json) {
@@ -35,22 +35,35 @@ var _Data = {}, app = {};
         }
 
         AjaxRequest.get({
-                'url': dataUrl,
-                'generateUniqueUrl': false,
-                'onSuccess': function (req) {
+            'url': dataUrl,
+            'generateUniqueUrl': false,
+            'onSuccess': function (req) {
 
-                    var data = JSON.parse(req.responseText);
-                    _Data.obs = data.vt1observation;
-                    _Data.datetime = data.vt1currentdatetime;
-                    _Data.dailyForecast = data.vt1dailyForecast;
-                    _Data.pollenforecast = data.vt1pollenforecast;
-                    _Data.precipitation = data.vt1precipitation;
-                    _Data.fifteen = data.vt1fifteenminute;
-                    _Data.hourly = data.vt1hourlyForecast;
-                    massageData();
-                    document.getElementById('event-anchor').dispatchEvent(eventData);
-                    app.hasRequestPending = false;
-        }, 'onError' : function(err) {
+                var data = JSON.parse(req.responseText);
+                _Data.obs = data.vt1observation;
+                _Data.datetime = data.vt1currentdatetime;
+                _Data.dailyForecast = data.vt1dailyForecast;
+                _Data.pollenforecast = data.vt1pollenforecast;
+                _Data.precipitation = data.vt1precipitation;
+                _Data.fifteen = data.vt1fifteenminute;
+                _Data.hourly = data.vt1hourlyForecast;
+                massageData();
+                document.getElementById('event-anchor').dispatchEvent(eventData);
+                app.hasRequestPending = false;
+            }, 'onError' : function(err) {
+                console.log(err);
+            }
+        });
+        AjaxRequest.get({
+            'url': dataAstroUrl,
+            'generateUniqueUrl': false,
+            'onSuccess': function (req) {
+                var data = JSON.parse(req.responseText);
+                //_Data.solarNoonData = formatTime(data[0].doc.AstroData[0].sun.zenith.local);
+                _Data.solarData =data[0].doc;
+                massageSolarData();
+                document.getElementById('event-anchor').dispatchEvent(astroEventData);
+            }, 'onError' : function(err) {
                 console.log(err);
             }
         });
@@ -86,16 +99,76 @@ var _Data = {}, app = {};
         var dateBase = new Date(fullDate);
         return daysOfWeek[dateBase.getDay()] + ', ' + monthsOfYear[dateBase.getMonth()] + ' ' + dateBase.getDate();
     };
+
+    /*
+     Formats dailyforecast datetimes, currently used for sunrise/sunset, and moonrise/moonset
+     */
+    var formatDFDateTimes = function(dataObj){
+        for(var key in dataObj){
+            if(dataObj.hasOwnProperty(key)){
+
+                _Data.dailyForecast[key + 'Time'] = [];
+                _Data.dailyForecast[key + 'Date'] = [];
+
+                dataObj[key].forEach(function(item, index){
+                    _Data.dailyForecast[key + 'Time'][index] = formatTime(dataObj[key][index]);
+                    _Data.dailyForecast[key + 'Date'][index] = formatTime(dataObj[key][index]);
+                });
+            }
+        }
+    };
+
     /*
      Any after retrieval data massaging.
      */
     var massageData = function () {
+        var sunMoonData = {
+            sunrise: _Data.dailyForecast.sunrise,
+            sunset: _Data.dailyForecast.sunset,
+            moonrise: _Data.dailyForecast.moonrise,
+            moonset: _Data.dailyForecast.moonset
+        };
+        formatDFDateTimes(sunMoonData);
+        _Data.tenDay = _Data.dailyForecast.day;
+
+        getDayData();
         _Data.hourly.time = [];
         _Data.hourly.date = [];
         _Data.lookingAhead = getLookingAhead();
         for (var i in _Data.hourly.processTime) {
             _Data.hourly.time[i] = formatTime(_Data.hourly.processTime[i]);
             _Data.hourly.date[i] = formatDate(_Data.hourly.processTime[i]);
+        }
+    };
+
+
+    var getDayData = function () {
+        //Day night data, should be optimized
+        _Data.dailyForecast.dayData = {};
+        _Data.dailyForecast.dayData.day = _Data.dailyForecast.day;
+        _Data.dailyForecast.dayData.night =_Data.dailyForecast.night;
+        _Data.dailyForecast.dayData.day.date =[];
+        _Data.dailyForecast.dayData.day.sunrise =[];
+        _Data.dailyForecast.dayData.day.sunset =[];
+        _Data.dailyForecast.dayData.day.moonrise =[];
+        _Data.dailyForecast.dayData.day.moonset =[];
+        _Data.dailyForecast.dayData.night.date =[];
+        for (var i in _Data.dailyForecast.validDate) {
+            _Data.dailyForecast.dayData.day.date[i] = formatDate(_Data.dailyForecast.validDate[i]);
+            _Data.dailyForecast.dayData.night.date[i] = formatDate(_Data.dailyForecast.validDate[i]);
+            _Data.dailyForecast.dayData.day.sunrise[i] = formatTime(_Data.dailyForecast.sunrise[i]);
+            _Data.dailyForecast.dayData.day.sunset[i] = formatTime(_Data.dailyForecast.sunset[i]);
+            console.log(_Data.dailyForecast.dayData.day.sunset[i]);
+            _Data.dailyForecast.dayData.day.moonrise[i] = formatTime(_Data.dailyForecast.moonrise[i]);
+            _Data.dailyForecast.dayData.day.moonset[i] = formatTime(_Data.dailyForecast.moonset[i]);
+        }
+        //_Data.dailyForecast.dayData.day.date = _Data.dailyForecast.validDate;
+        _Data.dailyForecast.dayData.day.highs = _Data.dailyForecast.day.temperature;
+        _Data.dailyForecast.dayData.day.lows = _Data.dailyForecast.night.temperature;
+        _Data.dailyForecast.dayData.night.lows = _Data.dailyForecast.night.temperature;
+        //For replacing null values. Will rewrite and finish
+        for(var i in _Data.dailyForecast.dayData.day.highs = _Data.dailyForecast.day.temperature){
+            if(_Data.dailyForecast.dayData.day.highs[i]==null){};
         }
     };
 
@@ -204,6 +277,25 @@ var _Data = {}, app = {};
             }];
         }
         return retData;
+    };
+
+    /*
+     Formats solar noon dates and times.
+     */
+    var massageSolarData = function(){
+        _Data.solarData.noonTime=[];
+        _Data.solarData.noonDate=[];
+        _Data.solarData.moonIcons =[];
+        var moonIcCount=0;
+        for(var j in _Data.solarData.AstroData){
+            if(_Data.solarData.AstroData.hasOwnProperty(j)) {
+                _Data.solarData.noonTime[j] = formatTime(_Data.solarData.AstroData[j].sun.zenith.local);
+                _Data.solarData.noonDate[j] = formatDate(_Data.solarData.AstroData[j].sun.zenith.local);
+                _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet.riseIcon);
+                _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet["setIcon"]);
+
+            }
+        }
     };
 })();
 
