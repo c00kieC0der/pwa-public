@@ -4,8 +4,8 @@
 
 var downArrayClicked = false;
 var categories = [{"catName":"Americas","countryName":[
-                                                    {"name":"USA","code":"EN", "language":"EN"},
-                                                    {"name":"USA (Spanish)","code":"ES", "language":"ES"},
+                                                    // {"name":"USA","code":"EN", "language":"EN"},
+                                                    // {"name":"USA (Spanish)","code":"ES", "language":"ES"},
                                                     {"name":"Antigua and Barbuda","code":"en-AG", "language": "EN"},
                                                     {"name":"Argentina","code":"es-AR", "language":"ES"},
                                                     {"name":"Bahamas","code":"en-BS", "language":"EN"},
@@ -516,10 +516,14 @@ var assignAppShellLang = function(){
         ['nav-tenday', _Lang['10 day'].toUpperCase()],
         ['nav-weekend', 'weekend'],//_Lang['weekend'].toUpperCase()],
         ['nav-map', _Lang.maps.toUpperCase()],
+        ['update-current-location', capitalizeEachWord(_Lang['update current location'])],
+        ['update-current-location-recent', capitalizeEachWord(_Lang['update current location'])],
+        ['recent-searches-text', _Lang['recent searches'].toUpperCase()],
         ['footer-terms-of-use', capitalizeEachWord(_Lang['terms of use'])],
         ['footer-privacy-policy', capitalizeEachWord(_Lang['privacy policy'])],
         ['footer-parental-controls', capitalizeEachWord(_Lang['parental controls'])],
         ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])]
+
     ];
     helper.setContent(langMap);
 };

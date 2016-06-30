@@ -97,13 +97,13 @@
     <div class="main-nav" id="main-search">
         <div class="unified-search">
             <div class="search-box" id="search-container">
-                <input type="text" placeholder="Search city, zip or place " id="search" onkeyup="searchResults()">
+                <input type="text" placeholder="Search city, zip or place" id="search" onkeyup="searchResults()">
                 <div class="animate-switch" id="saved-results">
                     <div class="main-current-location">
                         <span class="wx-iconfont-global wx-icon-location-current wx-icon-small"></span>
-                        <button class="current-location" onclick="_Locations.callGeoLocation(); hideMainSearch();">Update Current Location</button>
+                        <button class="current-location" id="update-current-location-recent" onclick="_Locations.callGeoLocation(); hideMainSearch();"></button>
                     </div>
-                    <p class="heading-search">RECENT SEARCHES</p>
+                    <p class="heading-search" id="recent-searches-text"></p>
                     <ul id="recently-searched" class="recent nav">
                     </ul>
                 </div>
@@ -112,7 +112,7 @@
                     </ul>
                     <div class="main-current-location">
                         <span class="wx-iconfont-global wx-icon-location-current wx-icon-small"></span>
-                        <button class="current-location" onclick="_Locations.callGeoLocation()">Update Current Location</button>
+                        <button class="current-location" id="update-current-location" onclick="_Locations.callGeoLocation()"></button>
                     </div>
                 </div>
                 <button class="clear btn-mobile" onclick="clearSearch()"><span class="wx-iconfont-global wx-icon-close"></span></button>
