@@ -1,4 +1,4 @@
 
 (function(){
-    helper.loadTemplate('twentyfour-hour-forecast', 'modules', 'twentyfour-hour-forecast');
+    helper.loadTemplate('24-hour-forecast', 'modules', '24-hour-forecast');
 })();
