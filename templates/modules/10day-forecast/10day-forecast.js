@@ -7,8 +7,8 @@
         ['js-date',         'date'], // 'MMM d'
         ['js-wxicon',       'icon'],
         ['js-iconExended',  'iconExtended'],
-        ['js-tempHi',       'tempHi'],
-        ['js-tempLo',       'tempLo'],
+        ['js-tempHi',       'temperature'],
+        ['js-tempLo',       'temperature'],
         ['js-phrase',       'phrase'],
         ['js-precipPct',    'precipPct'],
         ['js-humidityPct',  'humidityPct'],
@@ -31,8 +31,8 @@
     if(_Data.dailyForecast){
         helper.ngRepeat('ls-row-wrap-10day', 'ls-10day-data', ngRepeatMap, _Data.dailyForecast.day, 10);
     }
-
-    document.getElementById('event-anchor').addEventListener('builder', function() {
-        helper.ngRepeat('ls-row-wrap-10day', 'ls-10day-data', ngRepeatMap, _Data.dailyForecast.day, 10);
-    });
+    //
+    //document.getElementById('event-anchor').addEventListener('builder', function() {
+    //    helper.ngRepeat('ls-row-wrap-10day', 'ls-10day-data', ngRepeatMap, _Data.dailyForecast.day, 10);
+    //});
 })();
