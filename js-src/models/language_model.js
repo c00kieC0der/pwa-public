@@ -1,30 +1,46 @@
-var _Lang = {};
+var _Lang = {}, _Locales = {};
 
-(function(){
-    var path;
+
     var eventData = document.createEvent('Event');
     eventData.initEvent('lang-builder', true, true);
-    _Lang.updateTranslations = function(){
-        var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
-        console.log(_User.lang);
-        if(_User.lang == 'en-US'){
-            path = '/js-src/translations/app.json';
-        } else {
-            path = '/js-src/translated/' + _User.lang + '/app.json';
-        }
-        xobj.open('GET', path, true); // Replace 'my_data' with the path to your file
-        xobj.onreadystatechange = function () {
-            if (xobj.readyState == 4 && xobj.status == "200") {
-                // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-                _Lang = JSON.parse(xobj.responseText);
 
-                document.getElementById('event-anchor').dispatchEvent(eventData);
-            }
-        };
-        xobj.send(null);
+    var getJSON = function(path){
+        return new Promise(function(resolve) {
+            var xobj = new XMLHttpRequest();
+            xobj.overrideMimeType("application/json");
+            xobj.open('GET', path, true); // Replace 'my_data' with the path to your file
+            xobj.onreadystatechange = function () {
+                if (xobj.readyState == 4 && xobj.status == "200") {
+                    resolve(JSON.parse(xobj.responseText));
+                }
+            };
+            xobj.send(null);
+        });
     };
-   if(_User.lang){
-       _Lang.updateTranslations();
-   }
-})();
+    _Locales.getLocales = function(){
+        return new Promise(function(resolve, reject){
+            getJSON('/locales.json').then(function(result){
+                resolve(result);
+            }, function(error){
+                reject(error);
+            });
+        });
+    };
+    _Lang.updateTranslations = function(){
+        return new Promise(function(resolve, reject){
+            var path;
+            if(_User.lang == 'en-US'){
+                path = '/js-src/translations/app.json';
+            } else {
+                path = '/js-src/translated/' + _User.lang + '/app.json';
+            }
+            getJSON(path).then(function(result){
+                _Lang = result;
+                document.getElementById('event-anchor').dispatchEvent(eventData);
+                resolve();
+            }, function(error){
+                reject(error);
+            });
+        });
+    };
+
