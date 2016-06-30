@@ -6,6 +6,10 @@
   padding: 0;
   margin: 5px 0 10px; }
 
+h3 {
+  margin: 1em 10px 0.7em;
+  font-weight: normal; }
+
 .twc-table-wrapper {
   position: relative; }
 
