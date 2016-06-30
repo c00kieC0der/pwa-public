@@ -19,7 +19,25 @@
         ['js-sunrise',          'sunrise'],
         ['js-sunset',           'sunset'],
         ['js-moonrise',         'moonrise'],
-        ['js-moonset',          'moonset']
+        ['js-moonset',          'moonset'],
+        //Night Values
+        ['js-dayPartName-night',      'dateDay'],
+        ['js-date-night',             'dateMonthDate'], // 'MMM d'
+        ['js-wxicon-night',           'nightIcon'],
+        ['js-iconExended-night',      'nightIconExtended'],
+        //['js-tempHi-night',           'highs'],
+        ['js-tempLo-night',           'lows'],
+        ['js-phrase-night',           'nightPhrase'],
+        ['js-narrative-night',        'nightNarrative'],
+        ['js-precipPct-night',        'nightPrecipPct'],
+        ['js-windDirCompass-night',   'nightWindDirCompass'],
+        ['js-windSpeed-night',        'nightWindSpeed'],
+        ['js-humidityPct-night',      'nightHumidityPct'],
+        ['js-uvIndex-night',          'nightUVIndex'],
+        ['js-sunrise-night',          'sunrise'],
+        ['js-sunset-night',           'sunset'],
+        ['js-moonrise-night',         'moonrise'],
+        ['js-moonset-night',          'moonset']
     ];
 
     var createWeekendModel = function(){
@@ -29,19 +47,28 @@
         //else if(_Data.dayData.day.dateDayIndex[0] ==6){};
         var currWeekendData = [];
         var nextWeekendData = [];
-        console.log(_Data.dailyForecast.dayData.dateDayIndex);
+        var currWeekDataFound = false;
+        //console.log(_Data.dailyForecast.dayData.dateDayIndex);
         for(var i in _Data.dailyForecast.dayData.dateDayIndex){
             if(_Data.dailyForecast.dayData.dateDayIndex.hasOwnProperty(i)) {
                 //Indicates Fri, sat, or sun
-                console.log(_Data.dailyForecast.dayData.dateDayIndex[i]);
+                //console.log(_Data.dailyForecast.dayData.dateDayIndex[i]);
                 if (_Data.dailyForecast.dayData.dateDayIndex[i]>4||_Data.dailyForecast.dayData.dateDayIndex[i]===0){
-                    console.log("pushing");
-                    currWeekendData.push(i);
-                };
+                    //console.log("pushing and "+currWeekDataFound);
+                    if(!currWeekDataFound)
+                        currWeekendData.push(i);
+                    else
+                        nextWeekendData.push(i);
+                    if(_Data.dailyForecast.dayData.dateDayIndex[i]==0){
+                        if(currWeekDataFound==true)break;
+                        currWeekDataFound = true;
+                    }
+                }
             }
         }
-        console.log(currWeekendData);
+        //console.log(currWeekendData);
         helper.ngRepeatSpecific('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, currWeekendData);
+        //helper.ngRepeatSpecific('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, nextWeekendData);
     }
 
 
