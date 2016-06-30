@@ -33,7 +33,6 @@
     }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {
-        console.log('STUFF...', '_User.activeLocation.prsntNm');
         helper.ngRepeat('ls-row-wrap-5day', 'ls-daily-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 5);
     });
 })();

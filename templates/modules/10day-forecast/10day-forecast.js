@@ -28,7 +28,7 @@
      data
      do it how many times?
      */
-    if(_Data.dailyForecast.dayData.day){
+    if(_Data.dailyForecast.dayData){
         helper.ngRepeat('ls-row-wrap-10day', 'ls-daily-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 10);
     }
 
