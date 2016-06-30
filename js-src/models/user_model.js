@@ -12,7 +12,8 @@ var _User = {
     activeLocation : {
         lat : '',
         long : '',
-        prsntNm : ''
+        prsntNm : '',
+        locId : ''
     }
 };
 
