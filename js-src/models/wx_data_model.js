@@ -1,12 +1,7 @@
 var _Data = {}, app = {};
 (function() {
-    var dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1dailyForecast;vt1observation?units=" +
-        _User.unitPref +
-        '&language=' + _User.lang +
-        '&geocode=' +
-        _User.activeLocation.lat + ',' + _User.activeLocation.long +
-        '&format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
-    var dataAstroUrl = "https://dsx.weather.com/wxd/v2/Astro/" + _User.lang + "/0/3/(" + _User.activeLocation.lat + ',' + _User.activeLocation.long + ")?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
+    console.log('data init');
+    var dataUrl,dataAstroUrl;
     var eventData = document.createEvent('Event');
     var astroEventData = document.createEvent('Event');
     astroEventData.initEvent('astro-builder', true, true);
@@ -14,6 +9,15 @@ var _Data = {}, app = {};
 
 
     _Data.collectNew = function () {
+        dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1dailyForecast;vt1observation?units=" +
+        _User.unitPref +
+        '&language=' + _User.lang +
+        '&geocode=' +
+        _User.activeLocation.lat + ',' + _User.activeLocation.long +
+        '&format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
+
+        dataAstroUrl = "https://dsx.weather.com/wxd/v2/Astro/" + _User.lang + "/0/3/(" + _User.activeLocation.lat + ',' + _User.activeLocation.long + ")?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
+
         app.hasRequestPending = true;
         if ('caches' in window) {
             // console.log(caches);
@@ -33,7 +37,7 @@ var _Data = {}, app = {};
                 }
             });
         }
-
+console.log('data get new');
         AjaxRequest.get({
             'url': dataUrl,
             'generateUniqueUrl': false,
@@ -68,7 +72,7 @@ var _Data = {}, app = {};
             }
         });
     };
-    if (_User.activeLocation.prsntNm) {
+    if (_User.activeLocation.lat) {
         _Data.collectNew();
     }
 
