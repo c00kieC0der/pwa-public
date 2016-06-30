@@ -1,4 +1,4 @@
-        <tr class="clickable"> <!-- Need to toggle the class here for open or closed -->
+        <tr class="day clickable"> <!-- Need to toggle the class here for open or closed -->
           <td class="twc-sticky-col" headers="day">
             <span class="date-time js-dayPartName"></span>
             <span class="wx-alert-icon js-iconExtended"></span>
@@ -45,7 +45,7 @@
             <span class="js-moonset"></span>
           </td>
         </tr>
-        <tr class="details">
+        <tr class="day details">
           <td class="twc-sticky-col" headers="day">
             <div class="twc-table-shadow sticky"></div>
           </td>
@@ -53,58 +53,58 @@
             <span class="js-narrative"></span>
           </td>
         </tr>
-        <tr class="clickable">
+        <tr class="night details">
           <td class="twc-sticky-col" headers="day">
-            <span class="date-time js-dayPartName"></span>
-            <span class="wx-alert-icon js-iconExtended"></span>
-            <span class="wx-weather-icon js-wxicon"></span>
-            <span class="js-date day-detail"></span>
+            <span class="date-time js-dayPartName-night"></span>
+            <span class="wx-alert-icon js-iconExtended-night"></span>
+            <span class="wx-weather-icon js-wxicon-night"></span>
+            <span class="js-date-night day-detail"></span>
             <div class="twc-table-shadow sticky"></div>
           </td>
           <td headers="description" class="description">
-            <p class="js-phrase"></p>
+            <p class="js-phrase-night"></p>
           </td>
           <td headers="hi-low" class="temp">
-            <span class="js-tempHi"></span>&deg;
+            <span class="js-tempHi-night"></span>&deg;
             <span class="slash"></span>
-            <span class="js-tempLo"></span>&deg;
+            <span class="js-tempLo-night"></span>&deg;
           </td>
           <td headers="precip" class="precip">
             <span aria-hidden="true" class="wx-iconfont-global wx-icon-precip-rain-1"></span>
-            <span class="js-precipPct"></span>%
+            <span class="js-precipPct-night"></span>%
           </td>
           <td headers="wind" class="wind">
-            <span class="js-windDirCompass"></span>
-            <span class="js-windSpeed"></span>
+            <span class="js-windDirCompass-night"></span>
+            <span class="js-windSpeed-night"></span>
           </td>
           <td headers="humidity" class="humidity">
-            <span class="js-humidityPct"></span>%
+            <span class="js-humidityPct-night"></span>%
           </td>
           <td headers="uv-index" class="uv-index">
-            <span class="js-uvIndex"></span>
+            <span class="js-uvIndex-night"></span>
           </td>
           <td headers="sunrise" class="sunrise">
             <span aria-hidden="true" class="wx-iconfont-global wx-icon-sunrise"></span>
-            <span class="js-sunrise"></span>
+            <span class="js-sunrise-night"></span>
           </td>
           <td headers="sunset" class="sunset">
             <span aria-hidden="true" class="wx-iconfont-global wx-icon-sunset"></span>
-            <span class="js-sunset"></span>
+            <span class="js-sunset-night"></span>
           </td>
           <td headers="moonrise" class="moonrise">
             <span aria-hidden="true" class="wx-iconfont-moon moon-rise"></span>
-            <span class="js-moonrise"></span>
+            <span class="js-moonrise-night"></span>
           </td>
           <td headers="moonset" class="moonset">
             <span aria-hidden="true" class="wx-iconfont-moon moon-set"></span>
-            <span class="js-moonset"></span>
+            <span class="js-moonset-night"></span>
           </td>
         </tr>
-        <tr class="details closed">
+        <tr class="night details narritive">
           <td class="twc-sticky-col" headers="day">
             <div class="twc-table-shadow sticky"></div>
           </td>
           <td colspan="10" headers="desc-details" class="desc-details hide">
-            <span class="js-narrative"></span>
+            <span class="js-narrative-night"></span>
           </td>
         </tr>

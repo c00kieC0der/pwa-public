@@ -67,7 +67,7 @@
             }
         }
         //console.log(currWeekendData);
-        helper.ngRepeatSpecific('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, currWeekendData);
+        helper.ngRepeatSpecific('ls-row-wrap-24', 'weekend', ngRepeatMap, _Data.dailyForecast.dayData.day, currWeekendData);
         //helper.ngRepeatSpecific('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, nextWeekendData);
     };
 
