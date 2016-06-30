@@ -247,7 +247,7 @@
       clear: both; }
     .looking-ahead .wx-details-block .wx-detail {
       display: block;
-      padding: 8px 0; }
+      padding: 4px 0; }
     .looking-ahead .wx-details-block .wx-detail-icon {
       float: left;
       padding-right: 6px;
@@ -256,9 +256,6 @@
     .looking-ahead .wx-details-block .wx-detail-value {
       float: right;
       text-align: right; }
-    .looking-ahead .wx-details-block .wx-detail-label {
-      text-transform: uppercase;
-      font-weight: 600; }
   .looking-ahead .show-lg {
     display: none; }
 
