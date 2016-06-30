@@ -16,8 +16,7 @@
 
 h3 {
   margin: 1em 10px 0.7em;
-  color: white;
-  text-transform: capitalize; }
+  color: white; }
 
 .twc-table-wrapper {
   position: relative; }
@@ -149,67 +148,61 @@ h3 {
     background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)); }
 
-.ls-24-hour-wrap {
+.ls-hourly-wrap {
   background: white;
   position: relative; }
   @media only screen and (max-width: 767px) {
-    .ls-24-hour-wrap {
+    .ls-hourly-wrap {
       margin: 5px;
       -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
       -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
       box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); } }
-  .ls-24-hour-wrap .wx-weather-icon {
+  .ls-hourly-wrap .wx-weather-icon {
     width: 36px;
     height: 36px;
     position: absolute;
     right: 10px; }
-  .ls-24-hour-wrap .description {
+  .ls-hourly-wrap .description {
     padding-left: 15px;
     width: 30%; }
+    .ls-hourly-wrap .description p {
+      height: auto;
+      display: inherit; }
     @media only screen and (max-width: 767px) {
-      .ls-24-hour-wrap .description {
+      .ls-hourly-wrap .description {
         display: none; } }
-  .ls-24-hour-wrap .humidity {
+  .ls-hourly-wrap .wind {
     width: 70%; }
     @media only screen and (max-width: 767px) {
-      .ls-24-hour-wrap .humidity {
+      .ls-hourly-wrap .wind {
         width: 100%; } }
-  .ls-24-hour-wrap .lo {
+  .ls-hourly-wrap .feels {
     color: #999999;
     font-style: italic; }
-  .ls-24-hour-wrap .temp,
-  .ls-24-hour-wrap .lo {
+  .ls-hourly-wrap .temp,
+  .ls-hourly-wrap .feels {
     font-weight: 600; }
-  .ls-24-hour-wrap .day-detail {
+  .ls-hourly-wrap .day-detail {
     font-size: 0.78571rem;
     color: #cccccc; }
-  .ls-24-hour-wrap .open .day-detail,
-  .ls-24-hour-wrap .details .day-detail {
-    color: #999999; }
-  .ls-24-hour-wrap .details + .details td,
-  .ls-24-hour-wrap .twc-table tr.open td {
-    border-bottom: none; }
-  .ls-24-hour-wrap .twc-table tr.open td,
-  .ls-24-hour-wrap .twc-table tr.details td {
-    -moz-transition: none;
-    -o-transition: none;
-    -webkit-transition: none;
-    transition: none; }
-  .ls-24-hour-wrap .desc-details {
-    padding-left: 15px;
-    border-bottom: none; }
-  .ls-24-hour-wrap .narrative {
-    display: block;
-    width: 100%;
-    white-space: normal; }
-  .ls-24-hour-wrap .slash {
-    display: inline-block;
-    margin-left: -2px;
-    height: 14px;
-    border-right: 1px solid #999999;
-    -moz-transform: skewX(-30deg);
-    -ms-transform: skewX(-30deg);
-    -webkit-transform: skewX(-30deg);
-    transform: skewX(-30deg);
-    position: relative;
-    bottom: -2px; }
+  .ls-hourly-wrap .open .day-detail,
+  .ls-hourly-wrap .details .day-detail {
+    color: #999999;
+    -moz-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    -webkit-transition: color 0.3s ease;
+    transition: color 0.3s ease; }
+
+.ls-hourly-wwir {
+  color: #393939;
+  font-size: 1.14286rem;
+  padding: 10px 5px;
+  margin-top: -15px; }
+  @media only screen and (max-width: 767px) {
+    .ls-hourly-wwir {
+      padding-left: 15px; } }
+  .ls-hourly-wwir .wwir-icon {
+    float: left;
+    font-size: 1.42857rem; }
+  .ls-hourly-wwir .wwir-data {
+    margin-left: 2em; }

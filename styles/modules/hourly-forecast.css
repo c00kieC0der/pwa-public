@@ -9,6 +9,11 @@
 .hide {
   display: none !important; }
 
+.page-title {
+  padding: 0 10px; }
+  .page-title::first-letter {
+    text-transform: capitalize; }
+
 h3 {
   margin: 1em 10px 0.7em;
   color: white;

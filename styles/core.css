@@ -199,7 +199,8 @@ body {
   text-align: center;
   white-space: nowrap;
   display: inline-block;
-  width: 15.6%; }
+  width: 15.6%;
+  text-transform: uppercase; }
 
 a {
   text-decoration: none;
@@ -417,8 +418,10 @@ ul {
 .main-nav .unified-search #search-container input:focus {
   color: white; }
 
-.main-nav .unified-search #search-container input:focus + div[class='animate-switch'] {
-  display: block; }
+.main-nav {
+  overflow-y: scroll; }
+  .main-nav .unified-search #search-container input:focus + div[class='animate-switch'] {
+    display: block; }
 
 footer {
   max-height: 300px;
