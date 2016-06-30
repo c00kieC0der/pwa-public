@@ -507,7 +507,11 @@ var assignAppShellLang = function(){
         ['nav-fiveday', _Lang['5 day'].toUpperCase()],
         ['nav-tenday', _Lang['10 day'].toUpperCase()],
         ['nav-weekend', 'weekend'],//_Lang['weekend'].toUpperCase()],
-        ['nav-map', _Lang.maps.toUpperCase()]
+        ['nav-map', _Lang.maps.toUpperCase()],
+        ['footer-terms-of-use', capitalizeEachWord(_Lang['terms of use'])],
+        ['footer-privacy-policy', capitalizeEachWord(_Lang['privacy policy'])],
+        ['footer-parental-controls', capitalizeEachWord(_Lang['parental controls'])],
+        ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])]
     ];
     helper.setContent(langMap);
 };
@@ -516,3 +520,10 @@ document.getElementById('event-anchor').addEventListener('lang-builder', functio
     assignAppShellLang();
 });
 
+
+function capitalizeEachWord(str) {
+    console.log(str);
+    return str.replace(/\w\S*/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
