@@ -11,7 +11,8 @@
 
 h3 {
   margin: 1em 10px 0.7em;
-  color: white; }
+  color: white;
+  text-transform: capitalize; }
 
 .twc-table-wrapper {
   position: relative; }
