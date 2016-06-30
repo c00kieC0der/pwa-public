@@ -3,8 +3,8 @@
  */
 (function(){
     var ngRepeatMap = [
-        ['js-dayPartName',      'dayPartName'],
-        ['js-date',             'date'], // 'MMM d'
+        ['js-dayPartName',      'dateDay'],
+        ['js-date',             'dateMonthDate'], // 'MMM d'
         ['js-wxicon',           'icon'],
         ['js-iconExended',      'iconExtended'],
         ['js-tempHi',           'highs'],
@@ -19,7 +19,7 @@
         ['js-sunrise',          'sunrise'],
         ['js-sunset',           'sunset'],
         ['js-moonrise',         'moonrise'],
-        ['js-moonset',          'moonset']
+        ['js-moonset',          'moonset'],
     ];
     /*
      What div,
@@ -28,7 +28,8 @@
      data
      do it how many times?
      */
-    if(_Data.dailyForecast.dayData){
+    console.log("here!");
+    if(_Data.dailyForecast){
         helper.ngRepeat('ls-row-wrap-5day', 'ls-daily-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 5);
     }
 
