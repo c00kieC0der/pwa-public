@@ -179,7 +179,7 @@ var _Data = {}, app = {};
         dayData.nightIcon = info["icon"];
         dayData.nightIconExtended = info.iconExtended;
         dayData.nightPhrase = info.phrase;
-        dayData.nightNarrative = info.nightNarrative;
+        dayData.nightNarrative = info.narrative;
         dayData.nightWindDirCompass = info.windDirCompass;
         dayData.nightWindSpeed = info.windSpeed;
         dayData.nightHumidityPct = info.humidityPct;

@@ -28,7 +28,6 @@
      data
      do it how many times?
      */
-    console.log("here!");
     if(_Data.dailyForecast){
         helper.ngRepeat('ls-row-wrap-5day', 'ls-daily-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 5);
     }
