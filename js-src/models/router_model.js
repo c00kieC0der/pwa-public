@@ -92,10 +92,10 @@ var _Router = {};
                     _Router.changePage('today');
                 } else {
                     for(var x in pageAssignment){
-                        if(_Lang[x] === pathArr[3]){
+                        if(_Lang[x] === decodeURI(pathArr[3])){
                             _Router.changePage(x);
                             break;
-                        } else if(x === pathArr[3]){
+                        } else if(x === pathArr[3]){ //english.
                             _Router.changePage(x);
                         }
                     }
@@ -107,7 +107,27 @@ var _Router = {};
     handlePath();
 
     window.onpopstate = function(){
-       handlePath();
+        console.log('poped stated');
+       //handlePath();
+    };
+
+    _Router.updateURL = function(){
+        console.log('update URL for lang');
+        /*
+        var pathArr = window.location.pathname.split('/');
+        if(window.location.pathname === '/'){
+            _Router.changePage('today');
+        } else {
+            for(var x in pageAssignment){
+                if(_Lang[x] === pathArr[3]){
+                    _Router.changePage(x);
+                    break;
+                } else if(x === pathArr[3]){
+                    _Router.changePage(x);
+                }
+            }
+        } */
+
     };
 
 })();
