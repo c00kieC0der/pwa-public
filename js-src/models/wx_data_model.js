@@ -124,6 +124,10 @@ var _Data = {}, app = {};
         _Data.dailyForecast.dayData.day.highs = _Data.dailyForecast.day.temperature;
         _Data.dailyForecast.dayData.day.lows = _Data.dailyForecast.night.temperature;
         _Data.dailyForecast.dayData.night.lows = _Data.dailyForecast.night.temperature;
+        //For replacing null values. Will rewrite and finish
+        for(var i in _Data.dailyForecast.dayData.day.highs = _Data.dailyForecast.day.temperature){
+            if(_Data.dailyForecast.dayData.day.highs[i]==null){};
+        }
     };
 
     var getLookingAhead = function () {
