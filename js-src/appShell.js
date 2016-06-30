@@ -365,7 +365,7 @@ function showLocations() {
 function showCategories() {
     var categoryHTML = '';
     for(c = 0; c < categories.length; c++){
-        categoryHTML += '<li ><a href="#" onclick="showAreas(this,'+ c +')"><span >'+categories[c].catName+'</span> <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small"></span></a></li>';
+        categoryHTML += '<li ><a href="javascript:showAreas(this,'+ c +')"><span >'+categories[c].catName+'</span> <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small"></span></a></li>';
     }
     document.getElementById('lang-categories').innerHTML = categoryHTML;
     showHide('loc-layout',0);
@@ -380,7 +380,7 @@ function showCategories() {
 function showAreas(ele,rowId ) {
     var languageHTML = '';
     for(l=0; l< categories[rowId].countryName.length; l++){
-        languageHTML += '<li><a href="javascript:changeLang("' + categories[rowId].countryName[l].code + '")"><span> '+categories[rowId].countryName[l].name+' </span> <span>'+categories[rowId].countryName[l].code+'</span> </a></li>';
+        languageHTML += '<li><a href="javascript:changeLang(\'' + categories[rowId].countryName[l].code + '\')"><span> '+categories[rowId].countryName[l].name+' </span> <span> | '+categories[rowId].countryName[l].language+'</span> </a></li>';
     }
     document.getElementById('country-languages').innerHTML = languageHTML;
     document.getElementById('area-value').innerHTML = ele.innerHTML;
@@ -398,8 +398,9 @@ function showAreas(ele,rowId ) {
  */
 function changeLang(code){
     _User.lang = code;
-    _Lang.updateTranslations();
-    _Router.updateUrl()
+    _Language.updateTranslations();
+    _Router.updateURL();
+    //console.log(_Router);
     showHide('main-nav', 0);
 }
 

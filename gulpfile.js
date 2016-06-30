@@ -124,9 +124,10 @@ gulp.task('download-translations', function() {
         var projectId = '2cac53913';
         var locales = _.uniq(_.pluck(localesConfig, 'smartlingLocale'));
 
+        console.log(locales);
         // Remove en-US locale
         locales = _.without(locales, 'en-US');
-
+//return;
         // Get access token
         var options = {
             url: 'https://api.smartling.com/auth-api/v2/authenticate',
@@ -147,7 +148,7 @@ gulp.task('download-translations', function() {
                 method: 'GET',
                 qs: {
                     fileUris: ['app.json'],
-                    localeIds: ['fr-FR']
+                    localeIds: ['ca-ES', '']
                 },
                 qsStringifyOptions: {
                     arrayFormat: 'brackets'
