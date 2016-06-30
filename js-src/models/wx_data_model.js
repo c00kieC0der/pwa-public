@@ -7,6 +7,12 @@ var _Data = {}, app = {};
     astroEventData.initEvent('astro-builder', true, true);
     eventData.initEvent('builder', true, true);
 
+    var almanacDataUrl = "https://dsx.weather.com/wxd/v2/FarmingAlmanac/" +
+        _User.lang + "/0/"+
+        _User.locations[0].loc +
+        "?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
+
+
 
     _Data.collectNew = function () {
         dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1dailyForecast;vt1observation?units=" +
@@ -71,6 +77,82 @@ console.log('data get new');
                 console.log(err);
             }
         });
+        AjaxRequest.get({
+            'url' : almanacDataUrl,
+            'generateUniqueUrl' : false,
+            'onSuccess' : function(req) {
+                var data = JSON.parse(req.responseText).FarmingAlmanacRecordData;
+                var oneDayHistorical = data.OneDayHistorical;
+                var reportedConditions = data.ReportedConditions;
+                var historicalMonthlyAvg = data.HistoricalMonthlyAvg;
+                if (_User.unitPref === 'e') {
+                    _Data.tempUnit = 'F';
+                    _Data.precipUnit = 'in';
+                    _Data.oneDayHistorical = {
+                        avgHigh: oneDayHistorical.avgHighF,
+                        avgLow: oneDayHistorical.avgLowF,
+                        recordHigh: oneDayHistorical.recordHighF,
+                        recordLow: oneDayHistorical.recordLowF
+                    };
+                    _Data.reportedConditions = {
+                        prevDayHigh: reportedConditions.prevDayHighF,
+                        prevDayLow: reportedConditions.prevDayLowF,
+                        prevDayPrecip: reportedConditions.prevDayPrecipIn,
+                        sevenDayHigh: sevenDayHighF,
+                        sevenDayLow: sevenDayLowF,
+                        sevenDayPrecip: sevenDayPrecipIn,
+                        mtdHigh: reportedConditions.mtdHighF,
+                        mtdLow: reportedConditions.mtdLowF,
+                        mtdPrecip: reportedConditions.mtdPrecipIn
+                    };
+                    _Data.historicalMonthlyAvg = {
+                        currentMonthAvgHigh: historicalMonthlyAvg.currentMonthAvgHighF,
+                        currentMonthAvgLow: historicalMonthlyAvg.currentMonthAvgLowF,
+                        currentMonthAvgPrecip: historicalMonthlyAvg.currentMonthAvgPrecipIn,
+                        nextMonthAvgHigh: historicalMonthlyAvg.nextMonthAvgHighF,
+                        nextMonthAvgLow: historicalMonthlyAvg.nextMonthAvgLowF,
+                        nextMonthAvgPrecip: historicalMonthlyAvg.nextMonthAvgPrecipIn,
+                        monthAfterNextAvgHigh: historicalMonthlyAvg.monthAfterNextAvgHighF,
+                        monthAfterNextAvgLow: historicalMonthlyAvg.monthAfterNextAvgLowF,
+                        monthAfterNextAvgPrecip: historicalMonthlyAvg.monthAfterNextAvgPrecipF
+                    };
+                } else {
+                    _Data.tempUnit = 'C';
+                    _Data.precipUnit = 'mm';
+                    _Data.oneDayHistorical = {
+                        avgHigh: oneDayHistorical.avgHighC,
+                        avgLow: oneDayHistorical.avgLowC,
+                        recordHigh: oneDayHistorical.recordHighC,
+                        recordLow: oneDayHistorical.recordLowC
+                    };
+                    _Data.reportedConditions = {
+                        prevDayHigh: reportedConditions.prevDayHighC,
+                        prevDayLow: reportedConditions.prevDayLowC,
+                        prevDayPrecip: reportedConditions.prevDayPrecipMm,
+                        sevenDayHigh: reportedConditions.sevenDayHighC,
+                        sevenDayLow: reportedConditions.sevenDayLowC,
+                        sevenDayPrecip: reportedConditions.sevenDayPrecipMm,
+                        mtdHigh: reportedConditions.mtdHighC,
+                        mtdLow: reportedConditions.mtdLowC,
+                        mtdPrecip: reportedConditions.mtdPrecipMm
+                    };
+                    _Data.historicalMonthlyAvg = {
+                        currentMonthAvgHigh: historicalMonthlyAvg.currentMonthAvgHighC,
+                        currentMonthAvgLow: historicalMonthlyAvg.currentMonthAvgLowC,
+                        currentMonthAvgPrecip: historicalMonthlyAvg.currentMonthAvgPrecipMm,
+                        nextMonthAvgHigh: historicalMonthlyAvg.nextMonthAvgHighC,
+                        nextMonthAvgLow: historicalMonthlyAvg.nextMonthAvgLowC,
+                        nextMonthAvgPrecip: historicalMonthlyAvg.nextMonthAvgPrecipMm,
+                        monthAfterNextAvgHigh: historicalMonthlyAvg.monthAfterNextAvgHighC,
+                        monthAfterNextAvgLow: historicalMonthlyAvg.monthAfterNextAvgLowC,
+                        monthAfterNextAvgPrecip: historicalMonthlyAvg.monthAfterNextAvgPrecipC
+                    };
+                }
+                _Data.oneDayHistorical.yearOfRecordLowTemp = oneDayHistorical.yearOfRecordLowTemp;
+                _Data.oneDayHistorical.yearOfRecordHighTemp = oneDayHistorical.yearOfRecordHighTemp;
+            }
+        });
+
     };
     if (_User.activeLocation.lat) {
         _Data.collectNew();
