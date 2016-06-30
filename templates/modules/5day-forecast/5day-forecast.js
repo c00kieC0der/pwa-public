@@ -29,10 +29,10 @@
     //(divId, componentName, dataMap, data, multiplier)
 
     if(_Data.dailyForecast){
-        helper.ngRepeat('ls-row-wrap-10day', 'ls-10day-data', ngRepeatMap, _Data.dailyForecast.day, 10);
+        helper.ngRepeat('ls-row-wrap-10day', 'ls-10day-data', ngRepeatMap, _Data.dailyForecast.day, 5);
     }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {
-        helper.ngRepeat('ls-row-wrap-10day', 'ls-10day-data', ngRepeatMap, _Data.dailyForecast.day, 10);
+        helper.ngRepeat('ls-row-wrap-10day', 'ls-10day-data', ngRepeatMap, _Data.dailyForecast.day, 5);
     });
 })();
