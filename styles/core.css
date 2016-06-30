@@ -479,3 +479,9 @@ footer {
   margin-bottom: 1px; }
   .pwa-header-active .search-open-btn {
     color: #3c8ed2; }
+
+#category-layout,
+#areas-layout,
+#loc-layout {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
