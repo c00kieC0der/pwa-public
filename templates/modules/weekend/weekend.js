@@ -69,7 +69,7 @@
         //console.log(currWeekendData);
         helper.ngRepeatSpecific('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, currWeekendData);
         //helper.ngRepeatSpecific('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, nextWeekendData);
-    }
+    };
 
 
 
@@ -80,7 +80,7 @@
         data
         do it how many times?
      */
-    if(_Data.dailyForecast.dayData){
+    if(_Data.dailyForecast){
         createWeekendModel();
         //helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 5);
     }

@@ -124,6 +124,7 @@ gulp.task('download-translations', function() {
         var projectId = '2cac53913';
         var locales = _.uniq(_.pluck(localesConfig, 'smartlingLocale'));
 
+        console.log(locales);
         // Remove en-US locale
         locales = _.without(locales, 'en-US');
 
@@ -140,14 +141,59 @@ gulp.task('download-translations', function() {
         request(options, function(error, response, body) {
             var accessToken = body.response.data.accessToken;
             console.log('error', error, ' body', body);
-//console.log(locales);
+
             // Download files
             var options = {
                 url: 'https://api.smartling.com/files-api/v2/projects/' + projectId + '/files/zip',
                 method: 'GET',
                 qs: {
                     fileUris: ['app.json'],
-                    localeIds: ['fr-FR']
+                    localeIds: [
+                        'ar',
+                        'bn-BD',
+                        'ca-ES',
+                        'cs-CZ',
+                        'da-DK',
+                        'de-DE',
+                        'el-GR',
+                        'en-GB',
+                        'en-CA',
+                        'en-IN',
+
+                        //  'es-LA'
+                        'es-ES',
+                        'es-US',
+                        'fa-IR',
+                        'fi-FI',
+                        'fr-FR',
+                        'fr-CA',
+                        'he-IL',
+                        'hi-IN',
+                        'hr-HR',
+                        'hu-HU',
+                        'id-ID',
+                        'it-IT',
+                        'ja-JP',
+                        'ko-KR',
+                        'ms-MY',
+                        'nl-NL',
+                        'no-NO',
+                        'pl',
+                        'pt-PT',
+                        'pt-BR',
+                        'ro-RO',
+                        'ru-RU',
+                        'sv-SE',
+                        'sk-SK',
+                        'th-TH',
+                        'tl-PH',
+                        'tr-TR',
+                        'uk-UA',
+                        'ur',
+                        'vi-VN',
+                        'zh-CN',
+                        'zh-TW'
+                        ]
                 },
                 qsStringifyOptions: {
                     arrayFormat: 'brackets'
