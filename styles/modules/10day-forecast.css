@@ -1,10 +1,22 @@
 .panel-heading > h2,
 .panel-heading .heading {
-  font-size: 1.42857rem;
-  font-weight: bold;
+  font-size: 1.14286rem;
+  font-weight: 700;
   text-transform: uppercase;
   padding: 0;
   margin: 5px 0 10px; }
+
+.hide {
+  display: none !important; }
+
+.page-title {
+  padding: 0 10px; }
+  .page-title::first-letter {
+    text-transform: capitalize; }
+
+h3 {
+  margin: 1em 10px 0.7em;
+  color: white; }
 
 .twc-table-wrapper {
   position: relative; }
@@ -50,6 +62,9 @@
     .twc-table td.twc-sticky-col {
       background-color: #fff;
       z-index: 1; }
+    .twc-table td p {
+      padding: 0;
+      margin: 0; }
   .twc-table tr.open td,
   .twc-table tr.details td {
     background-color: #dadada;

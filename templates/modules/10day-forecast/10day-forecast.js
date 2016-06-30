@@ -29,10 +29,10 @@
      do it how many times?
      */
     if(_Data.dailyForecast.dayData.day){
-        helper.ngRepeat('ls-row-wrap-10day', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 10);
+        helper.ngRepeat('ls-row-wrap-10day', 'ls-daily-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 10);
     }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {
-        helper.ngRepeat('ls-row-wrap-10day', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 10);
+        helper.ngRepeat('ls-row-wrap-10day', 'ls-daily-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 10);
     });
 })();
