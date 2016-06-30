@@ -1,10 +1,13 @@
 .panel-heading > h2,
 .panel-heading .heading {
-  font-size: 1.42857rem;
-  font-weight: bold;
+  font-size: 1.14286rem;
+  font-weight: 700;
   text-transform: uppercase;
   padding: 0;
   margin: 5px 0 10px; }
+
+.hide {
+  display: none !important; }
 
 .card {
   margin: 0 8px 15px;
@@ -312,6 +315,10 @@
   display: none; }
 .looking-ahead .today-daypart.selected {
   flex-basis: 25%; }
+.looking-ahead.panel-footer .dp-details {
+  display: none; }
+  .looking-ahead.panel-footer .dp-details:first-child {
+    display: block; }
 
 .nowcard {
   height: 250px;
