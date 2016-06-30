@@ -1,10 +1,13 @@
 .panel-heading > h2,
 .panel-heading .heading {
-  font-size: 1.42857rem;
-  font-weight: bold;
+  font-size: 1.14286rem;
+  font-weight: 700;
   text-transform: uppercase;
   padding: 0;
   margin: 5px 0 10px; }
+
+.hide {
+  display: none !important; }
 
 .card {
   margin: 0 8px 15px;
@@ -244,7 +247,7 @@
       clear: both; }
     .looking-ahead .wx-details-block .wx-detail {
       display: block;
-      padding: 8px 0; }
+      padding: 4px 0; }
     .looking-ahead .wx-details-block .wx-detail-icon {
       float: left;
       padding-right: 6px;
@@ -253,9 +256,6 @@
     .looking-ahead .wx-details-block .wx-detail-value {
       float: right;
       text-align: right; }
-    .looking-ahead .wx-details-block .wx-detail-label {
-      text-transform: uppercase;
-      font-weight: 600; }
   .looking-ahead .show-lg {
     display: none; }
 
@@ -312,6 +312,10 @@
   display: none; }
 .looking-ahead .today-daypart.selected {
   flex-basis: 25%; }
+.looking-ahead.panel-footer .dp-details {
+  display: none; }
+  .looking-ahead.panel-footer .dp-details:first-child {
+    display: block; }
 
 .nowcard {
   height: 250px;
