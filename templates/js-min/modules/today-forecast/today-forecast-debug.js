@@ -6,7 +6,7 @@
     var mapData = function(){
 
         //TODO::  Move these units to a global place.
-        var windUnit = _User.unitPref === 'e' ? 'MPH' : 'KPH';
+        var windUnit = _User.unitPref === 'e' ? 'mph' : 'kph';
         var pressureUnit = _User.unitPref === 'e' ? 'in' : 'mb';
         var visibilityUnit = _User.unitPref === 'e' ? 'mi' : 'km';
         var bt = _Data.obs.barometerTrend;
@@ -48,19 +48,19 @@
 
             // Weather Details
             ['dp1-details-narrative', _Data.lookingAhead[0].narrative],
-            ['dp1-details-wind', _Data.lookingAhead[0].windSpeed + ' ' + windUnit + ' ' + _Data.lookingAhead[0].windDirCompass],
+            ['dp1-details-wind', _Data.lookingAhead[0].windDirCompass + ' ' + _Data.lookingAhead[0].windSpeed + ' ' + windUnit],
             ['dp1-details-humidity', _Data.lookingAhead[0].humidity],
             ['dp1-details-uvIndex', _Data.lookingAhead[0].uvIndex + ' of 10'],
             ['dp1-details-sunrise', _Data.lookingAhead[0].sunrise],
             ['dp1-details-sunset', _Data.lookingAhead[0].sunset],
             ['dp2-details-narrative', _Data.lookingAhead[1].narrative],
-            ['dp2-details-wind', _Data.lookingAhead[1].windSpeed + ' ' + windUnit + ' ' + _Data.lookingAhead[1].windDirCompass],
+            ['dp2-details-wind', _Data.lookingAhead[1].windDirCompass + ' ' + _Data.lookingAhead[1].windSpeed + ' ' + windUnit],
             ['dp2-details-humidity', _Data.lookingAhead[1].humidity],
             ['dp2-details-uvIndex', _Data.lookingAhead[1].uvIndex + ' of 10'],
             ['dp2-details-sunrise', _Data.lookingAhead[1].sunrise],
             ['dp2-details-sunset', _Data.lookingAhead[1].sunset],
             ['dp3-details-narrative', _Data.lookingAhead[2].narrative],
-            ['dp3-details-wind', _Data.lookingAhead[2].windSpeed + ' ' + windUnit + ' ' + _Data.lookingAhead[2].windDirCompass],
+            ['dp3-details-wind', _Data.lookingAhead[2].windDirCompass + ' ' + _Data.lookingAhead[2].windSpeed + ' ' + windUnit],
             ['dp3-details-humidity', _Data.lookingAhead[2].humidity],
             ['dp3-details-uvIndex', _Data.lookingAhead[2].uvIndex + ' of 10'],
             ['dp3-details-sunrise', _Data.lookingAhead[2].sunrise],
@@ -84,13 +84,14 @@
         mapData();
         helper.setContent(dataAssignment);
     }
-
+    // Hide other details on first paint
     document.getElementById("dp2-details").style.display = 'none';
     document.getElementById("dp3-details").style.display = 'none';
 
 })();
 
 
+//Looking ahead interactions
 
 function dayPartClick(detail, clickedId) {
     //addClass(this, 'selected');
@@ -102,9 +103,6 @@ function dayPartClick(detail, clickedId) {
     var daypart1 = document.getElementById('daypart-1'),
         daypart2 = document.getElementById('daypart-2'),
         daypart3 = document.getElementById('daypart-3');
-
-
-
 
     if (hasClass(this, 'selected')) {
         // Do nothing

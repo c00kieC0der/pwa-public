@@ -22,7 +22,7 @@
         do it how many times?
      */
     if(_Data.hourly){
-        helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12);
+        helper.ngRepeat('ls-row-wrap-10day', 'ls-row-wrap-10day', ngRepeatMap, _Data.hourly, 12);
     }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {

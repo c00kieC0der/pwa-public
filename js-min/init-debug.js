@@ -1,10 +1,11 @@
 helper.loadTemplate('page-toast-div', 'modules', 'page-toast');
 
-//initialize the service worker file.
-if('serviceWorker' in navigator){
-    navigator.serviceWorker.register(
-        '/service_worker.js',
-        {scope: '/'}
-    ).then(console.log('it registered.'));
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service_worker.js').then(function(reg) {
+        // registration worked
+        console.log('Registration succeeded. Scope is ' + reg.scope);
+    }).catch(function(error) {
+        // registration failed
+        console.log('Registration failed with ' + error);
+    });
 }
-

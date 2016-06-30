@@ -199,7 +199,8 @@ body {
   text-align: center;
   white-space: nowrap;
   display: inline-block;
-  width: 15.6%; }
+  width: 15.6%;
+  text-transform: uppercase; }
 
 a {
   text-decoration: none;

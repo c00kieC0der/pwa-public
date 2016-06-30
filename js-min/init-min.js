@@ -1,1 +1,1 @@
-helper.loadTemplate("page-toast-div","modules","page-toast"),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service_worker.js",{scope:"/"}).then(console.log("it registered."));
+helper.loadTemplate("page-toast-div","modules","page-toast"),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service_worker.js").then(function(e){console.log("Registration succeeded. Scope is "+e.scope)})["catch"](function(e){console.log("Registration failed with "+e)});

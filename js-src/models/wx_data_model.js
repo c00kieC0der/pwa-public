@@ -16,7 +16,7 @@ var _Data = {}, app = {};
     _Data.collectNew = function () {
         app.hasRequestPending = true;
         if ('caches' in window) {
-           // console.log(caches);
+            // console.log(caches);
             caches.match(dataUrl).then(function (response) {
                 if (response) {
                     response.json().then(function (json) {
@@ -35,22 +35,22 @@ var _Data = {}, app = {};
         }
 
         AjaxRequest.get({
-                'url': dataUrl,
-                'generateUniqueUrl': false,
-                'onSuccess': function (req) {
+            'url': dataUrl,
+            'generateUniqueUrl': false,
+            'onSuccess': function (req) {
 
-                    var data = JSON.parse(req.responseText);
-                    _Data.obs = data.vt1observation;
-                    _Data.datetime = data.vt1currentdatetime;
-                    _Data.dailyForecast = data.vt1dailyForecast;
-                    _Data.pollenforecast = data.vt1pollenforecast;
-                    _Data.precipitation = data.vt1precipitation;
-                    _Data.fifteen = data.vt1fifteenminute;
-                    _Data.hourly = data.vt1hourlyForecast;
-                    massageData();
-                    document.getElementById('event-anchor').dispatchEvent(eventData);
-                    app.hasRequestPending = false;
-        }, 'onError' : function(err) {
+                var data = JSON.parse(req.responseText);
+                _Data.obs = data.vt1observation;
+                _Data.datetime = data.vt1currentdatetime;
+                _Data.dailyForecast = data.vt1dailyForecast;
+                _Data.pollenforecast = data.vt1pollenforecast;
+                _Data.precipitation = data.vt1precipitation;
+                _Data.fifteen = data.vt1fifteenminute;
+                _Data.hourly = data.vt1hourlyForecast;
+                massageData();
+                document.getElementById('event-anchor').dispatchEvent(eventData);
+                app.hasRequestPending = false;
+            }, 'onError' : function(err) {
                 console.log(err);
             }
         });
@@ -94,6 +94,7 @@ var _Data = {}, app = {};
         _Data.hourly.time = [];
         _Data.hourly.date = [];
         _Data.lookingAhead = getLookingAhead();
+        _Data.tenDay = _Data.dailyForecast.day;
         for (var i in _Data.hourly.processTime) {
             _Data.hourly.time[i] = formatTime(_Data.hourly.processTime[i]);
             _Data.hourly.date[i] = formatDate(_Data.hourly.processTime[i]);

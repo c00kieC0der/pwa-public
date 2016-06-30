@@ -82,7 +82,7 @@
         mapData();
         helper.setContent(dataAssignment);
     }
-
+    // Hide other details on first paint
     document.getElementById("dp2-details").style.display = 'none';
     document.getElementById("dp3-details").style.display = 'none';
 
@@ -121,6 +121,7 @@
 })();
 
 
+//Looking ahead interactions
 
 function dayPartClick(detail, clickedId) {
     //addClass(this, 'selected');
