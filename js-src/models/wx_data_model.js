@@ -63,9 +63,6 @@ var _Data = {}, app = {};
         var dateBase = new Date(fullDate);
         var hours = dateBase.getHours();
         var minutes = dateBase.getMinutes();
-        if (minutes === 0) {
-            minutes = '00';
-        }
         var meridian = 'AM';
         if (hours === 12) {
             meridian = 'PM';
@@ -78,13 +75,33 @@ var _Data = {}, app = {};
             hours = 12;
         }
 
-        return hours + ':' + minutes + ' ' + meridian;
+        return hours + ':'
+            + (minutes>9?minutes + ' ':'0'+minutes + ' ')
+            + meridian;
     };
     var formatDate = function (fullDate) {
         var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
         var monthsOfYear = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
         var dateBase = new Date(fullDate);
         return daysOfWeek[dateBase.getDay()] + ', ' + monthsOfYear[dateBase.getMonth()] + ' ' + dateBase.getDate();
+    };
+
+    /*
+    Getting names of days and month/days. These three functions should be able to be combined
+     */
+    var getDayName = function (fullDate){
+        var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
+        //change currday to today
+        var dateBase = new Date(fullDate);
+        return daysOfWeek[dateBase.getDay()];
+    };
+    var getDayIndex = function (fullDate){
+        return new Date(fullDate).getDay();
+    };
+    var getMonthDate= function(fullDate){
+        var monthsOfYear = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+        var dateBase = new Date(fullDate);
+        return monthsOfYear[dateBase.getMonth()] + ' ' + dateBase.getDate();
     };
     /*
      Any after retrieval data massaging.
@@ -105,18 +122,23 @@ var _Data = {}, app = {};
         _Data.dailyForecast.dayData = {};
         _Data.dailyForecast.dayData.day = _Data.dailyForecast.day;
         _Data.dailyForecast.dayData.night =_Data.dailyForecast.night;
-        _Data.dailyForecast.dayData.day.date =[];
+        _Data.dailyForecast.dayData.day.dateDay =[];
+        _Data.dailyForecast.dayData.dateDayIndex =[];
+        _Data.dailyForecast.dayData.day.dateMonthDate =[];
         _Data.dailyForecast.dayData.day.sunrise =[];
         _Data.dailyForecast.dayData.day.sunset =[];
         _Data.dailyForecast.dayData.day.moonrise =[];
         _Data.dailyForecast.dayData.day.moonset =[];
         _Data.dailyForecast.dayData.night.date =[];
         for (var i in _Data.dailyForecast.validDate) {
-            _Data.dailyForecast.dayData.day.date[i] = formatDate(_Data.dailyForecast.validDate[i]);
+            _Data.dailyForecast.dayData.day.dateDay[i] = (_Data.dailyForecast.day.dayPartName[i]==="Today"?
+                "Today":getDayName(_Data.dailyForecast.validDate[i]));
+            _Data.dailyForecast.dayData.dateDayIndex[i] = getDayIndex(_Data.dailyForecast.validDate[i]);
+            _Data.dailyForecast.dayData.day.dateMonthDate[i] = getMonthDate(_Data.dailyForecast.validDate[i]);
             _Data.dailyForecast.dayData.night.date[i] = formatDate(_Data.dailyForecast.validDate[i]);
+
             _Data.dailyForecast.dayData.day.sunrise[i] = formatTime(_Data.dailyForecast.sunrise[i]);
             _Data.dailyForecast.dayData.day.sunset[i] = formatTime(_Data.dailyForecast.sunset[i]);
-            console.log(_Data.dailyForecast.dayData.day.sunset[i]);
             _Data.dailyForecast.dayData.day.moonrise[i] = formatTime(_Data.dailyForecast.moonrise[i]);
             _Data.dailyForecast.dayData.day.moonset[i] = formatTime(_Data.dailyForecast.moonset[i]);
         }
