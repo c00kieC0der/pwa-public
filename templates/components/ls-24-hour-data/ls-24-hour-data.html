@@ -13,6 +13,8 @@
             <p class="js-description"></p>
           </td>
           <td headers="hi-low" class="temp">
+            <!-- Crystal, temp to fix issue. -->
+            <span class="js-temp"></span>
             <span data-ng-if="daypart.parent === -1">
               <span
                 data-ng-bind="::daypart.tempHi"></span>
@@ -35,8 +37,7 @@
           </td>
           <td headers="precip" class="precip">
             <span aria-hidden="true" class="wx-iconfont-global wx-icon-precip-rain-1"></span>
-            <span
-              data-ng-bind="::daypart.precipPct"></span>%
+            <span class="js-precip"></span>%
           </td>
           <td headers="wind" class="wind">
             <span
@@ -44,8 +45,7 @@
               data-wx-wind-speed="::daypart.windSpeed"></span>
           </td>
           <td headers="humidity" class="humidity">
-            <span
-              data-ng-bind="::daypart.humidityPct"></span>%
+            <span class="js-humidity"></span>%
           </td>
           <td headers="uv-index" class="uv-index">
             <span

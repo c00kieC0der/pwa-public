@@ -81,7 +81,7 @@ var _Router = {};
                 pathArr = window.location.pathname.split('/');
                 //if(pathArr[1] )
                 if(pageAssignment[pathArr[2]]){
-
+                    console.log(pathArr[2]);
                     _Router.changePage(pathArr[2]);
                 }
             }
