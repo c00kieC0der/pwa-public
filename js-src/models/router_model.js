@@ -72,13 +72,13 @@ var _Router = {};
         if (pathArr[1].indexOf('-') === 2) {
             //_Locales.getLocales().then(function (locales) {  //This is an expensive call.
                 _User.lang = pathArr[1];
-                _Lang.updateTranslations().then(function(){
+                _Language.updateTranslations().then(function(){
                     checkPage(pathArr);
                 });
            // });
         } else {
             _User.lang = 'en-US';
-            _Lang.updateTranslations().then(function(){
+            _Language.updateTranslations().then(function(){
                 checkPage(pathArr);
             });
         }
@@ -113,7 +113,7 @@ var _Router = {};
 
     _Router.updateURL = function(){
         console.log('update URL for lang');
-        /*
+
         var pathArr = window.location.pathname.split('/');
         if(window.location.pathname === '/'){
             _Router.changePage('today');
@@ -126,9 +126,8 @@ var _Router = {};
                     _Router.changePage(x);
                 }
             }
-        } */
+        }
 
     };
-
 })();
 
