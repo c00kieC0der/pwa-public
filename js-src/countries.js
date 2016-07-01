@@ -1,4 +1,3 @@
-console.log(_Lang);
 var categories = [{"catName":"Americas","countryName":[
     // {"name":"USA","code":"EN", "language":"EN"},
     // {"name":"USA (Spanish)","code":"ES", "language":"ES"},
