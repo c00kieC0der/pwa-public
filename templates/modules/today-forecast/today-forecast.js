@@ -78,7 +78,7 @@
         mapData();
         helper.setContent(dataAssignment);
     });
-    if(_Data.obs){
+    if(_Data.obs && _Data.obs.phrase){
         mapData();
         helper.setContent(dataAssignment);
     }
@@ -117,6 +117,8 @@
     }
     document.getElementById('event-anchor').addEventListener('lang-builder', function(){
         updateTodayForecastLangs();
+        mapData();
+        helper.setContent(dataAssignment);
     });
 
 })();

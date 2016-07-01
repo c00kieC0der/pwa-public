@@ -152,9 +152,6 @@ h3 {
 #ls-row-wrap-5day tr:nth-child(n+8) {
   display: none; }
 
-#ls-row-wrap-24 tr:nth-child(n+6) {
-  display: none; }
-
 .ls-hourly-wrap {
   background: white;
   position: relative; }

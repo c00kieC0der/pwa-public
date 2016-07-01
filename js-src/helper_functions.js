@@ -102,6 +102,46 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
 
 };
 
+//Can be edited into original ngRepeat. Check for array
+helper.ngRepeatSpecific = function(divId, componentName, dataMap, data, indices){
+    var path = '/templates/components/' + componentName + '/' + componentName + '.html';
+    var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var classXes = '', x = 0, i = 0, j = 0, div ;
+    xhr.open('get', path, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var rawTemplate = xhr.responseText;
+            //put the template in x times.
+            console.log("Index length: "+indices.length);
+            for(x=0; x < indices.length; x++){
+                div = document.getElementById(divId);
+                if(div){
+                    div.innerHTML += rawTemplate;
+                }
+                //document.getElementById(divId).innerHTML += rawTemplate;
+            }
+            //for each item in the map, get all the elements with that class.
+            for(i=0; i < dataMap.length; i++){
+                classXes = document.getElementsByClassName(dataMap[i][0]);
+                //for each element, place its piece of data in it.
+                for(j=0; j < classXes.length; j++){
+
+                    if(dataMap[i][1] === 'icon'){
+                        classXes[j].innerHTML = getWxIcon(data[dataMap[i][1]][indices[j]]);
+                    } else {
+                        console.log(data[dataMap[i][1]][indices[j]]);
+                        classXes[j].innerHTML = data[dataMap[i][1]][indices[j]];
+                    }
+                }
+            }
+
+        }
+    };
+    xhr.send();
+
+
+};
+
 helper.ngRepeatReverse = function(divId, componentName, dataMap, data, multiplier){
     multiplier = multiplier === 'all' ? dataMap.length : multiplier;
     var path = 'templates/components/' + componentName + '/' + componentName + '.html';
