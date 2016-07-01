@@ -22,8 +22,10 @@
 <body onclick="">
 <div class="main-div">
     <div id="WX_Hidden"></div>
-    <div id="WX_WindowShade"></div>
-    <div id="MW_Position1"></div>
+    <div class=wx-adWrapper">
+        <div id="WX_WindowShade" class="wx-gptADS"></div>
+        <div id="MW_Position1" class="wx-gptADS"></div>
+    </div>
     <div id="windowshade_info" style="color:black;background-color:red"></div>
 
     <header class="header" id="pwa-header">
@@ -75,34 +77,36 @@
             </a>
             <button class="close btn-mobile" onclick="hideMainMenu()"><span class="wx-iconfont-global wx-icon-close"></span></button>
         </div>
-        <div id="loc-layout">
-            <div class="temp-cont">
-                <a href="#">
-                    <span class="units-text">Units</span>
-                    <span class="temp-red active units-fahrenheit" onclick="showTemperature(this)">°F</span>
-                    <span class="temp-red " onclick="showTemperature(this)">°C</span>
-                </a>
+        <div class="menu-card-container">
+            <div class="menu-card" id="loc-layout">
+                <div class="temp-cont">
+                    <a href="#">
+                        <span class="units-text">Units</span>
+                        <span class="temp-red active units-fahrenheit" onclick="showTemperature(this)">°F</span>
+                        <span class="temp-red " onclick="showTemperature(this)">°C</span>
+                    </a>
+                </div>
+                <div class="locale-link" onclick="showCategories()">
+                    <span class="wx-iconfont-global wx-icon-globe"></span>
+                    <span class="text left">USA</span>
+                    <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small makeIconBold"></span>
+                </div>
             </div>
-            <div class="locale-link" onclick="showCategories()">
-                <span class="wx-iconfont-global wx-icon-globe"></span>
-                <span class="text left">USA</span>
-                <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small makeIconBold"></span>
+            <div class="menu-card" id="category-layout">
+                <div class="locale-link" onclick="showLocations()">
+                    <span class="wx-iconfont-global wx-icon-arrow-left makeIconBold"></span>
+                    <span class="text">Change Location</span>
+                </div>
+                <ul class="lang" id="lang-categories" ></ul>
             </div>
-        </div>
-        <div id="category-layout">
-            <div class="locale-link" onclick="showLocations()">
-                <span class="wx-iconfont-global wx-icon-arrow-left makeIconBold"></span>
-                <span class="text">Change Location</span>
+             <div class="menu-card" id="areas-layout">
+                <div class="locale-link" onclick="showCategories()">
+                    <span class="wx-iconfont-global wx-icon-arrow-left makeIconBold"></span>
+                    <span class="text left" id="area-value"></span>
+                </div>
+                <ul class="lang" id="country-languages"></ul>
             </div>
-            <ul class="lang" id="lang-categories" ></ul>
-        </div>
-        <div id="areas-layout">
-            <div class="locale-link" onclick="showCategories()">
-                <span class="wx-iconfont-global wx-icon-arrow-left makeIconBold"></span>
-                <span class="text left" id="area-value"></span>
             </div>
-            <ul class="lang" id="country-languages"></ul>
-        </div>
     </div>
 
     <div class="main-nav" id="main-search">
@@ -131,7 +135,9 @@
         </div>
     </div>
 
-    <div id="page-content"></div>
+    <div class="page-card-container">
+        <div class="page-card" id="page-content"></div>
+    </div>
 <div id="page-toast-div"></div>
         <a href="#" id="event-anchor"></a>
 
@@ -166,6 +172,7 @@
 <script src="/js-src/vendor/ajax.js"></script>
 <script src="/assets/wxicon/wxicon.js"></script>
 <script src="/js-src/helper_functions.js"></script>
+<script src="/js-src/countries.js"></script>
 <script src="/js-src/appShell.js"></script>
 <script src="/js-src/init.js"></script>
 
@@ -179,12 +186,9 @@
 <script src="/service_worker.js"></script>
 
 <!-- <script src="/service_worker.js"></script> -->
+<script src="/js-src/async-scripts.js"></script>
 
 <!--   <script src="/backend.js"></script>  -->
 
-<script>
-
-
-</script>
 </body>
 </html>

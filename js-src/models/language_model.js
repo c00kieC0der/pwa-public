@@ -1,4 +1,4 @@
-var _Lang = {}, _Locales = {};
+var _Language = {}; _Lang = {}, _Locales = {};
 
 
     var eventData = document.createEvent('Event');
@@ -26,7 +26,7 @@ var _Lang = {}, _Locales = {};
             });
         });
     };
-    _Lang.updateTranslations = function(){
+    _Language.updateTranslations = function(){
         return new Promise(function(resolve, reject){
             var path;
             if(_User.lang == 'en-US'){
@@ -43,4 +43,6 @@ var _Lang = {}, _Locales = {};
             });
         });
     };
+
+console.log(_Lang);
 

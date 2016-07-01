@@ -55,7 +55,10 @@ var saveUser = function(){
     savedPco.products = savedPco.products ? savedPco.products : {};
     savedPco.products.WebPushNotifications = _User.webPush;
     window.localStorage.jStorage = JSON.stringify(savedPco);
-    _Data.collectNew();
+    console.log('requesting new data');
+    if(window['_Data']){
+        _Data.collectNew();
+    }
 };
 
 /*
