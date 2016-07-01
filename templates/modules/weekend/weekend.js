@@ -7,8 +7,8 @@
         ['js-date',             'dateMonthDate'], // 'MMM d'
         ['js-wxicon',           'icon'],
         ['js-iconExended',      'iconExtended'],
-        ['js-tempHi',           'highs'],
-        ['js-tempLo',           'lows'],
+        ['js-tempHi',           'dayTemp'],
+        ['js-tempLo',           'nightTemp'],
         ['js-phrase',           'phrase'],
         ['js-narrative',        'narrative'],
         ['js-precipPct',        'precipPct'],
@@ -26,7 +26,7 @@
         ['js-wxicon-night',           'nightIcon'],
         ['js-iconExended-night',      'nightIconExtended'],
         //['js-tempHi-night',           'highs'],
-        ['js-tempLo-night',           'lows'],
+        ['js-tempLo-night',           'nightTemp'],
         ['js-phrase-night',           'nightPhrase'],
         ['js-narrative-night',        'nightNarrative'],
         ['js-precipPct-night',        'nightPrecipPct'],
@@ -40,8 +40,7 @@
         ['js-moonset-night',          'moonset']
     ];
 
-    var currOpenDetails = [];
-    var currOpenDays=[];
+    var currOpenDetails=[], currOpenDays=[];
 
     var createWeekendModel = function(){
         var weekendInfo = [];
@@ -67,7 +66,7 @@
             }
         }
         //console.log(currWeekendData);
-        helper.ngRepeatSpecific('ls-row-wrap-24', 'weekend', ngRepeatMap, _Data.dailyForecast.dayData.day, currWeekendData);
+        helper.ngRepeatSpecific('ls-row-wrap-24', 'weekend', ngRepeatMap, _Data.dailyForecast.dayData, currWeekendData);
         //helper.ngRepeatSpecific('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, nextWeekendData);
         makeClickable();
     };

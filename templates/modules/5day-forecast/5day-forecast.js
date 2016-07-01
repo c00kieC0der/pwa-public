@@ -7,8 +7,8 @@
         ['js-date',             'dateMonthDate'], // 'MMM d'
         ['js-wxicon',           'icon'],
         ['js-iconExended',      'iconExtended'],
-        ['js-tempHi',           'highs'],
-        ['js-tempLo',           'lows'],
+        ['js-tempHi',           'dayTemp'],
+        ['js-tempLo',           'nightTemp'],
         ['js-phrase',           'phrase'],
         ['js-narrative',        'narrative'],
         ['js-precipPct',        'precipPct'],
@@ -26,7 +26,7 @@
         ['js-wxicon-night',           'nightIcon'],
         ['js-iconExended-night',      'nightIconExtended'],
         //['js-tempHi-night',           'highs'],
-        ['js-tempLo-night',           'lows'],
+        ['js-tempLo-night',           'nightTemp'],
         ['js-phrase-night',           'nightPhrase'],
         ['js-narrative-night',        'nightNarrative'],
         ['js-precipPct-night',        'nightPrecipPct'],
@@ -90,12 +90,12 @@
      do it how many times?
      */
     if(_Data.dailyForecast){
-        helper.ngRepeat('ls-row-wrap-5day', 'weekend', ngRepeatMap, _Data.dailyForecast.dayData.day, 5);
+        helper.ngRepeat('ls-row-wrap-5day', 'weekend', ngRepeatMap, _Data.dailyForecast.dayData, 5);
         makeClickable();
     }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {
-        helper.ngRepeat('ls-row-wrap-5day', 'weekend', ngRepeatMap, _Data.dailyForecast.dayData.day, 5);
+        helper.ngRepeat('ls-row-wrap-5day', 'weekend', ngRepeatMap, _Data.dailyForecast.dayData, 5);
         makeClickable();
     });
 })();
