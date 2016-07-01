@@ -231,7 +231,7 @@ a {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 9;
+  z-index: 1011;
   display: none; }
   .main-nav .logo-cont {
     border-bottom: solid 1px rgba(255, 255, 255, 0.4);
