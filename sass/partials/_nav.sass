@@ -234,7 +234,7 @@ a
   position: fixed
   top: 0
   width: 100%
-  z-index: 1011 // set higher than map
+  z-index: 9
   display: none
   .logo-cont
     border-bottom: solid 1px rgba(255, 255, 255, 0.4)
@@ -564,3 +564,9 @@ footer
     cursor: pointer
     left: 100%
     top: 0
+
+
+.leaflet-pane
+  z-index: 4
+#__wxmap_MapboxAttribution
+  z-index: 5 !important
