@@ -23,6 +23,7 @@
     "temp":"temp",
     "feels":"feels",
     "precip":"precip",
+    "looking ahead":"looking ahead",
     "weekend forecast for {0}":"weekend forecast for {0}",
     "5 day forecast for {0}":"5 day forecast for {0}",
     "10 day forecast for {0}":"10 day forecast for {0}",
