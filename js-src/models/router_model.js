@@ -51,19 +51,18 @@ var _Router = {};
         }
         document.getElementsByClassName('page-nav-li ' + page)[0].className += ' active';
         changeTo = page;
-        if(_Router.page !== changeTo){
-            if(!_Router.page){
-                _Router.page = 'today';
-            }
-            _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[changeTo].metricName, pageAssignment[page].pos);
-            _Router.page = changeTo;
 
-            helper.loadTemplate('page-content', 'pages', changeTo);
-            document.title = pageAssignment[page].title;
-            var loc = _User.activeLocation.locId ? _User.activeLocation.locId : '';
-
-            history.pushState({changeTo:page}, page, '/' + _User.lang + '/' + _Lang.weather + '/' + _Lang[changeTo] + '/l/' + loc);
+        if(!_Router.page){
+            _Router.page = 'today';
         }
+        _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[changeTo].metricName, pageAssignment[page].pos);
+        _Router.page = changeTo;
+
+        helper.loadTemplate('page-content', 'pages', changeTo);
+        document.title = pageAssignment[page].title;
+        var loc = _User.activeLocation.locId ? _User.activeLocation.locId : '';
+        console.log()
+        history.pushState({changeTo:page}, page, '/' + _User.lang + '/' + _Lang.weather + '/' + _Lang[changeTo] + '/l/' + loc);
     };
 
     var pathArr = [];
@@ -113,21 +112,11 @@ var _Router = {};
 
     _Router.updateURL = function(){
         console.log('update URL for lang');
-
-        var pathArr = window.location.pathname.split('/');
-        if(window.location.pathname === '/'){
-            _Router.changePage('today');
-        } else {
-            for(var x in pageAssignment){
-                if(_Lang[x] === pathArr[3]){
-                    _Router.changePage(x);
-                    break;
-                } else if(x === pathArr[3]){
-                    _Router.changePage(x);
-                }
-            }
+        if(history.state && history.state.changeTo){ console.log('history state', history.state.changeTo);
+            _Router.changePage(history.state.changeTo);
+        } else {  console.log(_Router.page);
+           _Router.changePage(_Router.page);
         }
-
     };
 })();
 

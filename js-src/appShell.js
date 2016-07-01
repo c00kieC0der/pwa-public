@@ -398,9 +398,9 @@ function showAreas(ele,rowId ) {
  */
 function changeLang(code){
     _User.lang = code;
-    _Language.updateTranslations();
-    _Router.updateURL();
-    //console.log(_Router);
+    _Language.updateTranslations().then(function(){
+        _Router.updateURL();
+    });
     showHide('main-nav', 0);
 }
 

@@ -94,7 +94,6 @@
         helper.ngRepeat('ls-row-wrap-10day', 'weekend', ngRepeatMap, _Data.dailyForecast.dayData.day, 10);
         makeClickable();
     }
-
     document.getElementById('event-anchor').addEventListener('builder', function() {
         helper.ngRepeat('ls-row-wrap-10day', 'weekend', ngRepeatMap, _Data.dailyForecast.dayData.day, 10);
         makeClickable();

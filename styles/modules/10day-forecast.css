@@ -16,7 +16,8 @@
 
 h3 {
   margin: 1em 10px 0.7em;
-  color: white; }
+  color: white;
+  text-transform: capitalize; }
 
 .twc-table-wrapper {
   position: relative; }
@@ -147,6 +148,9 @@ h3 {
     background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
     background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)); }
+
+/*#ls-row-wrap-5day tr:nth-child(n+8) {
+  display: none; }*/
 
 .ls-hourly-wrap {
   background: white;
