@@ -21,12 +21,12 @@
         data
         do it how many times?
      */
-    if(_Data.hourly){
-        helper.ngRepeat('ls-row-wrap-10day', 'ls-row-wrap-10day', ngRepeatMap, _Data.hourly, 12);
+    if(_Data.hourly){ console.log('already have data', _Data.hourly);
+        domReady(helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12));
     }
 
-    document.getElementById('event-anchor').addEventListener('builder', function() {
-        helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12);
+    document.getElementById('event-anchor').addEventListener('builder', function() { console.log('event'); console.log(_Data.hourly);
+        domReady(helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12))
     });
 
     var hourlyForecastLangs = [];
