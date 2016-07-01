@@ -4,7 +4,6 @@
 
 var downArrayClicked = false;
 
-
 /**
  * showMainMenu() shows the hamburger menu when clicked
  */
@@ -186,7 +185,8 @@ function showLocations() {
 function showCategories() {
     var categoryHTML = '';
     for(c = 0; c < categories.length; c++){
-        categoryHTML += '<li ><a href="javascript:showAreas(this,'+ c +')"><span >'+categories[c].catName+'</span> <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small"></span></a></li>';
+        var categoryName = categories[c].catName;
+        categoryHTML += '<li ><a href="javascript:showAreas(\'' + categoryName+ '\','+ c +')"><span >'+categories[c].catName+'</span> <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small"></span></a></li>';
     }
     document.getElementById('lang-categories').innerHTML = categoryHTML;
     slideMenu('loc-layout',0);
@@ -204,7 +204,7 @@ function showAreas(ele,rowId ) {
         languageHTML += '<li><a href="javascript:changeLang(\'' + categories[rowId].countryName[l].code + '\')"><span> '+categories[rowId].countryName[l].name+' </span> <span> | '+categories[rowId].countryName[l].language+'</span> </a></li>';
     }
     document.getElementById('country-languages').innerHTML = languageHTML;
-    document.getElementById('area-value').innerHTML = ele.innerHTML;
+    document.getElementById('area-value').innerHTML = ele;
     slideMenu('loc-layout',0);
     slideMenu('category-layout',0);
     slideMenu('areas-layout',1);
@@ -241,6 +241,13 @@ function showHide(element, show) {
 }
 
 
+/**
+ * showHide() takes the element and slides in from the right based on the value
+ * 0 - hide
+ * 1 - display
+ * @param element
+ * @param show
+ */
 
 function slideMenu(element, show) {
     if(show === 0) {
@@ -250,9 +257,6 @@ function slideMenu(element, show) {
         removeClass(document.getElementById(element), 'slide-out');
     }
 }
-
-
-
 
 
 function lookupLocations(term){

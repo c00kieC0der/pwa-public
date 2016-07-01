@@ -84,7 +84,6 @@ helper.loadTemplate = function(elementId, type, name){
 
 helper.setContent = function(content){
         var assignToDOM = function(arr){
-            console.log(arr);
             document.getElementById(arr[0]).innerHTML = arr[1];
         };
         if(typeof content === 'object'){
