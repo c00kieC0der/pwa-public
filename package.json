@@ -1,7 +1,7 @@
 {
   "name": "root",
   "version": "1.0.0",
-  "description": "",
+  "description": "Progressive Web App",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,5 +23,13 @@
     "jshint": "^2.9.2",
     "minify": "^2.0.9",
     "sw-precache": "^3.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheWeatherCompany/pwa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheWeatherCompany/pwa/issues"
+  },
+  "homepage": "https://github.com/TheWeatherCompany/pwa#readme"
 }

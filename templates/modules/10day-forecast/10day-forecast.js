@@ -3,8 +3,8 @@
  */
 (function(){
     var ngRepeatMap = [
-        ['js-dayPartName',      'dayPartName'],
-        ['js-date',             'date'], // 'MMM d'
+        ['js-dayPartName',      'dateDay'],
+        ['js-date',             'dateMonthDate'], // 'MMM d'
         ['js-wxicon',           'icon'],
         ['js-iconExended',      'iconExtended'],
         ['js-tempHi',           'highs'],
@@ -28,10 +28,9 @@
      data
      do it how many times?
      */
-    if(_Data.dailyForecast.dayData){
+    if(_Data.dailyForecast.dayData) {
         helper.ngRepeat('ls-row-wrap-10day', 'ls-daily-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 10);
     }
-
     document.getElementById('event-anchor').addEventListener('builder', function() {
         helper.ngRepeat('ls-row-wrap-10day', 'ls-daily-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 10);
     });

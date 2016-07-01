@@ -78,7 +78,7 @@
         mapData();
         helper.setContent(dataAssignment);
     });
-    if(_Data.obs){
+    if(_Data.obs && _Data.obs.phrase){
         mapData();
         helper.setContent(dataAssignment);
     }
@@ -92,6 +92,7 @@
     var todayForecastLangs = [];
     var updateTodayForecastLangs = function(){
         todayForecastLangs = [
+            ['looking-ahead-hdr', _Lang['looking ahead'].toUpperCase()],
             ['nowcard-feels-label', _Lang['feels like'].toUpperCase()],
             ['today-humidity' , helper.capitalize(_Lang.humidity)],
             ['today-wind', helper.capitalize(_Lang.wind)],
@@ -116,6 +117,8 @@
     }
     document.getElementById('event-anchor').addEventListener('lang-builder', function(){
         updateTodayForecastLangs();
+        mapData();
+        helper.setContent(dataAssignment);
     });
 
 })();
