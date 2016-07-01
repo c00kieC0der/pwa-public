@@ -241,6 +241,13 @@ function showHide(element, show) {
 }
 
 
+/**
+ * showHide() takes the element and slides in from the right based on the value
+ * 0 - hide
+ * 1 - display
+ * @param element
+ * @param show
+ */
 
 function slideMenu(element, show) {
     if(show === 0) {
@@ -250,9 +257,6 @@ function slideMenu(element, show) {
         removeClass(document.getElementById(element), 'slide-out');
     }
 }
-
-
-
 
 
 function lookupLocations(term){
