@@ -87,7 +87,7 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
                 //for each element, place its piece of data in it.
                 for(j=0; j < classXes.length; j++){
 
-                    if(dataMap[i][1] === 'icon'){
+                    if(dataMap[i][1] === 'icon'|| dataMap[i][1]==='nightIcon'){
                         classXes[j].innerHTML = getWxIcon(data[dataMap[i][1]][j]);
                     } else {
                         classXes[j].innerHTML = data[dataMap[i][1]][j];
@@ -112,7 +112,6 @@ helper.ngRepeatSpecific = function(divId, componentName, dataMap, data, indices)
         if (xhr.readyState === 4 && xhr.status === 200) {
             var rawTemplate = xhr.responseText;
             //put the template in x times.
-            console.log("Index length: "+indices.length);
             for(x=0; x < indices.length; x++){
                 div = document.getElementById(divId);
                 if(div){
@@ -126,10 +125,9 @@ helper.ngRepeatSpecific = function(divId, componentName, dataMap, data, indices)
                 //for each element, place its piece of data in it.
                 for(j=0; j < classXes.length; j++){
 
-                    if(dataMap[i][1] === 'icon'){
+                    if(dataMap[i][1] === 'icon' ||dataMap[i][1]==='nightIcon'){
                         classXes[j].innerHTML = getWxIcon(data[dataMap[i][1]][indices[j]]);
                     } else {
-                        console.log(data[dataMap[i][1]][indices[j]]);
                         classXes[j].innerHTML = data[dataMap[i][1]][indices[j]];
                     }
                 }

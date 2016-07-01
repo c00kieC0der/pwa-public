@@ -183,6 +183,7 @@ var _Data = {}, app = {};
         dayData.nightWindDirCompass = info.windDirCompass;
         dayData.nightWindSpeed = info.windSpeed;
         dayData.nightHumidityPct = info.humidityPct;
+        dayData.dateNight =[];
         //console.log("Test night value: "+_Data.dailyForecast.dayData.day.nightIcon[0]);
 
 
@@ -191,6 +192,8 @@ var _Data = {}, app = {};
         for (var i in _Data.dailyForecast.validDate) {
             _Data.dailyForecast.dayData.day.dateDay[i] = (_Data.dailyForecast.day.dayPartName[i]==="Today"?
                 "Today":getDayName(_Data.dailyForecast.validDate[i]));
+            _Data.dailyForecast.dayData.day.dateNight[i] = _Data.dailyForecast.dayData.day.dateDay[i] ==="Today"?
+                "Tonight":_Data.dailyForecast.dayData.day.dateDay[i] + " Night";
             _Data.dailyForecast.dayData.dateDayIndex[i] = getDayIndex(_Data.dailyForecast.validDate[i]);
             _Data.dailyForecast.dayData.day.dateMonthDate[i] = getMonthDate(_Data.dailyForecast.validDate[i]);
             //_Data.dailyForecast.dayData.day.night.date[i] = formatDate(_Data.dailyForecast.validDate[i]);
