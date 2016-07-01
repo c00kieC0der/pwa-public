@@ -1,13 +1,3 @@
-/**
- * Created by ecook on 6/5/16.
- */
-
-(function(){
-
-
-console.log('hello there');
-
-/*
 //require('serviceworker-cache-polyfill');
 
 var version = 'v1';
@@ -31,7 +21,7 @@ self.addEventListener('install', function(e) {
             ]);
         })
     );
-};
+});
 
 
 console.log(caches);
@@ -45,9 +35,8 @@ self.onactivate = function(event) {
     if (self.clients && clients.claim) {
         clients.claim();
     }
+    console.log('on activation');
 
-    // remove caches beginning "trains-" that aren't in
-    // expectedCaches
     event.waitUntil(
         caches.keys().then(function(cacheNames) {
             return Promise.all(
@@ -60,7 +49,7 @@ self.onactivate = function(event) {
         })
     );
 };
-console.log('service worker on');
+
 self.onfetch = function(event) {
     console.log('on fetch?? ');
     var dataUrl = 'https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1pollenforecast;vt1dailyForecast;vt1observation;vt1alerts?';
@@ -83,5 +72,4 @@ self.onfetch = function(event) {
                 })
         );
     }
-};*/
-})();
+};

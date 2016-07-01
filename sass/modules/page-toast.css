@@ -1,6 +1,6 @@
 #page-div-toast {
   max-height: 100px;
-  position: absolute;
+  position: fixed;
   bottom: -200px; }
 
 .gm-push {

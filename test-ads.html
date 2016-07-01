@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var myWorker = new Worker("web-worker.js");
+        myWorker.onmessage = function(e) {
+//            gtSetup();
+            console.log('Message from worker');
+        };
+
+        var isMobile = window.innerWidth < 768;
+        //network id
+        var network = "/7646";
+        //ad unit
+        var adUnit = isMobile? "/test_mobile_smart_us" :  "/test_web_weather_us";
+
+        var adMapping = {
+            "desktop" : {
+                "WX_WS" :  {
+                    pos : "wx_ws",
+                    sizes : [970, 90]
+                },
+                "WX_Top300" : {
+                    pos : "wx_300var",
+                    sizes : [300, 251]
+                },
+                "WX_Mid300" : {
+                    pos : "wx_mid300",
+                    sizes : [300, 251]
+                }
+            },
+            "mobile" : {
+                "WX_Top300" : {
+                    pos : "mw_p2",
+                    sizes : [300, 251]
+                }
+            }
+
+        };
+
+        function gtSetup() {
+            pushSlots();
+            gtDisplay();
+        }
+
+        function pushSlots() {
+            googletag.cmd.push(function() {
+                googletag.defineSlot("/7646/test_web_weather_us", [970, 90], "WX_WS")
+                        .addService(googletag.pubads())
+                        .setTargeting("pos", "wx_ws");
+
+            });
+            googletag.cmd.push(function() {
+                googletag.defineSlot("/7646/test_web_weather_us", [300, 251], "WX_Top300")
+                        .addService(googletag.pubads())
+                        .setTargeting("pos", "wx_300var");
+
+            });
+            googletag.cmd.push(function() {
+                googletag.defineSlot("/7646/test_web_weather_us", [300, 251], "WX_Mid300")
+                        .addService(googletag.pubads())
+                        .setTargeting("pos", "wx_mid300");
+                googletag.pubads().setTargeting("adstest", "test");
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+
+            });
+        }
+
+        function gtDisplay() {
+            googletag.cmd.push(function() {
+                googletag.display("WX_WS");
+            });
+            googletag.cmd.push(function() {
+                googletag.display("WX_Top300");
+            });
+            googletag.cmd.push(function() {
+                googletag.display("WX_Mid300");
+            });
+
+        }
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('ad-service-worker-registration.js');
+        }
+    </script>
+</head>
+<body onload="gtSetup()">
+<div id="WX_WS">
+</div>
+<div id="WX_Top300">
+</div>
+<div id="WX_Mid300">
+</div>
+</body>
+</html>

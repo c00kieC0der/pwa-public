@@ -7,38 +7,20 @@ var _Data = {}, app = {};
         _User.activeLocation.lat + ',' + _User.activeLocation.long +
         '&format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
     var dataAstroUrl = '';
-    var eventData = document.createEvent('Event');
-    var eventAstroData = document.createEvent('Event');
-    eventAstroData.initEvent('astro-builder', true, true);
-    eventData.initEvent('builder', true, true);
+    //var eventData = document.createEvent('Event');
+    //var eventAstroData = document.createEvent('Event');
+    //eventAstroData.initEvent('astro-builder', true, true);
+    //eventData.initEvent('builder', true, true);
 
 
     _Data.collectNew = function () {
         app.hasRequestPending = true;
-        if ('caches' in window) {
-           // console.log(caches);
-            caches.match(dataUrl).then(function (response) {
-                if (response) {
-                    response.json().then(function (json) {
-                        console.log(json);
-                        // Only update if the XHR is still pending, otherwise the XHR
-                        // has already returned and provided the latest data.
-                        if (app.hasRequestPending) {
-                            console.log('updated from cache');
-                            json.key = key;
-                            json.label = label;
-                            //app.updateForecastCard(json);
-                        }
-                    });
-                }
-            });
-        }
-
-        AjaxRequest.get({
-                'url': dataUrl,
-                'generateUniqueUrl': false,
-                'onSuccess': function (req) {
-
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", dataUrl, true);
+        xhr.onload = function (e) {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    console.log('something good', xhr.responseText);
                     var data = JSON.parse(req.responseText);
                     _Data.obs = data.vt1observation;
                     _Data.datetime = data.vt1currentdatetime;
@@ -48,14 +30,20 @@ var _Data = {}, app = {};
                     _Data.fifteen = data.vt1fifteenminute;
                     _Data.hourly = data.vt1hourlyForecast;
                     massageData();
-                    eventData.detail = {data: 'testing'};
-                    document.getElementById('event-anchor').dispatchEvent(eventData);
+                    //document.getElementById('event-anchor').dispatchEvent(eventData);
                     app.hasRequestPending = false;
-        }, 'onError' : function(err) {
-                console.log(err);
+                } else {
+                    console.error('xhr error', xhr.statusText);
+                }
             }
-        });
+        };
+        xhr.onerror = function (e) {
+            console.error('xhr error', xhr.statusText);
+        };
+        xhr.send(null);
+
     };
+    console.log('user3', _User.activeLocation)
     if (_User.activeLocation.prsntNm) {
         _Data.collectNew();
     }

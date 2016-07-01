@@ -22,31 +22,59 @@
             ['nowcard-hi-value',    _Data.obs.phrase],
             ['nowcard-lo-value',    _Data.dailyForecast.night.temperature[0]],
             ['nowcard-humidity',    _Data.obs.humidity],
-            ['nowcard-wind',        _Data.obs.windSpeed + ' ' + windUnit + ' ' + _Data.obs.windDirCompass],
+            ['nowcard-wind',        _Data.obs.windDirCompass + ' ' + _Data.obs.windSpeed + ' ' + windUnit],
             ['nowcard-dewpoint',    _Data.obs.dewPoint],
             ['nowcard-pressure',    _Data.obs.altimeter + ' ' + pressureUnit + ' ' + pressureArrow],
             ['nowcard-visibility',  _Data.obs.visibility + visibilityUnit],
             ['nowcard-uv-index',    uvIndex],
             ['dp1-daypartName', _Data.lookingAhead[0].daypartName],
             ['dp1-phrase', _Data.lookingAhead[0].phrase],
-            ['nowcard-la-part1-icon', _Data.lookingAhead[0].wxicon],
+            ['la-part1-icon', _Data.lookingAhead[0].wxicon],
             ['dp1-highLow', _Data.lookingAhead[0].highLow],
             ['dp1-temperature', _Data.lookingAhead[0].temperature],
             ['dp1-precip', _Data.lookingAhead[0].precip],
-            ['dp2-daypartName', _Data.lookingAhead[1].daypartName]
+            ['dp2-daypartName', _Data.lookingAhead[1].daypartName],
+            ['dp2-phrase', _Data.lookingAhead[1].phrase],
+            ['la-part2-icon', _Data.lookingAhead[1].wxicon],
+            ['dp2-highLow', _Data.lookingAhead[1].highLow],
+            ['dp2-temperature', _Data.lookingAhead[1].temperature],
+            ['dp2-precip', _Data.lookingAhead[1].precip],
+            ['dp3-daypartName', _Data.lookingAhead[2].daypartName],
+            ['dp3-phrase', _Data.lookingAhead[2].phrase],
+            ['la-part3-icon', _Data.lookingAhead[2].wxicon],
+            ['dp3-highLow', _Data.lookingAhead[2].highLow],
+            ['dp3-temperature', _Data.lookingAhead[2].temperature],
+            ['dp3-precip', _Data.lookingAhead[2].precip],
+
+            // Weather Details
+            ['dp1-details-narrative', _Data.lookingAhead[0].narrative],
+            ['dp1-details-wind', _Data.lookingAhead[0].windSpeed + ' ' + windUnit + ' ' + _Data.lookingAhead[0].windDirCompass],
+            ['dp1-details-humidity', _Data.lookingAhead[0].humidity],
+            ['dp1-details-uvIndex', _Data.lookingAhead[0].uvIndex + ' of 10'],
+            ['dp1-details-sunrise', _Data.lookingAhead[0].sunrise],
+            ['dp1-details-sunset', _Data.lookingAhead[0].sunset],
+            ['dp2-details-narrative', _Data.lookingAhead[1].narrative],
+            ['dp2-details-wind', _Data.lookingAhead[1].windSpeed + ' ' + windUnit + ' ' + _Data.lookingAhead[1].windDirCompass],
+            ['dp2-details-humidity', _Data.lookingAhead[1].humidity],
+            ['dp2-details-uvIndex', _Data.lookingAhead[1].uvIndex + ' of 10'],
+            ['dp2-details-sunrise', _Data.lookingAhead[1].sunrise],
+            ['dp2-details-sunset', _Data.lookingAhead[1].sunset],
+            ['dp3-details-narrative', _Data.lookingAhead[2].narrative],
+            ['dp3-details-wind', _Data.lookingAhead[2].windSpeed + ' ' + windUnit + ' ' + _Data.lookingAhead[2].windDirCompass],
+            ['dp3-details-humidity', _Data.lookingAhead[2].humidity],
+            ['dp3-details-uvIndex', _Data.lookingAhead[2].uvIndex + ' of 10'],
+            ['dp3-details-sunrise', _Data.lookingAhead[2].sunrise],
+            ['dp3-details-sunset', _Data.lookingAhead[2].sunset],
+
         ];
         var highTemp = _Data.obs.temperatureMaxSince7am ? _Data.obs.temperatureMaxSince7am : _Data.dailyForecast.day.temperature[0] !== null ? _Data.dailyForecast.day.temperature[0] : '--';
         dataAssignment.push(['nowcard-hi-value', highTemp]);
 
+        console.dir(_Data.lookingAhead);
+
         //Input the weather icon - Nowcard.
         document.getElementById('nowcard-icon').innerHTML = getWxIcon(_Data.obs.icon);
 
-
-       //Input the weather icon - Looking Ahead. This is NOT correct -- needs to be today, tonight, tomorrow / 36 hr
-     //   document.getElementById('nowcard-la-part1-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[1]);
-     //   document.getElementById('nowcard-la-part2-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[2]);
-     //   document.getElementById('nowcard-la-part3-icon').innerHTML = getWxIcon(_Data.dailyForecast.day.icon[3]);
-       // console.dir(getWxIcon(_Data.dailyForecast.day));
     };
     document.getElementById('event-anchor').addEventListener('builder', function(){
         mapData();
@@ -56,4 +84,40 @@
         mapData();
         helper.setContent(dataAssignment);
     }
+
+    document.getElementById("dp2-details").style.display = 'none';
+    document.getElementById("dp3-details").style.display = 'none';
+
 })();
+
+
+
+function dayPartClick(detail, clickedId) {
+    //addClass(this, 'selected');
+    document.getElementById("dp1-details").style.display = 'none';
+    document.getElementById("dp2-details").style.display = 'none';
+    document.getElementById("dp3-details").style.display = 'none';
+    document.getElementById(detail).style.display = 'block';
+
+    var daypart1 = document.getElementById('daypart-1'),
+        daypart2 = document.getElementById('daypart-2'),
+        daypart3 = document.getElementById('daypart-3');
+
+
+
+
+    if (hasClass(this, 'selected')) {
+        // Do nothing
+    } else {
+
+        removeClass(daypart1, 'selected');
+        removeClass(daypart2, 'selected');
+        removeClass(daypart3, 'selected');
+        addClass(document.getElementById(clickedId), 'selected');
+    }
+
+
+
+
+}
+

@@ -47,7 +47,7 @@
     </div>
     <div class="wx-detail-row">
         <span class="wx-detail-label">Wind</span>
-        <span id="nowcard-wind" class="wx-detail-value wx-wind">WSW 15 mph</span>
+        <span id="nowcard-wind" class="wx-detail-value wx-wind"></span>
     </div>
     <div class="wx-detail-row">
         <span class="wx-detail-label">Dew Point</span>
@@ -74,16 +74,24 @@
 
 
 <div class="card">
-    <p style="font-size: 10px">Don't test me yet, I still need data and animations</p>
+
+    <header class="panel-heading">
+        <div class="heading-link">
+            <h2 class="heading">LOOKING AHEAD</h2>
+        </div>
+    </header>
+
+
     <div class="looking-ahead">
-        <div class="today-daypart daypart-1 selected">
+
+        <div id="daypart-1" class="today-daypart daypart-1 selected" onclick="dayPartClick('dp1-details', this.id)">
             <div class="today-daypart-content">
                 <div class="today-daypart-top">
                     <span class="today-daypart-title" id="dp1-daypartName"></span>
                     <span class="today-daypart-wxphrase" id="dp1-phrase"></span>
                 </div>
 
-                <div class="condition-icon wx-weather-icon vector" aria-hidden="true" id="nowcard-la-part1-icon"></div>
+                <div class="condition-icon wx-weather-icon vector" aria-hidden="true" id="la-part1-icon"></div>
 
                 <span class="today-daypart-hilo" id="dp1-highLow"></span>
                 <span class="today-daypart-temp dir-ltr">
@@ -96,48 +104,219 @@
                 </span>
             </div>
         </div>
-        <div class="today-daypart daypart-2">
+        <div id="daypart-2" class="today-daypart daypart-2" onclick="dayPartClick('dp2-details', this.id)">
+
             <div class="today-daypart-content">
                 <div class="today-daypart-top">
                     <span class="today-daypart-title" id="dp2-daypartName"></span>
-                    <span class="today-daypart-wxphrase">PM Thunderstorms</span>
+                    <span class="today-daypart-wxphrase" id="dp2-phrase"></span>
                 </div>
 
-                <div class="condition-icon wx-weather-icon vector" aria-hidden="true" id="nowcard-la-part2-icon"></div>
+                <div class="condition-icon wx-weather-icon vector" aria-hidden="true" id="la-part2-icon"></div>
 
-                <span class="today-daypart-hilo">High</span>
+                <span class="today-daypart-hilo" id="dp2-highLow"></span>
                 <span class="today-daypart-temp dir-ltr">
-                    <span>92</span>
+                    <span id="dp2-temperature"></span>
                     <span class="deg-unit">&deg;</span>
                 </span>
                 <span class="today-daypart-precip">
-                    <span><span aria-hidden="true" class="wx-iconfont-global wx-icon-precip-rain-1"></span>
-                        <span class="precip-val">60%</span>
-                    </span>
+                    <span class="wx-iconfont-global wx-icon-precip-rain-1"></span>
+                    <span class="precip-val" id="dp2-precip"></span>%
                 </span>
             </div>
+
         </div>
-        <div class="today-daypart daypart-3">
+        <div id="daypart-3" class="today-daypart daypart-3" onclick="dayPartClick('dp3-details', this.id)">
+
             <div class="today-daypart-content">
                 <div class="today-daypart-top">
-                    <span class="today-daypart-title">Tue Night</span>
-                    <span class="today-daypart-wxphrase">Thunderstorms Early</span>
+                    <span class="today-daypart-title" id="dp3-daypartName"></span>
+                    <span class="today-daypart-wxphrase" id="dp3-phrase"></span>
                 </div>
 
-                <div class="condition-icon wx-weather-icon vector" aria-hidden="true" id="nowcard-la-part3-icon"></div>
+                <div class="condition-icon wx-weather-icon vector" aria-hidden="true" id="la-part3-icon"></div>
 
-                <span class="today-daypart-hilo">Low</span>
+                <span class="today-daypart-hilo" id="dp3-highLow"></span>
                 <span class="today-daypart-temp dir-ltr">
-                    <span>69</span>
+                    <span id="dp3-temperature"></span>
                     <span class="deg-unit">&deg;</span>
                 </span>
                 <span class="today-daypart-precip">
-                    <span data-wx-precip-sky-code="::daypart.icon">
-                        <span aria-hidden="true" class="wx-iconfont-global wx-icon-precip-rain-1"></span>
-                        <span class="precip-val">40%</span>
-                    </span>
+                    <span class="wx-iconfont-global wx-icon-precip-rain-1"></span>
+                    <span class="precip-val" id="dp3-precip"></span>%
                 </span>
             </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="looking-ahead panel-footer" id="looking-ahead-details">
+        <div id="dp1-details" class="dp-details">
+            <span class="today-wx-descrip" id="dp1-details-narrative"></span>
+
+            <ul class="wx-details-block">
+
+                <li class="wx-detail">
+                    <span class="wx-detail-icon">
+                        <span class="wx-iconfont-global wx-icon-wind"></span>
+                    </span>
+                    <span class="wx-detail-text">
+                        <span class="wx-detail-label" id="dp1-deials-wind">Wind</span>
+                        <span class="wx-detail-value wx-wind dir-ltr">
+                            <span id="dp1-details-wind"></span>
+                        </span>
+                </li>
+
+                <li class="wx-detail">
+                    <span class="wx-detail-icon">
+                        <span class="wx-iconfont-global wx-icon-humidity"></span>
+                    </span>
+                    <span class="wx-detail-text">
+                        <span class="wx-detail-label">Humidity</span>
+                        <span class="wx-detail-value">
+                            <span id="dp1-details-humidity"></span>%
+                    </span>
+                </li>
+
+                <li class="wx-detail">
+                    <span class="wx-detail-icon">
+                        <span class="wx-iconfont-global wx-icon-uv-index"></span>
+                    </span>
+                    <span class="wx-detail-text">
+                        <span class="wx-detail-label">UV Index</span>
+                        <span class="wx-detail-value" id="dp1-details-uvIndex"></span>
+                    </span>
+                </li>
+
+                <li class="wx-detail">
+                    <span class="wx-detail-icon">
+                        <span class="wx-iconfont-global wx-icon-sunrise-sunset"></span>
+                    </span>
+                    <span class="wx-detail-text">
+                        <span class="wx-detail-label show-sm">Sun</span>
+                        <span class="wx-detail-value">
+                            <span class="wx-iconfont-global wx-icon-arrow-up-4"></span>
+                            <span class="wx-dsxdate" id="dp1-details-sunrise"></span>
+                            <span class="wx-iconfont-global wx-icon-arrow-down-4"></span>
+                            <span class="wx-dsxdate" id="dp1-details-sunset"></span>
+                        </span>
+                    </span>
+                </li>
+
+            </ul>
+        </div>
+        <div id="dp2-details" class="dp-details">
+            <span class="today-wx-descrip" id="dp2-details-narrative"></span>
+
+            <ul class="wx-details-block">
+
+                <li class="wx-detail">
+                    <span class="wx-detail-icon">
+                        <span class="wx-iconfont-global wx-icon-wind"></span>
+                    </span>
+                    <span class="wx-detail-text">
+                        <span class="wx-detail-label" id="dp2-deials-wind">Wind</span>
+                        <span class="wx-detail-value wx-wind dir-ltr">
+                            <span id="dp2-details-wind"></span>
+                        </span>
+                </li>
+
+                <li class="wx-detail">
+                    <span class="wx-detail-icon">
+                        <span class="wx-iconfont-global wx-icon-humidity"></span>
+                    </span>
+                    <span class="wx-detail-text">
+                        <span class="wx-detail-label">Humidity</span>
+                        <span class="wx-detail-value">
+                            <span id="dp2-details-humidity"></span>%
+                    </span>
+                </li>
+
+                <li class="wx-detail">
+                    <span class="wx-detail-icon">
+                        <span class="wx-iconfont-global wx-icon-uv-index"></span>
+                    </span>
+                    <span class="wx-detail-text">
+                        <span class="wx-detail-label">UV Index</span>
+                        <span class="wx-detail-value" id="dp2-details-uvIndex"></span>
+                    </span>
+                </li>
+
+                <li class="wx-detail">
+                    <span class="wx-detail-icon">
+                        <span class="wx-iconfont-global wx-icon-sunrise-sunset"></span>
+                    </span>
+                    <span class="wx-detail-text">
+                        <span class="wx-detail-label show-sm">Sun</span>
+                        <span class="wx-detail-value">
+                            <span class="wx-iconfont-global wx-icon-arrow-up-4"></span>
+                            <span class="wx-dsxdate" id="dp2-details-sunrise"></span>
+                            <span class="wx-iconfont-global wx-icon-arrow-down-4"></span>
+                            <span class="wx-dsxdate" id="dp2-details-sunset"></span>
+                        </span>
+                    </span>
+                </li>
+
+            </ul>
+        </div>
+        <div id="dp3-details" class="dp-details">
+            <span class="today-wx-descrip" id="dp3-details-narrative"></span>
+
+            <ul class="wx-details-block">
+
+                <li class="wx-detail">
+                    <span class="wx-detail-icon">
+                        <span class="wx-iconfont-global wx-icon-wind"></span>
+                    </span>
+                    <span class="wx-detail-text">
+                        <span class="wx-detail-label" id="dp3-deials-wind">Wind</span>
+                        <span class="wx-detail-value wx-wind dir-ltr">
+                            <span id="dp3-details-wind"></span>
+                        </span>
+                </li>
+
+                <li class="wx-detail">
+                    <span class="wx-detail-icon">
+                        <span class="wx-iconfont-global wx-icon-humidity"></span>
+                    </span>
+                    <span class="wx-detail-text">
+                        <span class="wx-detail-label">Humidity</span>
+                        <span class="wx-detail-value">
+                            <span id="dp3-details-humidity"></span>%
+                    </span>
+                </li>
+
+                <li class="wx-detail">
+                    <span class="wx-detail-icon">
+                        <span class="wx-iconfont-global wx-icon-uv-index"></span>
+                    </span>
+                    <span class="wx-detail-text">
+                        <span class="wx-detail-label">UV Index</span>
+                        <span class="wx-detail-value" id="dp3-details-uvIndex"></span>
+                    </span>
+                </li>
+
+                <li class="wx-detail">
+                    <span class="wx-detail-icon">
+                        <span class="wx-iconfont-global wx-icon-sunrise-sunset"></span>
+                    </span>
+                    <span class="wx-detail-text">
+                        <span class="wx-detail-label show-sm">Sun</span>
+                        <span class="wx-detail-value">
+                            <span class="wx-iconfont-global wx-icon-arrow-up-4"></span>
+                            <span class="wx-dsxdate" id="dp3-details-sunrise"></span>
+                            <span class="wx-iconfont-global wx-icon-arrow-down-4"></span>
+                            <span class="wx-dsxdate" id="dp3-details-sunset"></span>
+                        </span>
+                    </span>
+                </li>
+
+            </ul>
         </div>
     </div>
+
+
+    
 </div>

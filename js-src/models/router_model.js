@@ -2,7 +2,10 @@
 var _Router = {};
 (function(){
     _Router = {
-        page : ''
+        page : '',
+        handlePath: () => {
+            handlePath();
+        }
     };
 
     var pageAssignment = {
@@ -70,7 +73,11 @@ var _Router = {};
         }
     };
 
-
+    var getEnglishVersion = function(pageName){
+        for(page in pageAssignment){
+            console.log(page);
+        }
+    };
     var pathArr = [];
     var handlePath = function(){
         if(window.location.search){
@@ -85,7 +92,9 @@ var _Router = {};
                 _Router.changePage('today');
             } else {
                 pathArr = window.location.pathname.split('/');
+                //if(pathArr[1] )
                 if(pageAssignment[pathArr[2]]){
+
                     _Router.changePage(pathArr[2]);
                 } else {
                     _Router.changePage('today');
@@ -95,7 +104,7 @@ var _Router = {};
         }
     };
     //Handles Onload checking.
-    handlePath();
+    //handlePath();
 
     window.onpopstate = function(){
        handlePath();
