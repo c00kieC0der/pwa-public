@@ -368,14 +368,14 @@ var assignAppShellLang = function(){
     ];
     helper.setContent(langMap);
 };
-
-document.getElementById('event-anchor').addEventListener('lang-builder', function(){
-    assignAppShellLang();
+domReady(function(){
+    document.getElementById('event-anchor').addEventListener('lang-builder', function(){
+        assignAppShellLang();
+    });
 });
 
 
 function capitalizeEachWord(str) {
-    console.log(str);
     return str.replace(/\w\S*/g, function(txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
