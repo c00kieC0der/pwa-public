@@ -58,7 +58,7 @@ var _Router = {};
         _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[changeTo].metricName, pageAssignment[page].pos);
         _Router.page = changeTo;
 
-        helper.loadTemplate('page-content', 'pages', changeTo);
+        helper.loadTemplateWithClass('page-content', 'pages', changeTo);
         document.title = pageAssignment[page].title;
         var loc = _User.activeLocation.locId ? _User.activeLocation.locId : '';
         console.log()
