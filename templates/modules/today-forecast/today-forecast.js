@@ -4,6 +4,9 @@
 (function(){
     var dataAssignment = [];
     var mapData = function(){
+        // Hide other details on first paint
+        document.getElementById("dp2-details").style.display = 'none';
+        document.getElementById("dp3-details").style.display = 'none';
 
         //TODO::  Move these units to a global place.
         var windUnit = _User.unitPref === 'e' ? 'mph' : 'kph';
@@ -72,19 +75,20 @@
 
         //Input the weather icon - Nowcard.
         document.getElementById('nowcard-icon').innerHTML = getWxIcon(_Data.obs.icon);
-
     };
-    document.getElementById('event-anchor').addEventListener('builder', function(){
-        mapData();
-        helper.setContent(dataAssignment);
-    });
-    if(_Data.obs && _Data.obs.phrase){
-        mapData();
-        helper.setContent(dataAssignment);
-    }
-    // Hide other details on first paint
-    document.getElementById("dp2-details").style.display = 'none';
-    document.getElementById("dp3-details").style.display = 'none';
+
+    //domReady(function(){ console.log('dom is ready');
+        if(_Data.obs && _Data.obs) {
+            mapData();
+            helper.setContent(dataAssignment);
+        }
+        document.getElementById('event-anchor').addEventListener('builder', function(){ console.log('event anchor. ');
+            mapData();
+            helper.setContent(dataAssignment);
+        });
+    //});
+
+
 
     /*
       Translations Handling
@@ -116,9 +120,11 @@
         updateTodayForecastLangs();
     }
     document.getElementById('event-anchor').addEventListener('lang-builder', function(){
-        updateTodayForecastLangs();
-        mapData();
-        helper.setContent(dataAssignment);
+
+            updateTodayForecastLangs();
+            mapData();
+            helper.setContent(dataAssignment);
+
     });
 
 })();

@@ -22,13 +22,21 @@ var helper = {};
     exports.domReady = domReady;
 })(window, document);
 
-helper.loadTemplate = function(elementId, type, name){
+
+//TODO: add class functionality to loadTemplate function and make reusable
+
+helper.loadTemplateWithClass = function(elementId, type, name){
     var path = '/templates/' + type + '/' + name + '/' + name + '.html';
     var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
+            addClass(document.getElementById(elementId), 'slide-out');
             document.getElementById(elementId).innerHTML = xhr.responseText;
+
+            setTimeout(function(){
+                removeClass(document.getElementById(elementId), 'slide-out');
+            }, 300);
         }
     };
     xhr.send();
@@ -48,15 +56,42 @@ helper.loadTemplate = function(elementId, type, name){
     body.appendChild(script);
 };
 
-helper.setContent = function(content){
-    var assignToDOM = function(arr){
-        document.getElementById(arr[0]).innerHTML = arr[1];
-    };
-    if(typeof content === 'object'){
-        for(var x=0; x < content.length; x++){
-            assignToDOM(content[x]);
+
+helper.loadTemplate = function(elementId, type, name){
+    var path = '/templates/' + type + '/' + name + '/' + name + '.html';
+    var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.open('get', path, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            document.getElementById(elementId).innerHTML = xhr.responseText;
+            var body = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = '/templates/' + type + '/' + name + '/' + name + '.js';
+
+            // Then bind the event to the callback function.
+            // There are several events for cross browser compatibility.
+            script.onreadystatechange = name + 'Run';
+            script.onload = name + 'Run';
+
+            // Fire the loading
+            body.appendChild(script);
         }
-    }
+    };
+    xhr.send();
+};
+
+
+helper.setContent = function(content){
+        var assignToDOM = function(arr){
+            document.getElementById(arr[0]).innerHTML = arr[1];
+        };
+        if(typeof content === 'object'){
+            for(var x=0; x < content.length; x++){
+                assignToDOM(content[x]);
+            }
+        }
+
 };
 
 helper.empty = function(divId){
@@ -73,6 +108,7 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var rawTemplate = xhr.responseText;
+            console.log(rawTemplate);
             //put the template in x times.
             for(x=0; x < multiplier; x++){
                 div = document.getElementById(divId);
