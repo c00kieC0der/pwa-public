@@ -21,11 +21,11 @@
         data
         do it how many times?
      */
-    if(_Data.hourly){ console.log('already have data', _Data.hourly);
+    if(_Data.hourly){
         domReady(helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12));
     }
 
-    document.getElementById('event-anchor').addEventListener('builder', function() { console.log('event'); console.log(_Data.hourly);
+    document.getElementById('event-anchor').addEventListener('builder', function() {
         domReady(helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12))
     });
 

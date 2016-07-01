@@ -36,9 +36,9 @@ var _Router = {};
             title      : 'Your Weekend Forecast',
             pos        : '5'
         },
-        'map' : {
-            name        : 'map',
-            metricName  : 'map',
+        'maps' : {
+            name        : 'maps',
+            metricName  : 'maps',
             title       : 'Your Radar Map',
             pos         : '6'
         }

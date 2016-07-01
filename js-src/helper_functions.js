@@ -64,35 +64,35 @@ helper.loadTemplate = function(elementId, type, name){
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             document.getElementById(elementId).innerHTML = xhr.responseText;
+            var body = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = '/templates/' + type + '/' + name + '/' + name + '.js';
+
+            // Then bind the event to the callback function.
+            // There are several events for cross browser compatibility.
+            script.onreadystatechange = name + 'Run';
+            script.onload = name + 'Run';
+
+            // Fire the loading
+            body.appendChild(script);
         }
     };
     xhr.send();
-    //Then load the js
-
-    var body = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = '/templates/' + type + '/' + name + '/' + name + '.js';
-
-    // Then bind the event to the callback function.
-    // There are several events for cross browser compatibility.
-    script.onreadystatechange = name + 'Run';
-    script.onload = name + 'Run';
-
-    // Fire the loading
-    body.appendChild(script);
 };
 
 
 helper.setContent = function(content){
-    var assignToDOM = function(arr){
-        document.getElementById(arr[0]).innerHTML = arr[1];
-    };
-    if(typeof content === 'object'){
-        for(var x=0; x < content.length; x++){
-            assignToDOM(content[x]);
+        var assignToDOM = function(arr){
+            console.log(arr);
+            document.getElementById(arr[0]).innerHTML = arr[1];
+        };
+        if(typeof content === 'object'){
+            for(var x=0; x < content.length; x++){
+                assignToDOM(content[x]);
+            }
         }
-    }
+
 };
 
 helper.empty = function(divId){
