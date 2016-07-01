@@ -6,12 +6,13 @@
 
 (function() {
 
-        renderAlmanac();
-
-    console.log(_Data);
-    document.getElementById('event-anchor').addEventListener('almanac-builder', function () {
-        renderAlmanac();
+    document.getElementById('event-anchor').addEventListener('builder', function () {
+        console.log(_Data);
     });
+    if (_Data.oneDayHistorical) {
+        console.log(_Data);
+
+    }
 })();
 
 function renderAlmanac(){

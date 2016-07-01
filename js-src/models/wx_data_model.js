@@ -1,17 +1,13 @@
 var _Data = {}, app = {};
 (function() {
     console.log('data init');
-    var dataUrl,dataAstroUrl;
+    var dataUrl,dataAstroUrl,dataAlmanacUrl;
     var eventData = document.createEvent('Event');
     var astroEventData = document.createEvent('Event');
     astroEventData.initEvent('astro-builder', true, true);
     eventData.initEvent('builder', true, true);
 
-    var almanacEventData = document.createEvent('Event'),
-        almanacDataUrl = "https://dsx.weather.com/wxd/v2/FarmingAlmanac/" +
-        _User.lang + "/0/"+
-        _User.locations[0].loc +
-        "?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
+    var almanacEventData = document.createEvent('Event');
     almanacEventData.initEvent('almanac-builder', true, true);
 
 
@@ -25,7 +21,10 @@ var _Data = {}, app = {};
         '&format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
 
         dataAstroUrl = "https://dsx.weather.com/wxd/v2/Astro/" + _User.lang + "/0/3/(" + _User.activeLocation.lat + ',' + _User.activeLocation.long + ")?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
-
+        dataAlmanacUrl = "https://dsx.weather.com/wxd/v2/FarmingAlmanac/" +
+            _User.lang + "/0/"+
+            _User.activeLocation.locId +
+            "?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
         app.hasRequestPending = true;
         if ('caches' in window) {
             // console.log(caches);
@@ -80,7 +79,7 @@ console.log('data get new');
             }
         });
         AjaxRequest.get({
-            'url' : almanacDataUrl,
+            'url' : dataAlmanacUrl,
             'generateUniqueUrl' : false,
             'onSuccess' : function(req) {
                 var data = JSON.parse(req.responseText).FarmingAlmanacRecordData;
@@ -88,16 +87,11 @@ console.log('data get new');
                 var reportedConditions = data.ReportedConditions;
                 var historicalMonthlyAvg = data.HistoricalMonthlyAvg;
 
-                if (_User.unitPref === 'e') {
-                    _Data.tempUnit = 'F';
-                    _Data.precipUnit = 'in';
-
-                    cleanOneDayHxData(oneDayHistorical, _Data.tempUnit);
-
-                }
+                var units = setUnits(_User.unitPref);
+                _Data.tempUnit = units.tempUnit;
+                _Data.precipUnit = units.precipUnit;
+                _Data.oneDayHistorical = cleanOneDayHxData(oneDayHistorical, _Data.tempUnit);
                 document.getElementById('event-anchor').dispatchEvent(almanacEventData);
-                app.hasRequestPending = false;
-
             }, 'onError' : function(err) {
                 console.log(err);
             }
@@ -108,57 +102,53 @@ console.log('data get new');
         _Data.collectNew();
     }
 
-    var cleanOneDayHxData = function(oneDayHxObj, tempUnit, precipUnit) {
-        var _Data = {
-            recordHighYear: null,
-            recordLowYear: null,
-            recordHigh: null,
-            recordLow: null,
-            recordPrecip: null, // precip values will stay null
-                                // added for consistency with table
-            avgPrecip: null,
-            avgHigh: null,
-            avgLow: null
-        },
-            nullPlaceholder = '\u2014';
-        //_Data.oneDayHistorical = {
-        //    avgHigh: oneDayHistorical.avgHighF,
-        //    avgLow: oneDayHistorical.avgLowF,
-        //    recordHigh: oneDayHistorical.recordHighF,
-        //    recordLow: oneDayHistorical.recordLowF
-        //};
+    var setUnits = function(unitPref) {
+        var unitObj = {};
+        unitObj.tempUnit = (unitPref === 'e' ? 'F' : 'C');
+        unitObj.precipUnit = (unitPref === 'e' ? 'In' : 'Mm');
+        return unitObj;
+    };
+
+    var cleanOneDayHxData = function(oneDayHxObj, tempUnit) {
+            var data = {},
+                nullPlaceholder = '\u2014';
 
             (isValidRecord(oneDayHxObj.yearOfRecordHighTemp)) ?
-                _Data.recordHighYear = oneDayHxObj.yearOfRecordHighTemp :
-            _Data.recordHighYear = '';
+                data.recordHighYear = oneDayHxObj.yearOfRecordHighTemp :
+            data.recordHighYear = '';
 
             (isValidRecord(oneDayHxObj.yearOfRecordLowTemp)) ?
-                _Data.recordLowYear = oneDayHxObj.yearOfRecordLowTemp :
-            _Data.recordLowYear = '';
+                data.recordLowYear = oneDayHxObj.yearOfRecordLowTemp :
+            data.recordLowYear = '';
 
             (isValidRecord(oneDayHxObj['recordHigh' + tempUnit])) ?
-                _Data.recordHigh = oneDayHxObj['recordHigh' + tempUnit] :
-                _Data.recordHigh = nullPlaceholder;
+                data.recordHigh = oneDayHxObj['recordHigh' + tempUnit] :
+                data.recordHigh = nullPlaceholder;
 
             (isValidRecord(oneDayHxObj['recordLow' + tempUnit])) ?
-                _Data.recordLow = oneDayHxObj['recordLow' + tempUnit] :
-                _Data.recordLow = nullPlaceholder;
+                data.recordLow = oneDayHxObj['recordLow' + tempUnit] :
+                data.recordLow = nullPlaceholder;
 
-            _Data.avgPrecip = nullPlaceholder;
+            data.avgPrecip = nullPlaceholder;
 
             (isValidRecord(oneDayHxObj['avgHigh' + tempUnit])) ?
-                _Data.avgHigh = oneDayHxObj['avgHigh' + tempUnit] :
-                _Data.avgHigh = nullPlaceholder;
+                data.avgHigh = oneDayHxObj['avgHigh' + tempUnit] :
+                data.avgHigh = nullPlaceholder;
 
             (isValidRecord(oneDayHxObj['avgLow' + tempUnit])) ?
-                _Data.avgLow = oneDayHxObj['avgLow' + tempUnit] :
-                _Data.avgLow = nullPlaceholder;
+                data.avgLow = oneDayHxObj['avgLow' + tempUnit] :
+                data.avgLow = nullPlaceholder;
 
-        return _Data;
+        return data;
     };
     var isValidRecord = function(data) {
         return !(isNaN(data));
     };
+
+    var cleanReportedConditionsData = function(recordedCondObj, tempUnit, precipUnit) {
+        var data = {},
+            nullPlaceholder
+    }
 
     var formatTime = function (fullDate) {
         var dateBase = new Date(fullDate);
