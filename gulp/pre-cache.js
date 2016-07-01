@@ -61,7 +61,7 @@ function preCache(callback) {
         }
       }
     }, {
-      urlPattern: /gif|png|jpg|data:image/,
+      urlPattern: /gif|png|jpg|data:image|svg|eot|ttf|woff/,
       handler: 'fastest',
       options: {
         cache: {

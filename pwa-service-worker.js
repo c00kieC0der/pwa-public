@@ -311,10 +311,10 @@ self.addEventListener('fetch', function(event) {
 // Runtime cache configuration, using the sw-toolbox library.
 
 toolbox.router.get(/jspm_packages/, toolbox.networkFirst, {});
-toolbox.router.get(/.js|.json/, toolbox.fastest, {"cache":{"maxEntries":99,"name":"pwa-cache"}});
+toolbox.router.get(/5001.js|.json}|.json/, toolbox.fastest, {"cache":{"maxEntries":99,"name":"pwa-cache"}});
 toolbox.router.get(/.html/, toolbox.fastest, {"cache":{"maxEntries":30,"name":"template-cache"}});
 toolbox.router.get(/.css/, toolbox.fastest, {"cache":{"maxEntries":10,"name":"css-cache"}});
-toolbox.router.get(/gif|png|jpg|data:image/, toolbox.fastest, {"cache":{"maxEntries":99,"name":"image-cache"}});
+toolbox.router.get(/gif|png|jpg|data:image|svg|eot|ttf|woff/, toolbox.fastest, {"cache":{"maxEntries":99,"name":"image-cache"}});
 
 
 
