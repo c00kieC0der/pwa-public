@@ -197,9 +197,9 @@ function showMainMenu() {
     //Displays the main menu page which was hidden
     showHide('main-nav', 1);
     //Displays only the current-location div and hides all other layouts
-    showHide('loc-layout',1);
-    showHide('category-layout',0);
-    showHide('areas-layout',0);
+    slideMenu('loc-layout',1);
+    slideMenu('category-layout',0);
+    slideMenu('areas-layout',0);
 
 }
 /**
@@ -353,9 +353,9 @@ function changeNav(ele) {
  * showLocations() shows the location selected layout
  */
 function showLocations() {
-    showHide('loc-layout',1);
-    showHide('category-layout',0);
-    showHide('areas-layout',0);
+    slideMenu('loc-layout',1);
+    slideMenu('category-layout',0);
+    slideMenu('areas-layout',0);
 }
 
 /**
@@ -368,9 +368,9 @@ function showCategories() {
         categoryHTML += '<li ><a href="javascript:showAreas(this,'+ c +')"><span >'+categories[c].catName+'</span> <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small"></span></a></li>';
     }
     document.getElementById('lang-categories').innerHTML = categoryHTML;
-    showHide('loc-layout',0);
-    showHide('category-layout',1);
-    showHide('areas-layout',0);
+    slideMenu('loc-layout',0);
+    slideMenu('category-layout',1);
+    slideMenu('areas-layout',0);
 }
 
 /**
@@ -384,9 +384,9 @@ function showAreas(ele,rowId ) {
     }
     document.getElementById('country-languages').innerHTML = languageHTML;
     document.getElementById('area-value').innerHTML = ele.innerHTML;
-    showHide('loc-layout',0);
-    showHide('category-layout',0);
-    showHide('areas-layout',1);
+    slideMenu('loc-layout',0);
+    slideMenu('category-layout',0);
+    slideMenu('areas-layout',1);
 }
 
 /**
@@ -418,6 +418,21 @@ function showHide(element, show) {
         document.getElementById(element).style.display = 'block';
     }
 }
+
+
+
+function slideMenu(element, show) {
+    if(show === 0) {
+        addClass(document.getElementById(element), 'slide-out');
+
+    } else {
+        removeClass(document.getElementById(element), 'slide-out');
+    }
+}
+
+
+
+
 
 function lookupLocations(term){
     if(term && term.length && term.length > 3){

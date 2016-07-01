@@ -297,7 +297,7 @@ a
     font-weight: bold
 
 #category-layout, #areas-layout
-  margin-top: 70px
+  //margin-top: 70px
   height: 500px
   overflow-y: scroll
   overflow-x: hidden
@@ -359,8 +359,8 @@ a
 .main-nav
   li a:hover
     background-color: rgba(255, 255, 255, 0.16)
-  #category-layout, #areas-layout
-    display: none
+  //#category-layout, #areas-layout
+  //  display: none
 
 
 ul li a
@@ -504,8 +504,31 @@ footer
   .search-open-btn
     color: #3c8ed2
 
-#category-layout,
-#areas-layout,
-#loc-layout
-  -webkit-transform: translate3d(0,0,0)
-  transform: translate3d(0,0,0)
+//#category-layout,
+//#areas-layout,
+//#loc-layout
+//  -webkit-transform: translate3d(0,0,0)
+//  transform: translate3d(0,0,0)
+
+
+.menu-card-container
+  position: relative
+  width: 100%
+  display: block
+  clear: both
+
+.menu-card
+  transition: left 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94)
+  position: absolute
+  top: 0
+  left: 0
+  display: block
+  width: 100%
+  background: rgba(0, 0, 0, 0.9)
+
+  &.slide-out
+    position: absolute
+    appearance: none
+    cursor: pointer
+    left: 100%
+    top: 0

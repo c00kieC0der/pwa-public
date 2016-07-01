@@ -64,34 +64,36 @@
             </a>
             <button class="close btn-mobile" onclick="hideMainMenu()"><span class="wx-iconfont-global wx-icon-close"></span></button>
         </div>
-        <div id="loc-layout">
-            <div class="temp-cont">
-                <a href="#">
-                    <span class="units-text">Units</span>
-                    <span class="temp-red active units-fahrenheit" onclick="showTemperature(this)">°F</span>
-                    <span class="temp-red " onclick="showTemperature(this)">°C</span>
-                </a>
+        <div class="menu-card-container">
+            <div class="menu-card" id="loc-layout">
+                <div class="temp-cont">
+                    <a href="#">
+                        <span class="units-text">Units</span>
+                        <span class="temp-red active units-fahrenheit" onclick="showTemperature(this)">°F</span>
+                        <span class="temp-red " onclick="showTemperature(this)">°C</span>
+                    </a>
+                </div>
+                <div class="locale-link" onclick="showCategories()">
+                    <span class="wx-iconfont-global wx-icon-globe"></span>
+                    <span class="text left">USA</span>
+                    <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small makeIconBold"></span>
+                </div>
             </div>
-            <div class="locale-link" onclick="showCategories()">
-                <span class="wx-iconfont-global wx-icon-globe"></span>
-                <span class="text left">USA</span>
-                <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small makeIconBold"></span>
+            <div class="menu-card" id="category-layout">
+                <div class="locale-link" onclick="showLocations()">
+                    <span class="wx-iconfont-global wx-icon-arrow-left makeIconBold"></span>
+                    <span class="text">Change Location</span>
+                </div>
+                <ul class="lang" id="lang-categories" ></ul>
             </div>
-        </div>
-        <div id="category-layout">
-            <div class="locale-link" onclick="showLocations()">
-                <span class="wx-iconfont-global wx-icon-arrow-left makeIconBold"></span>
-                <span class="text">Change Location</span>
+             <div class="menu-card" id="areas-layout">
+                <div class="locale-link" onclick="showCategories()">
+                    <span class="wx-iconfont-global wx-icon-arrow-left makeIconBold"></span>
+                    <span class="text left" id="area-value"></span>
+                </div>
+                <ul class="lang" id="country-languages"></ul>
             </div>
-            <ul class="lang" id="lang-categories" ></ul>
-        </div>
-        <div id="areas-layout">
-            <div class="locale-link" onclick="showCategories()">
-                <span class="wx-iconfont-global wx-icon-arrow-left makeIconBold"></span>
-                <span class="text left" id="area-value"></span>
             </div>
-            <ul class="lang" id="country-languages"></ul>
-        </div>
     </div>
 
     <div class="main-nav" id="main-search">
