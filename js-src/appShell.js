@@ -4,7 +4,6 @@
 
 var downArrayClicked = false;
 
-
 /**
  * showMainMenu() shows the hamburger menu when clicked
  */
@@ -186,7 +185,8 @@ function showLocations() {
 function showCategories() {
     var categoryHTML = '';
     for(c = 0; c < categories.length; c++){
-        categoryHTML += '<li ><a href="javascript:showAreas(this,'+ c +')"><span >'+categories[c].catName+'</span> <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small"></span></a></li>';
+        var categoryName = categories[c].catName;
+        categoryHTML += '<li ><a href="javascript:showAreas(\'' + categoryName+ '\','+ c +')"><span >'+categories[c].catName+'</span> <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small"></span></a></li>';
     }
     document.getElementById('lang-categories').innerHTML = categoryHTML;
     slideMenu('loc-layout',0);
@@ -204,7 +204,7 @@ function showAreas(ele,rowId ) {
         languageHTML += '<li><a href="javascript:changeLang(\'' + categories[rowId].countryName[l].code + '\')"><span> '+categories[rowId].countryName[l].name+' </span> <span> | '+categories[rowId].countryName[l].language+'</span> </a></li>';
     }
     document.getElementById('country-languages').innerHTML = languageHTML;
-    document.getElementById('area-value').innerHTML = ele.innerHTML;
+    document.getElementById('area-value').innerHTML = ele;
     slideMenu('loc-layout',0);
     slideMenu('category-layout',0);
     slideMenu('areas-layout',1);
@@ -368,14 +368,14 @@ var assignAppShellLang = function(){
     ];
     helper.setContent(langMap);
 };
-
-document.getElementById('event-anchor').addEventListener('lang-builder', function(){
-    assignAppShellLang();
+domReady(function(){
+    document.getElementById('event-anchor').addEventListener('lang-builder', function(){
+        assignAppShellLang();
+    });
 });
 
 
 function capitalizeEachWord(str) {
-    console.log(str);
     return str.replace(/\w\S*/g, function(txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });

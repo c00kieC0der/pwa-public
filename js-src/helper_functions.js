@@ -64,35 +64,34 @@ helper.loadTemplate = function(elementId, type, name){
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             document.getElementById(elementId).innerHTML = xhr.responseText;
+            var body = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = '/templates/' + type + '/' + name + '/' + name + '.js';
+
+            // Then bind the event to the callback function.
+            // There are several events for cross browser compatibility.
+            script.onreadystatechange = name + 'Run';
+            script.onload = name + 'Run';
+
+            // Fire the loading
+            body.appendChild(script);
         }
     };
     xhr.send();
-    //Then load the js
-
-    var body = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = '/templates/' + type + '/' + name + '/' + name + '.js';
-
-    // Then bind the event to the callback function.
-    // There are several events for cross browser compatibility.
-    script.onreadystatechange = name + 'Run';
-    script.onload = name + 'Run';
-
-    // Fire the loading
-    body.appendChild(script);
 };
 
 
 helper.setContent = function(content){
-    var assignToDOM = function(arr){
-        document.getElementById(arr[0]).innerHTML = arr[1];
-    };
-    if(typeof content === 'object'){
-        for(var x=0; x < content.length; x++){
-            assignToDOM(content[x]);
+        var assignToDOM = function(arr){
+            document.getElementById(arr[0]).innerHTML = arr[1];
+        };
+        if(typeof content === 'object'){
+            for(var x=0; x < content.length; x++){
+                assignToDOM(content[x]);
+            }
         }
-    }
+
 };
 
 helper.empty = function(divId){
@@ -124,7 +123,7 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
                 //for each element, place its piece of data in it.
                 for(j=0; j < classXes.length; j++){
 
-                    if(dataMap[i][1] === 'icon'){
+                    if(dataMap[i][1] === 'icon'|| dataMap[i][1]==='nightIcon'){
                         classXes[j].innerHTML = getWxIcon(data[dataMap[i][1]][j]);
                     } else {
                         classXes[j].innerHTML = data[dataMap[i][1]][j];
@@ -149,7 +148,6 @@ helper.ngRepeatSpecific = function(divId, componentName, dataMap, data, indices)
         if (xhr.readyState === 4 && xhr.status === 200) {
             var rawTemplate = xhr.responseText;
             //put the template in x times.
-            console.log("Index length: "+indices.length);
             for(x=0; x < indices.length; x++){
                 div = document.getElementById(divId);
                 if(div){
@@ -163,10 +161,9 @@ helper.ngRepeatSpecific = function(divId, componentName, dataMap, data, indices)
                 //for each element, place its piece of data in it.
                 for(j=0; j < classXes.length; j++){
 
-                    if(dataMap[i][1] === 'icon'){
+                    if(dataMap[i][1] === 'icon' ||dataMap[i][1]==='nightIcon'){
                         classXes[j].innerHTML = getWxIcon(data[dataMap[i][1]][indices[j]]);
                     } else {
-                        console.log(data[dataMap[i][1]][indices[j]]);
                         classXes[j].innerHTML = data[dataMap[i][1]][indices[j]];
                     }
                 }
