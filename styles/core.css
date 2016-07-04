@@ -526,3 +526,9 @@ footer {
     cursor: pointer;
     left: 100%;
     top: 0; }
+
+.leaflet-pane {
+  z-index: 4; }
+
+#__wxmap_MapboxAttribution {
+  z-index: 5 !important; }
