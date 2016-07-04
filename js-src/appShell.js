@@ -2,8 +2,20 @@
  * Created by omkard on 6/5/16.
  */
 
-var downArrayClicked = false;
+var downArrayClicked = false;http://localhost:5001/en-US/weather/today/l/
 
+    /**
+     * function to control the nav width
+     */
+    window.onload = function () {
+    var navListEle = document.getElementsByClassName('page-nav-li');
+    var navUlEle = document.getElementsByClassName('page-nav');
+    var navItemwidth = 0;
+    for(i=0; i<navListEle.length; i++){
+        navItemwidth += navListEle[i].offsetWidth;
+    }
+    navUlEle[0].style.width = navItemwidth + 'px';
+};
 /**
  * showMainMenu() shows the hamburger menu when clicked
  */
