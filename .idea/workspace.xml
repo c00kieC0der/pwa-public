@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c371f82e-de6a-4583-a536-e9276f979925" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/appShell.js" afterPath="$PROJECT_DIR$/js-src/appShell.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js-src/hreflangs/hreflang_10_day_page.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js-src/hreflangs/hreflang_5_day_page.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js-src/hreflangs/hreflang_hourly_page.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js-src/hreflangs/hreflang_maps_page.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js-src/hreflangs/hreflang_today_page.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js-src/hreflangs/hreflang_weekend_page.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/helper_functions.js" afterPath="$PROJECT_DIR$/js-src/helper_functions.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/models/language_model.js" afterPath="$PROJECT_DIR$/js-src/models/language_model.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/models/locations_model.js" afterPath="$PROJECT_DIR$/js-src/models/locations_model.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/models/router_model.js" afterPath="$PROJECT_DIR$/js-src/models/router_model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/models/user_model.js" afterPath="$PROJECT_DIR$/js-src/models/user_model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/models/wx_data_model.js" afterPath="$PROJECT_DIR$/js-src/models/wx_data_model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/vendor/metrics.js" afterPath="$PROJECT_DIR$/js-src/vendor/metrics.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-worker.js" afterPath="$PROJECT_DIR$/service-worker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/modules/page-toast/page-toast.js" afterPath="$PROJECT_DIR$/templates/modules/page-toast/page-toast.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/modules/today-forecast/today-forecast.js" afterPath="$PROJECT_DIR$/templates/modules/today-forecast/today-forecast.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/tenday/tenday.js" afterPath="$PROJECT_DIR$/templates/pages/tenday/tenday.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/weekend/weekend.js" afterPath="$PROJECT_DIR$/templates/pages/weekend/weekend.js" />
     </list>
     <ignored path="pwa.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,21 +36,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="locations_model.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js-src/models/locations_model.js">
+      <file leaf-file-name="router_model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js-src/models/router_model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.259259">
-              <caret line="974" column="0" selection-start-line="974" selection-start-column="0" selection-end-line="974" selection-end-column="29" />
+            <state vertical-scroll-proportion="-1.8148148">
+              <caret line="82" column="51" selection-start-line="82" selection-start-column="51" selection-end-line="82" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="router_model.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js-src/models/router_model.js">
+      <file leaf-file-name="language_model.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js-src/models/language_model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32612312">
-              <caret line="96" column="20" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.09983361">
+              <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="locations_model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js-src/models/locations_model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.111111">
+              <caret line="41" column="67" selection-start-line="41" selection-start-column="67" selection-end-line="41" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -57,49 +70,7 @@
         <entry file="file://$PROJECT_DIR$/js-src/models/user_model.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="83" column="55" selection-start-line="83" selection-start-column="55" selection-end-line="83" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appShell.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js-src/appShell.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.074074">
-              <caret line="371" column="0" selection-start-line="371" selection-start-column="0" selection-end-line="371" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="page-toast.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/modules/page-toast/page-toast.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.254902">
-              <caret line="189" column="54" selection-start-line="189" selection-start-column="54" selection-end-line="189" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="language_model.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js-src/models/language_model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+              <caret line="85" column="5" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -121,8 +92,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/docroot/sass/modules/today-forecast.sass" />
-        <option value="$PROJECT_DIR$/docroot/templates/modules/today-forecast/today-forecast.js" />
         <option value="$PROJECT_DIR$/docroot/js/models/router_model.js" />
         <option value="$PROJECT_DIR$/docroot/templates/modules/hourly-forecast/hourly-forecast.js" />
         <option value="$PROJECT_DIR$/docroot/js/helper_functions.js" />
@@ -146,7 +115,6 @@
         <option value="$PROJECT_DIR$/templates/modules/hourly-forecast/hourly-forecast.html" />
         <option value="$PROJECT_DIR$/templates/pages/hourly/hourly.html" />
         <option value="$PROJECT_DIR$/sass/partials/_typography.sass" />
-        <option value="$PROJECT_DIR$/templates/pages/tenday/tenday.js" />
         <option value="$PROJECT_DIR$/js-src/translations/app.json" />
         <option value="$PROJECT_DIR$/templates/pages/tenday/tenday.html" />
         <option value="$PROJECT_DIR$/templates/pages/fiveday/fiveday.html" />
@@ -160,15 +128,18 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/templates/pages/today/today.js" />
         <option value="$PROJECT_DIR$/templates/modules/hourly-forecast/hourly-forecast.js" />
-        <option value="$PROJECT_DIR$/js-src/helper_functions.js" />
         <option value="$PROJECT_DIR$/templates/pages/fiveday/fiveday.js" />
         <option value="$PROJECT_DIR$/js-src/vendor/metrics.js" />
-        <option value="$PROJECT_DIR$/js-src/models/language_model.js" />
         <option value="$PROJECT_DIR$/js-src/models/wx_data_model.js" />
         <option value="$PROJECT_DIR$/service-worker.js" />
         <option value="$PROJECT_DIR$/templates/modules/today-forecast/today-forecast.js" />
         <option value="$PROJECT_DIR$/templates/modules/page-toast/page-toast.js" />
+        <option value="$PROJECT_DIR$/js-src/models/language_model.js" />
         <option value="$PROJECT_DIR$/js-src/appShell.js" />
+        <option value="$PROJECT_DIR$/js-src/helper_functions.js" />
+        <option value="$PROJECT_DIR$/js-src/hreflangs/hreflang_10_day_page.json" />
+        <option value="$PROJECT_DIR$/templates/pages/weekend/weekend.js" />
+        <option value="$PROJECT_DIR$/templates/pages/tenday/tenday.js" />
         <option value="$PROJECT_DIR$/js-src/models/locations_model.js" />
         <option value="$PROJECT_DIR$/js-src/models/user_model.js" />
         <option value="$PROJECT_DIR$/js-src/models/router_model.js" />
@@ -245,7 +216,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js-src" />
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weekend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tenday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -260,28 +293,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js-src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pwa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pwa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js-src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="translations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -334,6 +345,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js-src/hreflangs" />
       <recent name="$PROJECT_DIR$/templates/components" />
       <recent name="$PROJECT_DIR$/docroot" />
     </key>
@@ -429,20 +441,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/modules/24-hour-forecast/24-hour-forecast.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="80" selection-start-line="43" selection-start-column="80" selection-end-line="43" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js-src/appShell.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -514,20 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/weekend/weekend.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/weekend/weekend.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sass/partials/_base.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -563,13 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/tenday/tenday.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14966741">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/locales.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.875">
@@ -602,13 +579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.25">
           <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js-src/countries.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -718,14 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js-src/helper_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="68" selection-start-line="102" selection-start-column="68" selection-end-line="102" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js-src/models/wx_data_model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -750,29 +712,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js-src/models/language_model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/modules/page-toast/page-toast.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js-src/appShell.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.074074">
-          <caret line="371" column="0" selection-start-line="371" selection-start-column="0" selection-end-line="371" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -784,10 +730,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js-src/models/locations_model.js">
+    <entry file="file://$PROJECT_DIR$/js-src/countries.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.259259">
-          <caret line="974" column="0" selection-start-line="974" selection-start-column="0" selection-end-line="974" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="51" selection-start-line="1" selection-start-column="51" selection-end-line="1" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-src/hreflangs/hreflang_5_day_page.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.25">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-src/appShell.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.0740743">
+          <caret line="190" column="5" selection-start-line="190" selection-start-column="5" selection-end-line="190" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-src/helper_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="109" column="47" selection-start-line="109" selection-start-column="47" selection-end-line="109" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-src/hreflangs/hreflang_10_day_page.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.666666">
+          <caret line="182" column="36" selection-start-line="182" selection-start-column="36" selection-end-line="182" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/weekend/weekend.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/weekend/weekend.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/tenday/tenday.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -795,15 +797,31 @@
     <entry file="file://$PROJECT_DIR$/js-src/models/user_model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="55" selection-start-line="83" selection-start-column="55" selection-end-line="83" selection-end-column="55" />
+          <caret line="85" column="5" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-src/models/locations_model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.111111">
+          <caret line="41" column="67" selection-start-line="41" selection-start-column="67" selection-end-line="41" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js-src/models/router_model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32612312">
-          <caret line="96" column="20" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
+        <state vertical-scroll-proportion="-1.8148148">
+          <caret line="82" column="51" selection-start-line="82" selection-start-column="51" selection-end-line="82" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-src/models/language_model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09983361">
+          <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
           <folding />
         </state>
       </provider>

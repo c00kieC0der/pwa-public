@@ -108,7 +108,6 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var rawTemplate = xhr.responseText;
-            console.log(rawTemplate);
             //put the template in x times.
             for(x=0; x < multiplier; x++){
                 div = document.getElementById(divId);
@@ -216,3 +215,17 @@ if ( typeof module !== 'undefined' && module.hasOwnProperty('exports') )
 {
     module.exports = helper;
 }
+
+helper.getJSON = function(path){
+    return new Promise(function(resolve) {
+        var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+        xobj.open('GET', path, true); // Replace 'my_data' with the path to your file
+        xobj.onreadystatechange = function () {
+            if (xobj.readyState == 4 && xobj.status == "200") {
+                resolve(JSON.parse(xobj.responseText));
+            }
+        };
+        xobj.send(null);
+    });
+};

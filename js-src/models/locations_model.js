@@ -977,6 +977,7 @@ _Locations.getDefaultLocation = function(){
        if (!_User.activeLocation.prsntNm) {
            if(_User.lang){
                _Locations.supplementLoc(defaultLocations[_User.lang].locId).then(function(results){
+                   console.log(results);
                    resolve(_User.newActiveLocation(results));
                });
            } else {
