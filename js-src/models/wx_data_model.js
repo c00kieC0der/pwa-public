@@ -5,9 +5,9 @@ var _Data = {}, app = {};
     var eventData = document.createEvent('Event');
     var astroEventData = document.createEvent('Event');
     astroEventData.initEvent('astro-builder', true, true);
+    var almanacEventData = document.createEvent('Event');
     eventData.initEvent('builder', true, true);
 
-    var almanacEventData = document.createEvent('Event');
     almanacEventData.initEvent('almanac-builder', true, true);
 
 
@@ -25,6 +25,7 @@ var _Data = {}, app = {};
             _User.lang + "/0/"+
             _User.activeLocation.locId +
             "?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
+        console.log(dataAlmanacUrl);
         app.hasRequestPending = true;
         if ('caches' in window) {
             // console.log(caches);
@@ -65,6 +66,7 @@ console.log('data get new');
                 console.log(err);
             }
         });
+
         AjaxRequest.get({
             'url': dataAstroUrl,
             'generateUniqueUrl': false,
@@ -78,10 +80,12 @@ console.log('data get new');
                 console.log(err);
             }
         });
+
         AjaxRequest.get({
             'url' : dataAlmanacUrl,
             'generateUniqueUrl' : false,
             'onSuccess' : function(req) {
+                console.log(_User);
                 var data = JSON.parse(req.responseText).FarmingAlmanacRecordData;
                 var oneDayHistorical = data.OneDayHistorical;
                 var reportedConditions = data.ReportedConditions;
@@ -91,9 +95,15 @@ console.log('data get new');
                 _Data.tempUnit = units.tempUnit;
                 _Data.precipUnit = units.precipUnit;
                 _Data.oneDayHistorical = cleanOneDayHxData(oneDayHistorical, _Data.tempUnit);
+                // WIP starting @ 1218 7/1
+                 console.log(data);
+
+                _Data.reportedConditions = cleanReportedConditionsData(reportedConditions, _Data.tempUnit, _Data.precipUnit);
+                // END WIP
+
                 document.getElementById('event-anchor').dispatchEvent(almanacEventData);
             }, 'onError' : function(err) {
-                console.log(err);
+                console.log('error: ', err);
             }
         });
 
@@ -112,6 +122,7 @@ console.log('data get new');
     var cleanOneDayHxData = function(oneDayHxObj, tempUnit) {
             var data = {},
                 nullPlaceholder = '\u2014';
+        //console.log(oneDayHxObj);
 
             (isValidRecord(oneDayHxObj.yearOfRecordHighTemp)) ?
                 data.recordHighYear = oneDayHxObj.yearOfRecordHighTemp :
@@ -145,10 +156,17 @@ console.log('data get new');
         return !(isNaN(data));
     };
 
-    var cleanReportedConditionsData = function(recordedCondObj, tempUnit, precipUnit) {
+    var cleanReportedConditionsData = function(recordedConditionsObj, tempUnit, precipUnit) {
         var data = {},
-            nullPlaceholder
-    }
+            nullPlaceholder = '\u2014',
+            valueNames = ['mtdHigh', 'mtdLow', 'mtdPrecip', 'prevDayHigh', 'prevDayLow', 'prevDayPrecip', 'sevenDayHigh', 'sevenDayLow', 'sevenDayPrecip'];
+        valueNames.forEach(function(currentVal) {
+           (currentVal.indexOf('Precip') > -1) ?
+               data[currentVal] = recordedConditionsObj[currentVal + precipUnit] :
+               data[currentVal] = recordedConditionsObj[currentVal + tempUnit];
+        });
+        return data;
+    };
 
     var formatTime = function (fullDate) {
         var dateBase = new Date(fullDate);

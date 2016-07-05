@@ -6,7 +6,7 @@
 
 (function() {
 
-    document.getElementById('event-anchor').addEventListener('builder', function () {
+    document.getElementById('event-anchor').addEventListener('almanac-builder', function () {
         console.log(_Data);
     });
     if (_Data.oneDayHistorical) {
