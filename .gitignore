@@ -17,8 +17,8 @@ Vagrantfile.rb
 *~
 
 # JetBrains PHPStorm config
-.idea
-.idea/workspace/*a
+.idea/*
+.idea/workspace/
 *.iml
 
 # Berksfile ruby hinted

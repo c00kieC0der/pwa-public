@@ -1,6 +1,5 @@
 var _Data = {}, app = {};
 (function() {
-    console.log('data init');
     var dataUrl,dataAstroUrl,dataAlmanacUrl;
     var eventData = document.createEvent('Event');
     var astroEventData = document.createEvent('Event');
@@ -21,11 +20,13 @@ var _Data = {}, app = {};
         '&format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
 
         dataAstroUrl = "https://dsx.weather.com/wxd/v2/Astro/" + _User.lang + "/0/3/(" + _User.activeLocation.lat + ',' + _User.activeLocation.long + ")?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
+        //TODO: remove this dummy var
+        var dummyLocId = "USDC0001:1:US";
         dataAlmanacUrl = "https://dsx.weather.com/wxd/v2/FarmingAlmanac/" +
             _User.lang + "/0/"+
-            _User.activeLocation.locId +
+            dummyLocId +
+            //_User.activeLocation.locId +
             "?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
-        console.log(dataAlmanacUrl);
         app.hasRequestPending = true;
         if ('caches' in window) {
             // console.log(caches);
@@ -36,7 +37,6 @@ var _Data = {}, app = {};
                         // Only update if the XHR is still pending, otherwise the XHR
                         // has already returned and provided the latest data.
                         if (app.hasRequestPending) {
-                            console.log('updated from cache');
                             json.key = key;
                             json.label = label;
                             //app.updateForecastCard(json);
@@ -45,7 +45,7 @@ var _Data = {}, app = {};
                 }
             });
         }
-console.log('data get new');
+
         AjaxRequest.get({
             'url': dataUrl,
             'generateUniqueUrl': false,
@@ -85,8 +85,9 @@ console.log('data get new');
             'url' : dataAlmanacUrl,
             'generateUniqueUrl' : false,
             'onSuccess' : function(req) {
-                console.log(_User);
+
                 var data = JSON.parse(req.responseText).FarmingAlmanacRecordData;
+                console.log(data);
                 var oneDayHistorical = data.OneDayHistorical;
                 var reportedConditions = data.ReportedConditions;
                 var historicalMonthlyAvg = data.HistoricalMonthlyAvg;
@@ -95,10 +96,13 @@ console.log('data get new');
                 _Data.tempUnit = units.tempUnit;
                 _Data.precipUnit = units.precipUnit;
                 _Data.oneDayHistorical = cleanOneDayHxData(oneDayHistorical, _Data.tempUnit);
-                // WIP starting @ 1218 7/1
-                 console.log(data);
 
                 _Data.reportedConditions = cleanReportedConditionsData(reportedConditions, _Data.tempUnit, _Data.precipUnit);
+
+                // WIP 7/5/16, 1115
+                console.log(historicalMonthlyAvg);
+                console.log(data);
+                _Data.historicalMonthlyAvg = cleanHxMonthlyAvgData(historicalMonthlyAvg, _Data.tempUnit, _Data.precipUnit);
                 // END WIP
 
                 document.getElementById('event-anchor').dispatchEvent(almanacEventData);
@@ -111,6 +115,30 @@ console.log('data get new');
     if (_User.activeLocation.lat) {
         _Data.collectNew();
     }
+// WIP 7/5/16 1119
+    var cleanHxMonthlyAvgData = function(hxMonthlyAvgObj, tempUnit, precipUnit) {
+        console.log(precipUnit);
+        var data = {},
+            nullPlaceholder = '\u2014',
+            valueNames = ['currentMonthAvgHigh',
+                          'currentMonthAvgLow',
+                          'currentMonthAvgPrecip',
+                          'monthAfterNextAvgHigh',
+                          'monthAfterNextAvgLow',
+                          'monthAfterNextAvgPrecip',
+                          'nextMonthAvgHigh',
+                          'nextMonthAvgLow',
+                          'nextMonthAvgPrecip'];
+        valueNames.forEach(function(currentVal) {
+            if (currentVal.indexOf('Precip') > -1) {
+                data[currentVal] = hxMonthlyAvgObj[currentVal + precipUnit];
+            } else {
+                data[currentVal] = hxMonthlyAvgObj[currentVal + tempUnit];
+            }
+        });
+        return data;
+    }
+// END WIP
 
     var setUnits = function(unitPref) {
         var unitObj = {};
@@ -122,7 +150,6 @@ console.log('data get new');
     var cleanOneDayHxData = function(oneDayHxObj, tempUnit) {
             var data = {},
                 nullPlaceholder = '\u2014';
-        //console.log(oneDayHxObj);
 
             (isValidRecord(oneDayHxObj.yearOfRecordHighTemp)) ?
                 data.recordHighYear = oneDayHxObj.yearOfRecordHighTemp :
@@ -161,12 +188,13 @@ console.log('data get new');
             nullPlaceholder = '\u2014',
             valueNames = ['mtdHigh', 'mtdLow', 'mtdPrecip', 'prevDayHigh', 'prevDayLow', 'prevDayPrecip', 'sevenDayHigh', 'sevenDayLow', 'sevenDayPrecip'];
         valueNames.forEach(function(currentVal) {
-           (currentVal.indexOf('Precip') > -1) ?
-               data[currentVal] = recordedConditionsObj[currentVal + precipUnit] :
+           data[currentVal] = (currentVal.indexOf('Precip') > -1) ?
+               recordedConditionsObj[currentVal + precipUnit] :
                data[currentVal] = recordedConditionsObj[currentVal + tempUnit];
         });
         return data;
     };
+
 
     var formatTime = function (fullDate) {
         var dateBase = new Date(fullDate);
