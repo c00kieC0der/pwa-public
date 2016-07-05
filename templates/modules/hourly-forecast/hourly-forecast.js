@@ -12,7 +12,7 @@
         ['js-precip',      'precipPct'],
         ['js-humidity',    'rh'],
         ['js-wind-direction',        'windDirCompass'],
-        ['js-wind-speed',  'windSpeed']
+        ['js-wind-speed',  'windSpeed', _User.units.wind]
     ];
     /*
         What div,

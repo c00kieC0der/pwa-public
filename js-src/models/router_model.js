@@ -98,7 +98,7 @@ var _Router = {};
     };
     var getDefaultLoc = function(pathArr){
         if(pathArr[5] && (pathArr[5].indexOf(':') > -1 || pathArr[5].indexOf(',') > -1)){
-            _Locations.supplementLoc(pathArr[5]).then(function(data){        console.log(data);
+            _Locations.supplementLoc(pathArr[5]).then(function(data){
                 _User.newActiveLocation(data);
                  checkPage(pathArr);
             });

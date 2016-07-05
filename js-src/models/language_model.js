@@ -1,6 +1,4 @@
 var _Language = {}; _Lang = {}, _Locales = {};
-
-
     var eventData = document.createEvent('Event');
     eventData.initEvent('lang-builder', true, true);
 
@@ -17,8 +15,14 @@ var _Language = {}; _Lang = {}, _Locales = {};
     _Language.updateTranslations = function(){
         return new Promise(function(resolve, reject){
             var path;
-            if(_User.lang == 'en-US'){
+            if(_User.lang == 'en-US') {
                 path = '/js-src/translations/app.json';
+            } else if(_User.lang.indexOf('ar') > -1){
+                path = '/js-src/translated/ar/app.json';
+            } else if(_User.lang.indexOf('pl') > -1){
+                path = '/js-src/translated/pl/app.json';
+            } else if(_User.lang.indexOf('ur') > -1){
+                path = '/js-src/translated/ur/app.json';
             } else {
                 path = '/js-src/translated/' + _User.lang + '/app.json';
             }

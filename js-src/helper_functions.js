@@ -126,7 +126,11 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
                         classXes[j].innerHTML = getWxIcon(data[dataMap[i][1]][j]);
                     } else {
                         classXes[j].innerHTML = data[dataMap[i][1]][j];
+                        if(dataMap[i][2]){
+                            classXes[j].innerHTML += ' ' + dataMap[i][2];
+                        }
                     }
+
                 }
             }
 
