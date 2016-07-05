@@ -2,8 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c371f82e-de6a-4583-a536-e9276f979925" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations.zip" afterPath="$PROJECT_DIR$/translations.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service-worker.js" afterPath="$PROJECT_DIR$/service-worker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/ca-ES/app.json" afterPath="$PROJECT_DIR$/js-src/translated/ca-ES/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/cs-CZ/app.json" afterPath="$PROJECT_DIR$/js-src/translated/cs-CZ/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/da-DK/app.json" afterPath="$PROJECT_DIR$/js-src/translated/da-DK/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/de-DE/app.json" afterPath="$PROJECT_DIR$/js-src/translated/de-DE/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/el-GR/app.json" afterPath="$PROJECT_DIR$/js-src/translated/el-GR/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/en-CA/app.json" afterPath="$PROJECT_DIR$/js-src/translated/en-CA/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/en-GB/app.json" afterPath="$PROJECT_DIR$/js-src/translated/en-GB/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/en-IN/app.json" afterPath="$PROJECT_DIR$/js-src/translated/en-IN/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/es-ES/app.json" afterPath="$PROJECT_DIR$/js-src/translated/es-ES/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/es-US/app.json" afterPath="$PROJECT_DIR$/js-src/translated/es-US/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/fi-FI/app.json" afterPath="$PROJECT_DIR$/js-src/translated/fi-FI/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/fr-CA/app.json" afterPath="$PROJECT_DIR$/js-src/translated/fr-CA/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/hi-IN/app.json" afterPath="$PROJECT_DIR$/js-src/translated/hi-IN/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/hr-HR/app.json" afterPath="$PROJECT_DIR$/js-src/translated/hr-HR/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/id-ID/app.json" afterPath="$PROJECT_DIR$/js-src/translated/id-ID/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/it-IT/app.json" afterPath="$PROJECT_DIR$/js-src/translated/it-IT/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/ja-JP/app.json" afterPath="$PROJECT_DIR$/js-src/translated/ja-JP/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/ko-KR/app.json" afterPath="$PROJECT_DIR$/js-src/translated/ko-KR/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/ms-MY/app.json" afterPath="$PROJECT_DIR$/js-src/translated/ms-MY/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/no-NO/app.json" afterPath="$PROJECT_DIR$/js-src/translated/no-NO/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/pl/app.json" afterPath="$PROJECT_DIR$/js-src/translated/pl/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/pt-BR/app.json" afterPath="$PROJECT_DIR$/js-src/translated/pt-BR/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/pt-PT/app.json" afterPath="$PROJECT_DIR$/js-src/translated/pt-PT/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/ro-RO/app.json" afterPath="$PROJECT_DIR$/js-src/translated/ro-RO/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/ru-RU/app.json" afterPath="$PROJECT_DIR$/js-src/translated/ru-RU/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/sk-SK/app.json" afterPath="$PROJECT_DIR$/js-src/translated/sk-SK/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/th-TH/app.json" afterPath="$PROJECT_DIR$/js-src/translated/th-TH/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/tl-PH/app.json" afterPath="$PROJECT_DIR$/js-src/translated/tl-PH/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/tr-TR/app.json" afterPath="$PROJECT_DIR$/js-src/translated/tr-TR/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/ur/app.json" afterPath="$PROJECT_DIR$/js-src/translated/ur/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/vi-VN/app.json" afterPath="$PROJECT_DIR$/js-src/translated/vi-VN/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/zh-CN/app.json" afterPath="$PROJECT_DIR$/js-src/translated/zh-CN/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js-src/translated/zh-TW/app.json" afterPath="$PROJECT_DIR$/js-src/translated/zh-TW/app.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/modules/today-forecast/today-forecast.js" afterPath="$PROJECT_DIR$/templates/modules/today-forecast/today-forecast.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/fiveday/fiveday.js" afterPath="$PROJECT_DIR$/templates/pages/fiveday/fiveday.js" />
     </list>
     <ignored path="pwa.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,21 +65,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="78" column="9" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
-              <folding>
-                <marker date="1467384140000" expanded="true" signature="3590:4825" placeholder="{...}" />
-                <marker date="1467384140000" expanded="true" signature="3990:4825" placeholder="{...}" />
-                <marker date="1467384140000" expanded="true" signature="4048:4825" placeholder="{...}" />
-                <marker date="1467384140000" expanded="true" signature="4220:4457" placeholder="{...}" />
-                <marker date="1467384140000" expanded="true" signature="4299:4368" placeholder="{...}" />
-                <marker date="1467384140000" expanded="true" signature="4581:4825" placeholder="{...}" />
-                <marker date="1467384140000" expanded="true" signature="4775:4825" placeholder="{...}" />
-                <marker date="1467384140000" expanded="true" signature="6557:6660" placeholder="{...}" />
-                <marker date="1467384140000" expanded="true" signature="6557:6678" placeholder="{...}" />
-                <marker date="1467384140000" expanded="true" signature="6557:6692" placeholder="{...}" />
-                <marker date="1467384140000" expanded="true" signature="6557:6703" placeholder="{...}" />
-                <marker date="1467384140000" expanded="true" signature="6557:6709" placeholder="{...}" />
-                <marker date="1467384140000" expanded="true" signature="6557:6730" placeholder="{...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,8 +74,68 @@
         <entry file="file://$PROJECT_DIR$/js-src/appShell.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="366" column="0" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
-              <folding />
+              <caret line="383" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="383" selection-end-column="0" />
+              <folding>
+                <marker date="1467721422000" expanded="true" signature="0:39" placeholder="/** Created by omkard on 6/5/16. ...*/" />
+                <marker date="1467721422000" expanded="true" signature="643:706" placeholder="/** showMainMenu() shows the hamburger menu when clicked ...*/" />
+                <marker date="1467721422000" expanded="true" signature="732:1187" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="848:931" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="1188:1239" placeholder="/** showMainSearch() shows the Search layout ...*/" />
+                <marker date="1467721422000" expanded="true" signature="1266:2088" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="1382:1465" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="1469:1696" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="1836:2086" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="2090:2148" placeholder="/** searchResults() shows the search results layout ...*/" />
+                <marker date="1467721422000" expanded="true" signature="2175:3088" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="2298:2382" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="2388:3085" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="2571:3079" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="2661:2988" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="3150:3574" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="3266:3349" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="3450:3536" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="3576:3642" placeholder="/** clearSearch() clears the text entered in the search box ...*/" />
+                <marker date="1467721422000" expanded="true" signature="3667:3789" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="3791:3862" placeholder="/** hideMainMenu() hides the main menu and display the home page ...*/" />
+                <marker date="1467721422000" expanded="true" signature="3888:3920" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="3922:3997" placeholder="/** hideMainSearch() hides the search box and displays the home page ...*/" />
+                <marker date="1467721422000" expanded="true" signature="4024:4225" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="4140:4223" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="4227:4312" placeholder="/** showTemperature(ele) is used to change the temperature units ...*/" />
+                <marker date="1467721422000" expanded="true" signature="4344:4902" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="4385:4899" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="4502:4565" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="4636:4760" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="4766:4893" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="4931:5445" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="5218:5300" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="5341:5443" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="5447:5519" placeholder="/** changeNav(ele) is used to changes the nav pages ...*/" />
+                <marker date="1467721422000" expanded="true" signature="5544:5923" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="5652:5880" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="5772:5838" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="5925:5986" placeholder="/** showLocations() shows the location selected layout ...*/" />
+                <marker date="1467721422000" expanded="true" signature="6012:6115" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="6117:6178" placeholder="/** showCategories() shows the categories of languages ...*/" />
+                <marker date="1467721422000" expanded="true" signature="6206:6729" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="6277:6554" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="6731:6791" placeholder="/** showAreas(ele) selects the language ...*/" />
+                <marker date="1467721422000" expanded="true" signature="6823:7396" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="6910:7160" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="7398:7524" placeholder="/** changeLang(lang code) ...*/" />
+                <marker date="1467721422000" expanded="true" signature="7550:7694" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="7696:7839" placeholder="/** showHide() takes the element and shows it or hides it based on the value ...*/" />
+                <marker date="1467721422000" expanded="true" signature="7873:8047" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="7894:7966" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="7972:8045" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="8050:8197" placeholder="/** showHide() takes the element and slides in from the right based on the value ...*/" />
+                <marker date="1467721422000" expanded="true" signature="8233:8410" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="8254:8327" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="8333:8408" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="8443:8537" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="8491:8535" placeholder="{...}" />
+                <marker date="1467721422000" expanded="true" signature="8968:9110" placeholder="/** showRecentlySearched() shows and hides the drop down recent search list ...*/" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,24 +150,66 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="today-forecast.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="today-forecast.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/modules/today-forecast/today-forecast.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.46391752">
+              <caret line="86" column="7" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="service-worker.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="service-worker.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service-worker.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37883437">
+            <state vertical-scroll-proportion="40.11111">
               <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js-src/translations/app.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="5day-forecast.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/modules/5day-forecast/5day-forecast.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="weekend.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/modules/weekend/weekend.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+              <folding>
+                <marker date="1467384140000" expanded="true" signature="74:111" placeholder="[...]" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fiveday.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/pages/fiveday/fiveday.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,7 +261,6 @@
         <option value="$PROJECT_DIR$/js-src/translations/app.json" />
         <option value="$PROJECT_DIR$/templates/pages/tenday/tenday.html" />
         <option value="$PROJECT_DIR$/templates/pages/fiveday/fiveday.html" />
-        <option value="$PROJECT_DIR$/templates/pages/fiveday/fiveday.js" />
         <option value="$PROJECT_DIR$/js-src/models/language_model.js" />
         <option value="$PROJECT_DIR$/js-src/translated/fr-FR/app.json" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
@@ -156,8 +278,9 @@
         <option value="$PROJECT_DIR$/templates/modules/hourly-forecast/hourly-forecast.js" />
         <option value="$PROJECT_DIR$/js-src/appShell.js" />
         <option value="$PROJECT_DIR$/js-src/helper_functions.js" />
-        <option value="$PROJECT_DIR$/templates/modules/today-forecast/today-forecast.js" />
         <option value="$PROJECT_DIR$/service-worker.js" />
+        <option value="$PROJECT_DIR$/templates/pages/fiveday/fiveday.js" />
+        <option value="$PROJECT_DIR$/templates/modules/today-forecast/today-forecast.js" />
       </list>
     </option>
   </component>
@@ -171,8 +294,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="119" />
-    <option name="y" value="23" />
+    <option name="x" value="1715" />
+    <option name="y" value="28" />
     <option name="width" value="1301" />
     <option name="height" value="797" />
   </component>
@@ -201,7 +324,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -318,7 +441,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiveday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weekend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -361,8 +510,48 @@
               <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="hourly-forecast" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="5day-forecast" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -426,13 +615,31 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="translations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js-src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -518,17 +725,17 @@
     <option name="totallyTimeSpent" value="12039000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="119" y="23" width="1301" height="797" extended-state="0" />
+    <frame x="1715" y="28" width="1301" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24543288" sideWeight="0.70438474" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2494043" sideWeight="0.6973126" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1787995" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24543288" sideWeight="0.2956153" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2494043" sideWeight="0.3026874" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -589,7 +796,67 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1467721422000" expanded="true" signature="0:39" placeholder="/** Created by omkard on 6/5/16. ...*/" />
+            <marker date="1467721422000" expanded="true" signature="643:706" placeholder="/** showMainMenu() shows the hamburger menu when clicked ...*/" />
+            <marker date="1467721422000" expanded="true" signature="732:1187" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="848:931" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="1188:1239" placeholder="/** showMainSearch() shows the Search layout ...*/" />
+            <marker date="1467721422000" expanded="true" signature="1266:2088" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="1382:1465" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="1469:1696" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="1836:2086" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="2090:2148" placeholder="/** searchResults() shows the search results layout ...*/" />
+            <marker date="1467721422000" expanded="true" signature="2175:3088" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="2298:2382" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="2388:3085" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="2571:3079" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="2661:2988" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="3150:3574" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="3266:3349" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="3450:3536" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="3576:3642" placeholder="/** clearSearch() clears the text entered in the search box ...*/" />
+            <marker date="1467721422000" expanded="true" signature="3667:3789" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="3791:3862" placeholder="/** hideMainMenu() hides the main menu and display the home page ...*/" />
+            <marker date="1467721422000" expanded="true" signature="3888:3920" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="3922:3997" placeholder="/** hideMainSearch() hides the search box and displays the home page ...*/" />
+            <marker date="1467721422000" expanded="true" signature="4024:4225" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4140:4223" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4227:4312" placeholder="/** showTemperature(ele) is used to change the temperature units ...*/" />
+            <marker date="1467721422000" expanded="true" signature="4344:4902" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4385:4899" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4502:4565" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4636:4760" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4766:4893" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4931:5445" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="5218:5300" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="5341:5443" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="5447:5519" placeholder="/** changeNav(ele) is used to changes the nav pages ...*/" />
+            <marker date="1467721422000" expanded="true" signature="5544:5923" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="5652:5880" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="5772:5838" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="5925:5986" placeholder="/** showLocations() shows the location selected layout ...*/" />
+            <marker date="1467721422000" expanded="true" signature="6012:6115" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="6117:6178" placeholder="/** showCategories() shows the categories of languages ...*/" />
+            <marker date="1467721422000" expanded="true" signature="6206:6729" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="6277:6554" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="6731:6791" placeholder="/** showAreas(ele) selects the language ...*/" />
+            <marker date="1467721422000" expanded="true" signature="6823:7396" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="6910:7160" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="7398:7524" placeholder="/** changeLang(lang code) ...*/" />
+            <marker date="1467721422000" expanded="true" signature="7550:7694" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="7696:7839" placeholder="/** showHide() takes the element and shows it or hides it based on the value ...*/" />
+            <marker date="1467721422000" expanded="true" signature="7873:8047" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="7894:7966" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="7972:8045" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="8050:8197" placeholder="/** showHide() takes the element and slides in from the right based on the value ...*/" />
+            <marker date="1467721422000" expanded="true" signature="8233:8410" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="8254:8327" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="8333:8408" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="8443:8537" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="8491:8535" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="8968:9110" placeholder="/** showRecentlySearched() shows and hides the drop down recent search list ...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -684,20 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/modules/5day-forecast/5day-forecast.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59866965">
-          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js-src/translations/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73462415">
-          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/pages/hourly/hourly.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -709,15 +962,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/fiveday/fiveday.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.049889136">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -746,7 +990,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.625">
           <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,7 +1011,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="57" column="39" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -776,7 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -791,18 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/modules/weekend/weekend.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="82" column="26" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
-          <folding>
-            <marker date="1467384140000" expanded="true" signature="74:111" placeholder="[...]" />
-            <marker date="1467384140000" expanded="true" signature="5342:5450" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -831,7 +1060,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -867,7 +1095,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.25">
           <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -895,8 +1122,68 @@
     <entry file="file://$PROJECT_DIR$/js-src/appShell.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="366" column="0" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
-          <folding />
+          <caret line="383" column="0" selection-start-line="383" selection-start-column="0" selection-end-line="383" selection-end-column="0" />
+          <folding>
+            <marker date="1467721422000" expanded="true" signature="0:39" placeholder="/** Created by omkard on 6/5/16. ...*/" />
+            <marker date="1467721422000" expanded="true" signature="643:706" placeholder="/** showMainMenu() shows the hamburger menu when clicked ...*/" />
+            <marker date="1467721422000" expanded="true" signature="732:1187" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="848:931" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="1188:1239" placeholder="/** showMainSearch() shows the Search layout ...*/" />
+            <marker date="1467721422000" expanded="true" signature="1266:2088" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="1382:1465" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="1469:1696" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="1836:2086" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="2090:2148" placeholder="/** searchResults() shows the search results layout ...*/" />
+            <marker date="1467721422000" expanded="true" signature="2175:3088" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="2298:2382" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="2388:3085" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="2571:3079" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="2661:2988" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="3150:3574" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="3266:3349" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="3450:3536" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="3576:3642" placeholder="/** clearSearch() clears the text entered in the search box ...*/" />
+            <marker date="1467721422000" expanded="true" signature="3667:3789" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="3791:3862" placeholder="/** hideMainMenu() hides the main menu and display the home page ...*/" />
+            <marker date="1467721422000" expanded="true" signature="3888:3920" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="3922:3997" placeholder="/** hideMainSearch() hides the search box and displays the home page ...*/" />
+            <marker date="1467721422000" expanded="true" signature="4024:4225" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4140:4223" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4227:4312" placeholder="/** showTemperature(ele) is used to change the temperature units ...*/" />
+            <marker date="1467721422000" expanded="true" signature="4344:4902" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4385:4899" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4502:4565" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4636:4760" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4766:4893" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="4931:5445" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="5218:5300" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="5341:5443" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="5447:5519" placeholder="/** changeNav(ele) is used to changes the nav pages ...*/" />
+            <marker date="1467721422000" expanded="true" signature="5544:5923" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="5652:5880" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="5772:5838" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="5925:5986" placeholder="/** showLocations() shows the location selected layout ...*/" />
+            <marker date="1467721422000" expanded="true" signature="6012:6115" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="6117:6178" placeholder="/** showCategories() shows the categories of languages ...*/" />
+            <marker date="1467721422000" expanded="true" signature="6206:6729" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="6277:6554" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="6731:6791" placeholder="/** showAreas(ele) selects the language ...*/" />
+            <marker date="1467721422000" expanded="true" signature="6823:7396" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="6910:7160" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="7398:7524" placeholder="/** changeLang(lang code) ...*/" />
+            <marker date="1467721422000" expanded="true" signature="7550:7694" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="7696:7839" placeholder="/** showHide() takes the element and shows it or hides it based on the value ...*/" />
+            <marker date="1467721422000" expanded="true" signature="7873:8047" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="7894:7966" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="7972:8045" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="8050:8197" placeholder="/** showHide() takes the element and slides in from the right based on the value ...*/" />
+            <marker date="1467721422000" expanded="true" signature="8233:8410" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="8254:8327" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="8333:8408" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="8443:8537" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="8491:8535" placeholder="{...}" />
+            <marker date="1467721422000" expanded="true" signature="8968:9110" placeholder="/** showRecentlySearched() shows and hides the drop down recent search list ...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -904,21 +1191,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="78" column="9" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
-          <folding>
-            <marker date="1467384140000" expanded="true" signature="3590:4825" placeholder="{...}" />
-            <marker date="1467384140000" expanded="true" signature="3990:4825" placeholder="{...}" />
-            <marker date="1467384140000" expanded="true" signature="4048:4825" placeholder="{...}" />
-            <marker date="1467384140000" expanded="true" signature="4220:4457" placeholder="{...}" />
-            <marker date="1467384140000" expanded="true" signature="4299:4368" placeholder="{...}" />
-            <marker date="1467384140000" expanded="true" signature="4581:4825" placeholder="{...}" />
-            <marker date="1467384140000" expanded="true" signature="4775:4825" placeholder="{...}" />
-            <marker date="1467384140000" expanded="true" signature="6557:6660" placeholder="{...}" />
-            <marker date="1467384140000" expanded="true" signature="6557:6678" placeholder="{...}" />
-            <marker date="1467384140000" expanded="true" signature="6557:6692" placeholder="{...}" />
-            <marker date="1467384140000" expanded="true" signature="6557:6703" placeholder="{...}" />
-            <marker date="1467384140000" expanded="true" signature="6557:6709" placeholder="{...}" />
-            <marker date="1467384140000" expanded="true" signature="6557:6730" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -930,21 +1203,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/modules/today-forecast/today-forecast.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service-worker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37883437">
+        <state vertical-scroll-proportion="40.11111">
           <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-src/translations/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/modules/5day-forecast/5day-forecast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/modules/weekend/weekend.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+          <folding>
+            <marker date="1467384140000" expanded="true" signature="74:111" placeholder="[...]" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/fiveday/fiveday.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/modules/today-forecast/today-forecast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46391752">
+          <caret line="86" column="7" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
