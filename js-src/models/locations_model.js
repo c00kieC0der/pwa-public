@@ -25,26 +25,35 @@ _Locations.searchLocs = function(term){
 
 _Locations.getGeoCoordinates = function(position){
     if(position && position.coords) {
-        var coords = position.coords;
-        var lat = coords.latitude.toFixed(2);
-        var long = coords.longitude.toFixed(2);
-
-        var locUrl = 'https://dsx.weather.com/wxd/loc/' +
-            lat + ',' +
-            long + '?format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
-
-        AjaxRequest.get(
-            {
-                'url' : locUrl,
-                'generateUniqueUrl' : false,
-                'onSuccess':function(req){
-                    _User.newActiveLocation(JSON.parse(req.responseText));
-                }
-            }
-        );
-
+        var lat = position.coords.latitude.toFixed(2);
+        var long = position.coords.longitude.toFixed(2);
+        _Locations.supplementLoc(lat + ', ' + long).then(function(data){
+            _User.newActiveLocation(data);
+        });
     }
 };
+
+_Locations.supplementLoc = function(loc){
+   return new Promise(function(resolve, reject){
+       if(!loc){
+           reject('no location object');
+       }
+       var locUrl = 'https://dsx.weather.com/wxd/loc/' + loc +
+            '?format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
+
+       AjaxRequest.get(
+           {
+               'url' : locUrl,
+               'generateUniqueUrl' : false,
+               'onSuccess':function(req){
+                   resolve(JSON.parse(req.responseText));
+               }
+           }
+       );
+   });
+};
+
+
 
 _Locations.callGeoLocation = function(){
     if (navigator.geolocation) {
@@ -946,7 +955,7 @@ _Locations.callGeoLocation = function(){
             "locId": "USDC0001:1:US"
     },
         "en-VU": {
-        "lat": -17.74,
+            "lat": -17.74,
             "long": 168.32,
             "locId": "NHXX0077:1:NH"
     },
@@ -963,17 +972,20 @@ _Locations.callGeoLocation = function(){
 
     //TODO:  for testing only remove the below line before going to prod.
 
+_Locations.getDefaultLocation = function(){
+   return new Promise(function(resolve, retreat){
+       if (!_User.activeLocation.prsntNm) {
+           if(_User.lang){
+               _Locations.supplementLoc(defaultLocations[_User.lang].locId).then(function(results){
+                   resolve(_User.newActiveLocation(results));
+               });
+           } else {
+               _Locations.callGeoLocation();
+           }
+       }
+   });
 
-    //_User.activeLocation = {};
-    if (!_User.activeLocation.prsntNm) {
-        if(_User.lang){
-            _User.newActiveLocation(defaultLocations[_User.lang]);
-            //How to get
-            console.log(_User.activeLocation);
-        } else {
-            _Locations.callGeoLocation();
-        }
-    }
+};
 
 
 })();

@@ -188,7 +188,6 @@ body {
   .nav-suite .page-nav {
     background: black;
     display: block;
-    width: 125%;
     height: 45px;
     padding-top: 8px; }
 
@@ -199,8 +198,10 @@ body {
   text-align: center;
   white-space: nowrap;
   display: inline-block;
-  width: 15.6%;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  padding: 0px 5px;
+  float: left;
+  min-width: 75px; }
 
 a {
   text-decoration: none;
@@ -531,3 +532,10 @@ footer {
 
 #__wxmap_MapboxAttribution {
   z-index: 5 !important; }
+
+@media screen and (min-width: 480px) {
+  .page-nav {
+    width: 125% !important; }
+
+  .page-nav-li {
+    width: 15.6% !important; } }

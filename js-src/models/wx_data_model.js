@@ -1,6 +1,5 @@
 var _Data = {}, app = {};
 (function() {
-    console.log('data init');
     var dataUrl,dataAstroUrl;
     var eventData = document.createEvent('Event');
     var astroEventData = document.createEvent('Event');
@@ -37,7 +36,7 @@ var _Data = {}, app = {};
                 }
             });
         }
-console.log('data get new');
+
         AjaxRequest.get({
             'url': dataUrl,
             'generateUniqueUrl': false,
@@ -327,17 +326,19 @@ console.log('data get new');
      Formats solar noon dates and times.
      */
     var massageSolarData = function(){
-        _Data.solarData.noonTime=[];
-        _Data.solarData.noonDate=[];
-        _Data.solarData.moonIcons =[];
-        var moonIcCount=0;
-        for(var j in _Data.solarData.AstroData){
-            if(_Data.solarData.AstroData.hasOwnProperty(j)) {
-                _Data.solarData.noonTime[j] = formatTime(_Data.solarData.AstroData[j].sun.zenith.local);
-                _Data.solarData.noonDate[j] = formatDate(_Data.solarData.AstroData[j].sun.zenith.local);
-                _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet.riseIcon);
-                _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet["setIcon"]);
+        if(_Data && _Data.solarData){
+            _Data.solarData.noonTime=[];
+            _Data.solarData.noonDate=[];
+            _Data.solarData.moonIcons =[];
+            var moonIcCount=0;
+            for(var j in _Data.solarData.AstroData){
+                if(_Data.solarData.AstroData.hasOwnProperty(j)) {
+                    _Data.solarData.noonTime[j] = formatTime(_Data.solarData.AstroData[j].sun.zenith.local);
+                    _Data.solarData.noonDate[j] = formatDate(_Data.solarData.AstroData[j].sun.zenith.local);
+                    _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet.riseIcon);
+                    _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet["setIcon"]);
 
+                }
             }
         }
     };

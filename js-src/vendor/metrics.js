@@ -192,7 +192,7 @@ var _Metrics = {};
         if(window['s'] === undefined){
             setTimeout(function(){
                 s.linkTrackVars='eVar39,eVar60,prop44';s.linkTrackEvents='event2';
-                s.eVar39 = JSON.stringify(_User);
+                s.eVar39 = 'user stuff'; //JSON.stringify(_User);
                 s.eVar60 = _Router.page;
                 /*10day-forecast_inPageNav_5 Day_3 */
                 s.prop44 = fromPage + '_inPageNav_' + toPage + '_' + pos;

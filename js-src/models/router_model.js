@@ -61,7 +61,6 @@ var _Router = {};
         helper.loadTemplateWithClass('page-content', 'pages', changeTo);
         document.title = pageAssignment[page].title;
         var loc = _User.activeLocation.locId ? _User.activeLocation.locId : '';
-        console.log()
         history.pushState({changeTo:page}, page, '/' + _User.lang + '/' + _Lang.weather + '/' + _Lang[changeTo] + '/l/' + loc);
     };
 
@@ -69,25 +68,35 @@ var _Router = {};
     var handlePath = function() {
         pathArr = window.location.pathname.split('/');
         if (pathArr[1].indexOf('-') === 2) {
-            //_Locales.getLocales().then(function (locales) {  //This is an expensive call.
+            if(_User.lang !== pathArr[1]){
                 _User.lang = pathArr[1];
                 _Language.updateTranslations().then(function(){
-                    checkPage(pathArr);
+                    getDefaultLoc(pathArr);
                 });
-           // });
+            } else {
+                getDefaultLoc(pathArr);
+            }
         } else {
             _User.lang = 'en-US';
             _Language.updateTranslations().then(function(){
-                checkPage(pathArr);
+                getDefaultLoc(pathArr);
             });
         }
     };
+    var getDefaultLoc = function(pathArr){
+        if (!_User.activeLocation.prsntNm){
+            _Locations.getDefaultLocation().then(function(){
+                checkPage(pathArr);
+            });
+        }
+        checkPage(pathArr);
+    };
      var checkPage = function(pathArr){
-
             if(history.state && history.state.changeTo){
                 _Router.changePage(history.state.changeTo);
             } else {
-                if(window.location.pathname === '/'){
+                console.log(pathArr);
+                if(window.location.pathname === '/' || !pathArr[3]){
                     _Router.changePage('today');
                 } else {
                     for(var x in pageAssignment){
@@ -97,6 +106,7 @@ var _Router = {};
                         } else if(x === pathArr[3]){ //english.
                             _Router.changePage(x);
                         }
+
                     }
                 }
                 //Else, its not a valid URL.  We should probably 404 on this.
