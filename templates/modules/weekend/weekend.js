@@ -42,35 +42,6 @@
 
     var currOpenDetails=[], currOpenDays=[];
 
-    var createWeekendModel = function(){
-        var weekendInfo = [];
-        var dayLimit = 6;
-        //if (_Data.dayData.day.dateDayIndex[0] ==6){};
-        //else if(_Data.dayData.day.dateDayIndex[0] ==6){};
-        var currWeekendData = [];
-        var nextWeekendData = [];
-        var currWeekDataFound = false;
-        for(var i in _Data.dailyForecast.dayData.dateDayIndex){
-            if(_Data.dailyForecast.dayData.dateDayIndex.hasOwnProperty(i)) {
-                //Indicates Fri, sat, or sun
-                if (_Data.dailyForecast.dayData.dateDayIndex[i]>4||_Data.dailyForecast.dayData.dateDayIndex[i]===0){
-                    if(!currWeekDataFound)
-                        currWeekendData.push(i);
-                    else
-                        nextWeekendData.push(i);
-                    if(_Data.dailyForecast.dayData.dateDayIndex[i]==0){
-                        if(currWeekDataFound==true)break;
-                        currWeekDataFound = true;
-                    }
-                }
-            }
-        }
-        //console.log(currWeekendData);
-        helper.ngRepeatSpecific('ls-row-wrap-24', 'weekend', ngRepeatMap, _Data.dailyForecast.dayData, currWeekendData);
-        //helper.ngRepeatSpecific('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, nextWeekendData);
-        makeClickable();
-    };
-
     var showDetails = function(e) {
         var clickedEl = e.target;
         while(clickedEl!=null &&clickedEl.tagName.toLowerCase() !="tr"){
@@ -83,7 +54,7 @@
         //if clicked element contains details, then hidden elements are shown.
 
         for(var j = 0;j<currOpenDetails.length;j++){
-            table.rows[currOpenDetails[j]].className += "hide";
+            helper.addClass(table.rows[currOpenDetails[j]], "hide");
         }
         currOpenDetails = [];
 
@@ -99,10 +70,10 @@
             return;
         }
         currOpenDays.push(rowToStart);
-        table.rows[rowToStart++].className = "day clickable open";
+        helper.addClass(table.rows[rowToStart++],"open");
         //var classes = table.rows[rowToStart++].className;
         for(var i=0;i<3;i++) {
-            table.rows[rowToStart].className = table.rows[rowToStart].className.replace("hide", "");
+            helper.removeClass(table.rows[rowToStart],"hide");
             currOpenDetails.push(rowToStart);
             rowToStart++;
         }
@@ -121,14 +92,13 @@
         do it how many times?
      */
     if(_Data.dailyForecast){
-        createWeekendModel();
-        //helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 5);
+        helper.ngRepeat('ls-row-wrap-24', 'weekend', ngRepeatMap, _Data.dailyForecast.currWeekendData, 'all');
+        makeClickable();
     }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {
-        createWeekendModel();
-        console.log("callback");
         //console.log('STUFF...', '_User.activeLocation.prsntNm');
-        //helper.ngRepeat('ls-row-wrap-24', 'ls-24-hour-data', ngRepeatMap, _Data.dailyForecast.dayData.day, 5);
+        helper.ngRepeat('ls-row-wrap-24', 'weekend', ngRepeatMap, _Data.dailyForecast.currWeekendData, 'all');
+        makeClickable();
     });
 })();

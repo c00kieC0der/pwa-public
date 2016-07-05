@@ -51,6 +51,8 @@ console.log('data get new');
                 _Data.precipitation = data.vt1precipitation;
                 _Data.fifteen = data.vt1fifteenminute;
                 _Data.hourly = data.vt1hourlyForecast;
+                getDayData();
+                getWeekendData();
                 massageData();
                 document.getElementById('event-anchor').dispatchEvent(eventData);
                 app.hasRequestPending = false;
@@ -145,8 +147,6 @@ console.log('data get new');
         };
         formatDFDateTimes(sunMoonData);
         _Data.tenDay = _Data.dailyForecast.day;
-
-        getDayData();
         _Data.hourly.time = [];
         _Data.hourly.date = [];
         _Data.lookingAhead = getLookingAhead();
@@ -155,7 +155,6 @@ console.log('data get new');
             _Data.hourly.date[i] = formatDate(_Data.hourly.processTime[i]);
         }
     };
-
 
     var getDayData = function () {
         //Day night data, should be optimized
@@ -195,11 +194,46 @@ console.log('data get new');
             dayData.sunset[i] = formatTime(_Data.dailyForecast.sunset[i]);
             dayData.moonrise[i] = formatTime(_Data.dailyForecast.moonrise[i]);
             dayData.moonset[i] = formatTime(_Data.dailyForecast.moonset[i]);
+            dayData.nightIcon[i] = getWxIcon(dayData.nightIcon[i]);
         }
         for (var key in dayData){
             _Data.dailyForecast.dayData[key] = dayData[key];
         }
     };
+    //Must be called after getDayData
+    var getWeekendData = function () {
+        //var dayLimit = 6;
+        //if (_Data.dayData.day.dateDayIndex[0] ==6){};
+        //else if(_Data.dayData.day.dateDayIndex[0] ==6){};
+        _Data.dailyForecast.currWeekendData = [];
+        _Data.dailyForecast.nextWeekendData = [];
+        var currWeekDataFound = false;
+        var counter = 0;
+        for(var i in _Data.dailyForecast.dayData.dateDayIndex){
+            if(_Data.dailyForecast.dayData.dateDayIndex.hasOwnProperty(i)&&
+                (_Data.dailyForecast.dayData.dateDayIndex[i]>4||_Data.dailyForecast.dayData.dateDayIndex[i]===0)) {
+                //Indicates Fri, sat, or sun
+                if(!currWeekDataFound) {
+                    for (var key in _Data.dailyForecast.dayData) {
+                        if(!_Data.dailyForecast.currWeekendData[key])_Data.dailyForecast.currWeekendData[key]=[];
+                        _Data.dailyForecast.currWeekendData[key][counter] = _Data.dailyForecast.dayData[key][i];
+                    }
+                    counter++;
+                }
+                else
+                    for (var key in _Data.dailyForecast.dayData) {
+                        if(!_Data.dailyForecast.nextWeekendData[key])_Data.dailyForecast.nextWeekendData[key]=[];
+                        _Data.dailyForecast.nextWeekendData[key][counter] = _Data.dailyForecast.dayData[key][i];
+                    }
+                if(_Data.dailyForecast.dayData.dateDayIndex[i]==0){
+                    if(currWeekDataFound==true)break;
+                    currWeekDataFound = true;
+                    counter = 0;
+                }
+            }
+        }
+    };
+
 
     var getLookingAhead = function () {
         var daily = _Data.dailyForecast, retData = [];

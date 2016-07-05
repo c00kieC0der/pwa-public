@@ -54,7 +54,7 @@
         //if clicked element contains details, then hidden elements are shown.
 
         for(var j = 0;j<currOpenDetails.length;j++){
-            table.rows[currOpenDetails[j]].className += "hide";
+            helper.addClass(table.rows[currOpenDetails[j]], "hide");
         }
         currOpenDetails = [];
 
@@ -70,10 +70,10 @@
             return;
         }
         currOpenDays.push(rowToStart);
-        table.rows[rowToStart++].className = "day clickable open";
+        helper.addClass(table.rows[rowToStart++],"open");
         //var classes = table.rows[rowToStart++].className;
         for(var i=0;i<3;i++) {
-            table.rows[rowToStart].className = table.rows[rowToStart].className.replace("hide", "");
+            helper.removeClass(table.rows[rowToStart],"hide");
             currOpenDetails.push(rowToStart);
             rowToStart++;
         }
