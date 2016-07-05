@@ -57,7 +57,7 @@ function showMainSearch() {
     helper.empty('recently-searched');
     var container = document.getElementById('recently-searched');
     for(var i in _User.locations){
-        container.innerHTML += '<li class="results"><a onclick="javascript:searchResultsClicked(this, ' + _User.locations[i].lat + ', ' + _User.locations[i].long + ', false)" class="dropdown-name">' + _User.locations[i].prsntNm + '</a></li>';
+        container.innerHTML += '<li class="results"><a onclick="javascript:searchResultsClicked(this, ' + i +  ', \'' + _User.locations[i].prsntNm  + '\', false, false )" class="dropdown-name">' + _User.locations[i].prsntNm + '</a></li>';
     }
 }
 
@@ -76,9 +76,9 @@ function searchResults() {
         var searchResults = lookupLocations(currentValue);
         if(_Locations.results !== undefined) {
             var cityList = '';
-            for (i=0; i<_Locations.results.length; i++ ) {
-                var latLongArray = _Locations.results[i].geocode.split(',');
-                cityList += '<li class="results"><a class="name" onclick="searchResultsClicked(this, ' +latLongArray[0] + ',' + latLongArray[1] + ', true)"> '+_Locations.results[i].cityNm+', '+_Locations.results[i].stCd+'  </a></li>';
+            for (var i=0; i<_Locations.results.length; i++ ) {
+                var prsntNm = _Locations.results[i].cityNm + ', ' + _Locations.results[i].stCd;
+                cityList += '<li class="results"><a class="name" onclick="searchResultsClicked(this, ' + i + ', \'' + prsntNm + '\', true, true)"> ' + prsntNm + '  </a></li>';
             }
             document.getElementById('search-results-list').innerHTML = cityList;
         }
@@ -88,18 +88,25 @@ function searchResults() {
 
 
 
-function searchResultsClicked(ele, lat, long, updateList) {
+function searchResultsClicked(ele, locObjID, prsntNm, updateList, useSearch) {
+    var locObj = useSearch ? _Locations.results[locObjID] : _User.locations[locObjID];
+    if(prsntNm){
+        locObj.prsntNm = prsntNm;
+    }
+    if(!locObj.lat && locObj.geocode){
+        var geoArr = locObj.geocode.split(',');
+        console.log(geoArr);
+        locObj.lat = geoArr[0];
+        locObj.long = geoArr[1];
+    }
+
     var pwaHeader = document.getElementById('pwa-header');
     if(pwaHeader.className.match('.pwa-header-active')){
         pwaHeader.className = 'header';
         showHide('main-search', 0);
     }
     document.getElementById('activeLocName').innerHTML = ele.innerHTML;
-    _User.newActiveLocation({
-        lat     : lat,
-        long    : long,
-        prsntNm : ele.innerHTML
-    }, updateList);
+    _User.newActiveLocation(locObj, updateList);
     hideMainSearch();
 }
 
@@ -371,7 +378,7 @@ var assignAppShellLang = function(){
         ['nav-hourly', _Lang.hourly.toUpperCase()],
         ['nav-fiveday', _Lang['5 day'].toUpperCase()],
         ['nav-tenday', _Lang['10 day'].toUpperCase()],
-        ['nav-weekend', 'weekend'],//_Lang['weekend'].toUpperCase()],
+        ['nav-weekend', _Lang['weekend'].toUpperCase()],
         ['nav-map', _Lang.maps.toUpperCase()],
         ['update-current-location', capitalizeEachWord(_Lang['update current location'])],
         ['update-current-location-recent', capitalizeEachWord(_Lang['update current location'])],

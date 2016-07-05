@@ -44,5 +44,3 @@ var _Language = {}; _Lang = {}, _Locales = {};
         });
     };
 
-console.log(_Lang);
-

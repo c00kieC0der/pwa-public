@@ -36,7 +36,7 @@ _User.lang = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replac
 _User.unitPref = savedPco.user && savedPco.user.unit ? savedPco.user.unit : 'e';
 
 if(window.localStorage._Stored_User){
-    _User = JSON.parse(window.localStorage._Stored_User);
+   // _User = JSON.parse(window.localStorage._Stored_User);
 } else {
     window.localStorage._Stored_User = JSON.stringify(_User);
 }
@@ -55,7 +55,6 @@ var saveUser = function(){
     savedPco.products = savedPco.products ? savedPco.products : {};
     savedPco.products.WebPushNotifications = _User.webPush;
     window.localStorage.jStorage = JSON.stringify(savedPco);
-    console.log('requesting new data');
     if(window['_Data']){
         _Data.collectNew();
     }

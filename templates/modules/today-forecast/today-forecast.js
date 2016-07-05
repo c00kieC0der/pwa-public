@@ -81,7 +81,7 @@
         mapData();
         helper.setContent(dataAssignment);
     }
-    document.getElementById('event-anchor').addEventListener('builder', function(){ console.log('event anchor. ');
+    document.getElementById('event-anchor').addEventListener('builder', function(){
         mapData();
         helper.setContent(dataAssignment);
     });
