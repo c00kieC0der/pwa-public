@@ -83,8 +83,9 @@ var getWxIcon = function(skyCode, iconStyle){
     };
 
     var markup = '<div class="svg-icon">';
-    markup += '<img src="' + getIconUrl() + '" />';
+    markup += '<img src="' + getIconUrl() + '">';
     markup += '</div>';
     return markup;
+
 }
 
