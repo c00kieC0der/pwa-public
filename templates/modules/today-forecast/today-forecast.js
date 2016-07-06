@@ -136,14 +136,13 @@ function dayPartClick(detail, clickedId) {
         daypart2 = document.getElementById('daypart-2'),
         daypart3 = document.getElementById('daypart-3');
 
-    if (hasClass(this, 'selected')) {
+    if (helper.hasClass(this, 'selected')) {
         // Do nothing
     } else {
 
-        removeClass(daypart1, 'selected');
-        removeClass(daypart2, 'selected');
-        removeClass(daypart3, 'selected');
-        addClass(document.getElementById(clickedId), 'selected');
+        helper.removeClass(daypart1, 'selected');
+        helper.removeClass(daypart2, 'selected');
+        helper.removeClass(daypart3, 'selected');
+        helper.addClass(document.getElementById(clickedId), 'selected');
     }
 }
-
