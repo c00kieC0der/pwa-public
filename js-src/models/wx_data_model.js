@@ -193,7 +193,7 @@ var _Data = {}, app = {};
             dayData.sunset[i] = formatTime(_Data.dailyForecast.sunset[i]);
             dayData.moonrise[i] = formatTime(_Data.dailyForecast.moonrise[i]);
             dayData.moonset[i] = formatTime(_Data.dailyForecast.moonset[i]);
-            dayData.nightIcon[i] = getWxIcon(dayData.nightIcon[i]);
+            dayData.nightIcon[i] = dayData.nightIcon[i];
         }
         for (var key in dayData){
             _Data.dailyForecast.dayData[key] = dayData[key];
