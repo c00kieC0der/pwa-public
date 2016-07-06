@@ -100,7 +100,7 @@ var _Data = {};
                 daypartName: daily.night.dayPartName[0],
                 highLow: 'Low',
                 phrase: daily.night.phrase[0],
-                wxicon: getWxIcon(daily.night.icon[0]),
+                wxicon: daily.night.icon[0],
                 temperature: daily.night.temperature[0],
                 narrative: daily.night.narrative[0],
                 precip: daily.night.precipPct[0]
@@ -108,7 +108,7 @@ var _Data = {};
                 daypartName: daily.day.dayPartName[1],
                 highLow: 'High',
                 phrase: daily.day.phrase[1],
-                wxicon: getWxIcon(daily.day.icon[1]),
+                wxicon: daily.day.icon[1],
                 temperature: daily.day.temperature[1],
                 narrative: daily.day.narrative[1],
                 precip: daily.day.precipPct[1]
@@ -116,7 +116,7 @@ var _Data = {};
                 daypartName: daily.night.dayPartName[1],
                 highLow: 'Low',
                 phrase: daily.night.phrase[1],
-                wxicon: getWxIcon(daily.night.icon[1]),
+                wxicon: daily.night.icon[1],
                 temperature: daily.night.temperature[1],
                 narrative: daily.night.narrative[1],
                 precip: daily.night.precipPct[1]
@@ -126,7 +126,7 @@ var _Data = {};
                 daypartName: daily.day.dayPartName[0],
                 highLow: 'High',
                 phrase: daily.day.phrase[0],
-                wxicon: getWxIcon(daily.day.icon[0]),
+                wxicon: daily.day.icon[0],
                 temperature: daily.day.temperature[0],
                 narrative: daily.day.narrative[0],
                 precip: daily.day.precipPct[0]
@@ -134,7 +134,7 @@ var _Data = {};
                 daypartName: daily.night.dayPartName[0],
                 highLow: 'Low',
                 phrase: daily.night.phrase[0],
-                wxicon: getWxIcon(daily.night.icon[0]),
+                wxicon: daily.night.icon[0],
                 temperature: daily.night.temperature[0],
                 narrative: daily.night.narrative[0],
                 precip: daily.night.precipPct[0]
@@ -142,7 +142,7 @@ var _Data = {};
                 daypartName: daily.day.dayPartName[1],
                 highLow: 'High',
                 phrase: daily.day.phrase[1],
-                wxicon: getWxIcon(daily.day.icon[1]),
+                wxicon: daily.day.icon[1],
                 temperature: daily.day.temperature[1],
                 narrative: daily.day.narrative[1],
                 precip: daily.day.precipPct[1]
