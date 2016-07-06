@@ -10,39 +10,47 @@ var _Router = {};
             name       : 'today',
             metricName : 'today-forecast',
             title      : 'Your Current Conditions',
-            pos        : '1'
+            pos        : '1',
+            href       : 'today'
         },
         'hourly'  : {
             name       : 'hourly',
             metricName : 'hourly-forecast',
             title      : 'Your Hourly Forecast',
-            pos        : '2'
+            pos        : '2',
+            href       : 'hourly'
         },
         'fiveday'   : {
             name       : 'fiveday',
             metricName : '5day-forecast',
             title      : 'Your Five Day Forecast',
-            pos        : '3'
+            pos        : '3',
+            href       : '5_day'
         },
         'tenday'   : {
             name       : 'tenday',
             metricName : '10day-forecast',
             title      : 'Your Ten Day Forecast',
-            pos        : '4'
+            pos        : '4',
+            href       : '10_day'
         },
         'weekend' : {
             name       : 'weekend',
             metricName : 'weekend-forecast',
             title      : 'Your Weekend Forecast',
-            pos        : '5'
+            pos        : '5',
+            href       : 'weekend'
         },
         'maps' : {
             name        : 'maps',
             metricName  : 'maps',
             title       : 'Your Radar Map',
-            pos         : '6'
+            pos         : '6',
+            href        : 'maps'
         }
     };
+
+
     var changeTo = '', lis;
     _Router.changePage = function(page){
         lis = document.getElementsByClassName('page-nav-li');
@@ -55,13 +63,18 @@ var _Router = {};
         if(!_Router.page){
             _Router.page = 'today';
         }
-        _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[changeTo].metricName, pageAssignment[page].pos);
-        _Router.page = changeTo;
+        helper.getJSON('/js-src/hreflangs/hreflang_' + pageAssignment[page].href + '_page.json').then(function(data){
+            pageAssignment[page].hreflang = data;
 
-        helper.loadTemplateWithClass('page-content', 'pages', changeTo);
-        document.title = pageAssignment[page].title;
-        var loc = _User.activeLocation.locId ? _User.activeLocation.locId : '';
-        history.pushState({changeTo:page}, page, '/' + _User.lang + '/' + _Lang.weather + '/' + _Lang[changeTo] + '/l/' + loc);
+            _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[changeTo].metricName, pageAssignment[page].pos);
+            _Router.page = changeTo;
+
+            helper.loadTemplateWithClass('page-content', 'pages', changeTo);
+            document.title = pageAssignment[page].title;
+            var activeLoc = _User.activeLocation;
+            var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
+            history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
+        });
     };
 
     var pathArr = [];
@@ -84,18 +97,24 @@ var _Router = {};
         }
     };
     var getDefaultLoc = function(pathArr){
-        if (!_User.activeLocation.prsntNm){
+        if(pathArr[5] && (pathArr[5].indexOf(':') > -1 || pathArr[5].indexOf(',') > -1)){
+            _Locations.supplementLoc(pathArr[5]).then(function(data){
+                _User.newActiveLocation(data);
+                 checkPage(pathArr);
+            });
+
+        } else if (!_User.activeLocation.prsntNm){
             _Locations.getDefaultLocation().then(function(){
                 checkPage(pathArr);
             });
+        } else {
+            checkPage(pathArr);
         }
-        checkPage(pathArr);
     };
      var checkPage = function(pathArr){
             if(history.state && history.state.changeTo){
                 _Router.changePage(history.state.changeTo);
             } else {
-                console.log(pathArr);
                 if(window.location.pathname === '/' || !pathArr[3]){
                     _Router.changePage('today');
                 } else {
@@ -105,8 +124,8 @@ var _Router = {};
                             break;
                         } else if(x === pathArr[3]){ //english.
                             _Router.changePage(x);
+                            break;
                         }
-
                     }
                 }
                 //Else, its not a valid URL.  We should probably 404 on this.
@@ -121,10 +140,9 @@ var _Router = {};
     };
 
     _Router.updateURL = function(){
-        console.log('update URL for lang');
-        if(history.state && history.state.changeTo){ console.log('history state', history.state.changeTo);
+        if(history.state && history.state.changeTo){
             _Router.changePage(history.state.changeTo);
-        } else {  console.log(_Router.page);
+        } else {
            _Router.changePage(_Router.page);
         }
     };

@@ -7,11 +7,6 @@
         // Hide other details on first paint
         document.getElementById("dp2-details").style.display = 'none';
         document.getElementById("dp3-details").style.display = 'none';
-
-        //TODO::  Move these units to a global place.
-        var windUnit = _User.unitPref === 'e' ? 'mph' : 'kph';
-        var pressureUnit = _User.unitPref === 'e' ? 'in' : 'mb';
-        var visibilityUnit = _User.unitPref === 'e' ? 'mi' : 'km';
         var bt = _Data.obs.barometerTrend;
         var pressureArrow = bt === 'Falling' ? '<span class="wx-iconfont-global wx-icon-arrow-down-4"></span>' :
             bt === 'Rising' ? '<span class="wx-iconfont-global wx-icon-arrow-up-4"></span>' :
@@ -25,10 +20,10 @@
             ['nowcard-hi-value',    _Data.obs.phrase],
             ['nowcard-lo-value',    _Data.dailyForecast.night.temperature[0]],
             ['nowcard-humidity',    _Data.obs.humidity],
-            ['nowcard-wind',        _Data.obs.windDirCompass + ' ' + _Data.obs.windSpeed + ' ' + windUnit],
+            ['nowcard-wind',        _Data.obs.windDirCompass + ' ' + _Data.obs.windSpeed + ' ' + _User.units.wind],
             ['nowcard-dewpoint',    _Data.obs.dewPoint],
-            ['nowcard-pressure',    _Data.obs.altimeter + ' ' + pressureUnit + ' ' + pressureArrow],
-            ['nowcard-visibility',  _Data.obs.visibility + visibilityUnit],
+            ['nowcard-pressure',    _Data.obs.altimeter + ' ' + _User.units.pressure + ' ' + pressureArrow],
+            ['nowcard-visibility',  _Data.obs.visibility + ' ' + _User.units.visibility],
             ['nowcard-uv-index',    uvIndex],
             ['dp1-daypartName',     _Data.lookingAhead[0].daypartName],
             ['dp1-phrase',          _Data.lookingAhead[0].phrase],
@@ -51,19 +46,19 @@
 
             // Weather Details
             ['dp1-details-narrative', _Data.lookingAhead[0].narrative],
-            ['dp1-details-wind',      _Data.lookingAhead[0].windDirCompass + ' ' + _Data.lookingAhead[0].windSpeed + ' ' + windUnit],
+            ['dp1-details-wind',      _Data.lookingAhead[0].windDirCompass + ' ' + _Data.lookingAhead[0].windSpeed + ' ' + _User.units.wind],
             ['dp1-details-humidity',  _Data.lookingAhead[0].humidity],
             ['dp1-details-uvIndex',   _Data.lookingAhead[0].uvIndex + ' of 10'],
             ['dp1-details-sunrise',   _Data.lookingAhead[0].sunrise],
             ['dp1-details-sunset',    _Data.lookingAhead[0].sunset],
             ['dp2-details-narrative', _Data.lookingAhead[1].narrative],
-            ['dp2-details-wind',      _Data.lookingAhead[1].windDirCompass + ' ' + _Data.lookingAhead[1].windSpeed + ' ' + windUnit],
+            ['dp2-details-wind',      _Data.lookingAhead[1].windDirCompass + ' ' + _Data.lookingAhead[1].windSpeed + ' ' + _User.units.wind],
             ['dp2-details-humidity',  _Data.lookingAhead[1].humidity],
             ['dp2-details-uvIndex',   _Data.lookingAhead[1].uvIndex + ' of 10'],
             ['dp2-details-sunrise',   _Data.lookingAhead[1].sunrise],
             ['dp2-details-sunset',    _Data.lookingAhead[1].sunset],
             ['dp3-details-narrative', _Data.lookingAhead[2].narrative],
-            ['dp3-details-wind',      _Data.lookingAhead[2].windDirCompass + ' ' + _Data.lookingAhead[2].windSpeed + ' ' + windUnit],
+            ['dp3-details-wind',      _Data.lookingAhead[2].windDirCompass + ' ' + _Data.lookingAhead[2].windSpeed + ' ' + _User.units.wind],
             ['dp3-details-humidity',  _Data.lookingAhead[2].humidity],
             ['dp3-details-uvIndex',   _Data.lookingAhead[2].uvIndex + ' of 10'],
             ['dp3-details-sunrise',   _Data.lookingAhead[2].sunrise],

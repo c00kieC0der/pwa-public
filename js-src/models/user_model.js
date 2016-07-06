@@ -7,6 +7,11 @@
 var _User = {
     loggedIn : false,
     unitPref : 'e',
+    units : {
+      wind : 'mph',
+      pressure : 'in',
+      visibility : 'mi'
+    },
     lang : 'en-US',
     locations: [],
     activeLocation : {
@@ -72,6 +77,9 @@ _User.setLanguage = function(language){
 
 _User.setUnitPreference = function(unit){
     _User.unitPref = unit;
+    _User.units.wind = unit === 'e' ? 'mph' : 'kph';
+    _User.units.pressure = unit === 'e' ? 'in' : 'mb';
+    _User.units.visibility = unit === 'e' ? 'mi' : 'km';
     saveUser();
 };
 
