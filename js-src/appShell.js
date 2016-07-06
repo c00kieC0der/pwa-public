@@ -2,8 +2,24 @@
  * Created by omkard on 6/5/16.
  */
 
-var downArrayClicked = false;
+var downArrayClicked = false;http://localhost:5001/en-US/weather/today/l/
 
+    /**
+     * function to control the nav width
+     */
+    window.onload = navAppShell();
+    window.resize = navAppShell();
+
+
+    function navAppShell() {
+            var navListEle = document.getElementsByClassName('page-nav-li');
+            var navUlEle = document.getElementsByClassName('page-nav');
+            var navItemwidth = 0;
+            for(i=0; i<navListEle.length; i++){
+                navItemwidth += navListEle[i].offsetWidth;
+            }
+            navUlEle[0].style.width = navItemwidth + 'px';
+    }
 /**
  * showMainMenu() shows the hamburger menu when clicked
  */
@@ -41,7 +57,7 @@ function showMainSearch() {
     helper.empty('recently-searched');
     var container = document.getElementById('recently-searched');
     for(var i in _User.locations){
-        container.innerHTML += '<li class="results"><a onclick="javascript:searchResultsClicked(this, ' + _User.locations[i].lat + ', ' + _User.locations[i].long + ', false)" class="dropdown-name">' + _User.locations[i].prsntNm + '</a></li>';
+        container.innerHTML += '<li class="results"><a onclick="javascript:searchResultsClicked(this, ' + i +  ', \'' + _User.locations[i].prsntNm  + '\', false, false )" class="dropdown-name">' + _User.locations[i].prsntNm + '</a></li>';
     }
 }
 
@@ -60,9 +76,9 @@ function searchResults() {
         var searchResults = lookupLocations(currentValue);
         if(_Locations.results !== undefined) {
             var cityList = '';
-            for (i=0; i<_Locations.results.length; i++ ) {
-                var latLongArray = _Locations.results[i].geocode.split(',');
-                cityList += '<li class="results"><a class="name" onclick="searchResultsClicked(this, ' +latLongArray[0] + ',' + latLongArray[1] + ', true)"> '+_Locations.results[i].cityNm+', '+_Locations.results[i].stCd+'  </a></li>';
+            for (var i=0; i<_Locations.results.length; i++ ) {
+                var prsntNm = _Locations.results[i].cityNm + ', ' + _Locations.results[i].stCd;
+                cityList += '<li class="results"><a class="name" onclick="searchResultsClicked(this, ' + i + ', \'' + prsntNm + '\', true, true)"> ' + prsntNm + '  </a></li>';
             }
             document.getElementById('search-results-list').innerHTML = cityList;
         }
@@ -72,18 +88,25 @@ function searchResults() {
 
 
 
-function searchResultsClicked(ele, lat, long, updateList) {
+function searchResultsClicked(ele, locObjID, prsntNm, updateList, useSearch) {
+    var locObj = useSearch ? _Locations.results[locObjID] : _User.locations[locObjID];
+    if(prsntNm){
+        locObj.prsntNm = prsntNm;
+    }
+    if(!locObj.lat && locObj.geocode){
+        var geoArr = locObj.geocode.split(',');
+        console.log(geoArr);
+        locObj.lat = geoArr[0];
+        locObj.long = geoArr[1];
+    }
+
     var pwaHeader = document.getElementById('pwa-header');
     if(pwaHeader.className.match('.pwa-header-active')){
         pwaHeader.className = 'header';
         showHide('main-search', 0);
     }
     document.getElementById('activeLocName').innerHTML = ele.innerHTML;
-    _User.newActiveLocation({
-        lat     : lat,
-        long    : long,
-        prsntNm : ele.innerHTML
-    }, updateList);
+    _User.newActiveLocation(locObj, updateList);
     hideMainSearch();
 }
 
@@ -309,40 +332,6 @@ document.getElementById('event-anchor').addEventListener('builder', function(){
 });
 
 
-
-function hasClass(elem, className) {
-    return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
-}
-
-function addClass(elem, className) {
-    if (!hasClass(elem, className)) {
-        elem.className += ' ' + className;
-    }
-}
-
-function removeClass(elem, className) {
-    var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
-    if (hasClass(elem, className)) {
-        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
-            newClass = newClass.replace(' ' + className + ' ', ' ');
-        }
-        elem.className = newClass.replace(/^\s+|\s+$/g, '');
-    }
-}
-
-
-function toggleClass(elem, className) {
-    var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
-    if (hasClass(elem, className)) {
-        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
-            newClass = newClass.replace( ' ' + className + ' ' , ' ' );
-        }
-        elem.className = newClass.replace(/^\s+|\s+$/g, '');
-    } else {
-        elem.className += ' ' + className;
-    }
-}
-
 /*
  *  Translations
  */
@@ -355,7 +344,7 @@ var assignAppShellLang = function(){
         ['nav-hourly', _Lang.hourly.toUpperCase()],
         ['nav-fiveday', _Lang['5 day'].toUpperCase()],
         ['nav-tenday', _Lang['10 day'].toUpperCase()],
-        ['nav-weekend', 'weekend'],//_Lang['weekend'].toUpperCase()],
+        ['nav-weekend', _Lang['weekend'].toUpperCase()],
         ['nav-map', _Lang.maps.toUpperCase()],
         ['update-current-location', capitalizeEachWord(_Lang['update current location'])],
         ['update-current-location-recent', capitalizeEachWord(_Lang['update current location'])],

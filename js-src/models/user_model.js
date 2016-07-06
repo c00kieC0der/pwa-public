@@ -7,6 +7,11 @@
 var _User = {
     loggedIn : false,
     unitPref : 'e',
+    units : {
+      wind : 'mph',
+      pressure : 'in',
+      visibility : 'mi'
+    },
     lang : 'en-US',
     locations: [],
     activeLocation : {
@@ -36,7 +41,7 @@ _User.lang = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replac
 _User.unitPref = savedPco.user && savedPco.user.unit ? savedPco.user.unit : 'e';
 
 if(window.localStorage._Stored_User){
-    _User = JSON.parse(window.localStorage._Stored_User);
+   // _User = JSON.parse(window.localStorage._Stored_User);
 } else {
     window.localStorage._Stored_User = JSON.stringify(_User);
 }
@@ -55,7 +60,6 @@ var saveUser = function(){
     savedPco.products = savedPco.products ? savedPco.products : {};
     savedPco.products.WebPushNotifications = _User.webPush;
     window.localStorage.jStorage = JSON.stringify(savedPco);
-    console.log('requesting new data');
     if(window['_Data']){
         _Data.collectNew();
     }
@@ -73,6 +77,9 @@ _User.setLanguage = function(language){
 
 _User.setUnitPreference = function(unit){
     _User.unitPref = unit;
+    _User.units.wind = unit === 'e' ? 'mph' : 'kph';
+    _User.units.pressure = unit === 'e' ? 'in' : 'mb';
+    _User.units.visibility = unit === 'e' ? 'mi' : 'km';
     saveUser();
 };
 
