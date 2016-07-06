@@ -25,6 +25,11 @@ var concat = require('gulp-concat');
 var webserver = require('gulp-webserver');
 var path = require('path');
 var swPrecache = require('sw-precache');
+var argv = require('yargs').argv;
+var autoprefixer = require('gulp-autoprefixer');
+var rtlcss = require('gulp-rtlcss');
+var rename = require('gulp-rename');
+var mergeStream = require('merge-stream');
 
 gulp.task('generate-service-worker', function(callback) {
     var rootDir = './';
@@ -111,6 +116,37 @@ gulp.task('unit', function(){
 gulp.task('css-minify', function() {
     // place code for your default task here
 });
+
+// RTL content with autoprefixer
+gulp.task('css-rtl', function () {
+    var args = argv;
+    // if there is --style-module passed then do below.
+    if(args.module) {
+        console.log(args.module);
+        return gulp.src(['styles/**/*.css', '!styles/**/*-rtl.css'], {base: 'styles/**/' })
+            .pipe(autoprefixer(["last 2 versions", "> 1%"]))
+            .pipe(gulp.dest('styles/**/')) // Output LTR stylesheets.
+            .pipe(rtlcss()) // Convert to RTL.
+            .pipe(rename({ suffix: '-rtl' })) // Append "-rtl" to the filename.
+            .pipe(gulp.dest('styles/**/')); // Output RTL stylesheets.
+    }
+    var styles = gulp.src(['styles/**/*.css', '!styles/**/*-rtl.css'], {base: 'styles/**/' })
+        .pipe(autoprefixer(["last 2 versions", "> 1%"]))
+        .pipe(gulp.dest('styles/**/')) // Output LTR stylesheets.
+        .pipe(rtlcss()) // Convert to RTL.
+        .pipe(rename({ suffix: '-rtl' })) // Append "-rtl" to the filename.
+        .pipe(gulp.dest('styles/**/')); // Output RTL stylesheets.
+                                        //
+    var templates = gulp.src(['templates/modules/**/*.css', '!templates/modules/**/*-rtl.css'], {base: 'templates/modules/**/' })
+        .pipe(autoprefixer(["last 2 versions", "> 1%"]))
+        .pipe(gulp.dest('templates/modules/**/')) // Output LTR stylesheets.
+        .pipe(rtlcss()) // Convert to RTL.
+        .pipe(rename({ suffix: '-rtl' })) // Append "-rtl" to the filename.
+        .pipe(gulp.dest('templates/modules/**/')); // Output RTL stylesheets.
+    return mergeStream([styles, templates]);
+
+});
+
 
 gulp.task('download-translations', function() {
     fs.readFile('./keys.json', 'utf-8', function(err, data) {

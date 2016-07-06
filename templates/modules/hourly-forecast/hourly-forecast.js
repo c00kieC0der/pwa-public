@@ -12,7 +12,7 @@
         ['js-precip',      'precipPct'],
         ['js-humidity',    'rh'],
         ['js-wind-direction',        'windDirCompass'],
-        ['js-wind-speed',  'windSpeed']
+        ['js-wind-speed',  'windSpeed', _User.units.wind]
     ];
     /*
         What div,
@@ -22,11 +22,11 @@
         do it how many times?
      */
     if(_Data.hourly){
-        helper.ngRepeat('ls-row-wrap-10day', 'ls-row-wrap-10day', ngRepeatMap, _Data.hourly, 12);
+        domReady(helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12));
     }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {
-        helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12);
+        domReady(helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12))
     });
 
     var hourlyForecastLangs = [];

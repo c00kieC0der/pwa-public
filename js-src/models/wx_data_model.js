@@ -59,6 +59,8 @@ var _Data = {}, app = {};
                 _Data.precipitation = data.vt1precipitation;
                 _Data.fifteen = data.vt1fifteenminute;
                 _Data.hourly = data.vt1hourlyForecast;
+                getDayData();
+                getWeekendData();
                 massageData();
                 document.getElementById('event-anchor').dispatchEvent(eventData);
                 app.hasRequestPending = false;
@@ -223,22 +225,18 @@ var _Data = {}, app = {};
         return daysOfWeek[dateBase.getDay()] + ', ' + monthsOfYear[dateBase.getMonth()] + ' ' + dateBase.getDate();
     };
     /*
-     Getting names of days and month/days. These three functions should be able to be combined
+    returns array of curr date information. Can be combined with above function with some work if approved
      */
-    var getDayName = function (fullDate){
+    var formatDateArray = function(fullDate){
         var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
-        //change currday to today
-        var dateBase = new Date(fullDate);
-        return daysOfWeek[dateBase.getDay()];
-    };
-    var getDayIndex = function (fullDate){
-        return new Date(fullDate).getDay();
-    };
-    var getMonthDate= function(fullDate){
         var monthsOfYear = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
         var dateBase = new Date(fullDate);
-        return monthsOfYear[dateBase.getMonth()] + ' ' + dateBase.getDate();
-    };
+        return{
+            dayName:daysOfWeek[dateBase.getDay()],
+            date:monthsOfYear[dateBase.getMonth()]+' '+dateBase.getDate(),
+            dayIndex:dateBase.getDay()
+        };
+    }
 
     /*
      Formats dailyforecast datetimes, currently used for sunrise/sunset, and moonrise/moonset
@@ -269,8 +267,6 @@ var _Data = {}, app = {};
         };
         formatDFDateTimes(sunMoonData);
         _Data.tenDay = _Data.dailyForecast.day;
-
-        getDayData();
         _Data.hourly.time = [];
         _Data.hourly.date = [];
         _Data.lookingAhead = getLookingAhead();
@@ -280,58 +276,84 @@ var _Data = {}, app = {};
         }
     };
 
-
     var getDayData = function () {
         //Day night data, should be optimized
-        _Data.dailyForecast.dayData = {};
-        _Data.dailyForecast.dayData.day = _Data.dailyForecast.day;
-        _Data.dailyForecast.dayData.day.night =_Data.dailyForecast.night;
-        _Data.dailyForecast.dayData.day.dateDay =[];
-        _Data.dailyForecast.dayData.dateDayIndex =[];
-        _Data.dailyForecast.dayData.day.dateMonthDate =[];
-        _Data.dailyForecast.dayData.day.sunrise =[];
-        _Data.dailyForecast.dayData.day.sunset =[];
-        _Data.dailyForecast.dayData.day.moonrise =[];
-        _Data.dailyForecast.dayData.day.moonset =[];
-        ////Night Data////
-        //_Data.dailyForecast.dayData.day.night.date =[];
-        var info = _Data.dailyForecast.night;
-        var dayData = _Data.dailyForecast.dayData.day;
-        dayData.nightPrecipPct = info.precipPct;
-        dayData.nightLows = info.temperature;
-        dayData.nightUVIndex = info.uvIndex;
-        dayData.nightIcon = info["icon"];
-        dayData.nightIconExtended = info.iconExtended;
-        dayData.nightPhrase = info.phrase;
-        dayData.nightNarrative = info.narrative;
-        dayData.nightWindDirCompass = info.windDirCompass;
-        dayData.nightWindSpeed = info.windSpeed;
-        dayData.nightHumidityPct = info.humidityPct;
-        //console.log("Test night value: "+_Data.dailyForecast.dayData.day.nightIcon[0]);
-
-
-
+        _Data.dailyForecast.dayData = _Data.dailyForecast.day;
+        var nightly = _Data.dailyForecast.night;
+        var dayData= {
+            dateDay: [],
+            dateDayIndex: [],
+            dateMonthDate: [],
+            sunrise: [],
+            sunset: [],
+            moonrise: [],
+            moonset: [],
+            ////Night Data////
+            dayTemp: _Data.dailyForecast.day.temperature,
+            nightPrecipPct: nightly.precipPct,
+            nightTemp: nightly.temperature,
+            nightUVIndex: nightly.uvIndex,
+            nightIcon: nightly["icon"],
+            nightIconExtended: nightly.iconExtended,
+            nightPhrase: nightly.phrase,
+            nightNarrative: nightly.narrative,
+            nightWindDirCompass: nightly.windDirCompass,
+            nightWindSpeed: nightly.windSpeed,
+            nightHumidityPct: nightly.humidityPct,
+            dateNight: []
+        };
 
         for (var i in _Data.dailyForecast.validDate) {
-            _Data.dailyForecast.dayData.day.dateDay[i] = (_Data.dailyForecast.day.dayPartName[i]==="Today"?
-                "Today":getDayName(_Data.dailyForecast.validDate[i]));
-            _Data.dailyForecast.dayData.dateDayIndex[i] = getDayIndex(_Data.dailyForecast.validDate[i]);
-            _Data.dailyForecast.dayData.day.dateMonthDate[i] = getMonthDate(_Data.dailyForecast.validDate[i]);
-            //_Data.dailyForecast.dayData.day.night.date[i] = formatDate(_Data.dailyForecast.validDate[i]);
-
-            _Data.dailyForecast.dayData.day.sunrise[i] = formatTime(_Data.dailyForecast.sunrise[i]);
-            _Data.dailyForecast.dayData.day.sunset[i] = formatTime(_Data.dailyForecast.sunset[i]);
-            _Data.dailyForecast.dayData.day.moonrise[i] = formatTime(_Data.dailyForecast.moonrise[i]);
-            _Data.dailyForecast.dayData.day.moonset[i] = formatTime(_Data.dailyForecast.moonset[i]);
+            var dateInfo = formatDateArray(_Data.dailyForecast.validDate[i]);
+            //Does this take translation into account? Should be fixed
+            dayData.dateDay[i] = (_Data.dailyForecast.day.dayPartName[i]==="Today"?"Today":dateInfo.dayName);
+            dayData.dateNight[i] = dayData.dateDay[i] ==="Today"?"Tonight":dateInfo.dayName + " Night";
+            dayData.dateDayIndex[i] = dateInfo.dayIndex;
+            dayData.dateMonthDate[i] = dateInfo.date;
+            dayData.sunrise[i] = formatTime(_Data.dailyForecast.sunrise[i]);
+            dayData.sunset[i] = formatTime(_Data.dailyForecast.sunset[i]);
+            dayData.moonrise[i] = formatTime(_Data.dailyForecast.moonrise[i]);
+            dayData.moonset[i] = formatTime(_Data.dailyForecast.moonset[i]);
+            dayData.nightIcon[i] = dayData.nightIcon[i];
         }
-        //_Data.dailyForecast.dayData.day.date = _Data.dailyForecast.validDate;
-        _Data.dailyForecast.dayData.day.highs = _Data.dailyForecast.day.temperature;
-        _Data.dailyForecast.dayData.day.lows = _Data.dailyForecast.night.temperature;
-        //For replacing null values. Will rewrite and finish
-        for(var i in _Data.dailyForecast.dayData.day.highs = _Data.dailyForecast.day.temperature){
-            if(_Data.dailyForecast.dayData.day.highs[i]==null){};
+        for (var key in dayData){
+            _Data.dailyForecast.dayData[key] = dayData[key];
         }
     };
+    //Must be called after getDayData
+    var getWeekendData = function () {
+        //var dayLimit = 6;
+        //if (_Data.dayData.day.dateDayIndex[0] ==6){};
+        //else if(_Data.dayData.day.dateDayIndex[0] ==6){};
+        _Data.dailyForecast.currWeekendData = [];
+        _Data.dailyForecast.nextWeekendData = [];
+        var currWeekDataFound = false;
+        var counter = 0;
+        for(var i in _Data.dailyForecast.dayData.dateDayIndex){
+            if(_Data.dailyForecast.dayData.dateDayIndex.hasOwnProperty(i)&&
+                (_Data.dailyForecast.dayData.dateDayIndex[i]>4||_Data.dailyForecast.dayData.dateDayIndex[i]===0)) {
+                //Indicates Fri, sat, or sun
+                if(!currWeekDataFound) {
+                    for (var key in _Data.dailyForecast.dayData) {
+                        if(!_Data.dailyForecast.currWeekendData[key])_Data.dailyForecast.currWeekendData[key]=[];
+                        _Data.dailyForecast.currWeekendData[key][counter] = _Data.dailyForecast.dayData[key][i];
+                    }
+                    counter++;
+                }
+                else
+                    for (var key in _Data.dailyForecast.dayData) {
+                        if(!_Data.dailyForecast.nextWeekendData[key])_Data.dailyForecast.nextWeekendData[key]=[];
+                        _Data.dailyForecast.nextWeekendData[key][counter] = _Data.dailyForecast.dayData[key][i];
+                    }
+                if(_Data.dailyForecast.dayData.dateDayIndex[i]==0){
+                    if(currWeekDataFound==true)break;
+                    currWeekDataFound = true;
+                    counter = 0;
+                }
+            }
+        }
+    };
+
 
     var getLookingAhead = function () {
         var daily = _Data.dailyForecast, retData = [];
@@ -341,7 +363,7 @@ var _Data = {}, app = {};
                 daypartName: daily.night.dayPartName[0],
                 highLow: 'Low',
                 phrase: daily.night.phrase[0],
-                wxicon: getWxIcon(daily.night.icon[0]),
+                wxicon: daily.night.icon[0],
                 temperature: daily.night.temperature[0],
                 narrative: daily.night.narrative[0],
                 precip: daily.night.precipPct[0],
@@ -357,7 +379,7 @@ var _Data = {}, app = {};
                 daypartName: daily.day.dayPartName[1],
                 highLow: 'High',
                 phrase: daily.day.phrase[1],
-                wxicon: getWxIcon(daily.day.icon[1]),
+                wxicon: daily.day.icon[1],
                 temperature: daily.day.temperature[1],
                 narrative: daily.day.narrative[1],
                 precip: daily.day.precipPct[1],
@@ -373,7 +395,7 @@ var _Data = {}, app = {};
                 daypartName: daily.night.dayPartName[1],
                 highLow: 'Low',
                 phrase: daily.night.phrase[1],
-                wxicon: getWxIcon(daily.night.icon[1]),
+                wxicon: daily.night.icon[1],
                 temperature: daily.night.temperature[1],
                 narrative: daily.night.narrative[1],
                 precip: daily.night.precipPct[1],
@@ -391,7 +413,7 @@ var _Data = {}, app = {};
                 daypartName: daily.day.dayPartName[0],
                 highLow: 'High',
                 phrase: daily.day.phrase[0],
-                wxicon: getWxIcon(daily.day.icon[0]),
+                wxicon: daily.day.icon[0],
                 temperature: daily.day.temperature[0],
                 narrative: daily.day.narrative[0],
                 precip: daily.day.precipPct[0],
@@ -407,7 +429,7 @@ var _Data = {}, app = {};
                 daypartName: daily.night.dayPartName[0],
                 highLow: 'Low',
                 phrase: daily.night.phrase[0],
-                wxicon: getWxIcon(daily.night.icon[0]),
+                wxicon: daily.night.icon[0],
                 temperature: daily.night.temperature[0],
                 narrative: daily.night.narrative[0],
                 precip: daily.night.precipPct[0],
@@ -423,7 +445,7 @@ var _Data = {}, app = {};
                 daypartName: daily.day.dayPartName[1],
                 highLow: 'High',
                 phrase: daily.day.phrase[1],
-                wxicon: getWxIcon(daily.day.icon[1]),
+                wxicon: daily.day.icon[1],
                 temperature: daily.day.temperature[1],
                 narrative: daily.day.narrative[1],
                 precip: daily.day.precipPct[1],
@@ -444,17 +466,19 @@ var _Data = {}, app = {};
      Formats solar noon dates and times.
      */
     var massageSolarData = function(){
-        _Data.solarData.noonTime=[];
-        _Data.solarData.noonDate=[];
-        _Data.solarData.moonIcons =[];
-        var moonIcCount=0;
-        for(var j in _Data.solarData.AstroData){
-            if(_Data.solarData.AstroData.hasOwnProperty(j)) {
-                _Data.solarData.noonTime[j] = formatTime(_Data.solarData.AstroData[j].sun.zenith.local);
-                _Data.solarData.noonDate[j] = formatDate(_Data.solarData.AstroData[j].sun.zenith.local);
-                _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet.riseIcon);
-                _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet["setIcon"]);
+        if(_Data && _Data.solarData){
+            _Data.solarData.noonTime=[];
+            _Data.solarData.noonDate=[];
+            _Data.solarData.moonIcons =[];
+            var moonIcCount=0;
+            for(var j in _Data.solarData.AstroData){
+                if(_Data.solarData.AstroData.hasOwnProperty(j)) {
+                    _Data.solarData.noonTime[j] = formatTime(_Data.solarData.AstroData[j].sun.zenith.local);
+                    _Data.solarData.noonDate[j] = formatDate(_Data.solarData.AstroData[j].sun.zenith.local);
+                    _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet.riseIcon);
+                    _Data.solarData.moonIcons[moonIcCount++]= (_Data.solarData.AstroData[j].moon.riseSet["setIcon"]);
 
+                }
             }
         }
     };

@@ -1,7 +1,7 @@
 {
   "name": "root",
   "version": "1.0.0",
-  "description": "",
+  "description": "Progressive Web App",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,13 +15,25 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-jasmine": "^2.4.0",
     "gulp-jshint": "^2.0.1",
     "gulp-minify": "0.0.12",
+    "gulp-rename": "^1.2.2",
+    "gulp-rtlcss": "^1.0.0",
     "gulp-webserver": "^0.9.1",
     "jshint": "^2.9.2",
+    "merge-stream": "^1.0.0",
     "minify": "^2.0.9",
     "sw-precache": "^3.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheWeatherCompany/pwa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheWeatherCompany/pwa/issues"
+  },
+  "homepage": "https://github.com/TheWeatherCompany/pwa#readme"
 }

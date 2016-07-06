@@ -1,4 +1,4 @@
-var getWxIcon = function(skyCode){
+var getWxIcon = function(skyCode, iconStyle){
     var config = {
         basePath: '/assets/wxicon/',
         pngPath: 'png/',
@@ -53,8 +53,14 @@ var getWxIcon = function(skyCode){
         return !forcePNG ? (config.useSVGz ? '.svgz' : '.svg') : '.png';
     };
     function getImagePath(forcePNG) {
-        var iconPath = !forcePNG ? (config.useSVGz ? config.svgzPath : config.svgPath) : config.pngPath;
-        return config.basePath + iconPath;
+        if (typeof iconStyle !== "undefined") {
+            var iconPath = !forcePNG ? (config.useSVGz ? config.svgzPath + iconStyle + '/' : config.svgPath + iconStyle + '/') : config.pngPath + + iconStyle + '/' + '/';
+            return config.basePath + iconPath;
+        } else {
+            var iconPath = !forcePNG ? (config.useSVGz ? config.svgzPath : config.svgPath) : config.pngPath ;
+            return config.basePath + iconPath;
+
+        }
     };
     function getIconName() {
         var iconName;
@@ -77,8 +83,9 @@ var getWxIcon = function(skyCode){
     };
 
     var markup = '<div class="svg-icon">';
-    markup += '<img src="' + getIconUrl() + '" />';
+    markup += '<img src="' + getIconUrl() + '">';
     markup += '</div>';
     return markup;
+
 }
 
