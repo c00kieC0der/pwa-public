@@ -96,7 +96,7 @@ var _Router = {};
             });
         }
     };
-    var RTLs = ['ar-AE', 'fa-IR'];
+    var RTLs = ['ar-AE', 'fa-IR', 'he-IL', 'ur-PK'];
     var setRTL = function(){
         if(RTLs.indexOf(_User.lang) > -1){
             document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");
