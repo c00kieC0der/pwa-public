@@ -74,6 +74,7 @@ var _Router = {};
             var activeLoc = _User.activeLocation;
             var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
             history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
+            _Router.dispatchAds();
         });
     };
 
@@ -96,7 +97,16 @@ var _Router = {};
             });
         }
     };
+    var RTLs = ['ar-AE', 'fa-IR', 'he-IL', 'ur-PK'];
+    var setRTL = function(){
+        if(RTLs.indexOf(_User.lang) > -1){
+            document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");
+        } else {
+            document.getElementsByTagName("html")[0].setAttribute("dir", "ltr");
+        }
+    };
     var getDefaultLoc = function(pathArr){
+        setRTL();
         if(pathArr[5] && (pathArr[5].indexOf(':') > -1 || pathArr[5].indexOf(',') > -1)){
             _Locations.supplementLoc(pathArr[5]).then(function(data){
                 _User.newActiveLocation(data);
@@ -145,6 +155,14 @@ var _Router = {};
         } else {
            _Router.changePage(_Router.page);
         }
+    };
+
+    _Router.dispatchAds = function(){
+        domReady(function() {
+            if (window['AdCtrl'] && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
+                document.dispatchEvent(AdCtrl.Promises.loadAds);
+            }
+        });
     };
 })();
 
