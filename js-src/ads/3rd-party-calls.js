@@ -1,23 +1,23 @@
 
-// Weather FX Triggers Closure
 
+(function($$) {
+    $$.utils.getParameterByName = function (name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    };
 
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
+    var amzn = $$.utils.getParameterByName('amzn') || '';
+    var wxftg = $$.utils.getParameterByName('wxftg') || '';
+    var criteo = $$.utils.getParameterByName('criteo') || '';
 
-var amzn = getParameterByName('amzn') || '';
-var wxftg = getParameterByName('wxftg') || '';
-var criteo = getParameterByName('criteo') || '';
+    // Weather FX Triggers Closure
 
-if(wxftg !== "false" ){
-    (function ($$) {
+    if (wxftg !== "false") {
         /** Need to pull in localStorage to find:
          *  lastVisited location
          *  first saved location
@@ -35,64 +35,60 @@ if(wxftg !== "false" ){
         var user = savedPco.user && savedPco.user.recentSearchLocations ? savedPco.user.recentSearchLocations : [];
 
         var locale = savedPco.user && savedPco.user.locale ? savedPco.user.locale : "en_US",
-            pageLoc = window.explicit_location_obj,
-            zcs = pageLoc && pageLoc.zipCd || user && user.lastVisitedLocation && user.lastVisitedLocation.zipCd ||
-                user && user.savedLocations && user.savedLocations[0] && user.savedLocations[0].zipCd ||
-                user && user.recentSearchLocations && user.recentSearchLocations[0] && user.recentSearchLocations[0].zipCd || "",
-            nzcs = zcs,
-            hzcs = user && user.currentLocation && user.currentLocation.zipCd || "",
-            getVal = function (scatterSegs, idx, key, prop) {
-                return (scatterSegs[idx] &&
-                    scatterSegs[idx][key] &&
-                    scatterSegs[idx][key][0] &&
-                    scatterSegs[idx][key][0][prop]) || [];
-            };
+          pageLoc = window.explicit_location_obj,
+          zcs = pageLoc && pageLoc.zipCd || user && user.lastVisitedLocation && user.lastVisitedLocation.zipCd ||
+            user && user.savedLocations && user.savedLocations[0] && user.savedLocations[0].zipCd ||
+            user && user.recentSearchLocations && user.recentSearchLocations[0] && user.recentSearchLocations[0].zipCd || "",
+          nzcs = zcs,
+          hzcs = user && user.currentLocation && user.currentLocation.zipCd || "",
+          getVal = function (scatterSegs, idx, key, prop) {
+              return (scatterSegs[idx] &&
+                scatterSegs[idx][key] &&
+                scatterSegs[idx][key][0] &&
+                scatterSegs[idx][key][0][prop]) || [];
+          };
         var acctid = '5E2FB6';
 
         acctid = (locale === 'de_DE') && 'B98RXZ' || acctid;
         var wxftgUrl = "//triggers.wfxtriggers.com/json/?resp_type=json&acctid=" + acctid + "&current=true&zcs=" + zcs + "&nzcs=" + nzcs;
-        var successCallBack = function(data){
+        var successCallBack = function (data) {
             console.log('wfxtgReturned', new Date().getTime() - window.renderStartTime);
             var triggers = data && data.wfxtg,
-                wfxtg = Array.isArray(data.wfxtg.current) && data.wfxtg.current.join(',') || "",
-                scatterSegs = Array.isArray(triggers.scatterSegs) && triggers.scatterSegs,
-                zcsScatterSegs = getVal(scatterSegs, 0, "zcs", "segments"),
-                nzvsScatterSegs = getVal(scatterSegs, 1, "nzcs", "segments"),
-                cxtgScatterSegs = getVal(scatterSegs, 0, "zcs", "cxtg"),
-                cxtg = cxtgScatterSegs.join(","),
-                zcs = zcsScatterSegs.join(","),
-                nzcs = nzvsScatterSegs.join(",");
+              wfxtg = Array.isArray(data.wfxtg.current) && data.wfxtg.current.join(',') || "",
+              scatterSegs = Array.isArray(triggers.scatterSegs) && triggers.scatterSegs,
+              zcsScatterSegs = getVal(scatterSegs, 0, "zcs", "segments"),
+              nzvsScatterSegs = getVal(scatterSegs, 1, "nzcs", "segments"),
+              cxtgScatterSegs = getVal(scatterSegs, 0, "zcs", "cxtg"),
+              cxtg = cxtgScatterSegs.join(","),
+              zcs = zcsScatterSegs.join(","),
+              nzcs = nzvsScatterSegs.join(",");
 
             $$.custParams = $$.custParams || {};
             $$.custParams['wfxtg'] = wfxtg;
             $$.custParams['scatter_zcs'] = zcs;
             $$.custParams['scatter_nzcs'] = nzcs;
             $$.custParams['scatter_cxtg'] = cxtg;
-            $$.wxftgPromise.resolve();
+            $$.Promises.wfxtgPromise.resolve();
             console.log('wfxtgResolved', new Date().getTime() - window.renderStartTime);
 
         };
 
         //  AJAX request for weather fx
-        jsonp(wxftgUrl, successCallBack);
+        $$.utils.jsonp(wxftgUrl, successCallBack);
 
-    })(TWC.adUtils || {});
+    } else {
+        $$.Promises.wfxtgPromise.resolve();
 
-} else{
-    TWC.adUtils.wxftgPromise.resolve();
-
-}
+    }
 
 // AMAZON SLOTS CLOSURE
 
-if(amzn !== "false") {
-
-    (function (amznads, $$) {
+    if (amzn !== "false") {
+        window.amznads = window.amznads || {};
         console.log('amznStart', new Date().getTime() - window.renderStartTime);
-        window.amznads = amznads;
 
         var locale = "en_US",
-            amznid = locale === 'de_DE' && '3128' || '1004';
+          amznid = locale === 'de_DE' && '3128' || '1004';
 
         amznads.asyncParams = {
             id: amznid,
@@ -100,7 +96,7 @@ if(amzn !== "false") {
                 var targeting = amznads.getTargeting();
                 if (!amznads.hasAds() || !targeting) {
                     // Failed
-                    $$.amznSlotsPromise.resolve("amznSlots");
+                    $$.Promises.amznSlotsPromise.resolve("amznSlots");
                     console.log("error amzn", $$.custParams);
                     console.log('amznErrored', new Date().getTime() - window.renderStartTime);
 
@@ -121,7 +117,7 @@ if(amzn !== "false") {
                     $$.custParams['amzn_vid'] = '';
                 }
 
-                $$.amznSlotsPromise.resolve("amznSlots");
+                $$.Promises.amznSlotsPromise.resolve("amznSlots");
                 console.log("success amzn", $$.custParams);
                 console.log('amznResolved', new Date().getTime() - window.renderStartTime);
 
@@ -129,20 +125,18 @@ if(amzn !== "false") {
             },
             timeout: 2000
         };
-        jsonp('//c.amazon-adsystem.com/aax2/amzn_ads.js');
-    })(window.amznads || {}, TWC.adUtils || {});
-}
-else{
-    TWC.adUtils.amznSlotsPromise.resolve("amznSlots");
-}
+        $$.utils.jsonp('//c.amazon-adsystem.com/aax2/amzn_ads.js');
+    }
+    else {
+        $$.Promises.amznSlotsPromise.resolve("amznSlots");
+    }
 
 // CRITEO Closure
 
-if(criteo !== "false") {
+    if (criteo !== "false") {
 
-    (function ($$) {
         console.log('criteoStart', new Date().getTime() - window.renderStartTime);
-        $$.criteoPromise.resolve("criteo");
+        $$.Promises.criteoPromise.resolve("criteo");
         var criteoUrl = "//rtax.criteo.com/delivery/rta/rta.js?netId=2305&cookieName=cto_weather&varName=crtg_content";
 
         var successCallback = function (data) {
@@ -163,12 +157,12 @@ if(criteo !== "false") {
                 $$.custParams = $$.custParams || {};
                 $$.custParams['cig'] = output.join(",");
             }
-            $$.criteoPromise.resolve("criteo");
+            $$.Promises.criteoPromise.resolve("criteo");
             console.log('criteoResolved', new Date().getTime() - window.renderStartTime);
         };
-        loadScript(criteoUrl, successCallback);
-    })(TWC.adUtils || {});
-}
-else{
-    TWC.adUtils.criteoPromise.resolve("criteo");
-}
+        $$.utils.loadScript(criteoUrl, successCallback);
+    }
+    else {
+        $$.Promises.criteoPromise.resolve("criteo");
+    }
+})(window.AdCtrl);
