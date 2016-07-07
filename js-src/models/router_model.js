@@ -158,9 +158,12 @@ var _Router = {};
     };
 
     _Router.dispatchAds = function(promise){
-        if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
-            document.dispatchEvent(AdCtrl.Promises.loadAds);
-        }
+        // Short timeout needed to insure template loaded
+        setTimeout(function() {
+            if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
+                document.dispatchEvent(AdCtrl.Promises.loadAds);
+            }
+        },5);
     };
 })();
 
