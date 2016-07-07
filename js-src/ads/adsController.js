@@ -23,9 +23,9 @@ googletag.cmd = googletag.cmd || [];
     getAdUnitAndMetricsSuite();
     addCust_Params();
 
-    $$.utils.addLoadEvent(function(){
-        loadNewAds();
-    });
+    // $$.utils.addLoadEvent(function(){
+    //     loadNewAds();
+    // });
 
     /************** Private Functions **************/
     function loadNewAds() {

@@ -157,12 +157,10 @@ var _Router = {};
         }
     };
 
-    _Router.dispatchAds = function(){
-        domReady(function() {
-            if (window['AdCtrl'] && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
-                document.dispatchEvent(AdCtrl.Promises.loadAds);
-            }
-        });
+    _Router.dispatchAds = function(promise){
+        if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
+            document.dispatchEvent(AdCtrl.Promises.loadAds);
+        }
     };
 })();
 
