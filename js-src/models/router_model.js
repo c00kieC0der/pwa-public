@@ -96,7 +96,16 @@ var _Router = {};
             });
         }
     };
+    var RTLs = ['ar-AE', 'fa-IR'];
+    var setRTL = function(){
+        if(RTLs.indexOf(_User.lang) > -1){
+            document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");
+        } else {
+            document.getElementsByTagName("html")[0].setAttribute("dir", "ltr");
+        }
+    };
     var getDefaultLoc = function(pathArr){
+        setRTL();
         if(pathArr[5] && (pathArr[5].indexOf(':') > -1 || pathArr[5].indexOf(',') > -1)){
             _Locations.supplementLoc(pathArr[5]).then(function(data){
                 _User.newActiveLocation(data);
