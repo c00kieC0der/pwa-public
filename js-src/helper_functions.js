@@ -232,23 +232,40 @@ helper.getJSON = function(path){
 helper.setCanonical = function(){
 
     //for getting user info to add to page canonical
-    var origin = 'https://weather.com',// Never: location.origin, always point to prod.
+    var origin = 'https://weather.com/',// Never: location.origin, always point to prod.
         basePath = origin,
         fallback = '';
 
-
-
-    var getPageURL = function () {
-        var locID = _User.activeLocation.locId;
-        var city = _User.activeLocation.cityNm && _User.activeLocation.cityNm.replace(/\s/g, '+'), state = _User.activeLocation.stCd;
-        var userInfo = city + state + locID;
-        helper.getPage().then(function(canonicalValue) {
-            return locID ? basePath + canonicalValue + userInfo : fallback;
+    var getPage = function(){
+        var currentPage = _Router.page,
+            lang        = _User.lang,
+            hrefJSONfile = '/js-src/hreflangs/hreflang_' + currentPage + '_page.json';
+        return helper.getJSON(hrefJSONfile).then(function(data) {
+            return data[lang];
         });
-    }
+    };
 
-    var cLink = document.createElement("link"), head = document.getElementsByTagName("head")[0];
-    cLink.setAttribute("rel", "canonical");
-    cLink.setAttribute("href", getPageURL());
-    head.appendChild(cLink);
-}
+    var generateMetaTag = function(){
+        var url = '';
+
+        getPage().then(function(canonicalValue) {
+            //url = (_User.activeLocation.locID ? basePath + canonicalValue + getUserInfo() : fallback);
+            url = basePath + canonicalValue + getUserInfo();
+            var cLink = document.createElement("link"), head = document.getElementsByTagName("head")[0];
+            cLink.setAttribute("rel", "canonical");
+            cLink.setAttribute("href", url);
+            head.appendChild(cLink);
+        });
+    };
+
+
+    var getUserInfo = function () {
+        var userLoc = _User.activeLocation;
+        var locID = userLoc.locId;
+        var city = userLoc.cityNm && userLoc.cityNm.replace(/\s/g, '+'), state = userLoc.stCd;
+        var userInfo = city + '+' + state + '+' + locID+':'+userLoc.locType+':'+userLoc.cntryCd;
+        return userInfo;
+    };
+    generateMetaTag();
+
+};
