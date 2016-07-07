@@ -222,9 +222,19 @@ helper.getJSON = function(path){
         xobj.open('GET', path, true); // Replace 'my_data' with the path to your file
         xobj.onreadystatechange = function () {
             if (xobj.readyState == 4 && xobj.status == "200") {
+
                 resolve(JSON.parse(xobj.responseText));
             }
         };
         xobj.send(null);
+    });
+};
+
+helper.getPage = function(){
+    var currentPage = _Router.page,
+        lang        = _User.lang,
+        hrefJSONfile = '/js-src/hreflangs/hreflang_' + currentPage + '_page.json';
+    return this.getJSON(hrefJSONfile).then(function(data) {
+      return data[lang];
     });
 };
