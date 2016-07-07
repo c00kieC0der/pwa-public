@@ -228,3 +228,27 @@ helper.getJSON = function(path){
         xobj.send(null);
     });
 };
+
+helper.setCanonical = function(){
+
+    //for getting user info to add to page canonical
+    var origin = 'https://weather.com',// Never: location.origin, always point to prod.
+        basePath = origin,
+        fallback = '';
+
+
+
+    var getPageURL = function () {
+        var locID = _User.activeLocation.locId;
+        var city = _User.activeLocation.cityNm && _User.activeLocation.cityNm.replace(/\s/g, '+'), state = _User.activeLocation.stCd;
+        var userInfo = city + state + locID;
+        helper.getPage().then(function(canonicalValue) {
+            return locID ? basePath + canonicalValue + userInfo : fallback;
+        });
+    }
+
+    var cLink = document.createElement("link"), head = document.getElementsByTagName("head")[0];
+    cLink.setAttribute("rel", "canonical");
+    cLink.setAttribute("href", getPageURL());
+    head.appendChild(cLink);
+}
