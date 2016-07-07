@@ -74,6 +74,7 @@ var _Router = {};
             var activeLoc = _User.activeLocation;
             var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
             history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
+            _Router.dispatchAds();
         });
     };
 
@@ -154,6 +155,14 @@ var _Router = {};
         } else {
            _Router.changePage(_Router.page);
         }
+    };
+
+    _Router.dispatchAds = function(){
+        domReady(function() {
+            if (window['AdCtrl'] && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
+                document.dispatchEvent(AdCtrl.Promises.loadAds);
+            }
+        });
     };
 })();
 
