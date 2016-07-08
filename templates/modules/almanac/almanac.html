@@ -1,82 +1,77 @@
+<link rel="stylesheet" type="text/css" href="/styles/modules/almanac.css">
+
 <header class="panel-heading">
     <div class="heading-link">
-        <h2 class="heading" id="almanac-hdr">ALMANAC</h2>
+        <h2 class="heading" id="almanac-hdr"></h2>
     </div>
 </header>
 
-<!-- Static HTML for almanac module -->
-<style type="text/css">
-    .almanac-table  {width: 100%; border-collapse:collapse;border-spacing:0; text-align: left}
-    .almanac-table td{padding:8px 5px;border:0px; vertical-align: top}
-    .almanac-table th{padding:8px 5px;border:0px; vertical-align: top}
-    .table-header {font-weight: bold; background-color: #F6F6F6;}
-    table sub {clear: both; display: block; font-size: 10px}
-    .col1 {width: 140px;}
-</style>
 <table class="almanac-table">
     <tr class="table-header">
         <th class="col1">Jun 23</th>
-        <th>HIGH</th>
-        <th>LOW</th>
-        <th>PRECIP</th>
+        <th id="almanac-high-label"></th>
+        <th id="almanac-low-label"></th>
+        <th id="almanac-precip-label"></th>
     </tr>
     <tr>
-        <td class="col1">Yesterday</td>
-        <td>89&deg;</td>
-        <td>54&deg;</td>
-        <td>0.00 in</td>
+        <td class="col1" id="almanac-yesterday-label"></td>
+        <td id="almanac-prevday-avghigh"></td>
+        <td id="almanac-prevday-avglow"></td>
+        <td id="almanac-prevday-avgprecip"></td>
     </tr>
     <tr>
-        <td class="col1">Last 7 Days</td>
-        <td>89&deg;</td>
-        <td>54&deg;</td>
-        <td>0.78</td>
+        <td class="col1" id="almanac-last-7days-label"></td>
+        <td id="almanac-7day-avghigh"></td>
+        <td id="almanac-7day-avglow"></td>
+        <td id="almanac-7day-avgprecip"></td>
     </tr>
     <tr>
-        <td class="col1">Averages</td>
-        <td>89&deg;</td>
-        <td>54&deg;</td>
-        <td>0.14</td>
+        <td class="col1" id="almanac-averages-label"></td>
+        <td id="almanac-avghigh"></td>
+        <td id="almanac-avglow"></td>
+        <td id="almanac-avgprecip"></td>
     </tr>
 
     <tr>
-        <td class="col1">Records</td>
-        <td>89&deg;
-            <sub>1944</sub>
+        <td class="col1" id="almanac-records-label"></td>
+        <td>
+            <span id="almanac-recordhigh"></span>
+            <sub id="almanac-recordhighyr"></sub>
         </td>
-        <td>54&deg;
-            <sub>1944</sub>
+        <td>
+            <span id="almanac-recordlow"></span>
+            <sub id="almanac-recordlowyr"></sub>
         </td>
         <td></td>
     </tr>
     <tr>
-        <td class="col1">Month to Date</td>
-        <td>89&deg;</td>
-        <td>54&deg;</td>
-        <td>10%</td>
+        <td class="col1" id="almanac-mtd-label"></td>
+        <td id="almanac-mtd-high"></td>
+        <td id="almanac-mtd-low"></td>
+        <td id="almanac-mtd-precip"></td>
     </tr>
 </table>
 
 <table class="almanac-table">
     <tr class="table-header">
-        <th class="table-header" colspan="4">Historical Monthly Avg</th>
+        <th class="table-header" colspan="4" id="almanac-monthly-hdr"></th>
     </tr>
     <tr>
         <td class="col1">June</td>
-        <td>89&deg;</td>
-        <td>54&deg;</td>
-        <td>2.78</td>
+        <td id="almanac-month1-avghigh"></td>
+        <td id="almanac-month1-avglow"></td>
+        <td id="almanac-month1-avgprecip"></td>
     </tr>
     <tr>
         <td class="col1">July</td>
-        <td>89&deg;</td>
-        <td>54&deg;</td>
-        <td>2.78</td>
+        <td id="almanac-month2-avghigh"></td>
+        <td id="almanac-month2-avglow"></td>
+        <td id="almanac-month2-avgprecip"></td>
     </tr>
     <tr>
         <td class="col1">August</td>
-        <td>89&deg;</td>
-        <td>54&deg;</td>
-        <td>2.78</td>
+        <td id="almanac-month3-avghigh"></td>
+        <td id="almanac-month3-avglow"></td>
+        <td id="almanac-month3-avgprecip"></td>
     </tr>
 </table>

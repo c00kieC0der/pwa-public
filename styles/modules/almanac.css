@@ -1,2 +1,18 @@
-.almanac-sass-test {
-  background-color: aquamarine; }
+.almanac-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left; }
+  .almanac-table td, .almanac-table th {
+    padding: 8px 5px;
+    border: 0px;
+    vertical-align: top; }
+  .almanac-table .table-header {
+    font-weight: bold;
+    background-color: #F6F6F6; }
+  .almanac-table table sub {
+    clear: both;
+    display: block;
+    font-size: 10px; }
+  .almanac-table .col1 {
+    width: 140px; }
