@@ -58,6 +58,8 @@
     "radar" : "radar",
     "clouds" : "clouds",
     "sun" : "sun",
+    "feedback" : "feedback",
+    "press" : "press",
     "MONTH": [
         "January",
         "February",
