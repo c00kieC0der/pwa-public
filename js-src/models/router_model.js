@@ -13,6 +13,7 @@ var _Router = {
             }
         });
     };
+
     helper.getJSON('/js-src/page-config.json').then(function(data){
         pageAssignment = data;
         for(var pager in pageAssignment){
@@ -127,14 +128,21 @@ var _Router = {
         _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[page].metricName, pageAssignment[page].pos);
         _Router.page = page;
         helper.loadTemplateWithClass('page-content', 'pages', page);
-        document.title = pageAssignment[page].title;
+        updateMetadata(page);
         var activeLoc = _User.activeLocation;
         var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
         history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
         _Router.dispatchAds();
 
     };
-
+    var updateMetadata = function(page){
+        document.getElementsByTagName("html")[0].setAttribute("lang", _User.lang);
+        var meta = _Locales.metadata[page];
+      //  console.log(meta);
+        document.title = meta.page_title;
+      //  console.log(document.getElementsByTagName("META"));
+        //description, title, keywords
+    };
     _Router.updateURL = function(){
         if(history.state && history.state.changeTo){
             _Router.changePage(history.state.changeTo);
@@ -143,12 +151,13 @@ var _Router = {
         }
     };
 
-    _Router.dispatchAds = function(){
-        domReady(function() {
-            if (window['AdCtrl'] && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
+    _Router.dispatchAds = function(promise){
+        // Short timeout needed to insure template loaded
+        setTimeout(function() {
+            if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
                 document.dispatchEvent(AdCtrl.Promises.loadAds);
             }
-        });
+        },5);
     };
 })();
 
