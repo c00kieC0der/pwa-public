@@ -58,17 +58,16 @@
     var almanacForecastLangs = [];
     var updateAlmanacForecastLangs = function(){
         todayForecastLangs = [
-            ['almanac-hdr',         helper.capitalize(_Lang['almanac'])],
-            ['almanac-high-label' , helper.capitalize(_Lang['high'])],
-            ['almanac-low-label' ,  helper.capitalize(_Lang['low'])],
-            ['almanac-precip',      helper.capitalize(_Lang['precip'])],
-            ['almanac-yesterday',   helper.capitalize(_Lang['yesterday'])],
-            ['almanac-last-7-dsys', helper.capitalize(_Lang['last 7 days'])],
-            ['almanac-yesterday',   helper.capitalize(_Lang['yesterday'])],
-            ['almanac-averages',    helper.capitalize(_Lang['averages'])],
-            ['almanac-records',     helper.capitalize(_Lang['records'])],
-            ['almanac-mtd',         helper.capitalize(_Lang['month to date'])],
-            ['almanac-monthly-hdr', helper.capitalize(_Lang['historical monthly average'])]
+            ['almanac-hdr',             helper.capitalize(_Lang['almanac'])],
+            ['almanac-high-label' ,     helper.capitalize(_Lang['high'])],
+            ['almanac-low-label' ,      helper.capitalize(_Lang['low'])],
+            ['almanac-precip-label',    helper.capitalize(_Lang['precip'])],
+            ['almanac-yesterday-label', helper.capitalize(_Lang['yesterday'])],
+            ['almanac-last-7days-label', helper.capitalize(_Lang['last 7 days'])],
+            ['almanac-averages-label',  helper.capitalize(_Lang['averages'])],
+            ['almanac-records-label',   helper.capitalize(_Lang['records'])],
+            ['almanac-mtd-label',       helper.capitalize(_Lang['month to date'])],
+            ['almanac-monthly-hdr',     helper.capitalize(_Lang['historical monthly average'])]
         ];
         helper.setContent(almanacForecastLangs);
     };
