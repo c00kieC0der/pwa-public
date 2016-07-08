@@ -122,7 +122,6 @@ helper.setContent = function(content){
                 assignToDOM(content[x]);
             }
         }
-
 };
 
 helper.empty = function(divId){

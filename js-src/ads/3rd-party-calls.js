@@ -28,7 +28,7 @@
          *  utag_dataReady waits on pcoReady, so pcoReady has already fired
          */
 
-        console.log('wfxtgStart', new Date().getTime() - window.renderStartTime);
+        //console.log('wfxtgStart', new Date().getTime() - window.renderStartTime);
         // check for saved locs
         var savedPco = window.localStorage.jStorage ? JSON.parse(window.localStorage.jStorage) : {};
 
@@ -52,7 +52,7 @@
         acctid = (locale === 'de_DE') && 'B98RXZ' || acctid;
         var wxftgUrl = "//triggers.wfxtriggers.com/json/?resp_type=json&acctid=" + acctid + "&current=true&zcs=" + zcs + "&nzcs=" + nzcs;
         var successCallBack = function (data) {
-            console.log('wfxtgReturned', new Date().getTime() - window.renderStartTime);
+           // console.log('wfxtgReturned', new Date().getTime() - window.renderStartTime);
             var triggers = data && data.wfxtg,
               wfxtg = Array.isArray(data.wfxtg.current) && data.wfxtg.current.join(',') || "",
               scatterSegs = Array.isArray(triggers.scatterSegs) && triggers.scatterSegs,
@@ -69,7 +69,7 @@
             $$.custParams['scatter_nzcs'] = nzcs;
             $$.custParams['scatter_cxtg'] = cxtg;
             $$.Promises.wfxtgPromise.resolve();
-            console.log('wfxtgResolved', new Date().getTime() - window.renderStartTime);
+            //console.log('wfxtgResolved', new Date().getTime() - window.renderStartTime);
 
         };
 
@@ -97,8 +97,8 @@
                 if (!amznads.hasAds() || !targeting) {
                     // Failed
                     $$.Promises.amznSlotsPromise.resolve("amznSlots");
-                    console.log("error amzn", $$.custParams);
-                    console.log('amznErrored', new Date().getTime() - window.renderStartTime);
+                  //  console.log("error amzn", $$.custParams);
+                  //  console.log('amznErrored', new Date().getTime() - window.renderStartTime);
 
                     return;
                 }
@@ -118,8 +118,8 @@
                 }
 
                 $$.Promises.amznSlotsPromise.resolve("amznSlots");
-                console.log("success amzn", $$.custParams);
-                console.log('amznResolved', new Date().getTime() - window.renderStartTime);
+             //   console.log("success amzn", $$.custParams);
+             //   console.log('amznResolved', new Date().getTime() - window.renderStartTime);
 
 
             },
@@ -135,7 +135,7 @@
 
     if (criteo !== "false") {
 
-        console.log('criteoStart', new Date().getTime() - window.renderStartTime);
+      //  console.log('criteoStart', new Date().getTime() - window.renderStartTime);
         $$.Promises.criteoPromise.resolve("criteo");
         var criteoUrl = "//rtax.criteo.com/delivery/rta/rta.js?netId=2305&cookieName=cto_weather&varName=crtg_content";
 
@@ -158,7 +158,7 @@
                 $$.custParams['cig'] = output.join(",");
             }
             $$.Promises.criteoPromise.resolve("criteo");
-            console.log('criteoResolved', new Date().getTime() - window.renderStartTime);
+          //  console.log('criteoResolved', new Date().getTime() - window.renderStartTime);
         };
         $$.utils.loadScript(criteoUrl, successCallback);
     }
