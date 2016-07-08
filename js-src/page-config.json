@@ -2,42 +2,36 @@
   "today"   : {
     "name"       : "today",
     "metricName" : "today-forecast",
-    "title"      : "Your Current Conditions",
     "pos"        : "1",
     "href"       : "today"
   },
   "hourly"  : {
     "name"       : "hourly",
     "metricName" : "hourly-forecast",
-    "title"      : "Your Hourly Forecast",
     "pos"        : "2",
     "href"       : "hourly"
   },
   "fiveday"   : {
     "name"       : "fiveday",
     "metricName" : "5day-forecast",
-    "title"      : "Your Five Day Forecast",
     "pos"        : "3",
     "href"       : "5_day"
   },
   "tenday"   : {
     "name"       : "tenday",
     "metricName" : "10day-forecast",
-    "title"      : "Your Ten Day Forecast",
     "pos"        : "4",
     "href"       : "10_day"
   },
   "weekend" : {
     "name"       : "weekend",
     "metricName" : "weekend-forecast",
-    "title"      : "Your Weekend Forecast",
     "pos"        : "5",
     "href"       : "weekend"
   },
   "maps" : {
     "name"        : "maps",
     "metricName"  : "maps",
-    "title"       : "Your Radar Map",
     "pos"         : "6",
     "href"        : "maps"
   }
