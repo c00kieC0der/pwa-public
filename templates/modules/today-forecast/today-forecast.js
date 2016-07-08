@@ -13,7 +13,7 @@
                 '<span class="wx-iconfont-global wx-icon-arrow-right1-4"></span>';
         var uvIndex = _Data.obs.uvIndex > 10 ? 'Extreme' : _Data.obs.uvIndex + ' of 10';
         dataAssignment = [
-            ['nowcard-location',    _User.activeLocation.prsntNm],
+            ['nowcard-location',    _User.activeLocation.prsntNm.toUpperCase()],
             ['nowcard-temp',        _Data.obs.temperature],
             ['nowcard-feels-value', _Data.obs.feelsLike],
             ['nowcard-phrase',      _Data.obs.phrase],
@@ -62,13 +62,27 @@
             ['dp3-details-humidity',  _Data.lookingAhead[2].humidity],
             ['dp3-details-uvIndex',   _Data.lookingAhead[2].uvIndex + ' of 10'],
             ['dp3-details-sunrise',   _Data.lookingAhead[2].sunrise],
-            ['dp3-details-sunset',    _Data.lookingAhead[2].sunset],
+            ['dp3-details-sunset',    _Data.lookingAhead[2].sunset]
+
+
+
 
         ];
         var highTemp = _Data.obs.temperatureMaxSince7am ? _Data.obs.temperatureMaxSince7am : _Data.dailyForecast.day.temperature[0] !== null ? _Data.dailyForecast.day.temperature[0] : '--';
         dataAssignment.push(['nowcard-hi-value', highTemp]);
         //Input the weather icon - Nowcard.
         document.getElementById('nowcard-icon').innerHTML = getWxIcon(_Data.obs.icon, 'light');
+
+        if (getWxCard(_Data.obs.icon) !== "undefined") {
+            helper.addClass(document.getElementById("nowcard-bg"), getWxCard(_Data.obs.icon));
+        } else {
+            helper.addClass(document.getElementById("nowcard-bg"), 'day-clear');
+        }
+
+
+
+
+
     };
 
     if(_Data.obs && _Data.obs) {
@@ -90,7 +104,7 @@
     var updateTodayForecastLangs = function(){
         todayForecastLangs = [
             ['looking-ahead-hdr', _Lang['looking ahead'].toUpperCase()],
-            ['nowcard-feels-label', _Lang['feels like'].toUpperCase()],
+            ['nowcard-feels-label', _Lang['feels like'].toLowerCase()],
             ['today-humidity' , helper.capitalize(_Lang.humidity)],
             ['today-wind', helper.capitalize(_Lang.wind)],
             ['today-dew-point', helper.capitalize(_Lang['dew point'])],
