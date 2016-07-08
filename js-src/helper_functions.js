@@ -222,10 +222,50 @@ helper.getJSON = function(path){
         xobj.open('GET', path, true); // Replace 'my_data' with the path to your file
         xobj.onreadystatechange = function () {
             if (xobj.readyState == 4 && xobj.status == "200") {
-
                 resolve(JSON.parse(xobj.responseText));
             }
         };
         xobj.send(null);
     });
+};
+
+helper.setCanonical = function(){
+
+    //for getting user info to add to page canonical
+    var origin = 'https://weather.com/',// Never: location.origin, always point to prod.
+        basePath = origin,
+        fallback = '';
+
+    var getPage = function(){
+        var currentPage = _Router.page,
+            lang        = _User.lang,
+            hrefJSONfile = '/js-src/hreflangs/hreflang_' + currentPage + '_page.json';
+        return helper.getJSON(hrefJSONfile).then(function(data) {
+            return data[lang];
+        });
+    };
+
+    var generateMetaTag = function(){
+        var url = '';
+
+        getPage().then(function(canonicalValue) {
+            //url = (_User.activeLocation.locID ? basePath + canonicalValue + getUserInfo() : fallback);
+            url = basePath + canonicalValue + getUserInfo();
+            var cLink = document.createElement("link"), head = document.getElementsByTagName("head")[0];
+            cLink.setAttribute("rel", "canonical");
+            cLink.setAttribute("href", url);
+            head.appendChild(cLink);
+        });
+    };
+
+
+    var getUserInfo = function () {
+        var userLoc = _User.activeLocation;
+        var locID = userLoc.locId;
+        var city = userLoc.cityNm && userLoc.cityNm.replace(/\s/g, '+'), state = userLoc.stCd;
+        var userInfo = city + '+' + state + '+' + locID+':'+userLoc.locType+':'+userLoc.cntryCd;
+        return userInfo;
+    };
+    generateMetaTag();
+
 };
