@@ -104,7 +104,6 @@ h3 {
     .twc-table .twc-sticky-col .wx-dsxdate,
     .twc-table .twc-sticky-col .day-detail,
     .twc-table .twc-sticky-col .date-time {
-      font-weight: 600;
       text-transform: uppercase;
       display: inline-block; }
     .twc-table .twc-sticky-col .day-detail {
@@ -186,9 +185,6 @@ h3 {
   .ls-hourly-wrap .feels {
     color: #999999;
     font-style: italic; }
-  .ls-hourly-wrap .temp,
-  .ls-hourly-wrap .feels {
-    font-weight: 600; }
   .ls-hourly-wrap .day-detail {
     font-size: 0.78571rem;
     color: #cccccc; }
