@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "מכ\"ם מזג אוויר ארצי ומקומי, תחזית יומית, הוריקן ומידע מ-The Weather Channel ו-weather.com",
+    "page_desc" : "The Weather Channel ו-weather.com מספקים תחזית מזג אוויר ארצית ומקומית על ערים, וכן כיסוי מכ\"ם מזג אוויר, דיווח וסופת הוריקן",
+    "page_keywords" : "מזג אוויר ארצי, תחזית מזג אוויר ארצית, מזג אוויר מקומי, תחזית מזג אוויר מקומית, מזג אוויר, תחזית מזג אוויר, מכ\"ם מזג אוויר, דיווח מז\"א, סופת הוריקן, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "תחזית מזג אוויר ותנאי מז\"א ב{dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "תחזית מזג אוויר ב{dynamicLocName} היום והלילה, תנאי מזג אוויר ומכ\"ם דופלר מ-The Weather Channel ו-Weather.com",
+    "page_keywords" : "מזג אוויר ב{dynamicLocName}, תחזית מזג אוויר ב{dynamicLocName}, תנאי מזג אוויר ב{dynamicLocName}, תחזית ב{dynamicLocName}, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "תחזית מזג אוויר שעתית ל-{dynamicLocName} - TheWeather Channel | Weather.com",
+    "page_desc" : "תחזית מזג אוויר מקומית שעתית, תנאי מזג אוויר, משקעים, נקודת טל, לחות, רוח מ-Weather.com ומ-The Weather Channel",
+    "page_keywords" : "מזג אוויר שעתי ל{dynamicLocName}, תחזית מזג אוויר שעתית ל, תחזית שעתית ל-, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : " תחזית מז\"א לסוף השבוע ב{dynamicLocName} - Weather.com | The Weather Channel",
+    "page_desc" : " תחזית מזג אוויר לסוף השבוע ב{dynamicLocName}, טמפרטורה גבוהה, טמפרטורה נמוכה, משקעים, מפת מזג האוויר מ-The Weather Channel ו-Weather.com",
+    "page_keywords" : "מז\"א לסוף השבוע ב{dynamicLocName}, תחזית מז\"א לסוף השבוע ב{dynamicLocName}, צפי מז\"א לסוף השבוע ב{dynamicLocName}, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "תחזית מזג אוויר ל-5 ימים ל{dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : " תחזית מזג אוויר ל-5 ימים ב{dynamicLocName}, תנאי מזג אוויר, טמפרטורות, סיכוי למשקעים מ-The Weather Channel ו-Weather.com",
+    "page_keywords" : "מז\"א ל-5 ימים ל{dynamicLocName}, תחזית מז\"א ל-5 ימים ל{dynamicLocName}, 5 ימים ל{dynamicLocName}, מז\"א ל-5 ימים ב{dynamicLocName} weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : " תחזית מז\"א ל-10 ימים ב{dynamicLocName} - Weather.com | The Weather Channel",
+    "page_desc" : "היה מוכן עם התחזית המדויקת ביותר ל-10 ימים ל{dynamicLocName} עם לחץ גבוה ולחץ נמוך, סיכוי למשקעים מ-The Weather Channel ו-Weather.com",
+    "page_keywords" : "מז\"א ל-10 ימים ב{dynamicLocName}, תחזית מז\"א ל-10 ימים ב{dynamicLocName}, תנאי מז\"א ב{dynamicLocName}, תחזית מז\"א ל-10 ימים ב{dynamicLocName}, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : " מז\"א ומפת מזג אוויר ב{pageLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "מפת מז\"א אינטראקטיבית ב{pageLocName} מאפשרת לך לראות תמונה פנורמית, ולקרב, כדי לקבל פרטי מז\"א באיכות מעולה בשכונה המקומית שלך או במרחק של חצי עולם, מ-The Weather Channel ו-Weather.com",
+    "page_keywords" : "אינטראקטיבי, מקומי, מכ\"ם, מז\"א, מפה, {pageLocName} מפת מזג אוויר, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "סרטוני מזג אוויר - The Weather Channel | Weather.com",
+    "page_desc" : "קבל את סרטוני מז\"א העדכניים ביותר מ-The Weather Channel ו-Weather.com",
+    "page_keywords" : "סרטון מזג אוויר, סרטון weather channel, סרטון מדע, סרטון אימא טבע, סרטון סערה, סרטון הוריקן, סרטון טורנדו, סרטון נסיעות, סרטון בריאות, סרטון אקלים, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "התראות מז\"א - The Weather Channel | Weather.com",
+    "page_desc" : "גישה מהירה להתראות מזג אוויר פעילות בכל {dynamicLocName} מ-The Weather Channel ו-Weather.com",
+    "page_keywords" : "התראות, מזג אוויר קשה, שעונים, אזהרות, המלצות, weather.com, weather channel"
+  }
+}

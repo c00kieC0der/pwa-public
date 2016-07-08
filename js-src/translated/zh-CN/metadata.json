@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "The Weather Channel 和 weather.com 提供全国和本地天气雷达、每日预报以及飓风信息",
+    "page_desc" : "The Weather Channel 和 weather.com 为各个城市提供全国和本地天气预报，更有天气雷达、报告和飓风覆盖情况",
+    "page_keywords" : "全国天气、全国天气预报、本地天气、本地天气预报、天气、天气预报、天气雷达、天气报告、飓风、weather.com、weather channel"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName}天气预报和情况 - The Weather Channel | Weather.com",
+    "page_desc" : "今天白天和夜间的{dynamicLocName}天气预报、天气情况和多普勒雷达 - 尽在 The Weather Channel 和 Weather.com",
+    "page_keywords" : "{dynamicLocName}天气、{dynamicLocName}天气预报、{dynamicLocName}天气情况、{dynamicLocName}预报、weather.com、weather channel"
+  },
+  "hourly" : {
+    "page_title" : "{dynamicLocName}每小时天气预报 - The Weather Channel | Weather.com",
+    "page_desc" : "每小时本地天气预报、天气情况、降水、露点、湿度、大风 - 尽在 Weather.com 和 The Weather Channel",
+    "page_keywords" : "{dynamicLocName}每小时天气，@ 每小时天气预报，每小时预报，weather.com、weather channel"
+  },
+  "weekend" : {
+    "page_title" : "{dynamicLocName}周末天气预报 - The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName}周末天气预报、高温、低温、降水、气候图 - 尽在 The Weather Channel 和 Weather.com",
+    "page_keywords" : "{dynamicLocName}周末天气、{dynamicLocName}周末天气预报、{dynamicLocName}周末天气展望、weather.com、weather channel"
+  },
+  "5day" : {
+    "page_title" : "{dynamicLocName} 5 天天气预报 - The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} 5 天天气预报、天气情况、温度、降水几率 - 尽在 The Weather Channel 和 Weather.com",
+    "page_keywords" : "{dynamicLocName} 5 天天气、{dynamicLocName} 5 天天气预报、5 天{dynamicLocName}、5 天天气{dynamicLocName}、weather.com、weather channel"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName} 10 天天气预报 - The Weather Channel | Weather.com",
+    "page_desc" : "准备好获悉最精确的{dynamicLocName} 10 天预报，包括最高温度、最低温度和降水几率 - 尽在 The Weather Channel 和 Weather.com",
+    "page_keywords" : "{dynamicLocName} 10 天天气、{dynamicLocName} 10 天天气预报 {dynamicLocName}天气情况、{dynamicLocName} 10 天预报、weather.com、weather channel"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName}气候和雷达图 - The Weather Channel | Weather.com",
+    "page_desc" : "{pageLocName}互动气候图可让您通过平移、放大动作来获得本地社区以及千里之外地区的超丰富天气细节 - 尽在 Weather Channel 和 Weather.com",
+    "page_keywords" : "互动、本地、雷达、天气、地图、{pageLocName}气候图、weather.com、weather channel"
+  },
+  "video" : {
+    "page_title" : "天气视频来自 The Weather Channel | Weather.com",
+    "page_desc" : "从 The Weather Channel 和 Weather.com 获取最新的天气视频",
+    "page_keywords" : "天气视频、weather channel 视频、科学视频、大自然视频、风暴视频、飓风视频、龙卷风视频、旅行视频、健康视频、气候视频、weather.com、weather channel"
+  },
+  "alerts" : {
+    "page_title" : "天气提醒 - The Weather Channel | Weather.com",
+    "page_desc" : "通过 The Weather Channel 和 Weather.com，快速获取整个{dynamicLocName}的动态天气提醒",
+    "page_keywords" : "提醒、恶劣天气、观看、警告、咨询、weather.com、weather channel"
+  }
+}

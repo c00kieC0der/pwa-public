@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Radar climático nacional e local, previsão diária, furacão e informação do The Weather Channel e weather.com",
+    "page_desc" : "The Weather Channel e weather.com fornecem a previsão do tempo nacional e local para cidades, bem como radar climático, relatório e cobertura de furacão",
+    "page_keywords" : "clima nacional, previsão do tempo nacional, clima local, previsão do tempo local, clima, previsão do tempo, radar climático, relatório climático, furacão, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName} Condições e previsões climáticas - The Weather Channel | Weather.com",
+    "page_desc" : "Alertas climáticos {dynamicLocName} para hoje e para a noite, condições climáticas e radar Doppler do The Weather Channel e Weather.com",
+    "page_keywords" : "{dynamicLocName} clima, {dynamicLocName} previsão do clima, {dynamicLocName} condições climáticas, {dynamicLocName} previsões, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Previsão climática horária para {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Previsão do tempo local de hora em hora, condições climáticas, precipitação, ponto de condensação, umidade e vento no Weather.com e The Weather Channel",
+    "page_keywords" : "clima horário para {dynamicLocName} previsão horária de clima para @ previsão por hora, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "{dynamicLocName} Previsão dinâmica para o fim de semana - The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} previsão climática para o fim de semana, alta temperatura, baixa temperatura, precipitação, mapa climático para The Weather Channel and Weather.com",
+    "page_keywords" : "{dynamicLocName} clima de fim de semana, {dynamicLocName} previsão climática para o fim de semana, {dynamicLocName} panorama de fim de semana, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "Previsão climática de 5 dias para {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} Previsão climática para 5 dias, condições climáticas, temperaturas, probab. de precipit. do The Weather Channel e Weather.com",
+    "page_keywords" : "Clima a 5 dias para {dynamicLocName}, previsão climática a 5 dias para {dynamicLocName}, 5 dias {dynamicLocName} clima a 5 dias {dynamicLocName} weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName} Previsão climática para 10 dias - The Weather Channel | Weather.com",
+    "page_desc" : "Esteja preparado com a mais precisa previsão para 10 dias para {dynamicLocName} com chances de precipitação altas e baixas do The Weather Channel e Weather.com",
+    "page_keywords" : "{dynamicLocName} Clima a 10 dias, {dynamicLocName} previsão climática para 10 dias {dynamicLocName} condições climáticas, {dynamicLocName} previsão a 10 dias, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName} Mapa de clima e radar - The Weather Channel | Weather.com",
+    "page_desc" : "O mapa interativo {pageLocName} permite a você panorâmica e zoom para obter detalhes incomparáveis de clima em sua vizinhança local ou a meio mundo de distância com The Weather Channel e Weather.com",
+    "page_keywords" : "interativo, local, radar, clima, mapa, mapa climático em {pageLocName}, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Vídeos de clima do The Weather Channel | Weather.com",
+    "page_desc" : "Receba os vídeos climáticos mais recentes do The Weather Channel e Weather.com",
+    "page_keywords" : "vídeos de clima, vídeos do weather channel, vídeos sobre ciência, mais vídeos sobre a natureza, vídeos de tempestades, vídeos de tornados, vídeos de viagens, vídeos sobre saúde, vídeos sobre clima, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Alertas climáticos - The Weather Channel | Weather.com",
+    "page_desc" : "Acesso rápido para ativar alertas climáticos através de {dynamicLocName} do The Weather Channel e Weather.com",
+    "page_keywords" : "alertas, clima rigoroso, observações, avisos, advertências, weather.com, weather channel"
+  }
+}

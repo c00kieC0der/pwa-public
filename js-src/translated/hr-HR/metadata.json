@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Nacionalni i lokalni radar za vrijeme, dnevna prognoza, informacije o uraganima koje pružaju The Weather Channel i weather.com",
+    "page_desc" : "The Weather Channel i weather.com pružaju državne i lokalne vremenske prognoze za gradove, kao i radar za vrijeme, izvješća i praćenje uragana",
+    "page_keywords" : "vrijeme u državi, državna vremenska prognoza, lokalno vrijeme, lokalna vremenska prognoza, vrijeme, vremenska prognoza, radar za vrijeme, izvješće o vremenu, uragan, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "Vremenska prognoza i uvjeti za {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Današnja i večerašnja vremenska prognoza, vremenski uvjeti i Dopplerov radar za {dynamicLocName} koje pružaju The Weather Channel i Weather.com",
+    "page_keywords" : "Vrijeme za {dynamicLocName}, vremenska prognoza za {dynamicLocName}, vremenski uvjeti za {dynamicLocName}, prognoza za {dynamicLocName}, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Vremenska prognoza po satima za {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Lokalna vremenska prognoza po satima, vremenski uvjeti, padaline, rosište, vlažnost, vjetar koje pružaju Weather.com i The Weather Channel",
+    "page_keywords" : "vrijeme po satima za {dynamicLocName}, vremenska prognoza po satima za @, prognoza po satima, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "Vremenska prognoza za vikend za {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Vremenska prognoza za vikend za {dynamicLocName}, visoka temperatura, niska temperatura, padaline, meteorološka karta koje pružaju The Weather Channel i Weather.com",
+    "page_keywords" : "vrijeme za vikend za {dynamicLocName}, vremenska prognoza za vikend za {dynamicLocName}, najava vremena za vikend za {dynamicLocName}, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "5-dnevna vremenska prognoza za {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "5-dnevna vremenska prognoza za {dynamicLocName}, vremenski uvjeti, temperature, vjerojatnost padalina koje pružaju The Weather Channel i Weather.com",
+    "page_keywords" : "5-dnevno vrijeme za {dynamicLocName}, 5-dnevna vremenska prognoza za {dynamicLocName}, vrijeme za 5 dana za {dynamicLocName}, 5-dnevno vrijeme za {dynamicLocName}, weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "10-dnevna vremenska prognoza za {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Budite spremni uz najprecizniju 10-dnevnu prognozu za {dynamicLocName} s najvišim i najnižim temperaturama i vjerojatnošću padalina koje pružaju The Weather Channel i Weather.com",
+    "page_keywords" : "10-dnevno vrijeme za {dynamicLocName}, 10-dnevna vremenska prognoza za {dynamicLocName}, vremenski uvjeti za {dynamicLocName}, 10-dnevna prognoza za {dynamicLocName}, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "Meteorološka i radarska karta za {pageLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Interaktivna meteorološka karta za {pageLocName} omogućuje vam kretanje i zumiranje kako biste dobili najbolje detalje o vremenu u susjedstvu ili na drugom kraju svijeta koje pružaju The Weather Channel i Weather.com",
+    "page_keywords" : "interaktivno, lokalno, radar, vrijeme, karta, meteorološka karta za {pageLocName}, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Videozapisi o vremenu koje pruža The Weather Channel | Weather.com",
+    "page_desc" : "Pogledajte najnovije videozapise o vremenu koje pružaju The Weather Channel i Weather.com",
+    "page_keywords" : "videozapis o vremenu, videozapis weather channela, znanstveni videozapis, videozapis o majci prirodi, videozapis o oluji, videozapis o uraganu, videozapis o tornadu, putopisni videozapis, videozapis o zdravlju, videozapis o klimi, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Upozorenja za vrijeme - The Weather Channel | Weather.com",
+    "page_desc" : "Brz pristup aktivnim upozorenjima za vrijeme diljem {dynamicLocName} koje pružaju The Weather Channel i Weather.com",
+    "page_keywords" : "upozorenja, vremenske nepogode, praćenje, upozorenja, savjeti, weather.com, weather channel"
+  }
+}

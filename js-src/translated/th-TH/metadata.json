@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "เรดาร์การพยากรณ์อากาศระดับประเทศและท้องถิ่น, พยากรณ์รายวัน, เฮอร์ริเคนและข้อมูลจาก The Weather Channel และ weather.com",
+    "page_desc" : "The Weather Channel และ weather.com ให้การพยากรณ์อากาศระดับประเทศและท้องถิ่นสำหรับเมือง รวมทั้งเรดาร์ตรวจอากาศ รายงาน และการรายงานข่าวพายุเฮอร์ริเคน",
+    "page_keywords" : "สภาพอากาศในประเทศ, การพยากรณ์อากาศในประเทศ, สภาพอากาศในท้องถิ่น, การพยากรณ์สภาพอากาศในท้องถิ่น, สภาพอากาศ, การพยากรณ์อากาศ, เรดาร์สภาพอากาศ, รายงานสภาพอากาศ, พายุเฮอร์ริเคน, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName} พยากรณ์อากาศและสภาพอากาศ - The Weather Channel | Weather.com",
+    "page_desc" : "พยากรณ์อากาศสำหรับ {dynamicLocName} ประจำวันและคืนนี้, สภาพอากาศและเรดาร์ Doppler จาก The Weather Channel และ Weather.com",
+    "page_keywords" : "สภาพอากาศ {dynamicLocName}, พยากรณ์อากาศ{dynamicLocName}, สภาพอากาศ {dynamicLocName}, พยากรณ์สำหรับ {dynamicLocName}, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "พยากรณ์อากาศรายชั่วโมงสำหรับ {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "พยากรณ์อากาศในท้องถิ่นรายชั่วโมง, สภาพอากาศ, ฝน, จุดน้ำค้าง, ความชื้น, ลม จาก Weather.com และ The Weather Channel",
+    "page_keywords" : "สภาพอากาศรายชั่วโมงสำหรับ {dynamicLocName} , พยากรณ์อากาศรายชั่วโมงสำหรับ @, พยากรณ์รายชั่วโมง, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "พยากรณ์อากาศช่วงสุดสัปดาห์สำหรับ {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "พยากรณ์อากาศช่วงสุดสัปดาห์ {dynamicLocName}, อุณหภูมิสูง, อุณหภูมิต่ำ, น้ำฟ้า, แผนที่สภาพอากาศจาก The Weather Channel และ Weather.com",
+    "page_keywords" : "สภาพอากาศช่วงสุดสัปดาห์สำหรับ {dynamicLocName} พยากรณ์อากาศช่วงสุดสัปดาห์สำหรับ {dynamicLocName} การคาดการณ์สภาพอากาศช่วงสุดสัปดาห์สำหรับ {dynamicLocName}, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "พยากรณ์อากาศ 5 วันสำหรับ {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "พยากรณ์อากาศ 5 วันสำหรับ {dynamicLocName}, สภาพอากาศ, อุณหภูมิ, โอกาสในการเกิดน้ำฟ้าจาก The Weather Channel และ Weather.com",
+    "page_keywords" : "สภาพอากาศ 5 วันสำหรับ {dynamicLocName} พยากรณ์อากาศ 5 วันสำหรับ {dynamicLocName} 5 วัน สภาพอากาศ 5 วันสำหรับ {dynamicLocName} {dynamicLocName} weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "พยากรณ์อากาศ 10 วันสำหรับ {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "เตรียมตัวให้พร้อมด้วยการพยากรณ์ 10 วันที่แม่นยำที่สุดสำหรับ {dynamicLocName} พร้อมกับโอกาสมากน้อยที่จะเกิดน้ำฟ้าจาก The Weather Channel และ Weather.com",
+    "page_keywords" : "สภาพอากาศ 10 วันสำหรับ{dynamicLocName}, พยากรณ์อากาศ 10 วันสำหรับ{dynamicLocName}, สภาพอากาศ 10 วันสำหรับ {dynamicLocName}, พยากรณ์ 10 วันสำหรับ {dynamicLocName}, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName} แผนที่สภาพอากาศและเรดาร์ - The Weather Channel | Weather.com",
+    "page_desc" : "แผนที่สภาพอากาศ {pageLocName} แบบมีการโต้ตอบช่วยให้คุณสามารถเลื่อนและซูม เพื่อดูรายละเอียดสภาพอากาศที่ยอดเยี่ยมในพื้นที่ใกล้เคียงในท้องถิ่นของคุณ หรือพื้นที่ที่อยู่ห่างออกไปครึ่งซีกโลกจาก The Weather Channel และ Weather.com",
+    "page_keywords" : "มีการโต้ตอบ, ในพื้นที่l, เรดาร์, อากาศ, แผนที่, {pageLocName} แผนที่สภาพอากาศ, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "วิดีโอสภาพอากาศจาก The Weather Channel | Weather.com",
+    "page_desc" : "รับวิดีโอสภาพอากาศล่าสุดจาก Weather Channel และ Weather.com",
+    "page_keywords" : "วิดีโอสภาพอากาศ, วิดีโอจาก weather channel, วิดีโอวิทยาศาสตร์, วิดีโอการคืนสู่ธรรมชาติ, วิดีโอพายุ, วิดีโอพายุเฮอร์ริเคน, วิดีโอพายุทอร์นาโด, วิดีโอการท่องเที่ยว, วิดีโอสุขภาพ, วิดีโอภูมิอากาศ, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "การเตือนสภาอากาศ - The Weather Channel | Weather.com",
+    "page_desc" : "การเข้าถึงการเตือนสภาพอากาศที่เป็นอยู่แบบด่วนทั่วทั้ง {dynamicLocName} จาก The Weather Channel และ Weather.com",
+    "page_keywords" : "การเตือน, สภาพอากาศที่รุนแรง, การจับตาดู, การเตือน, คำแนะนำ, weather.com, weather channel"
+  }
+}
