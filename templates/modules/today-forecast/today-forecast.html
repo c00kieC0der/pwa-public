@@ -1,4 +1,4 @@
-<div class="nowcard day-clear">
+<div class="nowcard" id="nowcard-bg">
     <header>
         <div id="nowcard-location" class="location"></div>
     </header>
@@ -39,35 +39,52 @@
 
 <div class="nowcard-details card">
     <div class="wx-detail-row">
-        <span class="wx-detail-label" id="today-humidity"></span>
+
+        <span class="wx-detail-label">
+            <span class="wx-iconfont-global wx-icon-humidity wx-detail-icon"></span>
+            <span id="today-humidity"></span>
+        </span>
         <span class="wx-detail-value">
-            <span id="nowcard-humidity"></span>
-            <span>&#37;</span>
+            <span id="nowcard-humidity"></span><span>&#37;</span>
         </span>
     </div>
     <div class="wx-detail-row">
-        <span class="wx-detail-label" id="today-wind"></span>
+        <span class="wx-detail-label">
+            <span class="wx-iconfont-global wx-icon-wind wx-detail-icon"></span>
+            <span id="today-wind"></span>
+        </span>
         <span id="nowcard-wind" class="wx-detail-value wx-wind"></span>
     </div>
     <div class="wx-detail-row">
-        <span class="wx-detail-label" id="today-dew-point"></span>
+        <span class="wx-detail-label">
+            <span class="wx-iconfont-global wx-icon-dew-point wx-detail-icon"></span>
+            <span id="today-dew-point"></span>
+        </span>
         <span class="wx-detail-value">
-            <span id="nowcard-dewpoint"></span>
-            <sup class="deg">&deg;</sup>
+            <span id="nowcard-dewpoint"></span>&deg;
         </span>
     </div>
     <div class="wx-detail-row">
-        <span class="wx-detail-label" id="today-pressure"></span>
+        <span class="wx-detail-label">
+            <span class="wx-iconfont-global wx-icon-pressure wx-detail-icon"></span>
+            <span id="today-pressure"></span>
+        </span>
         <span class="wx-detail-value">
             <span id="nowcard-pressure"></span>
         </span>
     </div>
     <div class="wx-detail-row">
-        <span class="wx-detail-label" id="today-visibility"></span>
+        <span class="wx-detail-label">
+            <span class="wx-iconfont-global wx-icon-visibility wx-detail-icon"></span>
+            <span id="today-visibility"></span>
+        </span>
         <span id="nowcard-visibility" class="wx-detail-value"></span>
     </div>
     <div class="wx-detail-row">
-        <span class="wx-detail-label" id="today-uv-index"></span>
+        <span class="wx-detail-label">
+            <span class="wx-iconfont-global wx-icon-uv-index wx-detail-icon"></span>
+            <span id="today-uv-index"></span>
+        </span>
         <span id="nowcard-uv-index" class="wx-detail-value"></span>
     </div>
 </div>
