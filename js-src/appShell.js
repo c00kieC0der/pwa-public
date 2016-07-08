@@ -274,10 +274,10 @@ function showHide(element, show) {
 
 function slideMenu(element, show) {
     if(show === 0) {
-        addClass(document.getElementById(element), 'slide-out');
+        helper.addClass(document.getElementById(element), 'slide-out');
 
     } else {
-        removeClass(document.getElementById(element), 'slide-out');
+        helper.removeClass(document.getElementById(element), 'slide-out');
     }
 }
 
