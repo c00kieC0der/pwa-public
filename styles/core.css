@@ -475,7 +475,8 @@ footer {
     footer .copyrights .georgia-logo {
       margin: 0 10px; }
   footer .legal-text li {
-    text-align: center; }
+    text-align: center;
+    line-height: 22px; }
     footer .legal-text li a {
       display: inline;
       font-size: 12px;

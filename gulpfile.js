@@ -123,7 +123,6 @@ var allLocales = [
     'es-CR',
     'es-DO',
     'es-EC',
-    //  'es-LA'
     'es-ES',
     'es-GQ',
     'es-GT',
@@ -139,8 +138,8 @@ var allLocales = [
     'es-VE',
     'fa-IR',
     'fi-FI',
-    'fr-AD'
-    /*'fr-BE',
+    'fr-AD',
+    'fr-BE',
     'fr-BE',
     'fr-BF',
     'fr-BI',
@@ -212,9 +211,9 @@ var allLocales = [
     'vi-VN',
     'zh-CN',
     'zh-SG',
-    'zh-TW' */
+    'zh-TW'
 ];
-var originalLocales = [
+/*var originalLocales = [
     'ar',
     'bn-BD',
     'ca-ES',
@@ -259,7 +258,7 @@ var originalLocales = [
     'vi-VN',
     'zh-CN',
     'zh-TW'
-];
+];*/
 gulp.task('generate-service-worker', function(callback) {
     var rootDir = './';
     swPrecache.write(path.join(rootDir, 'service-worker.js'), {
@@ -413,7 +412,7 @@ gulp.task('download-translations', function() {
                 method: 'GET',
                 qs: {
                     fileUris: ['app.json'],
-                    localeIds: originalLocales
+                    localeIds: allLocales
                 },
                 qsStringifyOptions: {
                     arrayFormat: 'brackets'
