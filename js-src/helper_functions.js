@@ -22,6 +22,37 @@ var helper = {};
     exports.domReady = domReady;
 })(window, document);
 
+helper.isInViewport = function(el){
+    var rect = el.getBoundingClientRect();
+
+    return (
+        rect.bottom >= 0 &&
+        rect.right >= 0 &&
+
+        rect.top <= (
+        window.innerHeight ||
+        document.documentElement.clientHeight) &&
+
+        rect.left <= (
+        window.innerWidth ||
+        document.documentElement.clientWidth)
+    );
+};
+
+helper.registerListener = function(event, func) {
+    if (window.addEventListener) {
+        window.addEventListener(event, func)
+    } else {
+        window.attachEvent('on' + event, func)
+    }
+};
+helper.removeListener = function(event, func){
+    if(window.addEventListener){
+        window.removeEventListener(event, func);
+    } else {
+        window.detachEvent('on' + event, func);
+    }
+};
 
 //TODO: add class functionality to loadTemplate function and make reusable
 
