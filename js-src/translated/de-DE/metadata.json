@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Nationaler und lokaler Wetterradar, tägliche Vorhersage, Orkane und Informationen von The Weather Channel und weather.com",
+    "page_desc" : "The Weather Channel und weather.com versorgen Sie mit landesweiten und lokalen Wettervorhersagen für Städte sowie mit Wetterradaren, Berichten und Sturmwarnungen",
+    "page_keywords" : "landesweites Wetter, landesweite Wettervorhersage, lokales Wetter, lokale Wettervorhersage, Wetter, Wettervorhersage, Wetterradar, Wetterbericht, Sturm, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName} Wettervorhersage und -bedingungen - The Weather Channel | Weather.com",
+    "page_desc" : "Wettervorhersage, Witterungsbedingungen und Doppler-Radar für den Tag und die Nacht für {dynamicLocName} von The Weather Channel und Weather.com",
+    "page_keywords" : "{dynamicLocName} Wetter, {dynamicLocName} Wettervorhersage, {dynamicLocName} Witterungsbedingungen, {dynamicLocName} Vorhersage, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Stündliche Wettervorhersage für {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Stündliche lokale Wettervorhersage, Witterungsbedingungen, Niederschlag, Taupunkt, Luftfeuchtigkeit, Wind von Weather.com und The Weather Channel",
+    "page_keywords" : "stündliches Wetter für {dynamicLocName} stündliche Wettervorhersage für @ stündliche Vorhersage, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "{dynamicLocName} Wettervorhersage für das Wochenende - The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} Wettervorhersage für das Wochenende, hohe Temperatur, niedrige Temperatur, Niederschlag, Wetterkarte von The Weather Channel und Weather.com",
+    "page_keywords" : "{dynamicLocName} Wetter für das Wochenende, {dynamicLocName} Wettervorhersage für das Wochenende, {dynamicLocName} Wetteraussicht für das Wochenende, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "5-Tage-Wettervorhersage für {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} 5-Tage-Wettervorhersage, Witterungsbedingungen, Temperaturen, Niederschlagswahrscheinlichkeit von The Weather Channel und Weather.com",
+    "page_keywords" : "5-Tage-Wetter für {dynamicLocName} 5-Tage-Wettervorhersage für {dynamicLocName} 5-Tage {dynamicLocName} 5-Tage-Wetter {dynamicLocName} weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName} 10-Tage-Wettervorhersage - The Weather Channel | Weather.com",
+    "page_desc" : "Mit der genauesten 10-Tage-Vorhersage für {dynamicLocName} mit Hoch- und Tiefdruckgebieten und der Niederschlagswahrscheinlichkeit von The Weather Channel und Weather.com sind Sie optimal vorbereitet",
+    "page_keywords" : "{dynamicLocName} 10-Tage-Wetter, {dynamicLocName} 10-Tage-Wettervorhersage {dynamicLocName} Witterungsbedingungen, {dynamicLocName} 10-Tage-Vorhersage, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName} Wetter- und Radarkarte - The Weather Channel | Weather.com",
+    "page_desc" : "Auf der interaktiven Wetterkarte für {pageLocName} von The Weather Channel und Weather.com können Sie schwenken und zoomen, um die genauesten Wetterinformationen für Ihre Gegend oder einen Ort auf der anderen Seite der Erde zu erhalten",
+    "page_keywords" : "interaktiv, lokal, Radar, Wetter, Karte, {pageLocName} Wetterkarte, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Wettervideos von The Weather Channel | Weather.com",
+    "page_desc" : "Schauen Sie sich die neuesten Wettervideos von The Weather Channel und Weather.com an",
+    "page_keywords" : "Wettervideo, Video weather channel, Wissenschaftsvideo, Video Mutter Natur, Sturmvideo, Hurrikanvideo, Tornadovideo, Reisevideo, Gesundheitsvideo, Klimavideo, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Wetterwarnungen – The Weather Channel | Weather.com",
+    "page_desc" : "Schnellzugriff auf aktive Wetterwarnungen von The Weather Channel und Weather.com für ganz {dynamicLocName}",
+    "page_keywords" : "Warnungen, schwere Unwetter, Vorwarnungen, Warnmeldungen, Hinweise, weather.com, weather channel"
+  }
+}

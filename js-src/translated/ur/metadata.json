@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "The Weather Channel weather.com سے قومی اور مقامی موسمی ریڈار، روزانہ کی پیشگوئی سمندری طوفان اور مزید معلومات",
+    "page_desc" : "موسمیاتی چینل اور weather.com شہروں کے لیے قومی و مقامی موسمی کی پیشگوئی اور اس کے ساتھ ساتھ موسمی ریڈار، رپورٹ اور سمندری طوفان کی نشریات فراہم کرتے ہیں",
+    "page_keywords" : "قومی موسم، قومی موسم کی پیشن گوئی، مقامی موسم، مقامی موسم کی پیشن گوئی، موسم، موسم کی پیشن گوئی، موسمی ریڈار، موسم کی رپورٹ، سمندری طوفان، weather.com, موسمی چینل"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName}موسمی پیشگوئی اور حالات - موسمیاتی چینل | weather.com",
+    "page_desc" : "The Weather Channel اور Weather.com سے {dynamicLocName} میں آج دن اور آج رات کی موسمی پیشگوئی، موسم کی صورتحال اور ڈوپلر ریڈار",
+    "page_keywords" : "{dynamicLocName} موسم، {dynamicLocName} موسم کی پیشگوئی،{dynamicLocName} موسم کے حالات، {dynamicLocName}پیشگوئی، weather.com، موسمیاتی چینل"
+  },
+  "hourly" : {
+    "page_title" : "{dynamicLocName} میں گھنٹہ وار موسم کی پیشگوئی کے لیے - The Weather Channel | Weather.com",
+    "page_desc" : "گھنٹہ وارمقامی موسم کی پیشن گوئی، موسم کے حالات، بارش، نقطہ اوس، نمی، ہوا Weather.com اور موسمیاتی چینل",
+    "page_keywords" : "{dynamicLocName} کے لیے گھنٹہ وار موسم گھنٹہ وار موسم کی پیشگوئی کے لیے @ گھنٹہ وار پیشگوئی، weather.com موسمیاتی چینل"
+  },
+  "weekend" : {
+    "page_title" : "{dynamicLocName} اختتام ہفتہ موسمی پیشگوئی - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather Channel اور Weather.com سے {dynamicLocName} کی اختتام ہفتہ کی موسمی پیشگوئی، زیادہ درجہ حرارت، کم درجہ حرارت، بارش اور موسمی نقشہ۔",
+    "page_keywords" : "{dynamicLocName} اختتام ہفتہ کا موسم{dynamicLocName} اختتام ہفتہ کی موسم کی پیشگوئی،{dynamicLocName} اختتام ہفتہ موسم کی توقع، weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "5-دن کی موسمی پیشگوئی {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather Channel اور Weather.com سے جانئیے {dynamicLocName} کی 5-دن کی موسمی پیشگوئی، موسمی حالات، درجہ حرارت، بارش کے امکانات ",
+    "page_keywords" : "5-دن کا موسم {dynamicLocName} 5-دن کی موسمی پیشگوئی{dynamicLocName} 5-دن{dynamicLocName} 5-دن کا موسم{dynamicLocName} weather.com weather channel"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName} 10-دن کی موسمی پیشگوئی - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather Channel اور Weather.com سے{dynamicLocName} کی 10-دن کی درست ترین پیشگوئی بشمول زیادہ سے زیادہ ، کم سے کم, اور بارش کی توقع کے لئے تیار رہیں۔",
+    "page_keywords" : "{dynamicLocName} 10-دن کا موسم، {dynamicLocName} 10-دن کی موسمی پیشگوئی{dynamicLocName} موسم کے حالات، {dynamicLocName}10-دن کی پیشگوئی، Weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName}موسم اور ریڈار کے نقشے - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather Channel اور Weather.com میں آمنے سامنے موجود {pageLocName} کے نقشے آپ کے مقامی گرد و نواح یا آدھی دنیا کی مسافت پر موجودہ موسم کی بے مثال تفصیلات حاصل کرنے کی آپ کو اجازت دیتے ہیں۔",
+    "page_keywords" : "آمنے سامنے، مقامی، ریڈار، موسم، نقشہ، {pageLocName} موسمی نقشہ، weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : " The Weather Channel | Weather.com سے موسم کی ویڈیوز ",
+    "page_desc" : "موسمی چینل اور Weather.com سے موسم کی تازہ ترین ویڈیوز حاصل کریں۔",
+    "page_keywords" : "موسم کی ویڈیو، weather channel کی ویڈیو، سائنس کی ویڈیو، مادرانہ قدرت کی ویڈیو، طوفان کی ویڈیو، سمندری طوفان کی ویڈیو، جھکڑ کی ویڈیو، سفر کی ویڈیو، صحت کی ویڈیو، آب و ہوا کی ویڈیو، weather.com weather channel"
+  },
+  "alerts" : {
+    "page_title" : "موسمی تنبیہات ـ موسمیاتی چینل | Weather.com",
+    "page_desc" : "The Weather Channel اور Weather.com سے {dynamicLocName}بھر کی موسمی الرٹس کو فعال کرنے کے لیے فوری رسائی کریں۔",
+    "page_keywords" : " تنبیہات، شدید موسم، گھڑیاں،خطرہ کی تنبیہات، مشاورتی اطلاعات، weather.com, موسمیاتی چینل"
+  }
+}

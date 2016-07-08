@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "رادار آب و هوایی ملی و محلی، پیش بینی آب و هوای روزانه، طوفان و اطلاعات از طریق کانال آب و هوا و weather.com",
+    "page_desc" : "کانال آب و هوا و weather.com علاوه بر رادار هواشناسی، گزارش و پوشش طوفان، پیش بینی آب و هوای محلی و ملی را برای شهرها فراهم می کنند.",
+    "page_keywords" : "آب و هوای ملی، پیش بینی آب و هوای ملی، آب و هوای محلی، پیش بینی آب و هوای محلی، آب و هوا، پیش بینی آب و هوا، رادار هواشناسی، گزارش آب و هوا، طوفان، weather.com، کانال آب و هوا"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName} پبیش بینی آب و هوا و شرایط - کانال آب و هوا | Weather.com",
+    "page_desc" : "پیش بینی آب و هوای {dynamicLocName} امروز و امشب، شرایط آب و هوایی و رادار دوپلر از طریق کانال آب و هوا و Weather.com",
+    "page_keywords" : "{dynamicLocName} آب و هو، {dynamicLocName} پیش بینی آب و هوا {dynamicLocName} شرایط آب و هوا، {dynamicLocName} پیش بینی آب و هوا، weather.com کانال آب و هوا"
+  },
+  "hourly" : {
+    "page_title" : "پیش بینی آب و هوای ساعتی برای {dynamicLocName} - کانال آب و هوا | Weather.com",
+    "page_desc" : "پیش بینی آب و هوای محلی ساعتی، شرابط آب و هوا، بارش، نقطه شبنم، رطوبت، باد در Weather.com  و کانال آب و هوا",
+    "page_keywords" : "آب و هوا در هر ساعت برای {dynamicLocName} پیش بینی آب و هوا در هر ساعت برای @ پیش بینی آب و هوای در هر ساعت، weather.com، کانال آب و هوا"
+  },
+  "weekend" : {
+    "page_title" : "{dynamicLocName} پیش بینی آب و هوای آخر هفته  - کانال آب و هوا | Weather.com",
+    "page_desc" : "{dynamicLocName} پیش بینی آب و هوای آخر هفته,  دمای بالا، دمای پایین، بارش، نقشه آب و هوا از کانال آب و هوا و Weather.com",
+    "page_keywords" : "{dynamicLocName} آب و هوای آخر هفته، {dynamicLocName} پیش بینی آب و هوای آخر هفته، {dynamicLocName} چشم انداز آب و هوای آخر هفته weather.com، کانال آب و هوا"
+  },
+  "5day" : {
+    "page_title" : "پیش بینی آب و هوای ۵ روزه برای {dynamicLocName} - کانال آب و هوا | Weather.com",
+    "page_desc" : "{dynamicLocName} پیش بینی آب و هوای 5‌ روزه، شرایط آب و هوا، درجه حرارت ها، امکان بارش از کانال آب و هوا و Weather.com",
+    "page_keywords" : "آب و هوای 5‌ روزه برای {dynamicLocName} پیش بینی 5 روزه آب و هوا برای {dynamicLocName}  5‌ روزه{dynamicLocName} آب و هوای 5 روزه{dynamicLocName} weather.com، کانال آب و هوا"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName} پیش بینی آب و هوای 10 روزه - کانال آب و هوا | Weather.com",
+    "page_desc" : "با داشتن دقیق ترین پیش بینی آب و هوای 10 روزه برای {dynamicLocName} شامل بالاترین و پایین ترین دماها، امکان بارش از طریق کانال آب و هوا و Weather.com آماده باشید",
+    "page_keywords" : "آب و هوای 10‌ روزه، {dynamicLocName} پیش بینی آب و هوای 10‌ روزه {dynamicLocName} شرایط آب و هوا، {dynamicLocName} پیش بینی آب و هوای 10 روزه، weather.com، کانال آب و هوا"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName} نقشه رادار و آب و هوا - کانال آب و هوا | Weather.com",
+    "page_desc" : "نقشه تعاملی آب و هوای {pageLocName} امکان جا به جایی و بزرگنمایی را به منظور دریافت جزئیات آب و هوای مکانی در همسایگی محلی شما یا در آن سمت دنیا از طریق کانال آب و هوا و Weather.com فراهم می کند.",
+    "page_keywords" : "تعاملی، محلی، راداری، آب و هوا، نقشه {pageLocName} ، نقشه اب و هوا، weather.com، کانال آب و هوا"
+  },
+  "video" : {
+    "page_title" : "ویدئوهای آب و هوا از کانال آب و هوا | Weather.com",
+    "page_desc" : "اخرین ویدئوهای آب و هوایی را از کانال آب و هوا و Weather.com بگیرید.",
+    "page_keywords" : "ویدئو آب و هوا، ویدئو کانال آب و هوا، ویدئو علمی، ویدئو مادر طبیعت، ویدئو طوفان، ویدئو توفند، ویدئو گردباد، ویدئو مسافرت، ویدئو سلامتی، ویدئو آب و هوا، weather.com کانال آب و هوا"
+  },
+  "alerts" : {
+    "page_title" : "هشدارهای آب وهوایی - کانال آب و هوا | Weather.com",
+    "page_desc" : "دسترسی سریع به هشدارهای فعال آب و هوا در {dynamicLocName} از طریق کانال آب و هوا و Weather.com",
+    "page_keywords" : "هشدارها، آب و هوای بد، مراقبت ها، هشدارها، راهنمایی ها، weather.com کانال آب و هوا"
+  }
+}
