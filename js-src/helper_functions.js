@@ -234,10 +234,10 @@ helper.setCanonical = function(){
     //for getting user info to add to page canonical
     var origin = 'https://weather.com/',// Never: location.origin, always point to prod.
         basePath = origin,
-        fallback = '';
+        fallback = window.location.href.replace(/.+\.weather\.com/, origin);
 
     var getPage = function(){
-        var hrefJSONfile = '/js-src/hreflangs/hreflang_' + _Router.page + '_page.json';
+          var hrefJSONfile = '/js-src/hreflangs/hreflang_' + _Router.page + '_page.json';
         return helper.getJSON(hrefJSONfile).then(function(data) {
             return data[_User.lang];
         });
@@ -245,8 +245,8 @@ helper.setCanonical = function(){
 
     var generateMetaTag = function(){
         getPage().then(function(canonicalValue) {
-            //url = (_User.activeLocation.locID ? basePath + canonicalValue + getUserInfo() : fallback);
-            var url = basePath + canonicalValue + getLocInfo();
+            var locInfo = getLocInfo();
+            var url = locInfo? basePath + canonicalValue + locInfo : fallback;
             var cLink = document.createElement("link"), head = document.getElementsByTagName("head")[0];
             cLink.setAttribute("rel", "canonical");
             cLink.setAttribute("href", url);
@@ -257,9 +257,18 @@ helper.setCanonical = function(){
 
     var getLocInfo = function () {
         var userLoc = _User.activeLocation;
-        var locID = userLoc.locId;
-        var city = userLoc.cityNm && userLoc.cityNm.replace(/\s/g, '+'), state = userLoc.stCd;
-        var userInfo = city + '+' + state + '+' + locID+':'+userLoc.locType+':'+userLoc.cntryCd;
+        var city = userLoc.cityNm && userLoc.cityNm.replace(/\s/g, '+'), state = userLoc.stCd, loc = '';
+        if(!userLoc || !city || !state){
+            return null;
+        }
+
+        if(userLoc.zipCd){
+            loc = userLoc.zipCd+':4:'+userLoc.cntryCd;;
+        }
+        else if (userLoc.locId){
+            loc = userLoc.locId +':1:'+userLoc.cntryCd;
+        }
+        var userInfo = city + '+' + state + '+' + loc;
         return userInfo;
     };
     generateMetaTag();
