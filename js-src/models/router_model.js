@@ -1,55 +1,112 @@
 
-var _Router = {};
+var _Router = {
+    page : ''
+};
 (function(){
-    _Router = {
-        page : ''
+    var pageAssignment;
+    var getHREFLANG = function(key){
+        helper.getJSON('/js-src/hreflangs/hreflang_' + pageAssignment[key].href + '_page.json').then(function(data){
+            pageAssignment[key].hreflang = data;
+            if(key === 'maps'){
+                //Handles Onload checking.
+                 handlePath();
+            }
+        });
     };
+    helper.getJSON('/js-src/page-config.json').then(function(data){
+        pageAssignment = data;
+        for(var pager in pageAssignment){
+            getHREFLANG(pager);
+        }
+    });
 
-    var pageAssignment = {
-        'today'   : {
-            name       : 'today',
-            metricName : 'today-forecast',
-            title      : 'Your Current Conditions',
-            pos        : '1',
-            href       : 'today'
-        },
-        'hourly'  : {
-            name       : 'hourly',
-            metricName : 'hourly-forecast',
-            title      : 'Your Hourly Forecast',
-            pos        : '2',
-            href       : 'hourly'
-        },
-        'fiveday'   : {
-            name       : 'fiveday',
-            metricName : '5day-forecast',
-            title      : 'Your Five Day Forecast',
-            pos        : '3',
-            href       : '5_day'
-        },
-        'tenday'   : {
-            name       : 'tenday',
-            metricName : '10day-forecast',
-            title      : 'Your Ten Day Forecast',
-            pos        : '4',
-            href       : '10_day'
-        },
-        'weekend' : {
-            name       : 'weekend',
-            metricName : 'weekend-forecast',
-            title      : 'Your Weekend Forecast',
-            pos        : '5',
-            href       : 'weekend'
-        },
-        'maps' : {
-            name        : 'maps',
-            metricName  : 'maps',
-            title       : 'Your Radar Map',
-            pos         : '6',
-            href        : 'maps'
+    var pathArr = [], queryArr = [];
+    var handlePath = function() {
+        var urlInfo = {
+            lang : 'en-US',
+            page : 'weather/today/l/',
+            loc : ''
+        };
+        //page=/weather/radar/interactive&locid=USDC0001:1:US
+        queryArr = helper.parseQueryString();
+        if(queryArr.page){
+            var paramsArr = queryArr.page.split('/');
+            urlInfo.lang = paramsArr[1].indexOf("-") === 2 ? paramsArr[1] : 'en-US';
+            urlInfo.page = queryArr.page.substr(1, queryArr.page.length -1) + '/l/';
+            urlInfo.loc = queryArr.locid ? queryArr.locid : '';
+        } else {
+            var path = window.location.pathname;
+            pathArr = path.split('/');
+            pathArr.shift();
+            if (pathArr[0].indexOf('-') === 2) {
+                urlInfo.lang = pathArr[0];
+            }
+            urlInfo.page = '';
+            for(pathItem in pathArr){
+                if(pathArr[pathItem] === 'l'){
+                    urlInfo.page += 'l/';
+                    break;
+                } else {
+                    urlInfo.page += pathArr[pathItem] + '/';
+                }
+            }
+            var lastItem = pathArr[pathArr.length -1];
+            if(lastItem.indexOf(',') > -1 || lastItem.indexOf(':') > -1 || (lastItem.length === 5 && helper.isNumeric(Number(lastItem)))){
+                urlInfo.loc = lastItem;
+            }
+        }
+        updateTranslations(urlInfo);
+    };
+    var updateTranslations = function(pathArr){
+        if(pathArr && pathArr.lang && _User.lang !== pathArr.lang){
+            _User.lang = pathArr.lang;
+            _Language.updateTranslations().then(function(){
+                getDefaultLoc(pathArr);
+            });
+        } else {
+            getDefaultLoc(pathArr);
         }
     };
-
+    var RTLs = ['ar-AE', 'fa-IR', 'he-IL', 'ur-PK'];
+    var setRTL = function(){
+        if(RTLs.indexOf(_User.lang) > -1){
+            document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");
+        } else {
+            document.getElementsByTagName("html")[0].setAttribute("dir", "ltr");
+        }
+    };
+    var getDefaultLoc = function(pathArr){
+        setRTL();
+        if(pathArr.loc){
+            _Locations.supplementLoc(pathArr.loc).then(function(data){
+                _User.newActiveLocation(data);
+                 checkPage(pathArr);
+            });
+        } else if (!_User.activeLocation.prsntNm){
+            _Locations.getDefaultLocation().then(function(){
+                checkPage(pathArr);
+            });
+        } else {
+            checkPage(pathArr);
+        }
+    };
+     var checkPage = function(pathArr){
+            if(history.state && history.state.changeTo){
+                _Router.changePage(history.state.changeTo);
+            } else {
+                if(!pathArr.page){
+                    _Router.changePage('today');
+                } else {
+                    for(var page in pageAssignment){
+                    //    console.log(pageAssignment[page].hreflang[pathArr.lang]);
+                        if(pathArr.page === pageAssignment[page].hreflang[pathArr.lang]){
+                            _Router.changePage(page);
+                        }
+                    }
+                }
+                //Else, its not a valid URL.  We should probably 404 on this.
+            }
+    };
 
     var changeTo = '', lis;
     _Router.changePage = function(page){
@@ -76,77 +133,6 @@ var _Router = {};
             history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
             _Router.dispatchAds();
         });
-    };
-
-    var pathArr = [];
-    var handlePath = function() {
-        pathArr = window.location.pathname.split('/');
-        if (pathArr[1].indexOf('-') === 2) {
-            if(_User.lang !== pathArr[1]){
-                _User.lang = pathArr[1];
-                _Language.updateTranslations().then(function(){
-                    getDefaultLoc(pathArr);
-                });
-            } else {
-                getDefaultLoc(pathArr);
-            }
-        } else {
-            _User.lang = 'en-US';
-            _Language.updateTranslations().then(function(){
-                getDefaultLoc(pathArr);
-            });
-        }
-    };
-    var RTLs = ['ar-AE', 'fa-IR', 'he-IL', 'ur-PK'];
-    var setRTL = function(){
-        if(RTLs.indexOf(_User.lang) > -1){
-            document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");
-        } else {
-            document.getElementsByTagName("html")[0].setAttribute("dir", "ltr");
-        }
-    };
-    var getDefaultLoc = function(pathArr){
-        setRTL();
-        if(pathArr[5] && (pathArr[5].indexOf(':') > -1 || pathArr[5].indexOf(',') > -1)){
-            _Locations.supplementLoc(pathArr[5]).then(function(data){
-                _User.newActiveLocation(data);
-                 checkPage(pathArr);
-            });
-
-        } else if (!_User.activeLocation.prsntNm){
-            _Locations.getDefaultLocation().then(function(){
-                checkPage(pathArr);
-            });
-        } else {
-            checkPage(pathArr);
-        }
-    };
-     var checkPage = function(pathArr){
-            if(history.state && history.state.changeTo){
-                _Router.changePage(history.state.changeTo);
-            } else {
-                if(window.location.pathname === '/' || !pathArr[3]){
-                    _Router.changePage('today');
-                } else {
-                    for(var x in pageAssignment){
-                        if(_Lang[x] === decodeURI(pathArr[3])){
-                            _Router.changePage(x);
-                            break;
-                        } else if(x === pathArr[3]){ //english.
-                            _Router.changePage(x);
-                            break;
-                        }
-                    }
-                }
-                //Else, its not a valid URL.  We should probably 404 on this.
-            }
-    };
-    //Handles Onload checking.
-    handlePath();
-
-    window.onpopstate = function(){
-        console.log('poped stated');
-       //handlePath();
     };
 
     _Router.updateURL = function(){
