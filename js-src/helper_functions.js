@@ -229,12 +229,3 @@ helper.getJSON = function(path){
         xobj.send(null);
     });
 };
-
-helper.getPage = function(){
-    var currentPage = _Router.page,
-        lang        = _User.lang,
-        hrefJSONfile = '/js-src/hreflangs/hreflang_' + currentPage + '_page.json';
-    return this.getJSON(hrefJSONfile).then(function(data) {
-      return data[lang];
-    });
-};
