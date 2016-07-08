@@ -89,7 +89,7 @@ var _Data = {}, app = {};
             'onSuccess' : function(req) {
 
                 var data = JSON.parse(req.responseText).FarmingAlmanacRecordData;
-                console.log(data);
+        //        console.log(data);
                 var oneDayHistorical = data.OneDayHistorical;
                 var reportedConditions = data.ReportedConditions;
                 var historicalMonthlyAvg = data.HistoricalMonthlyAvg;
@@ -102,8 +102,8 @@ var _Data = {}, app = {};
                 _Data.reportedConditions = cleanReportedConditionsData(reportedConditions, _Data.tempUnit, _Data.precipUnit);
 
                 // WIP 7/5/16, 1115
-                console.log(historicalMonthlyAvg);
-                console.log(data);
+           //     console.log(historicalMonthlyAvg);
+          //      console.log(data);
                 _Data.historicalMonthlyAvg = cleanHxMonthlyAvgData(historicalMonthlyAvg, _Data.tempUnit, _Data.precipUnit);
                 // END WIP
 
@@ -119,7 +119,7 @@ var _Data = {}, app = {};
     }
 // WIP 7/5/16 1119
     var cleanHxMonthlyAvgData = function(hxMonthlyAvgObj, tempUnit, precipUnit) {
-        console.log(precipUnit);
+    //    console.log(precipUnit);
         var data = {},
             nullPlaceholder = '\u2014',
             valueNames = ['currentMonthAvgHigh',

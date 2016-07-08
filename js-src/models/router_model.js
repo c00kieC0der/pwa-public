@@ -35,11 +35,14 @@ var _Router = {
             urlInfo.page = queryArr.page.substr(1, queryArr.page.length -1) + '/l/';
             urlInfo.loc = queryArr.locid ? queryArr.locid : '';
         } else {
-            var path = window.location.pathname;
+            var path = window.location.pathname !== '/' ? window.location.pathname : '/weather/today/l';
             pathArr = path.split('/');
             pathArr.shift();
             if (pathArr[0].indexOf('-') === 2) {
                 urlInfo.lang = pathArr[0];
+                if(pathArr.length < 2){
+                    pathArr.shift();
+                }
             }
             urlInfo.page = '';
             for(pathItem in pathArr){
@@ -50,7 +53,7 @@ var _Router = {
                     urlInfo.page += pathArr[pathItem] + '/';
                 }
             }
-            var lastItem = pathArr[pathArr.length -1];
+            var lastItem = pathArr.length > 1 ? pathArr[pathArr.length -1] : '';
             if(lastItem.indexOf(',') > -1 || lastItem.indexOf(':') > -1 || (lastItem.length === 5 && helper.isNumeric(Number(lastItem)))){
                 urlInfo.loc = lastItem;
             }
@@ -98,41 +101,38 @@ var _Router = {
                     _Router.changePage('today');
                 } else {
                     for(var page in pageAssignment){
-                    //    console.log(pageAssignment[page].hreflang[pathArr.lang]);
                         if(pathArr.page === pageAssignment[page].hreflang[pathArr.lang]){
                             _Router.changePage(page);
+                            break;
                         }
                     }
+                    _Router.changePage('today');
                 }
                 //Else, its not a valid URL.  We should probably 404 on this.
             }
     };
 
-    var changeTo = '', lis;
+    var lis;
     _Router.changePage = function(page){
+        /*   Page Nav, decactivate all, the activate the right one. */
         lis = document.getElementsByClassName('page-nav-li');
         for(var i=0; i < lis.length; i++){
             lis[i].className = lis[i].className.replace('active', '');
         }
         document.getElementsByClassName('page-nav-li ' + page)[0].className += ' active';
-        changeTo = page;
 
         if(!_Router.page){
             _Router.page = 'today';
         }
-        helper.getJSON('/js-src/hreflangs/hreflang_' + pageAssignment[page].href + '_page.json').then(function(data){
-            pageAssignment[page].hreflang = data;
+        _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[page].metricName, pageAssignment[page].pos);
+        _Router.page = page;
+        helper.loadTemplateWithClass('page-content', 'pages', page);
+        document.title = pageAssignment[page].title;
+        var activeLoc = _User.activeLocation;
+        var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
+        history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
+        _Router.dispatchAds();
 
-            _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[changeTo].metricName, pageAssignment[page].pos);
-            _Router.page = changeTo;
-
-            helper.loadTemplateWithClass('page-content', 'pages', changeTo);
-            document.title = pageAssignment[page].title;
-            var activeLoc = _User.activeLocation;
-            var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
-            history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
-            _Router.dispatchAds();
-        });
     };
 
     _Router.updateURL = function(){
