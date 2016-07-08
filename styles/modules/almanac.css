@@ -16,3 +16,6 @@
     font-size: 10px; }
   .almanac-table .col1 {
     width: 140px; }
+  .almanac-table .almanac-recordyr {
+    display: block;
+    clear: both; }
