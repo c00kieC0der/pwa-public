@@ -244,11 +244,16 @@ helper.setCanonical = function(){
     };
 
     var generateMetaTag = function(){
+        var url;
+        var cLink = document.createElement("link"), head = document.getElementsByTagName("head")[0];
+        cLink.setAttribute("rel", "canonical");
         getPage().then(function(canonicalValue) {
             var locInfo = getLocInfo();
-            var url = locInfo? basePath + canonicalValue + locInfo : fallback;
-            var cLink = document.createElement("link"), head = document.getElementsByTagName("head")[0];
-            cLink.setAttribute("rel", "canonical");
+            url = locInfo? basePath + canonicalValue + locInfo : fallback;
+            cLink.setAttribute("href", url);
+            head.appendChild(cLink);
+        }).catch(function(){
+            url = fallback;
             cLink.setAttribute("href", url);
             head.appendChild(cLink);
         });
