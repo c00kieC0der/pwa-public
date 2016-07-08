@@ -4,6 +4,8 @@
 
 importScripts('/web-worker/user_model.js');
 console.log('user', _User);
+//importScripts('https://js-sec.indexww.com/ht/ls-weather.js');
+console.log({type: 'ls-weather', payload: 'ls-weather loaded loaded'});
 
 
 

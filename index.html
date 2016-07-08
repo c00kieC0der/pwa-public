@@ -35,16 +35,18 @@
                 _User = JSON.parse(data);
                 _Locations.callGeoLocation(function(err, data) {
                     myWorker.postMessage({type: 'user', payload: data});
-                    console.log('Message from worker - user', new Date().getTime() - window.renderStartTime);
                 });
-                console.log('_user', e.data.payload);
+                console.log('_user', e.data.payload,'Message from worker', new Date().getTime() - window.renderStartTime);
             } else if(type === 'lang-builder') {
                 _Lang = data;
                 document.getElementById('event-anchor').dispatchEvent(eventWorkerData);
-                console.log('lang-builder', e.data.payload);
+                console.log('lang-builder', e.data.payload,'Message from worker', new Date().getTime() - window.renderStartTime);
+            } else if(type === 'ls-weather') {
+                console.log('ls-weather', e.data.payload,'Message from worker', new Date().getTime() - window.renderStartTime);
+            } else {
+                console.log('Message from worker', new Date().getTime() - window.renderStartTime);
             }
 
-            console.log('Message from worker', new Date().getTime() - window.renderStartTime);
         };
         window.renderStartTime = new Date().getTime();
     </script>
