@@ -19,18 +19,23 @@ html {
 
 body {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-flex-wrap: nowrap;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
   -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
   -webkit-align-content: stretch;
@@ -42,6 +47,18 @@ body {
   background-position-y: top;
   background-size: cover;
   background-repeat: no-repeat; }
+  @media (max-width: 480px) {
+    body #MW_Position1 {
+      min-height: 50px;
+      text-align: center; }
+    body #WX_WindowShade {
+      min-height: 0; } }
+  @media (min-width: 481px) {
+    body #WX_WindowShade {
+      min-height: 90px;
+      text-align: center; }
+    body #MW_Position1 {
+      min-height: 0; } }
 
 .header {
   width: 100%;
@@ -51,31 +68,23 @@ body {
   font-size: 20px;
   border-bottom: solid 1px rgba(255, 255, 255, 0.4);
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
-  display: -webkit-box;
-  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  -webkit-align-content: center;
+  align-content: center;
   -moz-transition: -moz-transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
   -o-transition: -o-transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
   -webkit-transition: -webkit-transform 0.233s cubic-bezier(0, 0, 0.21, 1);
   -webkit-transition-delay: 0.1s;
-  -webkit-transition: -webkit-transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
-  transition: -webkit-transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
-  transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
-  transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s, -webkit-transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s; }
+  transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s; }
 
 .twc-logo {
   display: inline-block;
@@ -89,14 +98,19 @@ body {
   left: 50%;
   top: 50%;
   position: fixed;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
   .loader #spinner {
     box-sizing: border-box;
     stroke: #673AB7;
     stroke-width: 3px;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
+    -moz-animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
     -webkit-animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
     animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite; }
 
@@ -107,8 +121,7 @@ body {
   margin: 0 auto;
   min-height: 45px; }
   .locations .left-block {
-    -ms-flex-item-align: start;
-        align-self: flex-start; }
+    align-self: flex-start; }
   .locations .nav > li {
     margin: 0;
     position: initial; }
@@ -478,7 +491,6 @@ footer {
     color: #3c8ed2; }
 
 .page-card-container {
-  -webkit-transition: margin-left 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
   transition: margin-left 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
   position: relative;
   width: 100%;
@@ -501,9 +513,7 @@ footer {
   width: 100%; }
   .page-card.slide-out {
     position: relative;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+    appearance: none;
     cursor: pointer;
     -webkit-animation: moveToLeft 0.4s ease both;
     animation: moveToLeft 0.4s ease both; }
@@ -515,7 +525,6 @@ footer {
   clear: both; }
 
 .menu-card {
-  -webkit-transition: left 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
   transition: left 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
   position: absolute;
   top: 0;
@@ -525,9 +534,7 @@ footer {
   background: rgba(0, 0, 0, 0.9); }
   .menu-card.slide-out {
     position: absolute;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+    appearance: none;
     cursor: pointer;
     left: 100%;
     top: 0; }
