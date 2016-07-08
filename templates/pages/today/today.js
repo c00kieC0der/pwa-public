@@ -15,8 +15,4 @@
                 }
         };
         helper.registerListener('scroll', showTheMap);
-
-        domReady(function(){ console.log('this happens');
-
-        });
 })();

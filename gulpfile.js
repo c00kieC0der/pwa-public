@@ -30,7 +30,53 @@ var autoprefixer = require('gulp-autoprefixer');
 var rtlcss = require('gulp-rtlcss');
 var rename = require('gulp-rename');
 var mergeStream = require('merge-stream');
+var allLocales = [];
+var originalLocales = [
+    'ar',
+    'bn-BD',
+    'ca-ES',
+    'cs-CZ',
+    'da-DK',
+    'de-DE',
+    'el-GR',
+    'en-GB',
+    'en-CA',
+    'en-IN',
 
+    //  'es-LA'
+    'es-ES',
+    'es-US',
+    'fa-IR',
+    'fi-FI',
+    'fr-FR',
+    'fr-CA',
+    'he-IL',
+    'hi-IN',
+    'hr-HR',
+    'hu-HU',
+    'id-ID',
+    'it-IT',
+    'ja-JP',
+    'ko-KR',
+    'ms-MY',
+    'nl-NL',
+    'no-NO',
+    'pl',
+    'pt-PT',
+    'pt-BR',
+    'ro-RO',
+    'ru-RU',
+    'sv-SE',
+    'sk-SK',
+    'th-TH',
+    'tl-PH',
+    'tr-TR',
+    'uk-UA',
+    'ur',
+    'vi-VN',
+    'zh-CN',
+    'zh-TW'
+];
 gulp.task('generate-service-worker', function(callback) {
     var rootDir = './';
     swPrecache.write(path.join(rootDir, 'service-worker.js'), {
@@ -183,53 +229,8 @@ gulp.task('download-translations', function() {
                 url: 'https://api.smartling.com/files-api/v2/projects/' + projectId + '/files/zip',
                 method: 'GET',
                 qs: {
-                    fileUris: ['app.json'],
-                    localeIds: [
-                        'ar',
-                        'bn-BD',
-                        'ca-ES',
-                        'cs-CZ',
-                        'da-DK',
-                        'de-DE',
-                        'el-GR',
-                        'en-GB',
-                        'en-CA',
-                        'en-IN',
-
-                        //  'es-LA'
-                        'es-ES',
-                        'es-US',
-                        'fa-IR',
-                        'fi-FI',
-                        'fr-FR',
-                        'fr-CA',
-                        'he-IL',
-                        'hi-IN',
-                        'hr-HR',
-                        'hu-HU',
-                        'id-ID',
-                        'it-IT',
-                        'ja-JP',
-                        'ko-KR',
-                        'ms-MY',
-                        'nl-NL',
-                        'no-NO',
-                        'pl',
-                        'pt-PT',
-                        'pt-BR',
-                        'ro-RO',
-                        'ru-RU',
-                        'sv-SE',
-                        'sk-SK',
-                        'th-TH',
-                        'tl-PH',
-                        'tr-TR',
-                        'uk-UA',
-                        'ur',
-                        'vi-VN',
-                        'zh-CN',
-                        'zh-TW'
-                        ]
+                    fileUris: ['metadata.json'],
+                    localeIds: allLocales
                 },
                 qsStringifyOptions: {
                     arrayFormat: 'brackets'
