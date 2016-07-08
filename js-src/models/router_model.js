@@ -138,9 +138,15 @@ var _Router = {
     var updateMetadata = function(page){
         document.getElementsByTagName("html")[0].setAttribute("lang", _User.lang);
         var meta = _Locales.metadata[page];
-      //  console.log(meta);
+        console.log(meta);
         document.title = meta.page_title;
-      //  console.log(document.getElementsByTagName("META"));
+        var metaArr = document.getElementsByTagName("META");
+        for(tag in metaArr){
+            if(metaArr[tag].getAttribute("property") === "description"){
+                //metaArr[tag].setAttribute("content", )
+            }
+        }
+
         //description, title, keywords
     };
     _Router.updateURL = function(){
