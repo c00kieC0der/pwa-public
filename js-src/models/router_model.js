@@ -133,21 +133,20 @@ var _Router = {
         var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
         history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
         _Router.dispatchAds();
-
     };
     var updateMetadata = function(page){
         document.getElementsByTagName("html")[0].setAttribute("lang", _User.lang);
         var meta = _Locales.metadata[page];
-        console.log(meta);
         document.title = meta.page_title;
         var metaArr = document.getElementsByTagName("META");
         for(tag in metaArr){
-            if(metaArr[tag].getAttribute("property") === "description"){
-                //metaArr[tag].setAttribute("content", )
+            if(metaArr[tag].name === "Description"){
+                metaArr[tag].content = meta.page_desc.replaceAll('{dynamicLocName}', _User.activeLocation.prsntNm);
+            }
+            if(metaArr[tag].name === 'Keywords'){
+                metaArr[tag].content = meta.page_keywords.replaceAll('{dynamicLocName}', _User.activeLocation.prsntNm);
             }
         }
-
-        //description, title, keywords
     };
     _Router.updateURL = function(){
         if(history.state && history.state.changeTo){
