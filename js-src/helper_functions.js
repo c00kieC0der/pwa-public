@@ -237,11 +237,9 @@ helper.setCanonical = function(){
         fallback = '';
 
     var getPage = function(){
-        var currentPage = _Router.page,
-            lang        = _User.lang,
-            hrefJSONfile = '/js-src/hreflangs/hreflang_' + currentPage + '_page.json';
+          var hrefJSONfile = '/js-src/hreflangs/hreflang_' + _Router.page + '_page.json';
         return helper.getJSON(hrefJSONfile).then(function(data) {
-            return data[lang];
+            return data[_User.lang];
         });
     };
 
