@@ -22,6 +22,37 @@ var helper = {};
     exports.domReady = domReady;
 })(window, document);
 
+helper.isInViewport = function(el){
+    var rect = el.getBoundingClientRect();
+
+    return (
+        rect.bottom >= 0 &&
+        rect.right >= 0 &&
+
+        rect.top <= (
+        window.innerHeight ||
+        document.documentElement.clientHeight) &&
+
+        rect.left <= (
+        window.innerWidth ||
+        document.documentElement.clientWidth)
+    );
+};
+
+helper.registerListener = function(event, func) {
+    if (window.addEventListener) {
+        window.addEventListener(event, func)
+    } else {
+        window.attachEvent('on' + event, func)
+    }
+};
+helper.removeListener = function(event, func){
+    if(window.addEventListener){
+        window.removeEventListener(event, func);
+    } else {
+        window.detachEvent('on' + event, func);
+    }
+};
 
 //TODO: add class functionality to loadTemplate function and make reusable
 
@@ -227,4 +258,18 @@ helper.getJSON = function(path){
         };
         xobj.send(null);
     });
+};
+
+helper.parseQueryString = function() {
+
+    var str = window.location.search;
+    var objURL = {};
+
+    str.replace(
+        new RegExp( "([^?=&]+)(=([^&]*))?", "g" ),
+        function( $0, $1, $2, $3 ){
+            objURL[ $1 ] = $3;
+        }
+    );
+    return objURL;
 };
