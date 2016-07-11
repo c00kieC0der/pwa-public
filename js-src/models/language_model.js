@@ -21,7 +21,6 @@ var _Language = {}; _Lang = {}, _Locales = {};
                 } else {
                     path = '/js-src/translated/' + localeMap[_User.lang] + '/';
                 }
-                console.log(path);
 
                 helper.getJSON(path + 'app.json').then(function (result) {
                     _Lang = result;

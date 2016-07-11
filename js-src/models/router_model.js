@@ -114,7 +114,7 @@ var _Router = {
     };
 
     var lis;
-    _Router.changePage = function(page){
+    _Router.changePage = function(page){  console.log("LOADING PAGE.");
         /*   Page Nav, decactivate all, the activate the right one. */
         lis = document.getElementsByClassName('page-nav-li');
         for(var i=0; i < lis.length; i++){
@@ -128,11 +128,11 @@ var _Router = {
         _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[page].metricName, pageAssignment[page].pos);
         _Router.page = page;
         helper.loadTemplateWithClass('page-content', 'pages', page);
-        updateMetadata(page);
+        _Router.dispatchAds();
         var activeLoc = _User.activeLocation;
         var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
         history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
-        _Router.dispatchAds();
+        updateMetadata(page);
     };
     var updateMetadata = function(page){
         document.getElementsByTagName("html")[0].setAttribute("lang", _User.lang);
@@ -156,13 +156,11 @@ var _Router = {
         }
     };
 
-    _Router.dispatchAds = function(promise){
-        // Short timeout needed to insure template loaded
-        setTimeout(function() {
+    _Router.dispatchAds = function(){
             if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
                 document.dispatchEvent(AdCtrl.Promises.loadAds);
             }
-        },5);
     };
+   // _Router.dispatchAds();
 })();
 

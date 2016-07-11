@@ -4,7 +4,6 @@
 (function(){
     var dataAssignmentAlmanac = [];
     var mapDataAlmanac = function(){
-        console.log(_Data.reportedConditions);
         dataAssignmentAlmanac = [
             ['almanac-prevday-avghigh', _Data.reportedConditions.prevDayHigh],
             ['almanac-prevday-avglow', _Data.reportedConditions.prevDayLow + '&deg;'],
@@ -42,12 +41,12 @@
         ];
     };
 
-    if (_Data.oneDayHistorical) { console.log('THIS?? ');
+    if (_Data.oneDayHistorical) {
         mapDataAlmanac();
         helper.setContent(dataAssignmentAlmanac);
     };
 
-    document.getElementById('event-anchor').addEventListener('almanac-builder', function(){ console.log('TRIGGERED');
+    document.getElementById('event-anchor').addEventListener('almanac-builder', function(){
         console.log(_Data.oneDayHistorical);
         mapDataAlmanac();
         helper.setContent(dataAssignmentAlmanac);
