@@ -38,7 +38,7 @@ _Locations.supplementLoc = function(loc){
        if(!loc){
            reject('no location object');
        }
-       var locUrl = 'https://dsx.weather.com/wxd/loc/' + loc +
+       var locUrl = 'https://dsx.weather.com/wxd/v2/loc/en_US/' + loc +
             '?format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
 
        AjaxRequest.get(

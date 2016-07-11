@@ -1,0 +1,23 @@
+<div class="dropdown" data-ng-if="alerts.hasAlerts()" >
+  <div class="priority bg-alert-{{alerts.priority.severity}}">
+    <div data-ng-if="alerts.hasMultipleAlerts()" dropdown>
+      <button
+              class="dropdown-toggle gma-text-color"
+              dropdown-toggle=""
+              aria-haspopup="true"
+              aria-expanded="false" >
+        <span class="wx-iconfont-global wx-icon-alert"></span>
+        <span class="btn-caption" data-ng-bind="alerts.getAlertCount()"></span>
+        <span class="wx-iconfont-global wx-icon-arrow-down-2"></span>
+        <span class="wx-iconfont-global wx-icon-arrow-up-2"></span>
+      </button>
+      <ul class="dropdown-menu list-group">
+        <li data-ng-repeat="bulletin in alerts.bulletins track by $index"
+            gm-alerts-time gm-alert-info="bulletin"
+            gm-alert-show-icon="true" data-module-id-val="{{alerts.moduleId}}">
+        </li>
+      </ul>
+    </div>
+    <div  gm-alerts-time gm-alert-info="alerts.priority" data-module-id-val="{{alerts.moduleId}}"></div>
+  </div>
+</div>

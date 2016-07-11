@@ -84,11 +84,13 @@ var _Router = {
         if(pathArr.loc){
             _Locations.supplementLoc(pathArr.loc).then(function(data){
                 _User.newActiveLocation(data);
-                 checkPage(pathArr);
+                checkPage(pathArr);
+                _Alert.getAlertData(data.locId, data.lang);
             });
         } else if (!_User.activeLocation.prsntNm){
             _Locations.getDefaultLocation().then(function(){
                 checkPage(pathArr);
+                _Alert.getAlertData(data.locId, data.lang);
             });
         } else {
             checkPage(pathArr);
