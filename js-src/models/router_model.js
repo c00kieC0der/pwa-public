@@ -138,7 +138,7 @@ var _Router = {
     var updateMetadata = function(page){
         document.getElementsByTagName("html")[0].setAttribute("lang", _User.lang);
         var meta = _Locales.metadata[page];
-        document.title = meta.page_title;
+        document.title = meta.page_title.replaceAll('{dynamicLocName}', _User.activeLocation.prsntNm);
         var metaArr = document.getElementsByTagName("META");
         for(tag in metaArr){
             if(metaArr[tag].name === "Description"){
