@@ -339,6 +339,7 @@ document.getElementById('event-anchor').addEventListener('builder', function(){
 
 var langMap;
 var assignAppShellLang = function(){
+
     langMap = [
         ['nav-today', _Lang.today.toUpperCase()],
         ['nav-hourly', _Lang.hourly.toUpperCase()],
@@ -353,8 +354,8 @@ var assignAppShellLang = function(){
         ['footer-privacy-policy', capitalizeEachWord(_Lang['privacy policy'])],
         ['footer-parental-controls', capitalizeEachWord(_Lang['parental controls'])],
         ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])],
-        ['footer-feedback', capitalizeEachWord(_Lang['feedback'])],
-        ['footer-press', capitalizeEachWord(_Lang['press'])]
+       // ['footer-feedback', capitalizeEachWord(_Lang['feedback'])],
+       // ['footer-press', capitalizeEachWord(_Lang['press'])]
 
     ];
     helper.setContent(langMap);

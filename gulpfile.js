@@ -213,7 +213,7 @@ var allLocales = [
     'zh-SG',
     'zh-TW'
 ];
-/*var originalLocales = [
+var originalLocales = [
     'ar',
     'bn-BD',
     'ca-ES',
@@ -258,7 +258,7 @@ var allLocales = [
     'vi-VN',
     'zh-CN',
     'zh-TW'
-];*/
+];
 gulp.task('generate-service-worker', function(callback) {
     var rootDir = './';
     swPrecache.write(path.join(rootDir, 'service-worker.js'), {
@@ -412,7 +412,7 @@ gulp.task('download-translations', function() {
                 method: 'GET',
                 qs: {
                     fileUris: ['app.json'],
-                    localeIds: allLocales
+                    localeIds: originalLocales
                 },
                 qsStringifyOptions: {
                     arrayFormat: 'brackets'
