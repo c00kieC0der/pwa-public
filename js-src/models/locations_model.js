@@ -38,6 +38,9 @@ _Locations.supplementLoc = function(loc){
        if(!loc){
            reject('no location object');
        }
+       if(loc.length === 5 && loc.indexOf(',') === -1){
+           loc += ':4:US';
+       }
        var locUrl = 'https://dsx.weather.com/wxd/loc/' + loc +
             '?format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
 

@@ -338,7 +338,8 @@ document.getElementById('event-anchor').addEventListener('builder', function(){
 
 
 var langMap;
-var assignAppShellLang = function(){
+var assignAppShellLang = function(){  console.log('this is happening.');
+
     langMap = [
         ['nav-today', _Lang.today.toUpperCase()],
         ['nav-hourly', _Lang.hourly.toUpperCase()],
