@@ -13,7 +13,7 @@ body {
     font-weight: 700;
     padding-top: 50px; }
 
-.list-404 li {
+.list-404 li a {
   padding: 20px 0;
   display: block;
   border-bottom: solid 1px #999; }
