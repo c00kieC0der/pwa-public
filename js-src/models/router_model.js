@@ -128,36 +128,46 @@ var _Router = {
         _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[page].metricName, pageAssignment[page].pos);
         _Router.page = page;
         helper.loadTemplateWithClass('page-content', 'pages', page);
-        updateMetadata(page);
+        _Router.dispatchAds();
         var activeLoc = _User.activeLocation;
         var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
         history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
-        _Router.dispatchAds();
-
+        updateMetadata(page);
+        helper.setCanonical();
     };
     var updateMetadata = function(page){
         document.getElementsByTagName("html")[0].setAttribute("lang", _User.lang);
         var meta = _Locales.metadata[page];
-      //  console.log(meta);
         document.title = meta.page_title;
-      //  console.log(document.getElementsByTagName("META"));
-        //description, title, keywords
-    };
-    _Router.updateURL = function(){
-        if(history.state && history.state.changeTo){
-            _Router.changePage(history.state.changeTo);
-        } else {
-           _Router.changePage(_Router.page);
+        var metaArr = document.getElementsByTagName("META");
+        for(tag in metaArr){
+            if(metaArr[tag].name === "Description"){
+                metaArr[tag].content = meta.page_desc.replaceAll('{dynamicLocName}', _User.activeLocation.prsntNm);
+            }
+            if(metaArr[tag].name === 'Keywords'){
+                metaArr[tag].content = meta.page_keywords.replaceAll('{dynamicLocName}', _User.activeLocation.prsntNm);
+            }
         }
     };
+    _Router.updateURL = function(){
+        var activeLoc = _User.activeLocation;
+        var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
+        if(!_Router.page){
+            _Router.page = 'today';
+        }
+        var urlInfo = {
+            lang : _User.lang,
+            page : pageAssignment[_Router.page].hreflang[_User.lang],
+            loc : loc
+        };
+        checkPage(urlInfo);
+    };
 
-    _Router.dispatchAds = function(promise){
-        // Short timeout needed to insure template loaded
-        setTimeout(function() {
+
+    _Router.dispatchAds = function(){
             if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
                 document.dispatchEvent(AdCtrl.Promises.loadAds);
             }
-        },5);
     };
+   // _Router.dispatchAds();
 })();
-

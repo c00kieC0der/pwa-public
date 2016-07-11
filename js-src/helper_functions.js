@@ -272,3 +272,59 @@ helper.parseQueryString = function() {
     );
     return objURL;
 };
+
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
+
+helper.setCanonical = function(){
+
+    //for getting user info to add to page canonical
+    var origin = 'https://weather.com/',// Never: location.origin, always point to prod.
+        basePath = origin,
+        fallback = window.location.href.replace(/.+\.weather\.com/, origin);
+
+    var getPage = function(){
+          var hrefJSONfile = '/js-src/hreflangs/hreflang_' + _Router.page + '_page.json';
+        return helper.getJSON(hrefJSONfile).then(function(data) {
+            return data[_User.lang];
+        });
+    };
+
+    var generateMetaTag = function(){
+        var url;
+        var cLink = document.createElement("link"), head = document.getElementsByTagName("head")[0];
+        cLink.setAttribute("rel", "canonical");
+        getPage().then(function(canonicalValue) {
+            var locInfo = getLocInfo();
+            url = locInfo? basePath + canonicalValue + locInfo : fallback;
+            cLink.setAttribute("href", url);
+            head.appendChild(cLink);
+        }).catch(function(){
+            url = fallback;
+            cLink.setAttribute("href", url);
+            head.appendChild(cLink);
+        });
+    };
+
+
+    var getLocInfo = function () {
+        var userLoc = _User.activeLocation;
+        var city = userLoc.cityNm && userLoc.cityNm.replace(/\s/g, '+'), state = userLoc.stCd, loc = '';
+        if(!userLoc || !city || !state){
+            return null;
+        }
+
+        if(userLoc.zipCd){
+            loc = userLoc.zipCd+':4:'+userLoc.cntryCd;;
+        }
+        else if (userLoc.locId){
+            loc = userLoc.locId +':1:'+userLoc.cntryCd;
+        }
+        var userInfo = city + '+' + state + '+' + loc;
+        return userInfo;
+    };
+    generateMetaTag();
+
+};
