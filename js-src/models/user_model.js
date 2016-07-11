@@ -93,8 +93,8 @@ _User.newActiveLocation = function(locationObj, updateRecents){
         _User.locations.push(_User.activeLocation);
     }
     _User.activeLocation = locationObj;
-
     saveUser();
+    _Router.updateURL();
 };
 
 _User.updatePushNotifications = function(answer){

@@ -114,7 +114,7 @@ var _Router = {
     };
 
     var lis;
-    _Router.changePage = function(page){  console.log("LOADING PAGE.");
+    _Router.changePage = function(page){
         /*   Page Nav, decactivate all, the activate the right one. */
         lis = document.getElementsByClassName('page-nav-li');
         for(var i=0; i < lis.length; i++){
@@ -133,6 +133,7 @@ var _Router = {
         var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
         history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
         updateMetadata(page);
+        helper.setCanonical();
     };
     var updateMetadata = function(page){
         document.getElementsByTagName("html")[0].setAttribute("lang", _User.lang);
@@ -149,12 +150,19 @@ var _Router = {
         }
     };
     _Router.updateURL = function(){
-        if(history.state && history.state.changeTo){
-            _Router.changePage(history.state.changeTo);
-        } else {
-           _Router.changePage(_Router.page);
+        var activeLoc = _User.activeLocation;
+        var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
+        if(!_Router.page){
+            _Router.page = 'today';
         }
+        var urlInfo = {
+            lang : _User.lang,
+            page : pageAssignment[_Router.page].hreflang[_User.lang],
+            loc : loc
+        };
+        checkPage(urlInfo);
     };
+
 
     _Router.dispatchAds = function(){
             if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
@@ -163,4 +171,3 @@ var _Router = {
     };
    // _Router.dispatchAds();
 })();
-
