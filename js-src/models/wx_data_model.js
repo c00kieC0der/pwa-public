@@ -99,6 +99,7 @@ var _Data = {}, app = {};
                 _Data.reportedConditions = cleanReportedConditionsData(reportedConditions, _Data.tempUnit, _Data.precipUnit);
                 _Data.historicalMonthlyAvg = cleanHxMonthlyAvgData(historicalMonthlyAvg, _Data.tempUnit, _Data.precipUnit);
                 // END WIP
+
                 document.getElementById('event-anchor').dispatchEvent(almanacEventData);
             }, 'onError' : function(err) {
                 console.log('error: ', err);
@@ -229,6 +230,17 @@ var _Data = {}, app = {};
             dayIndex:dateBase.getDay()
         };
     }
+    var formatMonthDate = function (fullDate) {
+        retMonthData = [];
+        var monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var dateBase = new Date(fullDate);
+        return{
+            month1: monthsOfYear[dateBase.getMonth()],
+            month2: monthsOfYear[dateBase.getMonth()+1],
+            month3: monthsOfYear[dateBase.getMonth()+2],
+            currentDate: monthsOfYear[dateBase.getMonth()] + ' ' + dateBase.getDate()
+         };
+    };
 
     /*
      Formats dailyforecast datetimes, currently used for sunrise/sunset, and moonrise/moonset
@@ -262,11 +274,20 @@ var _Data = {}, app = {};
         _Data.hourly.time = [];
         _Data.hourly.date = [];
         _Data.lookingAhead = getLookingAhead();
+        _Data.almanacMonths = getMonths();
         for (var i in _Data.hourly.processTime) {
             _Data.hourly.time[i] = formatTime(_Data.hourly.processTime[i]);
             _Data.hourly.date[i] = formatDate(_Data.hourly.processTime[i]);
         }
+
     };
+
+
+    var getMonths = function () {
+        var currentMonth = formatMonthDate(_Data.datetime.datetime);
+        return currentMonth;
+    };
+
 
     var getDayData = function () {
         //Day night data, should be optimized
