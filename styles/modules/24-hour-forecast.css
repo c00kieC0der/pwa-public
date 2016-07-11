@@ -182,9 +182,6 @@ h3 {
   .ls-24-hour-wrap .lo {
     color: #999999;
     font-style: italic; }
-  .ls-24-hour-wrap .temp,
-  .ls-24-hour-wrap .lo {
-    font-weight: 600; }
   .ls-24-hour-wrap .day-detail {
     font-size: 0.78571rem;
     color: #cccccc; }

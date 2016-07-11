@@ -58,6 +58,9 @@
     "radar" : "radar",
     "clouds" : "clouds",
     "sun" : "sun",
+    "high" : "high",
+    "low" : "low",
+    "historical monthly average" : "historical monthly average",
     "MONTH": [
         "January",
         "February",

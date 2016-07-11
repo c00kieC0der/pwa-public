@@ -6,10 +6,12 @@
   .almanac-table td, .almanac-table th {
     padding: 8px 5px;
     border: 0px;
-    vertical-align: top; }
+    vertical-align: top;
+    width: 20%; }
   .almanac-table .table-header {
     font-weight: bold;
-    background-color: #F6F6F6; }
+    background-color: #F6F6F6;
+    text-transform: capitalize; }
   .almanac-table table sub {
     clear: both;
     display: block;
