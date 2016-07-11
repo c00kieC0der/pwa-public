@@ -1,0 +1,19 @@
+body {
+  font-family: Arial; }
+
+.hero-404 {
+  height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(/assets/img/404-hero.png);
+  color: #FFF;
+  text-align: center; }
+  .hero-404 .largetext {
+    font-size: 48px;
+    font-weight: 700;
+    padding-top: 50px; }
+
+.list-404 li {
+  padding: 20px 0;
+  display: block;
+  border-bottom: solid 1px #999; }
