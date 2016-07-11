@@ -88,7 +88,6 @@ var _Data = {}, app = {};
             'generateUniqueUrl' : false,
             'onSuccess' : function(req) {
                 var data = JSON.parse(req.responseText).FarmingAlmanacRecordData;
-        //        console.log(data);
                 var oneDayHistorical = data.OneDayHistorical;
                 var reportedConditions = data.ReportedConditions;
                 var historicalMonthlyAvg = data.HistoricalMonthlyAvg;
@@ -101,7 +100,6 @@ var _Data = {}, app = {};
                 _Data.historicalMonthlyAvg = cleanHxMonthlyAvgData(historicalMonthlyAvg, _Data.tempUnit, _Data.precipUnit);
                 // END WIP
 
-//console.log('almanac data success');
                 document.getElementById('event-anchor').dispatchEvent(almanacEventData);
             }, 'onError' : function(err) {
                 console.log('error: ', err);

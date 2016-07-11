@@ -83,7 +83,6 @@ AdCtrl.utils = AdCtrl.utils || {};
     $$.Promises.weatherDataPromise = new $$.Promises.Deferred();
     
     $$.Promises.loadAds = new Event('load-ads');
-
 })(AdCtrl);
 
 
