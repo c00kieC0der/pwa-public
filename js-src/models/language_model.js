@@ -32,7 +32,7 @@ var _Language = {}; _Lang = {}, _Locales = {};
                     resolve();
                 }, function (error) {
                     reject(error);
-                }); 
+                });
             });
         });
     };
