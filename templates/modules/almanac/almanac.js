@@ -6,9 +6,9 @@
     var mapDataAlmanac = function(){
         console.log(_Data.reportedConditions);
         dataAssignmentAlmanac = [
-            ['almanac-prevday-avghigh',     _Data.reportedConditions.prevDayHigh],
+            ['almanac-prevday-avghigh',     _Data.reportedConditions.prevDayHigh + '&deg;'],
             ['almanac-prevday-avglow',      _Data.reportedConditions.prevDayLow + '&deg;'],
-            ['almanac-prevday-avgprecip',   _Data.reportedConditions.prevDayPrecip],
+            ['almanac-prevday-avgprecip',   _Data.reportedConditions.prevDayPrecip + ' in'],
 
             ['almanac-7day-avghigh',        _Data.reportedConditions.sevenDayHigh + '&deg;'],
             ['almanac-7day-avglow',         _Data.reportedConditions.sevenDayLow + '&deg;'],
@@ -29,7 +29,7 @@
 
             ['almanac-month1-avghigh',      _Data.historicalMonthlyAvg.currentMonthAvgHigh + '&deg;'],
             ['almanac-month1-avglow',       _Data.historicalMonthlyAvg.currentMonthAvgLow + '&deg;'],
-            ['almanac-month1-avgprecip',    _Data.historicalMonthlyAvg.currentMonthAvgPrecip + ' in'],
+            ['almanac-month1-avgprecip',    _Data.historicalMonthlyAvg.currentMonthAvgPrecip],
 
             ['almanac-month2-avghigh',      _Data.historicalMonthlyAvg.nextMonthAvgHigh + '&deg;'],
             ['almanac-month2-avglow',       _Data.historicalMonthlyAvg.nextMonthAvgLow + '&deg;'],
