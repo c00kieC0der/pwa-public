@@ -85,12 +85,12 @@ var _Router = {
             _Locations.supplementLoc(pathArr.loc).then(function(data){
                 _User.newActiveLocation(data);
                 checkPage(pathArr);
-                _Alert.getAlertData(data.locId, data.lang);
+                _Alert.getAlertData();
             });
         } else if (!_User.activeLocation.prsntNm){
             _Locations.getDefaultLocation().then(function(){
                 checkPage(pathArr);
-                _Alert.getAlertData(data.locId, data.lang);
+                _Alert.getAlertData();
             });
         } else {
             checkPage(pathArr);
