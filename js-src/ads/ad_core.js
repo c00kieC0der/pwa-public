@@ -24,7 +24,7 @@ AdCtrl.utils = AdCtrl.utils || {};
     $$.utils.loadJSON = function(src, destObj, destProp) {
 
         var xobj = new XMLHttpRequest();
-        var jsonReady = new $$.Promises.Deferred()
+        var jsonReady = new $$.Promises.Deferred();
         xobj.overrideMimeType("application/json");
         xobj.open('GET', src, true); // Replace 'my_data' with the path to your file
         xobj.onreadystatechange = function () {

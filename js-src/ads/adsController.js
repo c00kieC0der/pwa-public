@@ -17,6 +17,7 @@ googletag.cmd = googletag.cmd || [];
     var adstest = getCookie('adstest');
     var network, adUnit, adZone, NCTAU, NCAU, adMapping, cust_params, metrics_suite;
 
+    setupFV();
     getWXData();
     loadOpenX();
     $$.Promises.jsonReady = $$.utils.loadJSON('/js-src/ads/adMaps.json',$$, 'adMaps');
@@ -157,12 +158,21 @@ googletag.cmd = googletag.cmd || [];
 
     function addCust_Params() {
         $$.Promises.jsonReady.promise.then(function() {
-            cust_params = {
-                cat: "fcst",
-                ch: "fcst",
-                fam: "fcst",
-                ad_unit: encodeURIComponent(NCAU)
-            };
+            cust_params = cust_params || {};
+            cust_params.ad_unit = encodeURIComponent(NCAU);
+            cust_params.cat = "fcst";
+            cust_params.ch = "fcst";
+            cust_params.fam = "fcst"
+            cust_params.vw = getCookie('fv');
+
+            document.addEventListener('builder', function() {
+                var loc = _User.activeLocation;
+                cust_params = cust_params || {};
+                cust_params.cc = loc.cntryCd;
+                cust_params.cnty = loc.cntyNm;
+                cust_params.ct = loc.cityNm;
+
+            });
             if (adstest) {
                 cust_params['adstest'] = adstest;
             }
@@ -178,6 +188,21 @@ googletag.cmd = googletag.cmd || [];
                     arguments[0][key] = arguments[i][key];
         return arguments[0];
     }
+
+    function setupFV() {
+        var fv = getCookie('fv'),
+          expires = new Date(new Date().getTime() + (30 * 60 * 1000)), // 30 minutes
+          domain = document.domain;
+        if (fv) {
+            fv = ( fv == 1 || fv == 2) ? ++fv : -1;
+        }
+        else {
+            fv = 1;
+        }
+        expires = expires.toUTCString();
+        document.cookie = 'fv=' + fv + '; expires=' + expires + ';path=/';
+    }
+
 
     function getCookie(name) {
         var value = "; " + document.cookie;
