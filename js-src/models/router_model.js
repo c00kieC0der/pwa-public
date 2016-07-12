@@ -22,6 +22,15 @@ var _Router = {
     });
 
     var pathArr = [], queryArr = [];
+    var findPager = function (pathArr){
+        for(var page in pageAssignment){
+            if(pathArr.page === pageAssignment[page].hreflang[pathArr.lang]){
+                return page;
+            }
+        }
+        return 'today';
+    };
+
     var handlePath = function() {
         var urlInfo = {
             lang : 'en-US',
@@ -60,6 +69,10 @@ var _Router = {
             }
         }
         updateTranslations(urlInfo);
+
+        // checkPage is called async in getDefaultLoc
+        // ->_Router.page won't be updated immediately, it need to be updated here.
+        _Router.page = findPager(urlInfo);
     };
     var updateTranslations = function(pathArr){
         if(pathArr && pathArr.lang && _User.lang !== pathArr.lang){
@@ -101,13 +114,7 @@ var _Router = {
                 if(!pathArr.page){
                     _Router.changePage('today');
                 } else {
-                    for(var page in pageAssignment){
-                        if(pathArr.page === pageAssignment[page].hreflang[pathArr.lang]){
-                            _Router.changePage(page);
-                            break;
-                        }
-                    }
-                    _Router.changePage('today');
+                    _Router.changePage(findPager(pathArr));
                 }
                 //Else, its not a valid URL.  We should probably 404 on this.
             }
