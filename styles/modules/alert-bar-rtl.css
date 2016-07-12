@@ -1,7 +1,17 @@
+/*@media (min-width: 768px) {
+  .glomo-title-alerts .gm_alerts {
+    max-width: 299px;
+  }
+}
+@media (min-width: 1024px) {
+  .glomo-title-alerts .gm_alerts {
+    max-width: 450px;
+  }
+}*/
 .gm_alerts {
   margin-bottom: 6px;
   width: 100%;
-  margin: 8px 0;
+  margin: 8px 0px;
 }
 .gm_alerts.hidden{
   display: none;
@@ -85,7 +95,7 @@
 .gm_alerts .dropdown .priority .title {
   max-width: 100%;
   display: block;
-  padding: 7px 60px 9px 15px;
+  padding: 7px 15px 9px 60px;
 }
 .gm_alerts .dropdown .dropdown-toggle {
   cursor: pointer;
@@ -96,7 +106,7 @@
   outline: none;
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
 }
 .gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global {
   position: relative;
@@ -104,19 +114,19 @@
   top: 5px;
 }
 .gm_alerts .dropdown .dropdown-toggle .btn-caption {
-  float: left;
+  float: right;
   font-size: 18px;
 }
 .gm_alerts .dropdown .dropdown-menu {
   width: 100%;
-  text-align: left;
+  text-align: right;
   border: none;
   top: 30px;
   padding: 0;
 }
 .gm_alerts .dropdown .dropdown-menu .text {
   max-width: 100%;
-  padding-left: 0px;
+  padding-right: 0px;
 }
 .gm_alerts .dropdown .dropdown-menu > li {
   border-top: none;
@@ -144,3 +154,8 @@
     font-size: 14px;
   }
 }
+/*@media (min-width: 768px) {
+  .gm_alerts {
+    margin-top: 0px;
+  }
+}*/
