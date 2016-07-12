@@ -104,7 +104,8 @@
   .today .nowcard .phrase {
     text-transform: uppercase;
     font-size: 1.14286rem;
-    font-weight: 600; }
+    font-weight: 600;
+    padding-right: 85px; }
   .today .nowcard .temp {
     font-weight: 600;
     font-size: 2.85714rem;
