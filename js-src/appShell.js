@@ -180,7 +180,7 @@ function pwaNavClicked(e) {
  * changeNav(ele) is used to changes the nav pages
  * @param ele
  */
-function changeNav(ele) {
+function changeNav(ele) {  console.log('called.');
     document.getElementById('main-search').style.display = "none";
     if(!ele.className.match('active')) {
         var tempElements = document.getElementsByClassName('page-nav-li');
@@ -240,10 +240,10 @@ function showAreas(ele,rowId ) {
  * fetches new lang strings
  * closes the menu
  */
-function changeLang(code){
+function changeLang(code){  console.log('changeLang');
     _User.lang = code;
     _Language.updateTranslations().then(function(){
-        _Router.updateURL();
+      //  _Router.updateURL();
     });
     showHide('main-nav', 0);
 }
@@ -352,8 +352,8 @@ var assignAppShellLang = function(){
         ['recent-searches-text', _Lang['recent searches'].toUpperCase()],
         ['footer-terms-of-use', capitalizeEachWord(_Lang['terms of use'])],
         ['footer-privacy-policy', capitalizeEachWord(_Lang['privacy policy'])],
-        ['footer-parental-controls', capitalizeEachWord(_Lang['parental controls'])],
-        ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])],
+      //  ['footer-parental-controls', capitalizeEachWord(_Lang['parental controls'])],
+      //  ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])],
        // ['footer-feedback', capitalizeEachWord(_Lang['feedback'])],
        // ['footer-press', capitalizeEachWord(_Lang['press'])]
 
