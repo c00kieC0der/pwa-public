@@ -112,7 +112,20 @@ helper.loadTemplate = function(elementId, type, name){
     xhr.send();
 };
 
+helper.loadScript = function(path, callback){
+    var body = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = path;
 
+    // Then bind the event to the callback function.
+    // There are several events for cross browser compatibility.
+    script.onreadystatechange = callback;
+    script.onload = callback;
+
+    // Fire the loading
+    body.appendChild(script);
+};
 helper.setContent = function(content){
         var assignToDOM = function(arr){
             document.getElementById(arr[0]).innerHTML = arr[1];
