@@ -85,7 +85,8 @@ h3 {
     right: 5px; }
   .twc-table .time-detail {
     display: inline-block;
-    padding-top: 7px; }
+    padding-top: 7px;
+    padding-right: 55px; }
   .twc-table .day-detail {
     overflow: hidden;
     *zoom: 1; }
@@ -107,7 +108,8 @@ h3 {
       text-transform: uppercase;
       display: inline-block; }
     .twc-table .twc-sticky-col .day-detail {
-      display: block; }
+      display: block;
+      padding-right: 55px;}
 
 .ls-display-control {
   display: -webkit-flex;

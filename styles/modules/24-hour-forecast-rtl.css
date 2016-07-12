@@ -101,9 +101,10 @@ h3 {
     .twc-table .twc-sticky-col .date-time {
       font-weight: 600;
       text-transform: uppercase;
-      display: inline-block; }
+      display: inline-block;}
     .twc-table .twc-sticky-col .day-detail {
-      display: block; }
+      display: block;
+    }
 
 .ls-display-control {
   display: -webkit-box;
