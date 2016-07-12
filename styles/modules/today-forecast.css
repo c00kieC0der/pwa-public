@@ -21,6 +21,7 @@
   box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px 0px; }
 
 .today .nowcard {
+  margin-bottom: 15px;
   color: #ffffff;
   letter-spacing: 0.02rem;
   background-color: #257BDA;
@@ -211,7 +212,6 @@
     height: 50px;
     margin-bottom: 10px; }
   .looking-ahead .today-daypart-title {
-    font-weight: 600;
     margin-bottom: 4px; }
   .looking-ahead .today-daypart-title,
   .looking-ahead .today-daypart-wxphrase,
@@ -246,7 +246,6 @@
     position: absolute; }
   .looking-ahead .wx-detail .wx-icon-sunrise-sunset {
     line-height: 0.3em;
-    font-size: 1.57143rem;
     position: relative;
     top: 3px; }
   .looking-ahead .wx-details-block {

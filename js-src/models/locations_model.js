@@ -38,6 +38,9 @@ _Locations.supplementLoc = function(loc){
        if(!loc){
            reject('no location object');
        }
+       if(loc.length === 5 && loc.indexOf(',') === -1){
+           loc += ':4:US';
+       }
        var locUrl = 'https://dsx.weather.com/wxd/loc/' + loc +
             '?format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
 
@@ -74,12 +77,13 @@ helper.getJSON('/js-src/default-locations.json').then(function(data){
 _Locations.getDefaultLocation = function(){
    return new Promise(function(resolve, retreat){
        if (!_User.activeLocation.prsntNm) {
-           if(_User.lang){
+           if(defaultLocations[_User.lang]){
                _Locations.supplementLoc(defaultLocations[_User.lang].locId).then(function(results){
-                   resolve(_User.newActiveLocation(results));
+                   resolve(results);
                });
            } else {
                _Locations.callGeoLocation();
+               resolve();
            }
        }
    });

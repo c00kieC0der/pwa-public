@@ -34,5 +34,11 @@
     "metricName"  : "maps",
     "pos"         : "6",
     "href"        : "maps"
+  },
+  "404" : {
+    "name"        : "404",
+    "metricName"  : "404",
+    "pos"         : "0",
+    "href"        : "404"
   }
 }

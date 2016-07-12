@@ -16,12 +16,11 @@ var _Language = {}; _Lang = {}, _Locales = {};
         return new Promise(function(resolve, reject) {
             helper.getJSON('/js-src/siteSmartlingLocales.json').then(function(localeMap){
                 var path;
-                if (_User.lang == 'en-US') {
+                if (_User.lang === 'en-US') {
                     path = '/js-src/translations/';
                 } else {
                     path = '/js-src/translated/' + localeMap[_User.lang] + '/';
                 }
-                console.log(path);
 
                 helper.getJSON(path + 'app.json').then(function (result) {
                     _Lang = result;
@@ -32,7 +31,7 @@ var _Language = {}; _Lang = {}, _Locales = {};
                     resolve();
                 }, function (error) {
                     reject(error);
-                }); 
+                });
             });
         });
     };

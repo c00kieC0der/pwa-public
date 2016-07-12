@@ -285,6 +285,12 @@
 .wx-icon-instagram:before {
     content: "\e64f";
 }
+.wx-icon-alert-others:before {
+    content: "\e914";
+}
+.wx-icon-message:before {
+    content: "\e915";
+}
 .wx-icon-tornado:before {
     content: "\e63a";
 }
@@ -404,6 +410,15 @@
 }
 .wx-icon-grass-pollen:before {
     content: "\e913";
+}
+.wx-icon-time:before {
+    content: "\e916";
+}
+.wx-icon-map:before {
+    content: "\e917";
+}
+.wx-icon-calender:before {
+    content: "\e918";
 }
 
 .wx-icon-code-32:before {

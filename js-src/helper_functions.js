@@ -112,7 +112,20 @@ helper.loadTemplate = function(elementId, type, name){
     xhr.send();
 };
 
+helper.loadScript = function(path, callback){
+    var body = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = path;
 
+    // Then bind the event to the callback function.
+    // There are several events for cross browser compatibility.
+    script.onreadystatechange = callback;
+    script.onload = callback;
+
+    // Fire the loading
+    body.appendChild(script);
+};
 helper.setContent = function(content){
         var assignToDOM = function(arr){
             document.getElementById(arr[0]).innerHTML = arr[1];
@@ -276,4 +289,56 @@ helper.parseQueryString = function() {
 String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.split(search).join(replacement);
+};
+
+helper.setCanonical = function(){
+
+    //for getting user info to add to page canonical
+    var basePath = 'https://weather.com/',// Never: location.origin, always point to prod.
+        fallback = window.location.href.replace(/.+\.weather\.com/, basePath);
+
+    var getPage = function(){
+          var hrefJSONfile = '/js-src/hreflangs/hreflang_' + _Router.page + '_page.json';
+        return helper.getJSON(hrefJSONfile).then(function(data) {
+            return data[_User.lang];
+        });
+    };
+
+    var generateMetaTag = function(){
+        var url;
+        var cLink = document.createElement("link"), head = document.getElementsByTagName("head")[0];
+        cLink.setAttribute("rel", "canonical");
+        getPage().then(function(canonicalValue) {
+            var locInfo = getLocInfo();
+            url = locInfo? basePath + canonicalValue + locInfo : fallback;
+            cLink.setAttribute("href", url);
+            head.appendChild(cLink);
+        }).catch(function(){
+            url = fallback;
+            cLink.setAttribute("href", url);
+            head.appendChild(cLink);
+        });
+    };
+
+
+    var getLocInfo = function () {
+        var userLoc = _User.activeLocation;
+        var city = userLoc.cityNm && userLoc.cityNm.replace(/\s/g, '+'), state = userLoc.stCd, loc = '';
+        if(!userLoc || !city || !state){
+            return null;
+        }
+
+        if(userLoc.zipCd){
+            loc = userLoc.zipCd+':4:'+userLoc.cntryCd;
+        }
+        else if (userLoc.locId){
+            loc = userLoc.locId +':1:'+userLoc.cntryCd;
+        }
+        else {
+            return null; 
+        }
+        return city + '+' + state + '+' + loc;
+    };
+    generateMetaTag();
+
 };

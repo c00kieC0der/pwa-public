@@ -105,7 +105,8 @@ h3 {
     .twc-table .twc-sticky-col .day-detail,
     .twc-table .twc-sticky-col .date-time {
       text-transform: uppercase;
-      display: inline-block; }
+      display: inline-block;
+      padding-right: 75px;}
     .twc-table .twc-sticky-col .day-detail {
       display: block; }
 
@@ -182,9 +183,6 @@ h3 {
   .ls-24-hour-wrap .lo {
     color: #999999;
     font-style: italic; }
-  .ls-24-hour-wrap .temp,
-  .ls-24-hour-wrap .lo {
-    font-weight: 600; }
   .ls-24-hour-wrap .day-detail {
     font-size: 0.78571rem;
     color: #cccccc; }
