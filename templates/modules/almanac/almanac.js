@@ -4,7 +4,7 @@
 (function(){
     var dataAssignmentAlmanac = [];
     var mapDataAlmanac = function(){
-        console.log(_Data.reportedConditions);
+        console.log(_Data.almanacMonths);
         dataAssignmentAlmanac = [
             ['almanac-prevday-avghigh',     _Data.reportedConditions.prevDayHigh + '&deg;'],
             ['almanac-prevday-avglow',      _Data.reportedConditions.prevDayLow + '&deg;'],
