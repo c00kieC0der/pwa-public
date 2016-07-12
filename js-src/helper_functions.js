@@ -281,9 +281,8 @@ String.prototype.replaceAll = function(search, replacement) {
 helper.setCanonical = function(){
 
     //for getting user info to add to page canonical
-    var origin = 'https://weather.com/',// Never: location.origin, always point to prod.
-        basePath = origin,
-        fallback = window.location.href.replace(/.+\.weather\.com/, origin);
+    var basePath = 'https://weather.com/',// Never: location.origin, always point to prod.
+        fallback = window.location.href.replace(/.+\.weather\.com/, basePath);
 
     var getPage = function(){
           var hrefJSONfile = '/js-src/hreflangs/hreflang_' + _Router.page + '_page.json';
@@ -317,13 +316,15 @@ helper.setCanonical = function(){
         }
 
         if(userLoc.zipCd){
-            loc = userLoc.zipCd+':4:'+userLoc.cntryCd;;
+            loc = userLoc.zipCd+':4:'+userLoc.cntryCd;
         }
         else if (userLoc.locId){
             loc = userLoc.locId +':1:'+userLoc.cntryCd;
         }
-        var userInfo = city + '+' + state + '+' + loc;
-        return userInfo;
+        else {
+            return null; 
+        }
+        return city + '+' + state + '+' + loc;
     };
     generateMetaTag();
 
