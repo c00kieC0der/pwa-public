@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "The Weather Channel ve weather.com'dan bilgiler ve Ulusal ve Yerel Hava Radarı, Günlük Tahmin, Kasırga",
+    "page_desc" : "The Weather Channel ve weather.com, hava radarı, hava raporu ve kasırga kapsamının yanı sıra şehirler için de ulusal ve yerel hava tahmini sağlar",
+    "page_keywords" : "ulusal hava, ulusal hava tahmini, yerel hava, yerel hava tahmini, hava, hava tahmini, hava radarı, hava raporu, kasırga, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName} Hava Tahmini ve Koşulları - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather Channel ve Weather.com'dan bugünün ve bu gecenin {dynamicLocName} hava tahmini, hava koşulları ve Dopler radarı",
+    "page_keywords" : "{dynamicLocName} havası, {dynamicLocName} hava tahmini, {dynamicLocName} hava koşulları, {dynamicLocName} tahmini, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "{dynamicLocName} için Saatlik Hava Tahmini - The Weather Channel | Weather.com",
+    "page_desc" : "Weather.com ve The Weather Channel'dan Saatlik Yerel Hava Tahmini, hava koşulları, yağış miktarı, çiy noktası, nem oranı, rüzgâr",
+    "page_keywords" : "{dynamicLocName} için saatlik hava @ için saatlik hava tahmini saatlik hava, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "{dynamicLocName} Hafta Sonu Hava Tahmini - The Weather Channel | Weather.com ",
+    "page_desc" : "The Weather Channel ve Weather.com'dan {dynamicLocName} hafta sonu hava tahmini, yüksek sıcaklık, düşük sıcaklık, yağış miktarı, hava durumu haritası",
+    "page_keywords" : "{dynamicLocName} hafta sonu hava durumu, {dynamicLocName} hafta sonu hava tahmini, {dynamicLocName} hafta sonu hava durumu değerlendirmesi, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "{dynamicLocName} için 5 Günlük Hava Tahmini - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather Channel ve Weather.com'dan {dynamicLocName} 5 günlük hava tahmini, hava koşulları, sıcaklıklar, yağış ihtimali",
+    "page_keywords" : "{dynamicLocName} için 5 günlük hava durumu {dynamicLocName} için 5 günlük hava tahmini {dynamicLocName} 5 günlük {dynamicLocName} 5 günlük hava weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName} 10 Günlük Hava Tahmini - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather Channel ve Weather.com'dan yüksek ve düşük sıcaklıklarla, yağış ihtimaliyle {dynamicLocName} için en doğru 10 günlük hava tahminiyle hazır olun",
+    "page_keywords" : "{dynamicLocName} 10 günlük hava durumu, {dynamicLocName} 10 günlük hava tahmini, {dynamicLocName} hava koşulları, {dynamicLocName} 10 günlük hava tahmini, weather.com weather channel"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName} Hava ve Radar Haritası - The Weather Channel | Weather.com",
+    "page_desc" : "Etkileşimli {pageLocName} hava haritası, The Weather Channel ve Weather.com'dan yerel muhitinizdeki veya dünyanın bir ucundaki eşsiz hava durumu detaylarına zum yapmanıza veya bunları kaydırmanıza olanak sağlar.",
+    "page_keywords" : "etkileşimli, yerel, radar, hava, harita, {pageLocName} hava haritası, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "The Weather Channel'dan hava videoları | Weather.com ",
+    "page_desc" : "The Weather Channel ve Weather.com'dan en yeni videolara erişin",
+    "page_keywords" : "hava videosu, weather channel videosu, bilim videosu, tabiat ana videosu, fırtına videosu, kasırga videosu, tornado videosu, seyahat videosu, sağlık videosu, iklim videosu, weather.com weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Hava Uyarıları - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather Channel ve Weather.com'dan, {dynamicLocName} genelinde etkin hava uyarılarına hızlı erişim",
+    "page_keywords" : "uyarılar, sert hava, gözlemler, öneriler, weather.com weather channel"
+  }
+}

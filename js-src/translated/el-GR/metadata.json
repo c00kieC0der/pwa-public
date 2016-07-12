@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Εθνικό και τοπικό ρανταρ για τον καιρό, την καθημερινή πρόγνωση, τους τυφώνες και για πληροφορίες από το The Weather Channel και το weather.com",
+    "page_desc" : "Τα The Weather Channel και weather.com παρέχουν μετεωρολογικές προγνώσεις για πόλεις, καθώς και ραντάρ καιρού, αναφορές και κάλυψη τυφώνων σε εθνικό και τοπικό επίπεδο",
+    "page_keywords" : "καιρός σε εθνικό επίπεδο, εθνική μετεωρολογική πρόγνωση, καιρός σε τοπικό επίπεδο, τοπική μετεωρολογική πρόγνωση, καιρός, πρόγνωση καιρού, ραντάρ καιρού, αναφορά καιρού, τυφώνας, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "Πρόγνωση καιρού και συνθήκες για {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Πρόγνωση καιρού, καιρικές συνθηκες και ραντάρ Doppler για σήμερα το πρωί και σήμερα το βράδυ για {dynamicLocName} από το Weather Channel και το Weather.com",
+    "page_keywords" : "καιρός για {dynamicLocName}, πρόγνωση καιρού για {dynamicLocName}, καιρικές συνθήκες για {dynamicLocName}, πρόγνωση για {dynamicLocName}, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Ωριαία πρόγνωση καιρού για {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Ωριαία τοπική πρόγνωση καιρού, καιρικές συνθήκες, κατακρημνίσεις, σημείο δρόσου, υγρασία, άνεμος από το Weather.com και το The Weather Channel",
+    "page_keywords" : "ωριαία πρόγνωση για {dynamicLocName}, ωριαία πρόγνωση καιρού για @, ωριαία πρόγνωση, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "Πρόγνωση καιρού για το Σαββατοκύριακο για {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "πρόγνωση καιρού για το Σαββατοκύριακο για {dynamicLocName}, υψηλή θερμοκρασία, χαμηλή θερμοκρασία, κατακρημνίσεις, χάρτης για τον καιρό από το The Weather Channel και το Weather.com",
+    "page_keywords" : "καιρός για το Σαββατοκύριακο για {dynamicLocName}, πρόγνωση καιρού για το Σαββατοκύριακο για {dynamicLocName}, πρόβλεψη καιρικών συνθηκών για το Σαββατοκύριακο για {dynamicLocName}, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "Πρόγνωση καιρού 5 ημερών για {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Πρόγνωση καιρού 5 ημερών για {dynamicLocName}, καιρικές συνθήκες, θερμοκρασίες, πιθανότητα κατακρημνίσεων από το The Weather Channel και το Weather.com",
+    "page_keywords" : "καιρός 5 ημερών για {dynamicLocName}, πρόγνωση καιρού 5 ημερών για {dynamicLocName}, 5 ημερών για {dynamicLocName}, καιρός 5 ημερών για {dynamicLocName}, weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "Πρόγνωση καιρού 10 ημερών για {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Προετοιμαστείτε για την ακριβέστερη πρόγνωση καιρού 10 ημερών για {dynamicLocName} με τις υψηλότερες και τις χαμηλότερες θερμοκρασίες και την πιθανότητα κατακρημνίσεων από το The Weather Channel και το Weather.com",
+    "page_keywords" : "καιρός 10 ημερών για {dynamicLocName}, πρόγνωση καιρού 10 ημερών για {dynamicLocName}, καιρκές συνθήκες για {dynamicLocName}, πρόγνωση 10 ημερών για {dynamicLocName}, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "Χάρτης καιρού και ραντάρ για {pageLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Ο διαδραστικός χάρτης καιρού για {pageLocName} σάς επιτρέπει να μειώνετε και να μεγεθύνετε την προβολή για μοναδικές λεπτομέρειες καιρού είτε στη γειτονιά σας είτε στην άλλη άκρη του κόσμου, από το The Weather Channel και το Weather.com ",
+    "page_keywords" : "διαδραστικός, τοπικός, ραντάρ, καιρός, χάρτης, χάρτης καιρού για {pageLocName}, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Βίντεο καιρού από το The Weather Channel | Weather.com ",
+    "page_desc" : "Λάβετε τα πιο πρόσφατα βίντεο καιρού από το The Weather Channel και το Weather.com",
+    "page_keywords" : "βίντεο για τον καιρό, βίντεο weather channel, επιστημονικό βίντεο, βίντεο για τη φύση, βίντεο για τις καταιγίδες, βίντεο για τους τυφώνες, βίντεο για τους κυκλώνες, βίντεο για τα ταξίδια, βίντεο για την υγεία, βίντεο για το κλίμα, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Ειδοποιήσεις καιρού - The Weather Channel | Weather.com",
+    "page_desc" : "Γρήγορη πρόσβαση σε ενεργές ειδοποιήσεις καιρού για {dynamicLocName} από το The Weather Channel και το Weather.com ",
+    "page_keywords" : "ειδοποίησεις, ακραία καιρικά φαινόμενα, δελτία παρακολούθησης, προειδοποιήσεις, συμβουλευτικά δελτία, weather.com, weather channel"
+  }
+}

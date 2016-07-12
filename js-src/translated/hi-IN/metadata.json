@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "The Weather Channel और weather.com से राष्ट्रीय और स्थानीय मौसम राडार, दैनिक पूर्वानुमान, भारी तूफान और जानकारी",
+    "page_desc" : "The Weather Channel एवं weather.com शहरों के लिए राष्ट्रीय और स्थानीय मौसम संबंधी जानकारी उपलब्ध कराता है। इसके साथ-साथ यह मौसम रडार, रिपोर्ट और समुद्री तूफान की कवरेज भी देता है।",
+    "page_keywords" : "राष्ट्रीय मौसम,राष्ट्रीय मौसम का पूर्वानुमान, स्थानीय मौसम, स्थानीय मौसम का पूर्वानुमान, मौसम, मौसम की जानकारी, मौसम रडार, मौसम रिपोर्ट, समुद्री तूफान, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName} मौसम का पूर्वानुमान एवं स्थिति - The Weather Channel | Weather.com",
+    "page_desc" : "आज के दिन और आज की रात के {dynamicLocName} मौसम का पूर्वानुमान, मौसम की स्थिति और The Weather Channel का डॉप्लर रडार और Weather.com",
+    "page_keywords" : "{dynamicLocName}मौसम, {dynamicLocName}मौसम का पूर्वानुमान, {dynamicLocName}मौसम की स्थिति, {dynamicLocName}पूर्वानुमान, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "{dynamicLocName} के लिए हर घंटे मौसम का पूर्वानुमान - The Weather Channel | Weather.com",
+    "page_desc" : "Weather.com और The Weather Channel द्वारा हर घंटे स्थानीय मौसम पूर्वानुमान, मौसम की स्थिति, वर्षा, ओस बिंदु, आर्द्रता, हवा",
+    "page_keywords" : "hourly weather for {dynamicLocName} hourly weather forecast for @ hourly forecast, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "{dynamicLocName}सप्ताहांत मौसम संबंधी पूर्वानुमान - The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} सप्ताहांत के मौसम संबंधी पूर्वानुमान, उच्च तापमान, निम्न तापमान, वर्षा, The Weather Channel और Weather.com के मौसम संबंधी मानचित्र ",
+    "page_keywords" : "{dynamicLocName}सप्ताहांत का मौसम, {dynamicLocName}सप्ताहांत के मौसम का पूर्वानुमान, {dynamicLocName}सप्ताहांत के मौसम संबंधी नजरिया,weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "{dynamicLocName} के लिए 5-दिन के मौसम का पूर्वानुमान - The Weather Channel | Weather.com",
+    "page_desc" : "Weather Channel और Weather.com से {dynamicLocName} 5-दिन के मौसम का पूर्वानुमान, मौसम की स्थितियाँ, तापमान, संकट की संभावना",
+    "page_keywords" : "{dynamicLocName} के लिए 5-दिन का मौसम {dynamicLocName} के लिए 5-दिन के मौसम का पूर्वानुमान 5-दिन का {dynamicLocName} 5-दिन का मौसम {dynamicLocName} weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName} 10-दिन के मौसम का पूर्वानुमान - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather Channel और Weather.com की ओर से तापमान के उतार-चढ़ाव और भारी वर्षा की संभावना के साथ {dynamicLocName} के लिए 10 दिन के सबसे सटीक पूर्वानुमान के लिए तैयार रहें",
+    "page_keywords" : "{dynamicLocName} 10 दिवसीय मौसम, {dynamicLocName} 10 दिन के मौसम का पूर्वानुमान {dynamicLocName} मौसम की स्थितियाँ, {dynamicLocName} 10 दिवसीय पूर्वानुमान, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName} मौसम और राडार मानचित्र - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather Channel और Weather.com की ओर से संवादात्मक {pageLocName} मौसम मानचित्र से आप अपने आसपास या दुनिया में किसी भी जगह के मौसम की बेजोड़ जानकारी प्राप्त करने के लिए पैन और ज़ूम कर सकते हैं",
+    "page_keywords" : "पारस्परिक विचार-विमर्श, स्थानीय, रडार, मौसम, मानचित्र, {pageLocName}मौसम मानचित्र, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "The Weather Channel | Weather.com से मौसम के वीडियो",
+    "page_desc" : "The Weather Channel एवं Weather.com पर मौसम के नवीनतम वीडियो पाएं",
+    "page_keywords" : "मौसम का वीडियो, weather channel का वीडियो, विज्ञान का वीडियो, प्रकृति का वीडियो, तूफ़ान का बीडियो, समुद्री तूफ़ान का वीडियो, बवंडर का वीडियो, यात्रा का वीडियो, स्वास्थ्य का वीडियो, जलवायु का वीडियो, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "मौसम संबंधी चेतावनी - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather Channel औऱ Weather.com से पूरे {dynamicLocName} में मौसम संबंधी सक्रिय चेतावनियों तक त्वरित पहुँच ",
+    "page_keywords" : "खतरे की सूचना, बहुत खराब मौसम, निगरानी, चेतावनी, परामर्श, weather.com, weather channel"
+  }
+}

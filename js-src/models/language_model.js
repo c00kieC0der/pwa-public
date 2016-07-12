@@ -13,25 +13,26 @@ var _Language = {}; _Lang = {}, _Locales = {};
         });
     };
     _Language.updateTranslations = function(){
-        return new Promise(function(resolve, reject){
-            var path;
-            if(_User.lang == 'en-US') {
-                path = '/js-src/translations/app.json';
-            } else if(_User.lang.indexOf('ar') > -1){
-                path = '/js-src/translated/ar/app.json';
-            } else if(_User.lang.indexOf('pl') > -1){
-                path = '/js-src/translated/pl/app.json';
-            } else if(_User.lang.indexOf('ur') > -1){
-                path = '/js-src/translated/ur/app.json';
-            } else {
-                path = '/js-src/translated/' + _User.lang + '/app.json';
-            }
-            helper.getJSON(path).then(function(result){
-                _Lang = result;
-                document.getElementById('event-anchor').dispatchEvent(eventData);
-                resolve();
-            }, function(error){
-                reject(error);
+        return new Promise(function(resolve, reject) {
+            helper.getJSON('/js-src/siteSmartlingLocales.json').then(function(localeMap){
+                var path;
+                if (_User.lang == 'en-US') {
+                    path = '/js-src/translations/';
+                } else {
+                    path = '/js-src/translated/' + localeMap[_User.lang] + '/';
+                }
+                console.log(path);
+
+                helper.getJSON(path + 'app.json').then(function (result) {
+                    _Lang = result;
+                    helper.getJSON(path + 'metadata.json').then(function(result) {
+                        _Locales.metadata = result;
+                    });
+                    document.getElementById('event-anchor').dispatchEvent(eventData);
+                    resolve();
+                }, function (error) {
+                    reject(error);
+                }); 
             });
         });
     };

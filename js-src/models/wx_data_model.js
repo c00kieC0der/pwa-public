@@ -2,12 +2,12 @@ var _Data = {}, app = {};
 (function() {
     var dataUrl,dataAstroUrl,dataAlmanacUrl;
     var eventData = document.createEvent('Event');
+    eventData.initEvent('builder', true, true);
     var astroEventData = document.createEvent('Event');
     astroEventData.initEvent('astro-builder', true, true);
     var almanacEventData = document.createEvent('Event');
-    eventData.initEvent('builder', true, true);
-
     almanacEventData.initEvent('almanac-builder', true, true);
+
 
 
 
@@ -87,9 +87,8 @@ var _Data = {}, app = {};
             'url' : dataAlmanacUrl,
             'generateUniqueUrl' : false,
             'onSuccess' : function(req) {
-
                 var data = JSON.parse(req.responseText).FarmingAlmanacRecordData;
-                console.log(data);
+        //        console.log(data);
                 var oneDayHistorical = data.OneDayHistorical;
                 var reportedConditions = data.ReportedConditions;
                 var historicalMonthlyAvg = data.HistoricalMonthlyAvg;
@@ -98,15 +97,11 @@ var _Data = {}, app = {};
                 _Data.tempUnit = units.tempUnit;
                 _Data.precipUnit = units.precipUnit;
                 _Data.oneDayHistorical = cleanOneDayHxData(oneDayHistorical, _Data.tempUnit);
-
                 _Data.reportedConditions = cleanReportedConditionsData(reportedConditions, _Data.tempUnit, _Data.precipUnit);
-
-                // WIP 7/5/16, 1115
-                console.log(historicalMonthlyAvg);
-                console.log(data);
                 _Data.historicalMonthlyAvg = cleanHxMonthlyAvgData(historicalMonthlyAvg, _Data.tempUnit, _Data.precipUnit);
                 // END WIP
 
+console.log('almanac data success');
                 document.getElementById('event-anchor').dispatchEvent(almanacEventData);
             }, 'onError' : function(err) {
                 console.log('error: ', err);
@@ -119,7 +114,7 @@ var _Data = {}, app = {};
     }
 // WIP 7/5/16 1119
     var cleanHxMonthlyAvgData = function(hxMonthlyAvgObj, tempUnit, precipUnit) {
-        console.log(precipUnit);
+    //    console.log(precipUnit);
         var data = {},
             nullPlaceholder = '\u2014',
             valueNames = ['currentMonthAvgHigh',

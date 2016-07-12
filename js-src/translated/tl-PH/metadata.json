@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Radar ng Lagay ng Panahon sa Bansa at sa Lokal, Pang-araw-araw na Pagtataya, Hurricane at impormasyon mula sa The Weather Channel at weather.com",
+    "page_desc" : "Ang The Weather Channel at weather.com ay nagbibigay ng pambansa at lokal na pagtataya ng lagay ng panahon para sa mga lungsod, gayundin ng radar ng lagay ng panahon, mga ulat at sakop ng bagyo",
+    "page_keywords" : "lagay ng panahon sa bansa, pagtataya ng lagay ng panahon sa bansa, lagay ng panahon sa iyong lugar, pagtataya ng lagay ng panahon sa iyong lugar, lagay ng panahon, pagtataya ng lagay ng panahon, radar ng lagay ng panahon, ulat sa lagay ng panahon, bagyo, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "Pagtataya at Mga Kundisyon ng Lagay ng Panahon sa {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Pagtataya ng lagay ng panahon sa {dynamicLocName} ngayong araw at gabi, mga kundisyon ng lagay ng panahon at Doppler radar mula sa The Weather Channel at Weather.com",
+    "page_keywords" : "lagay ng panahon sa {dynamicLocName}, pagtataya ng lagay ng panahon sa {dynamicLocName}, mga kundisyon ng lagay ng panahon sa {dynamicLocName}, pagtataya sa {dynamicLocName}, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Pagtataya ng Lagay ng Panahon Bawat Oras para sa {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Pagtataya ng Lagay ng Panahon sa Iyong Lugar Bawat Oras, mga kundisyon ng lagay ng panahon, precipitation, dew point, kahalumigmigan, hangin mula sa Weather.com at The Weather Channel",
+    "page_keywords" : "lagay ng panahon bawat oras para sa {dynamicLocName} pagtataya ng lagay ng panahon bawat oras para sa @ pagtataya bawat oras, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "Pagtataya ng Lagay ng Panahon sa Weekend sa{dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "pagtataya ng lagay ng panahon sa weekend sa{dynamicLocName}, mataas na temperatura, mababang temperatura, precipitation, mapa ng lagay ng panahon mula sa The Weather Channel at Weather.com",
+    "page_keywords" : "lagay ng panahon sa weekend sa {dynamicLocName}, pagtataya ng lagay ng panahon sa weekend sa{dynamicLocName}, inaasahang lagay ng panahon sa weekend sa {dynamicLocName}, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "5 Araw na Pagtataya ng Lagay ng Panahon para sa {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "5 araw na pagtataya ng lagay ng panahon sa{dynamicLocName}, mga kundisyon ng lagay ng panahon, temperatura, posibilidad ng precip mula sa The Weather Channel at Weather.com",
+    "page_keywords" : "5 araw na lagay ng panahon para sa {dynamicLocName} 5 araw na pagtataya ng lagay ng panahon para sa {dynamicLocName} 5 araw sa {dynamicLocName} 5 araw na lagay ng panahon sa {dynamicLocName} weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "10 Araw na Pagtataya ng Lagay ng Panahon sa {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Maging handa sa pamamagitan ng pinakatumpak na 10 araw na pagtataya para sa {dynamicLocName} na may mga mataas, mababa, posibilidad ng precipitation mula sa The Weather Channel at Weather.com",
+    "page_keywords" : "10 araw na lagay ng panahon sa {dynamicLocName}, 10 araw na pagtataya ng lagay ng panahon sa {dynamicLocName}, mga kundisyon ng lagay ng panahon sa {dynamicLocName}, 10 araw ng pagtataya sa {dynamicLocName}, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "Lagay ng Panahon at Mapa ng Radar sa {pageLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Nagbibigay-daan sa iyo ang interactive na mapa ng lagay ng panahon sa {pageLocName} na mag-pan at mag-zoom para makakuha ng mga walang katulad na detalye ng lagay ng panahon sa iyong lokal na kapitbahayan o sa kabilang panig ng mundo mula sa The Weather Channel at Weather.com",
+    "page_keywords" : "interactive, lokal, radar, lagay ng panahon, mapa, mapa ng lagay ng panahon sa {pageLocName}, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Mga video ng lagay ng panahon mula sa The Weather Channel | Weather.com",
+    "page_desc" : "Kunin ang mga pinakabagong video ng lagay ng panahon mula sa The Weather Channel at Weather.com",
+    "page_keywords" : "video ng lagay ng panahon, channel ng video ng lagay ng panahon, video tungkol sa agham, video ng kalikasan, video ng bagyo, video ng hurricane, video ng buhawi, video ng paglalakbay, video tungkol sa kalusugan, video ng klima, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Mga Alerto sa Lagay ng Panahon - The Weather Channel | Weather.com",
+    "page_desc" : "Mabilisang access sa mga alerto ng aktibong lagay ng panahon sa buong {dynamicLocName} mula sa The Weather Channel at Weather.com",
+    "page_keywords" : "mga alerto, matinding lagay ng panahon, mga pagbabantay, mga babala, mga advisory, weather.com, weather channel"
+  }
+}

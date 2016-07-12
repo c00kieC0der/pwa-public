@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Radar Cuaca Nasional dan Setempat, Ramalan Setiap Hari, Hurikan dan maklumat daripada The Weather Channel dan weather.com",
+    "page_desc" : "The Weather Channel dan weather.com menyediakan ramalan cuaca nasional dan setempat bagi bandar serta radar cuaca, laporan cuaca dan liputan hurikan",
+    "page_keywords" : "cuaca nasional, ramalan cuaca nasional, cuaca setempat, ramalan cuaca setempat, cuaca, ramalan cuaca, radar cuaca, laporan cuaca, hurikan, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "Ramalan dan Keadaan Cuaca di {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Ramalan cuaca hari ini dan malam ini di {dynamicLocName}, keadaan cuaca dan radar Doppler daripada The Weather Channel dan Weather.com",
+    "page_keywords" : "cuaca di {dynamicLocName}, ramalan cuaca di {dynamicLocName}, keadaan cuaca di {dynamicLocName}, ramalan di {dynamicLocName}, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Ramalan Cuaca Setiap Jam di {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Ramalan Cuaca Setempat Setiap Jam, keadaan cuaca, kerpasan, takat embun, kelembapan, angin daripada Weather.com dan The Weather Channel",
+    "page_keywords" : "cuaca setiap jam di {dynamicLocName} ramalan cuaca setiap jam di @ ramalan setiap jam, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "Ramalan Cuaca Hujung Minggu di {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "ramalan cuaca hujung minggu di {dynamicLocName}, suhu tinggi, suhu rendah, kerpasan, peta cuaca daripada The Weather Channel dan Weather.com",
+    "page_keywords" : "cuaca hujung minggu di {dynamicLocName}, ramalan cuaca hujung minggu di {dynamicLocName}, ramalan cuaca hujung minggu di {dynamicLocName}, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "Ramalan Cuaca 5 Hari di {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "ramalan cuaca 5 hari di {dynamicLocName}, keadaan cuaca, suhu, kemungkinan kerpasan daripada The Weather Channel dan Weather.com",
+    "page_keywords" : "cuaca 5 hari di {dynamicLocName} ramalan cuaca 5 hari di {dynamicLocName} 5 hari cuaca 5 hari di {dynamicLocName} weather.com {dynamicLocName}, weather channel"
+  },
+  "10day" : {
+    "page_title" : "Ramalan Cuaca 10 Hari di {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Bersedia dengan ramalan 10 hari yang paling tepat di {dynamicLocName} dengan suhu tinggi, suhu rendah, kemungkinan kerpasan daripada The Weather Channel dan Weather.com",
+    "page_keywords" : "cuaca 10 hari di {dynamicLocName}, ramalan cuaca 10 hari di {dynamicLocName} keadaan cuaca di {dynamicLocName}, ramalan 10 hari di {dynamicLocName}, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "Peta Cuaca dan Radar untuk {pageLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Peta cuaca interaktif untuk {pageLocName} membolehkan anda menyorot dan zum untuk mendapatkan butiran cuaca yang tidak ada bandingannya di kejiranan setempat anda atau kawasan yang amat jauh daripada The Weather Channel dan Weather.com",
+    "page_keywords" : "interaktif, setempat, radar, cuaca, peta, peta cuaca {pageLocName}, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Video cuaca daripada The Weather Channel | Weather.com",
+    "page_desc" : "Dapatkan video cuaca terkini daripada The Weather Channel dan Weather.com",
+    "page_keywords" : "video cuaca, video weather channel, video sains, video alam semula jadi, video ribut, video hurikan, video puting beliung, video perjalanan, video kesihatan, video iklim, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Amaran Cuaca - The Weather Channel | Weather.com",
+    "page_desc" : "Capaian pantas kepada amaran cuaca aktif di seluruh {dynamicLocName} daripada The Weather Channel dan Weather.com",
+    "page_keywords" : "waspada, cuaca buruk, awasan, amaran, makluman, weather.com, weather channel"
+  }
+}

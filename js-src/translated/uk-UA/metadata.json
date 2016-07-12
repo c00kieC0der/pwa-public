@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Національний і регіональний метеорологічний канал, щоденний прогноз, дані про ураган та інформація служб The Weather Channel і weather.com",
+    "page_desc" : "Служби The Weather Channel і weather.com надають національні та регіональні прогнози погоди для міст, а також дані метеорологічного радара, звіти й повідомлення про урагани",
+    "page_keywords" : "погода в країні, національний прогноз погоди, погода в регіоні, регіональний прогноз погоди, погода, прогноз погоди, метеорологічний радар, метеорологічний звіт, ураган, weather.com, метеорологічний канал"
+  },
+  "today" : {
+    "page_title" : "Прогноз погоди та метеорологічні умови для міста {dynamicLocName} – The Weather Channel | Weather.com",
+    "page_desc" : "Сьогоднішній прогноз погоди на день і вечір у місті {dynamicLocName}, метеорологічні умови та доплерівський радар від служб The Weather Channel і Weather.com",
+    "page_keywords" : "Погода в місті {dynamicLocName}, прогноз погоди для міста{dynamicLocName}, метеорологічні умови для міста {dynamicLocName}, прогноз для міста {dynamicLocName}, weather.com, метеорологічний канал"
+  },
+  "hourly" : {
+    "page_title" : "Погодинний прогноз погоди для міста {dynamicLocName} – The Weather Channel | Weather.com",
+    "page_desc" : "Погодинний регіональний прогноз погоди, метеорологічні умови, опади, точка роси, вологість, дані про вітер від служб Weather.com і The Weather Channel",
+    "page_keywords" : "погодинний прогноз для міста {dynamicLocName}, погодинний прогноз погоди для міста @, погодинний прогноз, weather.com, метеорологічний канал"
+  },
+  "weekend" : {
+    "page_title" : "Прогноз погоди на вихідні в місті {dynamicLocName} – The Weather Channel | Weather.com",
+    "page_desc" : "Прогноз погоди на вихідні в місті {dynamicLocName}, висока температура, низька температура, опади, метеорологічна карта від The Weather Channel і Weather.com",
+    "page_keywords" : "Погода на вихідні в місті {dynamicLocName}, прогноз погоди на вихідні в місті {dynamicLocName}, огляд погоди на вихідні в місті {dynamicLocName}, weather.com, метеорологічний канал"
+  },
+  "5day" : {
+    "page_title" : "Прогноз погоди на 5 днів для міста {dynamicLocName} – The Weather Channel | Weather.com",
+    "page_desc" : "Прогноз погоди на 5 днів для міста {dynamicLocName}, метеорологічні умови, температури, ймовірність опадів від служб The Weather Channel і Weather.com",
+    "page_keywords" : "5-денний прогноз погоди для міста {dynamicLocName}, прогноз погоди на 5 дн. для міста {dynamicLocName}, 5 дн. для міста {dynamicLocName}, погода на 5 дн. для міста {dynamicLocName}, weather.com, метеорологічний канал"
+  },
+  "10day" : {
+    "page_title" : "10-денний прогноз погоди для міста {dynamicLocName} – The Weather Channel | Weather.com",
+    "page_desc" : "Погода не принесе вам несподіванок – скористайтеся високоточним прогнозом на 10 днів для міста {dynamicLocName} з областями високого й низького тиску та даними про ймовірність опадів від служб The Weather Channel і Weather.com",
+    "page_keywords" : "10-денний прогноз для міста {dynamicLocName}, 10-денний прогноз погоди для міста {dynamicLocName}, метеорологічні умови в місті {dynamicLocName}, прогноз на 10 днів у місті {dynamicLocName}, weather.com, метеорологічний канал"
+  },
+  "maps" : {
+    "page_title" : "Метеорологічні та радіолокаційні карти для міста {pageLocName} – The Weather Channel | Weather.com",
+    "page_desc" : "Інтеактивна карта міста {pageLocName} дає змогу збільшувати та зменшувати масштаб для отримання незрівнянних метеорологічних відомостей у вашій місцевості та в половині світу, незалежно від служб The Weather Channel і Weather.com",
+    "page_keywords" : "інтерактивний, регіональний, радар, погода, карта, карта погоди в місті {pageLocName}, weather.com, метеорологічний канал"
+  },
+  "video" : {
+    "page_title" : "Відео служби The Weather Channel | Weather.com",
+    "page_desc" : "Перегляньте останні метеорологічні відеоролики від служб The Weather Channel і Weather.com",
+    "page_keywords" : "метеорологічне відео, відео метеорологічного каналу, наукове відео, відео про матінку-природу, відео про грози, відео про урагани, відео про торнадо, туристичне відео, відео про здоров’я, кліматичне відео, weather.com, метеорологічний канал"
+  },
+  "alerts" : {
+    "page_title" : "Метеорологічні оповіщення – The Weather Channel | Weather.com",
+    "page_desc" : "Швидкий доступ до активних метеорологічних сповіщень по всій території ({dynamicLocName}) завдяки The Weather Channel і Weather.com",
+    "page_keywords" : "оповіщення, несприятлива погода, перегляди, попередження, інформаційні повідомлення, weather.com, метеорологічний канал"
+  }
+}

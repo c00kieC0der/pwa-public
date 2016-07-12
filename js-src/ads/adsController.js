@@ -39,7 +39,7 @@ googletag.cmd = googletag.cmd || [];
                 $$.Promises.criteoPromise.promise,
                 $$.Promises.weatherDataPromise.promise,
                 $$.Promises.jsonReady.promise]).then(function () {
-                console.log("all promises done: ", new Date().getTime() - window.renderStartTime);
+               // console.log("all promises done: ", new Date().getTime() - window.renderStartTime);
                 displayAds(true);
             });
         });
@@ -366,8 +366,8 @@ googletag.cmd = googletag.cmd || [];
 
         // Wait for Data call to resolve
         document.addEventListener('builder', function() {
-            console.log('cust_params', new Date().getTime() - window.renderStartTime);
-            console.log("Data", _Data);
+         //   console.log('cust_params', new Date().getTime() - window.renderStartTime);
+         //   console.log("Data", _Data);
             if(_Data && _Data.obs){
                 var obs = _Data.obs;
                 var units, tempF, tempC, feelsLikeF, feelsLikeC, secondsToCache = 0;

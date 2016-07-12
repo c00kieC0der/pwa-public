@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "The Weather Channelとweather.comによる全国と各地の天気レーダー、毎日の予報、ハリケーンその他の情報",
+    "page_desc" : "The Weather Channelとweather.comが、全国と各地 (都市別) の天気予報、レーダー、レポート、ハリケーンの影響範囲をお伝えします。",
+    "page_keywords" : "全国の天気、全国の天気予報、各地の天気、各地の天気予報、天気、天気予報、天気レーダー、天気レポート、ハリケーン、weather.com、weather channel"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName}の天気予報と天候状況 - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather ChannelとWeather.comによる今日と今夜の{dynamicLocName}の天気予報、天候状況、ドップラーレーダー",
+    "page_keywords" : "{dynamicLocName}の天気、{dynamicLocName}の天気予報、{dynamicLocName}の天候状況、{dynamicLocName}の予報、weather.com、weather channel"
+  },
+  "hourly" : {
+    "page_title" : "{dynamicLocName}の1時間ごとの天気予報 - The Weather Channel | Weather.com",
+    "page_desc" : "Weather.comとThe Weather Channelによる1時間ごとの各地の天気予報、天候状況、降水、露点、湿度、風",
+    "page_keywords" : "{dynamicLocName}の1時間ごとの天気、@の1時間ごとの天気予報、1時間ごとの予報、weather.com、weather channel"
+  },
+  "weekend" : {
+    "page_title" : "{dynamicLocName}の週末の天気予報 - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather ChannelとWeather.comによる{dynamicLocName}の週末の天気予報、高い気温、低い気温、降水、天気図",
+    "page_keywords" : "{dynamicLocName}の週末の天気、{dynamicLocName}の週末の天気予報、{dynamicLocName}の週末の天気の見通し、weather.com、weather channel"
+  },
+  "5day" : {
+    "page_title" : "{dynamicLocName}の5日間の天気予報 - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather ChannelとWeather.comによる{dynamicLocName}の5日間の天気予報、天候状況、気温、降水確率",
+    "page_keywords" : "{dynamicLocName}の5日間の天気、{dynamicLocName}の5日間の天気予報、 {dynamicLocName}の5日間、{dynamicLocName}の5日間の天気、weather.com、weather channel"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName}の10日間の天気予報 - The Weather Channel | Weather.com",
+    "page_desc" : "気温の変化、降水確率など、The Weather ChannelとWeather.comによる{dynamicLocName}の最も正確な10日間の予報をチェックしてください",
+    "page_keywords" : "{dynamicLocName}の10日間の天気、{dynamicLocName}の10日間の天気予報、 {dynamicLocName}の天候状況、{dynamicLocName}の10日間の予報、weather.com、weather channel"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName}の天気図とレーダーマップ - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather ChannelとWeather.comによるインタラクティブな{pageLocName}の天気図は、パンやズーム機能によって周辺地域や遠く離れた外国の天気の詳細な情報が簡単に得られます",
+    "page_keywords" : "インタラクティブ、各地、レーダー、天気、マップ、{pageLocName}の天気図、weather.com、weather channel"
+  },
+  "video" : {
+    "page_title" : "The Weather Channelの天気に関する動画 | Weather.com",
+    "page_desc" : "The Weather ChannelとWeather.comの最新の天気に関する動画を見る",
+    "page_keywords" : "天気の動画、weather channelの動画、科学の動画、 母なる自然の動画、暴風雨の動画、ハリケーンの動画、 竜巻の動画、 旅行の動画、健康の動画、気候の動画、weather.com、weather channel"
+  },
+  "alerts" : {
+    "page_title" : "天気アラート - The Weather Channel | Weather.com",
+    "page_desc" : "The Weather ChannelとWeather.comによる{dynamicLocName}への天気アラートを有効にして情報にすばやくアクセス",
+    "page_keywords" : "アラート、悪天候、見る、警報、注意情報、weather.com、weather channel"
+  }
+}

@@ -12,7 +12,7 @@ var _User = {
       pressure : 'in',
       visibility : 'mi'
     },
-    lang : 'en-US',
+    lang : '',
     locations: [],
     activeLocation : {
         lat : '',

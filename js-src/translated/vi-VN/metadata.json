@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Rađa thời tiết quốc gia và địa phương, dự báo hàng ngày, bão và thông tin từ The Weather Channel và weather.com",
+    "page_desc" : "The Weather Channel và weather.com cung cấp dự báo thời tiết quốc gia và khu vực cho các thành phố, cũng như rađa, các báo cáo thời tiết và vùng hoạt động của bão",
+    "page_keywords" : "thời tiết quốc gia, dự báo thời tiết quốc gia, thời tiết khu vực, dự báo thời tiết khu vực, thời tiết, dự báo thời tiết, ra đa thời tiết, báo cáo thời tiết, bão, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "Dự báo và điều kiện thời tiết tại {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Dự báo thời tiết, điều kiện thời tiết ngày và đêm hôm nay tại {dynamicLocName} và ra đa Doppler từ The Weather Channel và Weather.com",
+    "page_keywords" : "thời tiết tại {dynamicLocName}, dự báo thời tiết tại {dynamicLocName}, điều kiện thời tiết tại {dynamicLocName}, dự báo tại {dynamicLocName}, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Dự báo thời tiết hàng giờ tại {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Dự báo thời tiết khu vực hàng giờ, điều kiện thời tiết, mưa, điểm sương, độ ẩm, gió từ Weather.com và The Weather Channel",
+    "page_keywords" : "dự báo hàng giờ cho {dynamicLocName} dự báo thời tiết hàng giờ cho @ dự báo hàng giờ, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "Dự báo thời tiết cuối tuần tại {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Dự báo thời tiết cuối tuần tại {dynamicLocName}, nhiệt độ cao, nhiệt độ thấp, lượng mưa, bản đồ thời tiết từ The Weather Channel và Weather.com",
+    "page_keywords" : "thời tiết cuối tuần tại {dynamicLocName}, dự báo thời tiết cuối tuần tại {dynamicLocName}, tổng quan thời tiết cuối tuần tại {dynamicLocName}, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "Dự báo thời tiết 5 ngày tại {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "dự báo thời tiết 5 ngày tại {dynamicLocName}, điều kiện thời tiết, nhiệt độ, khả năng mưa từ The Weather Channel và Weather.com",
+    "page_keywords" : "thời tiết 5 ngày tại {dynamicLocName} dự báo thời tiết 5 ngày tại {dynamicLocName} 5 ngày {dynamicLocName} thời tiết 5 ngày {dynamicLocName} weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "Dự báo thời tiết 10 ngày tại {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Hãy chuẩn bị sẵn sàng với dự báo 10 ngày chính xác nhất tại {dynamicLocName} với nhiệt độ cao, nhiệt độ thấp, khả năng mưa từ The Weather Channel và Weather.com",
+    "page_keywords" : "thời tiết 10 ngày tại {dynamicLocName}, dự báo thời tiết 10 ngày tại {dynamicLocName}, điều kiện thời tiết tại {dynamicLocName}, dự báo 10 ngày tại {dynamicLocName}, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "Bản đồ thời tiết và ra đa {pageLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Bản đồ thời tiết {pageLocName} tương tác cho phép bạn di chuyển màn hình và thu phóng để nhận được thông tin chi tiết về thời tiết chính xác nhất ở khu vực địa phương hoặc những nơi cách nửa vòng trái đất từ The Weather Channel và Weather.com",
+    "page_keywords" : "tương tác, khu vực, ra đa, thời tiết, bản đồ, bản đồ thời tiết {pageLocName}, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Video thời tiết từ The Weather Channel | Weather.com",
+    "page_desc" : "Nhận video thời tiết mới nhất từ The Weather Channel và Weather.com",
+    "page_keywords" : "video thời tiết, video weather channel, video khoa học, video thiên nhiên, video bão, video bão lốc, video lốc xoáy, video du lịch, video sức khỏe, video khí hậu, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Cảnh báo thời tiết - The Weather Channel | Weather.com",
+    "page_desc" : "Truy cập nhanh cảnh báo thời tiết hiện tại trên khắp {dynamicLocName} từ The Weather Channel và Weather.com",
+    "page_keywords" : "cảnh báo, thời tiết khắc nghiệt, theo dõi, cảnh báo, tư vấn, weather.com, weather channel"
+  }
+}

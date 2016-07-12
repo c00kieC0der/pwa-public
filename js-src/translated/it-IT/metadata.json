@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Radar meteo nazionale e locale, previsioni giornaliere, uragani e informazioni di The Weather Channel e weather.com",
+    "page_desc" : "The Weather Channel e weather.com offrono previsioni nazionali e locali per le città, oltre a radar e segnalazioni meteo e informazioni sugli uragani",
+    "page_keywords" : "meteo nazionale, previsioni meteo nazionali, meteo locale, previsioni meteo locali, meteo, previsioni meteo, radar meteo, segnalazione meteo, uragano, weather.com weather channel"
+  },
+  "today" : {
+    "page_title" : "Previsioni e condizioni meteo per {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Previsioni meteo, condizioni meteo e radar Doppler di oggi e stanotte per {dynamicLocName} di The Weather Channel e Weather.com",
+    "page_keywords" : "Meteo per {dynamicLocName}, previsioni meteo per {dynamicLocName}, condizioni meteo per {dynamicLocName}, previsioni per {dynamicLocName}, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Previsioni meteo orarie per {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Previsioni meteo locali orarie, condizioni meteo, precipitazioni, punto di rugiada, umidità, vento di Weather.com e The Weather Channel",
+    "page_keywords" : "meteo orario per {dynamicLocName}, previsioni meteo orarie per {dynamicLocName}, previsioni orarie, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "Previsioni meteo del weekend per {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "previsioni meteo per il weekend per {dynamicLocName}, temperatura massima, temperatura minima, precipitazioni, mappa meteo di The Weather Channel e Weather.com",
+    "page_keywords" : "meteo per il weekend per {dynamicLocName}, previsioni meteo per il weekend per {dynamicLocName}, prospetto meteo per il weekend per {dynamicLocName}, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "Previsioni meteo per 5 giorni per {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "previsioni meteo per 5 giorni per {dynamicLocName}, condizioni meteo, temperature, possibilità di precipitazioni di The Weather Channel e Weather.com",
+    "page_keywords" : "meteo per 5 giorni per {dynamicLocName}, previsioni meteo per 5 giorni per {dynamicLocName}, 5 giorni per {dynamicLocName}, meteo per 5 giorni per {dynamicLocName}, weather.com weather channel"
+  },
+  "10day" : {
+    "page_title" : "Previsioni meteo per 10 giorni per {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Non lasciarti sorprendere con le più precise previsioni per 10 giorni per {dynamicLocName}, con massime, minime, possibilità di precipitazioni di The Weather Channel e Weather.com",
+    "page_keywords" : "Meteo per 10 giorni per {dynamicLocName}, previsioni meteo per 10 giorni per {dynamicLocName}, condizioni meteo per {dynamicLocName}, previsioni per 10 giorni per {dynamicLocName}, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "Meteo e mappe radar per {pageLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "La mappa meteo interattiva per {pageLocName} ti consente di aumentare o ridurre lo zoom per dettagli meteo senza paragoni nel tuo quartiere o dall'altra parte del mondo di The Weather Channel e Weather.com",
+    "page_keywords" : "interattivo, locale, radar, meteo, mappa, mappa meteo per {pageLocName}, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Video sul meteo di The Weather Channel | Weather.com",
+    "page_desc" : "Ottieni i video più recenti di The Weather Channel e Weather.com",
+    "page_keywords" : "video sul meteo, video del canale meteo, video scientifici, video di madre natura, video sulle tempeste, video sugli uragani, video sulle trombe d'aria, video di viaggio, video sulla salute, video sul clima, weather.com weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Avvisi meteo - The Weather Channel | Weather.com",
+    "page_desc" : "Accesso rapido per attivare gli avvisi maltempo nell'intera zona di {dynamicLocName} di The Weather Channel e Weather.com",
+    "page_keywords" : "avvisi, maltempo, segnalazioni, avvertenze, avvertimenti, weather.com, weather channel"
+  }
+}

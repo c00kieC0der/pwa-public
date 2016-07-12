@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Национальные и местные РЛС, суточный прогноз, данные об ураганах и другая информация — The Weather Channel и weather.com",
+    "page_desc" : "В приложении The Weather Channel и на сайте weather.com можно посмотреть местный прогноз погоды для разных городов, данные национальной метеорологической службы и метеорологических РЛС, а также отчеты о погоде и ураганах",
+    "page_keywords" : "прогноз по данным национальной метеорологической службы, прогноз погоды по данным национальной метеорологической службы, местный прогноз, местный прогноз погоды, погода, прогноз погоды, данные метеорологических РЛС, отчет о погоде, ураган, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName} — прогноз погоды и погодные условия — The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} — прогноз погоды на сегодняшний день и вечер, погодные условия и данные допплеровской РЛС в приложении The Weather Channel и на сайте Weather.com",
+    "page_keywords" : "{dynamicLocName} — погода, {dynamicLocName} — прогноз погоды, {dynamicLocName} — погодные условия, {dynamicLocName} — прогноз, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "{dynamicLocName} — почасовой прогноз погоды The Weather Channel | Weather.com",
+    "page_desc" : "Почасовой местный прогноз погоды, погодные условия, осадки, точка росы, влажность, данные о ветре с сайта Weather.com и из приложения The Weather Channel",
+    "page_keywords" : "{dynamicLocName} — почасовые данные о погоде, {1} — почасовой прогноз погоды, @ — почасовой прогноз, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "{dynamicLocName} — прогноз погоды на выходные — The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} — прогноз погоды на выходные, высокая температура, низкая температура, осадки, карта погоды в приложении The Weather Channel и на сайте Weather.com",
+    "page_keywords" : "{dynamicLocName} — погода в выходные, {dynamicLocName} — прогноз погоды на выходные, {dynamicLocName} — какая погода в выходные, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "{dynamicLocName} — прогноз погоды на 5 дней — The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} — прогноз погоды на 5 дней, погодные условия, температура, вероятность осадков по данным приложения The Weather Channel и сайта Weather.com",
+    "page_keywords" : "{dynamicLocName} — погода на 5 дней, {dynamicLocName} — прогноз погоды на 5 дней, {dynamicLocName} — пятидневный прогноз, {dynamicLocName} — прогноз на 5 дней, weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName} — прогноз погоды на 10 дней — The Weather Channel | Weather.com",
+    "page_desc" : "Не дайте погоде застать вас врасплох благодаря точному прогнозу на 10 дней ({dynamicLocName}) с указанием вероятности осадков и температуры по данным приложения The Weather Channel и сайта Weather.com",
+    "page_keywords" : "{dynamicLocName} — погода на 10 дней, {dynamicLocName} — прогноз погоды на 10 дней, {dynamicLocName} — погодные условия, {dynamicLocName} — прогноз на 10 дней, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName} — карта погоды и РЛС — The Weather Channel | Weather.com",
+    "page_desc" : "В приложении The Weather Channel и на сайте Weather.com есть интерактивная карта погоды ({pageLocName}), которую можно двигать, уменьшать и увеличивать. На ней представлены точные данные о погоде не только рядом с вами, но и в отдаленных районах.",
+    "page_keywords" : "интерактивная, местный, радар, погода, карта, {pageLocName} — карта погоды, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Видеопрогнозы — The Weather Channel | Weather.com",
+    "page_desc" : "Актуальные видеопрогнозы в приложении The Weather Channel и на сайте Weather.com",
+    "page_keywords" : "видеопрогнозы, видео от weather channel, видео о научных разработках, видео о природе, видео со штормом, видео с ураганом, видео с торнадо, видео о путешествиях, видео о здоровье, видео о климате, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Оповещения о погоде — The Weather Channel | Weather.com",
+    "page_desc" : "Быстрый доступ к актуальным оповещениям о погоде по всей территории {dynamicLocName} на сайте Weather.com и в приложении The Weather Channel",
+    "page_keywords" : "оповещения, неблагоприятные погодные условия, наблюдения, предупреждения, советы, weather.com, weather channel"
+  }
+}
