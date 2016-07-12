@@ -342,6 +342,7 @@ helper.loadTemplate('alert-bar', 'modules', 'alert-bar');
 
 var langMap;
 var assignAppShellLang = function(){
+
     langMap = [
         ['nav-today', _Lang.today.toUpperCase()],
         ['nav-hourly', _Lang.hourly.toUpperCase()],
@@ -355,7 +356,9 @@ var assignAppShellLang = function(){
         ['footer-terms-of-use', capitalizeEachWord(_Lang['terms of use'])],
         ['footer-privacy-policy', capitalizeEachWord(_Lang['privacy policy'])],
         ['footer-parental-controls', capitalizeEachWord(_Lang['parental controls'])],
-        ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])]
+        ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])],
+       // ['footer-feedback', capitalizeEachWord(_Lang['feedback'])],
+       // ['footer-press', capitalizeEachWord(_Lang['press'])]
 
     ];
     helper.setContent(langMap);

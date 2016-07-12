@@ -123,7 +123,6 @@ var allLocales = [
     'es-CR',
     'es-DO',
     'es-EC',
-    //  'es-LA'
     'es-ES',
     'es-GQ',
     'es-GT',
@@ -139,8 +138,8 @@ var allLocales = [
     'es-VE',
     'fa-IR',
     'fi-FI',
-    'fr-AD'
-    /*'fr-BE',
+    'fr-AD',
+    'fr-BE',
     'fr-BE',
     'fr-BF',
     'fr-BI',
@@ -212,7 +211,7 @@ var allLocales = [
     'vi-VN',
     'zh-CN',
     'zh-SG',
-    'zh-TW' */
+    'zh-TW'
 ];
 var originalLocales = [
     'ar',
