@@ -162,13 +162,13 @@ googletag.cmd = googletag.cmd || [];
                 ch: "fcst",
                 fam: "fcst",
                 ad_unit: encodeURIComponent(NCAU)
+            };
+            if (adstest) {
+                cust_params['adstest'] = adstest;
             }
         });
     }
 
-    if (adstest) {
-        cust_params['adstest'] = adstest;
-    }
 
 
     function extend(){
