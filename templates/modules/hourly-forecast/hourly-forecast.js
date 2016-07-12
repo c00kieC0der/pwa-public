@@ -26,7 +26,7 @@
     }
 
     document.getElementById('event-anchor').addEventListener('builder', function() {
-        domReady(helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12))
+        domReady(helper.ngRepeat('ls-row-wrap', 'ls-hourly-data', ngRepeatMap, _Data.hourly, 12));
     });
 
     var hourlyForecastLangs = [];

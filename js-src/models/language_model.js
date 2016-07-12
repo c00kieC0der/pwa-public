@@ -16,7 +16,7 @@ var _Language = {}; _Lang = {}, _Locales = {};
         return new Promise(function(resolve, reject) {
             helper.getJSON('/js-src/siteSmartlingLocales.json').then(function(localeMap){
                 var path;
-                if (_User.lang == 'en-US') {
+                if (_User.lang === 'en-US') {
                     path = '/js-src/translations/';
                 } else {
                     path = '/js-src/translated/' + localeMap[_User.lang] + '/';

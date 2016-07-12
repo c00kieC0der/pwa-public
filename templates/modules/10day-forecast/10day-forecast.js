@@ -45,11 +45,13 @@
 
     var showDetails = function(e) {
         var clickedEl = e.target;
-        while(clickedEl!=null &&clickedEl.tagName.toLowerCase() !="tr"){
+        while(clickedEl !== null && clickedEl.tagName.toLowerCase() !== "tr"){
             clickedEl = clickedEl.parentNode;
         }
         var rowToStart = clickedEl.rowIndex-1;
-        if(rowToStart<0) return;
+        if(rowToStart<0) {
+            return;
+        }
         //Based on structure of table
         var table = clickedEl.parentNode;
         //if clicked element contains details, then hidden elements are shown.
