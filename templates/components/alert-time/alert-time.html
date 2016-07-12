@@ -1,0 +1,11 @@
+<li>          
+  <a data-ng-href="{{::alertInfo.url}}"
+    class="js-alert-severity bg-alert-{{::alertInfo.severity}}"
+    data-from-str="{{::moduleId}}_{{::alertInfo.fromStr}}">
+    <div class="title text text-overflow">
+      <span class="warning-text js-alert-description" data-ng-bind="::alertInfo.description"></span>
+      <span class="timestamp js-alert-timestamp"></span>
+    </div>
+    <!-- <span class="wx-iconfont-global wx-icon-arrow-right pull-right gma-bolder"></span> -->
+  </a>
+</li>

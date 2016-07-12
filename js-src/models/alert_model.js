@@ -6,8 +6,14 @@ eventAlert.initEvent('builder-alert', true, true);
 var eventAlertGetting = document.createEvent('Event');
 eventAlertGetting.initEvent('get-alert-completed', true, true);
 
-_Alert.getAlertData = function (loc, lang){
-  lang = lang.replace('-', '_');
+_Alert.getAlertData = function (){
+  if(!_User.activeLocation) {
+    return;
+  }
+
+  var activeLoc = _User.activeLocation;
+  var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
+  lang = _User.lang.replace('-', '_');
   getBulletinAlertData(loc, lang, listenGettingAlertDataCompleted);
   getPollenAlertData(loc, lang, listenGettingAlertDataCompleted);
 
@@ -17,14 +23,15 @@ _Alert.getAlertData = function (loc, lang){
       var pollen = alertRequests.pollen.data;
 
       var alerts = getAlerts(bulletins, pollen, loc);
+      var numberAlerts = alerts.length;
       var priority = alerts.shift();
       _Alert = {
-          bulletins: getAlerts(),
+          bulletins: alerts,
           timeZone: '',
           priority: priority,
           hasAlerts: priority != null,
-          hasMultipleAlerts: bulletins.length > 0,
-          alertCount: bulletins.length + 1
+          hasMultipleAlerts: alerts.length > 0,
+          alertCount: numberAlerts
       };
       document.getElementById('event-anchor').dispatchEvent(eventAlert);
   });
