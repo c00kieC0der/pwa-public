@@ -14,5 +14,6 @@
             }
         };
         helper.registerListener('scroll', lazyLoadedModules);
-
+        _Router.dispatchAds();
+        helper.setContent([['MW_Position2', 'MY TEST for ads.']]); 
 })();

@@ -187,5 +187,5 @@ var _Router = {
                 document.dispatchEvent(AdCtrl.Promises.loadAds);
             }
     };
-    helper.registerListener('DOMContentLoaded', _Router.dispatchAds);
+    //helper.registerListener('DOMContentLoaded', _Router.dispatchAds);
 })();
