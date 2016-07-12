@@ -90,7 +90,7 @@ var _Router = {
                 _Data.collectNew();
                  checkPage(pathArr);
             });
-        } else if (!_User.activeLocation.prsntNm){ console.log('getting default location? ');
+        } else if (!_User.activeLocation.prsntNm){
             _Locations.getDefaultLocation().then(function(data){
                 _User.activeLocation = data;
                 _Data.collectNew();
@@ -100,26 +100,23 @@ var _Router = {
             checkPage(pathArr);
         }
     };
-     var checkPage = function(pathArr){ console.log('pathArr', pathArr);
+     var checkPage = function(pathArr){
             if(history.state && history.state.changeTo){
-                console.log('history', pathArr);
                 _Router.changePage(history.state.changeTo);
             } else {
                 if(!pathArr.page){
                     _Router.changePage('today');
                 } else {
-                    if(pathArr.page === '404/'){ console.log('going to 404..? ');
+                    if(pathArr.page === '404/'){
                         goto404();
                     }
                     for(var page in pageAssignment){
                         if(pathArr.page === pageAssignment[page].hreflang[pathArr.lang]){
-                            console.log('here? ');
                             _Router.changePage(page);
                             break;
                             return;
                         }
                     }
-                    console.log('defaulted to 404');
                     goto404();
                 }
             }
@@ -136,8 +133,6 @@ var _Router = {
         _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment['404'].metricName, pageAssignment['404'].pos);
         _Router.page === '404';
         helper.loadTemplateWithClass('page-content', 'pages', "404");
-
-
     };
     _Router.changePage = function(page){
         /*   Page Nav, decactivate all, the activate the right one. */
@@ -172,7 +167,7 @@ var _Router = {
             }
         }
     };
-    _Router.updateURL = function(){  console.log('updating url');
+    _Router.updateURL = function(){
         var activeLoc = _User.activeLocation;
         var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
         if(!_Router.page){
@@ -188,8 +183,9 @@ var _Router = {
 
 
     _Router.dispatchAds = function(){
-            if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {  console.log('dispatched ads'); 
+            if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {  console.log('dispatched ads');
                 document.dispatchEvent(AdCtrl.Promises.loadAds);
             }
     };
+    //helper.registerListener('DOMContentLoaded', _Router.dispatchAds);
 })();

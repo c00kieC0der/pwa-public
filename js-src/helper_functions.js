@@ -64,6 +64,18 @@ helper.loadTemplateWithClass = function(elementId, type, name){
         if (xhr.readyState === 4 && xhr.status === 200) {
             helper.addClass(document.getElementById(elementId), 'slide-out');
             document.getElementById(elementId).innerHTML = xhr.responseText;
+            var body = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = '/templates/' + type + '/' + name + '/' + name + '.js';
+
+            // Then bind the event to the callback function.
+            // There are several events for cross browser compatibility.
+            script.onreadystatechange = name + 'Run';
+            script.onload = name + 'Run';
+
+            // Fire the loading
+            body.appendChild(script);
 
             setTimeout(function(){
                 helper.removeClass(document.getElementById(elementId), 'slide-out');
@@ -71,20 +83,6 @@ helper.loadTemplateWithClass = function(elementId, type, name){
         }
     };
     xhr.send();
-    //Then load the js
-
-    var body = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = '/templates/' + type + '/' + name + '/' + name + '.js';
-
-    // Then bind the event to the callback function.
-    // There are several events for cross browser compatibility.
-    script.onreadystatechange = name + 'Run';
-    script.onload = name + 'Run';
-
-    // Fire the loading
-    body.appendChild(script);
 };
 
 
