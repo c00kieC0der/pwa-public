@@ -53,7 +53,7 @@
         console.log(_Data.almanacMonths.month1, _Data.almanacMonths.month2, _Data.almanacMonths.month3);
         mapDataAlmanac();
         helper.setContent(dataAssignmentAlmanac);
-    };
+    }
 
     document.getElementById('event-anchor').addEventListener('almanac-builder', function(){ console.log('TRIGGERED');
         //console.log(_Data.oneDayHistorical);
