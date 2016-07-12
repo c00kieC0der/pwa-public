@@ -133,8 +133,6 @@ var _Router = {
         _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment['404'].metricName, pageAssignment['404'].pos);
         _Router.page === '404';
         helper.loadTemplateWithClass('page-content', 'pages', "404");
-
-
     };
     _Router.changePage = function(page){
         /*   Page Nav, decactivate all, the activate the right one. */

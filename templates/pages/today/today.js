@@ -3,7 +3,7 @@
         helper.loadTemplate('today-almanac', 'modules', 'almanac');
 
         var mapShowing = false;
-        var lazyLoadedModules = function(){  console.log('called');
+        var lazyLoadedModules = function(){
             if(!mapShowing){
                 if(helper.isInViewport(document.getElementById('static-map'))){
                         helper.loadTemplate('static-map', 'modules', 'static-map');
