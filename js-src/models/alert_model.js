@@ -153,70 +153,13 @@ var convertToPollenAlert = function(pollenData) {
   return null;
 };
 
-/**
- * Check params and invoke new method the date function.
- * @param dateStr
- * @param [timeStr]
- * @param [tzStr]
- * @returns {date | null}
- */
-// var getDateObject =function(dateStr, timeStr, tzStr) {
-//   try {
-//     return new date(dateStr, timeStr, tzStr);
-//   }catch (err) {
-//     console.log(err);
-//   }
-//   return null;
-// };
-
-// var formatDsxDate = function (timestamp, timezone) {
-//   var dateStr, timeStr, tzStr;
-//   if (timestamp && timezone) {
-//     if (!isNaN(timestamp)) {
-//       dateStr = timestamp.toString().slice(0, 8);
-//       timeStr = timestamp.toString().slice(8);
-//       tzStr   = timezone;
-//     } else {
-//       var match_parts = timestamp.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/);
-//       if (match_parts && match_parts.length >= 7) {
-//         dateStr = match_parts[1] + match_parts[2] + match_parts[3];
-//         timeStr = match_parts[4] + match_parts[5] + match_parts[6];
-//         tzStr   = timezone;
-//       }
-//     }
-//   } 
-//   return getDateObject(dateStr, timeStr, tzStr);
-// };
-
-// var getValidTime = function (timestamp, timezone, format) {
-//     if (!timestamp) {
-//       return null;
-//     }
-//     var date = formatDsxDate(timestamp, timezone);
-//     if (!date) {
-//       return null;
-//     }
-
-//     return date.format(format);
-// };
-
-var formatTime = function (fullDate) {
-    var dateBase = new Date(fullDate);
-    var hours = dateBase.getHours();
-    var minutes = dateBase.getMinutes();
-    var meridian = 'AM';
-    if (hours === 12) {
-        meridian = 'PM';
+var formatTime = function (startTime, timeZone) {
+    var result = '';
+    if (_User.lang) {
+        moment.locale(_User.lang)
     }
-    if (hours > 12) {
-        hours -= 12;
-        meridian = 'PM';
-    }
-    if (hours === 0) {
-        hours = 12;
-    }
-
-    return hours + ':' + (minutes > 9 ? minutes + ' ' : '0' + minutes + ' ') + meridian;
+    result = moment(startTime).format('h:mm') + ' ' + timeZone + ' ' + moment(startTime).format('ddd MMM d');
+    return result;
 };
 
 var convertBulletinToAlert = function(bulletin, locId, prefixDetailUrl) {
@@ -234,7 +177,7 @@ var convertBulletinToAlert = function(bulletin, locId, prefixDetailUrl) {
         timeZone = bLocations ? bLocations.bTzAbbrv : '',
         issTime = bEData ? bEData.bIssueTmISOLocal : '',
         alert = {},
-        dateFormat = 'h:mma z, EEE MMM d';//TODO: dateFormat for each locales
+        dateFormat = _Lang['h:mma z, EEE MMM d'];
 
         
     prefixDetailUrl = '/weather/alerts/localalerts/l/';
@@ -262,12 +205,9 @@ var convertBulletinToAlert = function(bulletin, locId, prefixDetailUrl) {
     }
 
     alert.severity = bEvent.eSvrty;
-    // alert.validStartTime = getValidTime(startTime, timeZone, dateFormat);
-    // alert.validEndTime = getValidTime(endTime, timeZone, dateFormat);
-    // alert.validIssTime = getValidTime(issTime, timeZone, dateFormat);
-    alert.validStartTime = formatTime(startTime);
-    alert.validEndTime = formatTime(endTime);
-    alert.validIssTime = formatTime(issTime);
+    alert.validStartTime = formatTime(startTime, timeZone);
+    alert.validEndTime = formatTime(endTime, timeZone);
+    alert.validIssTime = formatTime(issTime, timeZone);
     alert.url = [prefixDetailUrl, locId || '', '?phenomena=', phenomena, '&significance=', significance, '&areaid=', areaId, '&office=', officeId, '&etn=', etn].join('');
     alert.type = 'bulletin';
     alert.fromStr = phenomena + "-" + significance;

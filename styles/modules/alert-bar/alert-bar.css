@@ -1,16 +1,18 @@
 .gm_alerts {
   margin-bottom: 6px;
   width: 100%;
-  margin: 8px 0;
+  margin-top: 8px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 .gm_alerts.hidden{
   display: none;
 }
-.gm_alerts.twc-init {
-  display: none;
-}
 .gm_alerts .bg-alert-1 {
   background-color: rgba(170, 5, 14, 0.9) !important;
+  color: #d98f93;
+}
+.gm_alerts .bg-alert-1 .dropdown-toggle {
+  color: rgba(170, 5, 14, 0.9) !important;
 }
 .gm_alerts .bg-alert-1 .timestamp {
   color: #d98f93;
@@ -18,14 +20,37 @@
 .gm_alerts .bg-alert-2 {
   background-color: rgba(230, 115, 31, 0.9) !important;
 }
+.gm_alerts .bg-alert-2 .dropdown-toggle {
+  color: rgba(230, 115, 31, 0.9) !important;
+}
 .gm_alerts .bg-alert-2 .timestamp {
   color: #f4c09a;
 }
 .gm_alerts .bg-alert-3, .gm_alerts .bg-alert-pollen {
   background-color: rgba(222, 162, 37, 0.9) !important;
 }
+.gm_alerts .bg-alert-3 .dropdown-toggle, .gm_alerts .bg-alert-pollen .dropdown-toggle {
+  color: rgba(222, 162, 37, 0.9) !important;
+}
 .gm_alerts .bg-alert-3 .timestamp, .gm_alerts .bg-alert-pollen .timestamp {
   color: #f0d59d;
+}
+.gm_alerts .dropdown.open .wx-icon-arrow-down-2 {
+  display: none;
+}
+.gm_alerts .dropdown.open .wx-icon-arrow-up-2 {
+  display: inline;
+}
+.gm_alerts .dropdown .list-group > li > a, .gm_alerts .dropdown .list-group > li .list-group-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
 }
 .gm_alerts .bg-alert-1:focus, .gm_alerts .bg-alert-1:hover {
   background-color: #91040c !important;
@@ -43,6 +68,13 @@
 .gm_alerts .gma-text-color {
   color: #ffffff;
 }
+.gm_alerts .warning-text {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+html[lang="ja-JP"] .gm_alerts .warning-text, html[lang="ko-KR"] .gm_alerts .warning-text, html[lang="zh-CN"] .gm_alerts .warning-text, html[lang="zh-TW"] .gm_alerts .warning-text, html[lang="zh-HK"] .gm_alerts .warning-text {
+  font-weight: normal;
+}
 .gm_alerts .timestamp {
   display: none;
 }
@@ -51,18 +83,6 @@
 }
 .gm_alerts .dropdown .list-group > li > a {
   padding: 0 15px;
-  cursor: default;
-}
-.gm_alerts .dropdown .list-group > li > a, .gm_alerts .dropdown .list-group > li .list-group-item {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
 }
 .gm_alerts .dropdown a, .gm_alerts .dropdown a:focus, .gm_alerts .dropdown a:active, .gm_alerts .dropdown a:hover {
   color: #ffffff;
@@ -84,16 +104,15 @@
   position: relative;
 }
 .gm_alerts .dropdown .priority .title {
-  max-width: 100%;
   display: block;
-  padding: 7px 60px 9px 15px;
+  padding: 7px 85px 9px 15px;
 }
 .gm_alerts .dropdown .dropdown-toggle {
   cursor: pointer;
   border: none;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 6px 8px 6px;
-  width: 47px;
+  background: #FFFFFF;
+  padding: 6px 8px 5px;
+  width: 85px;
   outline: none;
   position: absolute;
   top: 0;
@@ -103,6 +122,11 @@
   position: relative;
   font-size: 16px;
   top: 5px;
+}
+.gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global.wx-icon-alert {
+  font-size: 1.3em;
+  float: left;
+  margin-right: 5PX;
 }
 .gm_alerts .dropdown .dropdown-toggle .btn-caption {
   float: left;
@@ -116,32 +140,37 @@
   padding: 0;
 }
 .gm_alerts .dropdown .dropdown-menu .text {
-  max-width: 100%;
   padding-left: 0px;
 }
 .gm_alerts .dropdown .dropdown-menu > li {
   border-top: none;
 }
+
 .gm_alerts .dropdown .open > .dropdown-menu {
     display: block;
 }
-.gm_alerts .wx-icon-alert {
-  display: none;
-}
 
 @media (min-width: 300px) {
-  .gm_alerts .timestamp {
-    display: inline;
+  .gm_alerts .dropdown .dropdown-toggle {
+    width: 75px;
+    padding: 8px;
   }
   .gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global {
     font-size: 10px;
     top: 0;
-    line-height: 20px;
+  }
+  html[lang="fa-IR"] .gm_alerts .dropdown .dropdown-toggle, html[lang="he-IL"] .gm_alerts .dropdown .dropdown-toggle , html[lang="ar-AE"] .gm_alerts .dropdown .dropdown-toggle {
+    padding-bottom: 5px;
   }
   html[lang="fa-IR"] .gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global, html[lang="he-IL"] .gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global, html[lang="ar-AE"] .gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global {
     line-height: 24px;
   }
   .gm_alerts .dropdown .dropdown-toggle .btn-caption {
     font-size: 14px;
+  }
+}
+@media (min-width: 768px) {
+  .gm_alerts .timestamp {
+    display: inline;
   }
 }
