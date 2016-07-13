@@ -43,7 +43,7 @@ var alertRequests = {
 };
 
 // POLLEN_DESCRIPTION: $filter('pfTranslate')('Local Pollen Alert', {context : 'gm_alerts'}),
-var constant = {    
+var constant = {
     POLLEN_DESCRIPTION: helper.pdTranslate('Local Pollen Alert'),
     POLLEN: 'pollen',
     TREE: 'tree',
@@ -51,7 +51,7 @@ var constant = {
     WEED: 'weed',
     POLLEN_SEVERITY: 3,
     POLLEN_ALERT_TRIGGER_VALUE: 3
-}; 
+};
 
 var listenGettingAlertDataCompleted = function(){
     if (alertRequests.bulletin.isCompleted && alertRequests.pollen.isCompleted) {
@@ -130,7 +130,7 @@ var getHighestPollenIndexValue = function(tree, grass, weed) {
     return maxPollen;
 };
 
-var convertToPollenAlert = function(pollenData) {     
+var convertToPollenAlert = function(pollenData) {
   if (!pollenData) {
     return null;
   }
@@ -140,7 +140,7 @@ var convertToPollenAlert = function(pollenData) {
       grass = pollenData && pollenData[constant.GRASS] ? pollenData[constant.GRASS].shift() : null,
       weed = pollenData && pollenData[constant.WEED] ? pollenData[constant.WEED].shift() : null;
   var highestPollenValue = getHighestPollenIndexValue(tree, grass, weed);
-  
+
   if (highestPollenValue >= constant.POLLEN_ALERT_TRIGGER_VALUE) {
     return {
       description: constant.POLLEN_DESCRIPTION,
@@ -156,7 +156,7 @@ var convertToPollenAlert = function(pollenData) {
 var formatTime = function (startTime, timeZone) {
     var result = '';
     if (_User.lang) {
-        moment.locale(_User.lang)
+        moment.locale(_User.lang);
     }
     result = moment(startTime).format('h:mm') + ' ' + timeZone + ' ' + moment(startTime).format('ddd MMM d');
     return result;
@@ -179,7 +179,7 @@ var convertBulletinToAlert = function(bulletin, locId, prefixDetailUrl) {
         alert = {},
         dateFormat = _Lang['h:mma z, EEE MMM d'];
 
-        
+
     prefixDetailUrl = '/weather/alerts/localalerts/l/';
 
     var regex = /00/gi, result, startTimeIndex = [], endTimeIndex = [];

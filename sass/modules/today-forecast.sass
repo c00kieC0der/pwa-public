@@ -4,14 +4,14 @@
 
 // Global
 .card
-  margin: 0 8px 15px
+  margin: 0 8px 10px
   padding: 10px
   background-color: white
   box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px 0px
 
 .today
   .nowcard
-    margin-bottom: 15px
+    margin-bottom: 10px
     color: #ffffff
     letter-spacing: 0.02rem
     background-color: #257BDA
@@ -41,7 +41,7 @@
       padding: 15px
     .location
       padding: 0 10px
-      font-weight: 700
+      font-size: 14px
     .nowcard-timestamp
       font-size: px-to-rem(14px)
       color: rgba(#FFFFFF, 0.8)
@@ -108,6 +108,7 @@
       font-size: 1.14286rem
       font-weight: 600
       padding-right: 85px
+      margin-bottom: 8px
 
     .temp
       font-weight: 600
@@ -135,7 +136,6 @@
     font-size: px-to-rem(14px)
     color: $gray-dark
     line-height: 1.3em
-
   &.preload
     .nowcard-details
       .wx-detail-row
@@ -265,6 +265,7 @@
   .deg-unit
     position: absolute
   .wx-detail
+    min-height: 25px
     .wx-icon-sunrise-sunset
       line-height: 0.3em
       //font-size: px-to-rem(22px)
