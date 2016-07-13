@@ -369,13 +369,12 @@ var assignAppShellLang = function(){
         ['footer-privacy-policy', capitalizeEachWord(_Lang['privacy policy'])],
         ['footer-feedback', capitalizeEachWord(_Lang['feedback'])],
         ['footer-press', capitalizeEachWord(_Lang['press'])]
-
     ];
     helper.setContent(langMap);
 };
 domReady(function(){
     document.getElementById('event-anchor').addEventListener('lang-builder', function(){
-        assignAppShellLang();  console.log('after lang-builder. ');
+        assignAppShellLang();
     });
     setActiveTemperatureUnits();
 });
