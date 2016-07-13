@@ -1,5 +1,3 @@
-
-
 /*
   Properties and Defaults
  */
@@ -41,7 +39,7 @@ _User.lang = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replac
 _User.unitPref = savedPco.user && savedPco.user.unit ? savedPco.user.unit : 'e';
 
 if(window.localStorage._Stored_User){
-   // _User = JSON.parse(window.localStorage._Stored_User);
+   _User = JSON.parse(window.localStorage._Stored_User);
 } else {
     window.localStorage._Stored_User = JSON.stringify(_User);
 }
@@ -89,10 +87,10 @@ _User.addLocation = function(locationObj){
 };
 
 _User.newActiveLocation = function(locationObj, updateRecents){
+    _User.activeLocation = locationObj;
     if(_User.activeLocation.prsntNm && updateRecents) {
         _User.locations.push(_User.activeLocation);
     }
-    _User.activeLocation = locationObj;
     saveUser();
     _Router.updateURL();
 };

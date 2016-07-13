@@ -50,7 +50,7 @@
     };
 
     if (_Data.oneDayHistorical) {
-        console.log(_Data.almanacMonths.month1, _Data.almanacMonths.month2, _Data.almanacMonths.month3);
+        // console.log(_Data.almanacMonths.month1, _Data.almanacMonths.month2, _Data.almanacMonths.month3);
         mapDataAlmanac();
         helper.setContent(dataAssignmentAlmanac);
     }

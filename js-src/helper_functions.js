@@ -54,6 +54,15 @@ helper.removeListener = function(event, func){
     }
 };
 
+var getRtlCss = function(xmlHtml) {
+    var RTLs = ['ar-AE', 'fa-IR', 'he-IL', 'ur-PK'];
+    if(RTLs.indexOf(_User.lang) > -1){
+      xmlHtml = xmlHtml.replace('.css', '-rtl.css');
+    }
+
+    return xmlHtml;
+};
+
 //TODO: add class functionality to loadTemplate function and make reusable
 
 helper.loadTemplateWithClass = function(elementId, type, name){
@@ -63,7 +72,19 @@ helper.loadTemplateWithClass = function(elementId, type, name){
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             helper.addClass(document.getElementById(elementId), 'slide-out');
-            document.getElementById(elementId).innerHTML = xhr.responseText;
+            document.getElementById(elementId).innerHTML = getRtlCss(xhr.responseText);
+            var body = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = '/templates/' + type + '/' + name + '/' + name + '.js';
+
+            // Then bind the event to the callback function.
+            // There are several events for cross browser compatibility.
+            script.onreadystatechange = name + 'Run';
+            script.onload = name + 'Run';
+
+            // Fire the loading
+            body.appendChild(script);
 
             setTimeout(function(){
                 helper.removeClass(document.getElementById(elementId), 'slide-out');
@@ -71,20 +92,6 @@ helper.loadTemplateWithClass = function(elementId, type, name){
         }
     };
     xhr.send();
-    //Then load the js
-
-    var body = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = '/templates/' + type + '/' + name + '/' + name + '.js';
-
-    // Then bind the event to the callback function.
-    // There are several events for cross browser compatibility.
-    script.onreadystatechange = name + 'Run';
-    script.onload = name + 'Run';
-
-    // Fire the loading
-    body.appendChild(script);
 };
 
 
@@ -94,7 +101,7 @@ helper.loadTemplate = function(elementId, type, name){
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            document.getElementById(elementId).innerHTML = xhr.responseText;
+            document.getElementById(elementId).innerHTML = getRtlCss(xhr.responseText);
             var body = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
             script.type = 'text/javascript';
@@ -167,6 +174,8 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
 
                     if(dataMap[i][1] === 'icon'){
                         classXes[j].innerHTML = getWxIcon(data[dataMap[i][1]][j]);
+                    } else if(dataMap[i][1].indexOf('Class') !== -1){
+                        helper.addClass(classXes[j], data[dataMap[i][1]][j]);
                     } else {
                         classXes[j].innerHTML = data[dataMap[i][1]][j];
                         if(dataMap[i][2]){
@@ -341,4 +350,8 @@ helper.setCanonical = function(){
     };
     generateMetaTag();
 
+};
+
+helper.pdTranslate = function(content) {
+    return _Lang[content] ? _Lang[content] : content
 };
