@@ -103,6 +103,7 @@
     "MMM d yyyy hh:mm A z" : "MMM d yyyy hh:mm A z",
     "EEEE M/d" : "EEEE M/d",
     "MM/dd" : "MM/dd",
+    "ddd, MMM Do" : "ddd, MMM Do",
     "MMMM dd, yyyy" : "MMMM dd, yyyy",
     "MONTH": [
         "January",
