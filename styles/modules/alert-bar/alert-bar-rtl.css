@@ -1,17 +1,7 @@
-/*@media (min-width: 768px) {
-  .glomo-title-alerts .gm_alerts {
-    max-width: 299px;
-  }
-}
-@media (min-width: 1024px) {
-  .glomo-title-alerts .gm_alerts {
-    max-width: 450px;
-  }
-}*/
 .gm_alerts {
   margin-bottom: 6px;
   width: 100%;
-  margin: 8px 0px;
+  margin: 8px 0;
 }
 .gm_alerts.hidden{
   display: none;
@@ -61,6 +51,7 @@
 }
 .gm_alerts .dropdown .list-group > li > a {
   padding: 0 15px;
+  cursor: default;
 }
 .gm_alerts .dropdown .list-group > li > a, .gm_alerts .dropdown .list-group > li .list-group-item {
     display: -webkit-box;
@@ -148,14 +139,9 @@
     line-height: 20px;
   }
   html[lang="fa-IR"] .gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global, html[lang="he-IL"] .gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global, html[lang="ar-AE"] .gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global {
-    top: -4px;
+    line-height: 24px;
   }
   .gm_alerts .dropdown .dropdown-toggle .btn-caption {
     font-size: 14px;
   }
 }
-/*@media (min-width: 768px) {
-  .gm_alerts {
-    margin-top: 0px;
-  }
-}*/

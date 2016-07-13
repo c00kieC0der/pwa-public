@@ -51,6 +51,7 @@
 }
 .gm_alerts .dropdown .list-group > li > a {
   padding: 0 15px;
+  cursor: default;
 }
 .gm_alerts .dropdown .list-group > li > a, .gm_alerts .dropdown .list-group > li .list-group-item {
     display: -webkit-box;
@@ -138,7 +139,7 @@
     line-height: 20px;
   }
   html[lang="fa-IR"] .gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global, html[lang="he-IL"] .gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global, html[lang="ar-AE"] .gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global {
-    top: -4px;
+    line-height: 24px;
   }
   .gm_alerts .dropdown .dropdown-toggle .btn-caption {
     font-size: 14px;
