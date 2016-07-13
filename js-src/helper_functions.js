@@ -94,7 +94,6 @@ helper.loadTemplateWithClass = function(elementId, type, name){
     xhr.send();
 };
 
-
 helper.loadTemplate = function(elementId, type, name){
     var path = '/templates/' + type + '/' + name + '/' + name + '.html';
     var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
@@ -135,6 +134,9 @@ helper.loadScript = function(path, callback){
 };
 helper.setContent = function(content){
         var assignToDOM = function(arr){
+            if(arr[1] === undefined || !arr[1]){
+                arr[1] = '--'
+            }
             document.getElementById(arr[0]).innerHTML = arr[1];
         };
         if(typeof content === 'object'){
