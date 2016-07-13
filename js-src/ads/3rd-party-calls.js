@@ -65,9 +65,9 @@
 
             $$.custParams = $$.custParams || {};
             $$.custParams['wfxtg'] = wfxtg;
-            $$.custParams['scatter_zcs'] = zcs;
-            $$.custParams['scatter_nzcs'] = nzcs;
-            $$.custParams['scatter_cxtg'] = cxtg;
+            $$.custParams['zcs'] = zcs;
+            $$.custParams['nzcs'] = nzcs;
+            $$.custParams['cxtg'] = cxtg;
             $$.Promises.wfxtgPromise.resolve();
             //console.log('wfxtgResolved', new Date().getTime() - window.renderStartTime);
 
@@ -118,7 +118,7 @@
                 }
 
                 $$.Promises.amznSlotsPromise.resolve("amznSlots");
-             //   console.log("success amzn", $$.custParams);
+                console.log("success amzn", $$.custParams);
              //   console.log('amznResolved', new Date().getTime() - window.renderStartTime);
 
 
