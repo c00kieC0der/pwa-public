@@ -259,7 +259,7 @@ function showAreas(ele,rowId ) {
 function changeLang(code){  console.log('changeLang');
     _User.lang = code;
     _Language.updateTranslations().then(function(){
-      //  _Router.updateURL();
+       _Router.updateURL();
     });
     showHide('main-nav', 0);
 }
