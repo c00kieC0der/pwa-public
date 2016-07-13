@@ -19,9 +19,9 @@ html {
 
 body {
   display: -webkit-box;
-  /*display: -webkit-flex;*//*REMOVING THESE TWO FLEX PROPERTIES FIXES HEADER/FOOTER PROBLEM*/
+  display: -webkit-flex;
   display: -ms-flexbox;
-  /*display: flex;*/
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -510,7 +510,8 @@ footer {
 .page-card {
   position: relative;
   display: block;
-  width: 100%; }
+  width: 100%;
+  min-height: 600px; }
   .page-card.slide-out {
     position: relative;
     appearance: none;
@@ -551,30 +552,3 @@ footer {
 
   .page-nav-li {
     width: 15.6% !important; } }
-
-.text-overflow {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  display: none;
-  float: left;
-  min-width: 160px;
-  padding: 5px 0;
-  margin: 2px 0 0;
-  list-style: none;
-  font-size: 14px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border: 1px solid #999999;
-  border-radius: 0;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  background-clip: padding-box;
-}
