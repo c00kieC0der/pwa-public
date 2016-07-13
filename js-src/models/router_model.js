@@ -87,7 +87,7 @@ var _Router = {
                 _Alert.getAlertData();
                  checkPage(pathArr);
             });
-        } else if (!_User.activeLocation.prsntNm){
+        } else if (!_User.activeLocation.lat){
             _Locations.getDefaultLocation().then(function(data){
                 _User.activeLocation = data;
                 _Data.collectNew();
@@ -95,6 +95,7 @@ var _Router = {
                 checkPage(pathArr);
             });
         } else {
+            _Data.collectNew();
             checkPage(pathArr);
         }
         //Load alert-bar module

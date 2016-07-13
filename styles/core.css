@@ -133,17 +133,17 @@ body {
 .btn-mobile {
   top: 0;
   right: 0;
-  width: 36px;
+  width: 43px;
   height: 45px;
   padding: 6px;
-  position: absolute;
+  position: relative;
   background: transparent;
   border: none;
   outline: none;
   cursor: pointer; }
 
 .search-open-btn {
-  right: 35px;
+  right: 43px;
   text-align: center;
   background-color: transparent;
   color: #cccccc;
@@ -518,6 +518,7 @@ footer {
   min-height: 600px; }
   .page-card.slide-out {
     position: relative;
+    display: none;
     appearance: none;
     cursor: pointer;
     -webkit-animation: moveToLeft 0.4s ease both;

@@ -9,23 +9,22 @@ var _Data = {}, app = {};
     almanacEventData.initEvent('almanac-builder', true, true);
 
 
-
-
     _Data.collectNew = function () {
+        _User.activeLocation.lat = Number(_User.activeLocation.lat).toPrecision(4).toString();
+        _User.activeLocation.long = Number(_User.activeLocation.long).toPrecision(4).toString();
         dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1dailyForecast;vt1observation?units=" +
         _User.unitPref +
         '&language=' + _User.lang +
         '&geocode=' +
         _User.activeLocation.lat + ',' + _User.activeLocation.long +
         '&format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
-
         dataAstroUrl = "https://dsx.weather.com/wxd/v2/Astro/" + _User.lang + "/0/3/(" + _User.activeLocation.lat + ',' + _User.activeLocation.long + ")?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
-        //TODO: remove this dummy var
-        var dummyLocId = "USDC0001:1:US";
+
         dataAlmanacUrl = "https://dsx.weather.com/wxd/v2/FarmingAlmanac/" +
             _User.lang + "/0/"+
-             _User.activeLocation.lat.toPrecision(4) + ',' + _User.activeLocation.long.toPrecision(4) +
+             _User.activeLocation.lat + ',' + _User.activeLocation.long +
             "?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
+
         app.hasRequestPending = true;
         /*if ('caches' in window) {
             // console.log(caches);
@@ -307,9 +306,9 @@ var _Data = {}, app = {};
             dayData.moonset[i] = formatTime(_Data.dailyForecast.moonset[i]);
             dayData.nightIcon[i] = dayData.nightIcon[i];
         }
-        for (var key in dayData){
-            _Data.dailyForecast.dayData[key] = dayData[key];
-        }
+
+        _Data.dailyForecast.dayData = dayData;
+
     };
     //Must be called after getDayData
     var getWeekendData = function () {
