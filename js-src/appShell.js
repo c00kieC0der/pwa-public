@@ -347,9 +347,6 @@ document.getElementById('event-anchor').addEventListener('builder', function(){
     helper.setContent(dataAssignment);
 });
 
-//Load alert-bar module
-helper.loadTemplate('alert-bar', 'modules', 'alert-bar');
-
 
 /*
  *  Translations

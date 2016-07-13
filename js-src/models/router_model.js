@@ -88,17 +88,21 @@ var _Router = {
             _Locations.supplementLoc(pathArr.loc).then(function(data){
                 _User.activeLocation = data;
                 _Data.collectNew();
+                _Alert.getAlertData();
                  checkPage(pathArr);
             });
         } else if (!_User.activeLocation.prsntNm){
             _Locations.getDefaultLocation().then(function(data){
                 _User.activeLocation = data;
                 _Data.collectNew();
+                _Alert.getAlertData();
                 checkPage(pathArr);
             });
         } else {
             checkPage(pathArr);
         }
+        //Load alert-bar module
+        helper.loadTemplate('alert-bar', 'modules', 'alert-bar');
     };
      var checkPage = function(pathArr){
             if(history.state && history.state.changeTo){

@@ -44,7 +44,7 @@ var alertRequests = {
 
 // POLLEN_DESCRIPTION: $filter('pfTranslate')('Local Pollen Alert', {context : 'gm_alerts'}),
 var constant = {    
-    POLLEN_DESCRIPTION: 'Local Pollen Alert',
+    POLLEN_DESCRIPTION: helper.pdTranslate('Local Pollen Alert'),
     POLLEN: 'pollen',
     TREE: 'tree',
     GRASS: 'grass',
@@ -60,7 +60,7 @@ var listenGettingAlertDataCompleted = function(){
 };
 
 var getBulletinAlertData = function(loc, lang, callbackFn){
-    var bulletinUrl = 'http://dsx-stage.weather.com/wxd/v2/BERecord/' + lang + '/' + loc +
+    var bulletinUrl = 'https://dsx.weather.com/wxd/v2/BERecord/' + lang + '/' + loc +
         '?format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
 
     AjaxRequest.get(
@@ -87,7 +87,7 @@ var getBulletinAlertData = function(loc, lang, callbackFn){
 };
 
 var getPollenAlertData = function(loc, lang, callbackFn){
-      var pollenUrl = 'http://dsx-stage.weather.com/wxd/v2/Pollen/' + lang + '/' + loc +
+      var pollenUrl = 'https://dsx.weather.com/wxd/v2/Pollen/' + lang + '/' + loc +
           '?format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
 
       AjaxRequest.get(
