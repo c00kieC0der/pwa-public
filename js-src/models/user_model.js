@@ -89,10 +89,10 @@ _User.addLocation = function(locationObj){
 };
 
 _User.newActiveLocation = function(locationObj, updateRecents){
+    _User.activeLocation = locationObj;
     if(_User.activeLocation.prsntNm && updateRecents) {
         _User.locations.push(_User.activeLocation);
     }
-    _User.activeLocation = locationObj;
     saveUser();
     _Router.updateURL();
 };
