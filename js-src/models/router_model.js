@@ -111,9 +111,8 @@ var _Router = {
                         goto404();
                     }
                     for(var page in pageAssignment){
-                        if(pathArr.page === pageAssignment[page].hreflang[pathArr.lang]){
+                        if(page !== '404' && pathArr.page === pageAssignment[page].hreflang[pathArr.lang]){
                             _Router.changePage(page);
-                            break;
                             return;
                         }
                     }
@@ -131,7 +130,7 @@ var _Router = {
             _Router.page = 'today';
         }
         _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment['404'].metricName, pageAssignment['404'].pos);
-        _Router.page === '404';
+        _Router.page = '404';
         helper.loadTemplateWithClass('page-content', 'pages', "404");
     };
     _Router.changePage = function(page){
@@ -183,7 +182,7 @@ var _Router = {
 
 
     _Router.dispatchAds = function(){
-            if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {  console.log('dispatched ads');
+            if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
                 document.dispatchEvent(AdCtrl.Promises.loadAds);
             }
     };
