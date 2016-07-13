@@ -36,7 +36,7 @@ _User.webPush = savedPco.products && savedPco.products.WebPushNotifications ? sa
     timeStamp : "2016-06-10T22:33:29.140Z"
  }
  */
-_User.locations = savedPco.user && savedPco.user.locations ? savedPco.user.locations : [];
+_User.locations = savedPco.user && savedPco.user.recentSearchLocations ? savedPco.user.recentSearchLocations : [];
 _User.lang = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : _User.lang;
 _User.unitPref = savedPco.user && savedPco.user.unit ? savedPco.user.unit : 'e';
 
@@ -89,8 +89,8 @@ _User.addLocation = function(locationObj){
 };
 
 _User.newActiveLocation = function(locationObj, updateRecents){
-    if(locationObj.prsntNm && updateRecents) {
-        _User.locations.push(locationObj);
+    if(_User.activeLocation.prsntNm && updateRecents) {
+        _User.locations.push(_User.activeLocation);
     }
     _User.activeLocation = locationObj;
     saveUser();
