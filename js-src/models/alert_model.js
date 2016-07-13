@@ -35,7 +35,7 @@ _Alert.getAlertData = function (){
       };
       document.getElementById('event-anchor').dispatchEvent(eventAlert);
   });
-}
+};
 
 var alertRequests = {
   bulletin: {isCompleted: false, data: null},
@@ -160,45 +160,45 @@ var convertToPollenAlert = function(pollenData) {
  * @param [tzStr]
  * @returns {date | null}
  */
-var getDateObject =function(dateStr, timeStr, tzStr) {
-  try {
-    return new date(dateStr, timeStr, tzStr);
-  }catch (err) {
-    console.log(err);
-  }
-  return null;
-};
+// var getDateObject =function(dateStr, timeStr, tzStr) {
+//   try {
+//     return new date(dateStr, timeStr, tzStr);
+//   }catch (err) {
+//     console.log(err);
+//   }
+//   return null;
+// };
 
-var formatDsxDate = function (timestamp, timezone) {
-  var dateStr, timeStr, tzStr;
-  if (timestamp && timezone) {
-    if (!isNaN(timestamp)) {
-      dateStr = timestamp.toString().slice(0, 8);
-      timeStr = timestamp.toString().slice(8);
-      tzStr   = timezone;
-    } else {
-      var match_parts = timestamp.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/);
-      if (match_parts && match_parts.length >= 7) {
-        dateStr = match_parts[1] + match_parts[2] + match_parts[3];
-        timeStr = match_parts[4] + match_parts[5] + match_parts[6];
-        tzStr   = timezone;
-      }
-    }
-  } 
-  return getDateObject(dateStr, timeStr, tzStr);
-};
+// var formatDsxDate = function (timestamp, timezone) {
+//   var dateStr, timeStr, tzStr;
+//   if (timestamp && timezone) {
+//     if (!isNaN(timestamp)) {
+//       dateStr = timestamp.toString().slice(0, 8);
+//       timeStr = timestamp.toString().slice(8);
+//       tzStr   = timezone;
+//     } else {
+//       var match_parts = timestamp.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/);
+//       if (match_parts && match_parts.length >= 7) {
+//         dateStr = match_parts[1] + match_parts[2] + match_parts[3];
+//         timeStr = match_parts[4] + match_parts[5] + match_parts[6];
+//         tzStr   = timezone;
+//       }
+//     }
+//   } 
+//   return getDateObject(dateStr, timeStr, tzStr);
+// };
 
-var getValidTime = function (timestamp, timezone, format) {
-    if (!timestamp) {
-      return null;
-    }
-    var date = formatDsxDate(timestamp, timezone);
-    if (!date) {
-      return null;
-    }
+// var getValidTime = function (timestamp, timezone, format) {
+//     if (!timestamp) {
+//       return null;
+//     }
+//     var date = formatDsxDate(timestamp, timezone);
+//     if (!date) {
+//       return null;
+//     }
 
-    return date.format(format);
-};
+//     return date.format(format);
+// };
 
 var formatTime = function (fullDate) {
     var dateBase = new Date(fullDate);
@@ -216,9 +216,7 @@ var formatTime = function (fullDate) {
         hours = 12;
     }
 
-    return hours + ':'
-        + (minutes>9?minutes + ' ':'0'+minutes + ' ')
-        + meridian;
+    return hours + ':' + (minutes > 9 ? minutes + ' ' : '0' + minutes + ' ') + meridian;
 };
 
 var convertBulletinToAlert = function(bulletin, locId, prefixDetailUrl) {
