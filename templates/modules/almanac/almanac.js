@@ -49,11 +49,11 @@
         helper.setContent(dataAssignmentAlmanac);
     };
 
-    if (_Data.oneDayHistorical) {  console.log('data almanac', _Data);
+    if (_Data.oneDayHistorical) {
         mapDataAlmanac();
     }
 
-    document.getElementById('event-anchor').addEventListener('almanac-builder', function(){  console.log("TRIGGERED", _Data);
+    document.getElementById('event-anchor').addEventListener('almanac-builder', function(){
         mapDataAlmanac();
     });
 

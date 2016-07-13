@@ -128,11 +128,7 @@
         updateTodayForecastLangs();
     }
     document.getElementById('event-anchor').addEventListener('lang-builder', function(){
-
             updateTodayForecastLangs();
-            mapData();
-            helper.setContent(dataAssignment);
-
     });
 
 })();

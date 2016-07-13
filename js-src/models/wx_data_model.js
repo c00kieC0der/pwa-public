@@ -11,7 +11,7 @@ var _Data = {}, app = {};
 
 
 
-    _Data.collectNew = function () {    console.log('called again? ');
+    _Data.collectNew = function () {
         dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1dailyForecast;vt1observation?units=" +
         _User.unitPref +
         '&language=' + _User.lang +
@@ -24,7 +24,7 @@ var _Data = {}, app = {};
         var dummyLocId = "USDC0001:1:US";
         dataAlmanacUrl = "https://dsx.weather.com/wxd/v2/FarmingAlmanac/" +
             _User.lang + "/0/"+
-             _User.activeLocation.lat + ',' + _User.activeLocation.long +
+             _User.activeLocation.lat.toPrecision(4) + ',' + _User.activeLocation.long.toPrecision(4) +
             "?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
         app.hasRequestPending = true;
         /*if ('caches' in window) {
@@ -227,7 +227,6 @@ var _Data = {}, app = {};
     }
     var formatMonthDate = function () {
         var monthsOfYear = _Lang.MONTH;
-        console.log(_User.lang, _Lang.MONTH);
         var dateBase = new Date();
         return{
             month1: monthsOfYear[dateBase.getMonth()],
