@@ -14,13 +14,12 @@ googletag.cmd = googletag.cmd || [];
     var isMobile = window.innerWidth < 768;
     var isTablet = window.innerWidth > 769 && window.innerWidth < 1025;
     var isDesktop = window.innerWidth > 1024;
-    var adstest = getCookie('adstest');
+    var adstest = $$.utils.getCookie('adstest');
     var network, adUnit, adZone, NCTAU, NCAU, adMapping, cust_params, metrics_suite;
 
     setupFV();
     getWXData();
     loadOpenX();
-    $$.Promises.jsonReady = $$.utils.loadJSON('/js-src/ads/adMaps.json',$$, 'adMaps');
     getAdUnitAndMetricsSuite();
     addCust_Params();
 
@@ -164,7 +163,8 @@ googletag.cmd = googletag.cmd || [];
             cust_params.cat = "fcst";
             cust_params.ch = "fcst";
             cust_params.fam = "fcst";
-            cust_params.vw = getCookie('fv');
+            cust_params.par = $$.utils.getParameterByName("par");
+            cust_params.vw = $$.utils.getCookie('fv');
 
             document.addEventListener('builder', function() {
                 var loc = _User.activeLocation;
@@ -244,7 +244,7 @@ googletag.cmd = googletag.cmd || [];
     }
 
     function setupFV() {
-        var fv = getCookie('fv'),
+        var fv = $$.utils.getCookie('fv'),
           expires = new Date(new Date().getTime() + (30 * 60 * 1000)), // 30 minutes
           domain = document.domain;
         if (fv) {

@@ -20,6 +20,16 @@ AdCtrl.utils = AdCtrl.utils || {};
             }
         }
     };
+    
+    $$.utils.getParameterByName = function (name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    };
 
     $$.utils.loadJSON = function(src, destObj, destProp) {
 
@@ -61,6 +71,22 @@ AdCtrl.utils = AdCtrl.utils || {};
         xhttp.open("GET", url, true);
         xhttp.send();
     };
+    
+    $$.utils.getCookie =  function (name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    };
+
+    $$.utils.deleteCookie = function ( name, path, domain ) {
+        if( $$.utils.getCookie( name ) ) {
+            document.cookie = name + "=" +
+              ((path) ? ";path="+path:"")+
+              ((domain)?";domain="+domain:"") +
+              ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+        }
+    };
+
 
     // Promises
 
@@ -83,6 +109,9 @@ AdCtrl.utils = AdCtrl.utils || {};
     $$.Promises.weatherDataPromise = new $$.Promises.Deferred();
     
     $$.Promises.loadAds = new Event('load-ads');
+
+    $$.Promises.jsonReady = $$.utils.loadJSON('/js-src/ads/adMaps.json',$$, 'adMaps');
+    
 })(AdCtrl);
 
 
