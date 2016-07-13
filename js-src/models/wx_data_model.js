@@ -132,7 +132,7 @@ var _Data = {}, app = {};
             }
         });
         return data;
-    }
+    };
 // END WIP
 
     var setUnits = function(unitPref) {
@@ -207,9 +207,7 @@ var _Data = {}, app = {};
             hours = 12;
         }
 
-        return hours + ':'
-            + (minutes>9?minutes + ' ':'0'+minutes + ' ')
-            + meridian;
+        return hours + ':' + (minutes>9?minutes + ' ':'0'+minutes + ' ') + meridian;
     };
     var formatDate = function (fullDate) {
         var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
@@ -229,7 +227,7 @@ var _Data = {}, app = {};
             date:monthsOfYear[dateBase.getMonth()]+' '+dateBase.getDate(),
             dayIndex:dateBase.getDay()
         };
-    }
+    };
     var formatMonthDate = function (fullDate) {
         retMonthData = [];
         var monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -361,11 +359,15 @@ var _Data = {}, app = {};
                 }
                 else
                     for (var key in _Data.dailyForecast.dayData) {
-                        if(!_Data.dailyForecast.nextWeekendData[key])_Data.dailyForecast.nextWeekendData[key]=[];
+                        if(!_Data.dailyForecast.nextWeekendData[key]) {
+                            _Data.dailyForecast.nextWeekendData[key] = [];
+                        }
                         _Data.dailyForecast.nextWeekendData[key][counter] = _Data.dailyForecast.dayData[key][i];
                     }
-                if(_Data.dailyForecast.dayData.dateDayIndex[i]==0){
-                    if(currWeekDataFound==true)break;
+                if(_Data.dailyForecast.dayData.dateDayIndex[i]===0){
+                    if(currWeekDataFound===true){
+                        break;
+                    }
                     currWeekDataFound = true;
                     counter = 0;
                 }
