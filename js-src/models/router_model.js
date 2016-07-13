@@ -88,17 +88,21 @@ var _Router = {
             _Locations.supplementLoc(pathArr.loc).then(function(data){
                 _User.activeLocation = data;
                 _Data.collectNew();
+                _Alert.getAlertData();
                  checkPage(pathArr);
             });
         } else if (!_User.activeLocation.prsntNm){
             _Locations.getDefaultLocation().then(function(data){
                 _User.activeLocation = data;
                 _Data.collectNew();
+                _Alert.getAlertData();
                 checkPage(pathArr);
             });
         } else {
             checkPage(pathArr);
         }
+        //Load alert-bar module
+        helper.loadTemplate('alert-bar', 'modules', 'alert-bar');
     };
      var checkPage = function(pathArr){
             if(history.state && history.state.changeTo){
@@ -111,9 +115,8 @@ var _Router = {
                         goto404();
                     }
                     for(var page in pageAssignment){
-                        if(pathArr.page === pageAssignment[page].hreflang[pathArr.lang]){
+                        if(page !== '404' && pathArr.page === pageAssignment[page].hreflang[pathArr.lang]){
                             _Router.changePage(page);
-                            break;
                             return;
                         }
                     }
@@ -131,7 +134,7 @@ var _Router = {
             _Router.page = 'today';
         }
         _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment['404'].metricName, pageAssignment['404'].pos);
-        _Router.page === '404';
+        _Router.page = '404';
         helper.loadTemplateWithClass('page-content', 'pages', "404");
     };
     _Router.changePage = function(page){
@@ -183,7 +186,7 @@ var _Router = {
 
 
     _Router.dispatchAds = function(){
-            if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {  console.log('dispatched ads');
+            if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
                 document.dispatchEvent(AdCtrl.Promises.loadAds);
             }
     };

@@ -4,6 +4,7 @@
 (function(){
     var dataAssignmentAlmanac = [];
     var mapDataAlmanac = function(){
+        console.log(_Data.almanacMonths);
         dataAssignmentAlmanac = [
             ['almanac-prevday-avghigh',     _Data.reportedConditions.prevDayHigh + '&deg;'],
             ['almanac-prevday-avglow',      _Data.reportedConditions.prevDayLow + '&deg;'],
@@ -49,11 +50,13 @@
     };
 
     if (_Data.oneDayHistorical) {
+        // console.log(_Data.almanacMonths.month1, _Data.almanacMonths.month2, _Data.almanacMonths.month3);
         mapDataAlmanac();
         helper.setContent(dataAssignmentAlmanac);
     }
 
-    document.getElementById('event-anchor').addEventListener('almanac-builder', function(){
+    document.getElementById('event-anchor').addEventListener('almanac-builder', function(){ console.log('TRIGGERED');
+        //console.log(_Data.oneDayHistorical);
         mapDataAlmanac();
         helper.setContent(dataAssignmentAlmanac);
     });
@@ -78,9 +81,11 @@
         helper.setContent(almanacForecastLangs);
     };
     document.getElementById('event-anchor').addEventListener('lang-builder', function(){
+
         updateAlmanacForecastLangs();
         mapDataAlmanac();
         helper.setContent(dataAssignmentAlmanac);
+
     });
     updateAlmanacForecastLangs();
 })();

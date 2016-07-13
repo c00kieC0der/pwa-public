@@ -243,7 +243,7 @@ function showAreas(ele,rowId ) {
 function changeLang(code){  console.log('changeLang');
     _User.lang = code;
     _Language.updateTranslations().then(function(){
-      //  _Router.updateURL();
+       _Router.updateURL();
     });
     showHide('main-nav', 0);
 }
@@ -354,8 +354,8 @@ var assignAppShellLang = function(){
         ['footer-privacy-policy', capitalizeEachWord(_Lang['privacy policy'])],
       //  ['footer-parental-controls', capitalizeEachWord(_Lang['parental controls'])],
       //  ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])],
-       // ['footer-feedback', capitalizeEachWord(_Lang['feedback'])],
-       // ['footer-press', capitalizeEachWord(_Lang['press'])]
+        ['footer-feedback', capitalizeEachWord(_Lang['feedback'])],
+        ['footer-press', capitalizeEachWord(_Lang['press'])]
 
     ];
     helper.setContent(langMap);
