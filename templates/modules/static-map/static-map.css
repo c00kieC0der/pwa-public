@@ -1,5 +1,5 @@
 #static-map-div{
-    margin: 5px;
+    margin: 10px;
     background-color: #FFF;
     height: 340px;
     color: #383838;
@@ -11,7 +11,7 @@
 .menu-title{
     font-size: 18px;
     padding: 10px;
-    width: 105px;
+    width: 115px;
     cursor: pointer;
     color: #383838;
     background-color: #FFF;

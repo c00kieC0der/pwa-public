@@ -104,7 +104,7 @@ var _Router = {
             if(history.state && history.state.changeTo){
                 _Router.changePage(history.state.changeTo);
             } else {
-                if(!pathArr.page){
+                if(!pathArr.page || pathArr.page === _User.lang + '//'){
                     _Router.changePage('today');
                 } else {
                     if(pathArr.page === '404/'){
