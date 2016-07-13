@@ -16,10 +16,10 @@
     color: #383838;
     background-color: #FFF;
 }
-.menu-title .wx-iconfont-global {
+.panel-heading .wx-iconfont-global {
     font-size: 14px;
 }
-.menu-title.active{
+.panel-heading.active{
     background-color: #378cd5;
     color: #FFF;
 }

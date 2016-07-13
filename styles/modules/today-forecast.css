@@ -16,9 +16,14 @@
 
 .card {
   margin: 0 8px 10px;
-  padding: 10px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px 0px; }
+  .card .panel-heading {
+    padding: 10px 8px 0; }
+  .card-padding {
+    padding: 10px; }
+    .card-padding .panel-heading {
+      padding: 0; }
 
 .today .nowcard {
   margin-bottom: 10px;
@@ -114,9 +119,6 @@
     font-weight: 600;
     font-size: 2.85714rem;
     line-height: 1; }
-.today .nowcard-details {
-  padding: 10px;
-  background-color: #FFF; }
   .today .nowcard-details .wx-detail-row {
     width: 100%;
     margin-bottom: 5px; }
@@ -126,14 +128,12 @@
     width: 49%; }
   .today .nowcard-details .wx-detail-value {
     text-align: right; }
-.today .wx-detail-icon {
-  float: left;
-  padding-right: 6px;
-  font-size: 1rem;
-  color: #999999;
-  line-height: 1.3em; }
-.today.preload .nowcard-details .wx-detail-row {
-  background-color: #ededed; }
+  .today .nowcard .wx-detail-icon {
+    float: left;
+    padding-right: 6px;
+    font-size: 1rem;
+    color: #999999;
+    line-height: 1.3em; }
 
 .looking-ahead {
   display: -webkit-flex;
@@ -256,7 +256,7 @@
       position: relative;
       top: 3px; }
   .looking-ahead .wx-details-block {
-    margin: 20px 0;
+    margin: 20px 0 0;
     *zoom: 1; }
     .looking-ahead .wx-details-block:after {
       content: "";
