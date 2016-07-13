@@ -15,13 +15,13 @@
     text-transform: capitalize; }
 
 .card {
-  margin: 0 8px 15px;
+  margin: 0 8px 10px;
   padding: 10px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px 0px; }
 
 .today .nowcard {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: #ffffff;
   letter-spacing: 0.02rem;
   background-color: #257BDA;
@@ -50,7 +50,10 @@
     padding: 15px; }
   .today .nowcard .location {
     padding: 0 10px;
-    font-weight: 700; }
+    font-size: 14px; }
+  .today .nowcard .nowcard-timestamp {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8); }
   .today .nowcard .forecast {
     padding: 0 25px; }
   .today .nowcard .content {
@@ -105,7 +108,8 @@
     text-transform: uppercase;
     font-size: 1.14286rem;
     font-weight: 600;
-    padding-right: 85px; }
+    padding-right: 85px;
+    margin-bottom: 8px; }
   .today .nowcard .temp {
     font-weight: 600;
     font-size: 2.85714rem;
@@ -245,10 +249,12 @@
     display: none; }
   .looking-ahead .deg-unit {
     position: absolute; }
-  .looking-ahead .wx-detail .wx-icon-sunrise-sunset {
-    line-height: 0.3em;
-    position: relative;
-    top: 3px; }
+  .looking-ahead .wx-detail {
+    min-height: 25px; }
+    .looking-ahead .wx-detail .wx-icon-sunrise-sunset {
+      line-height: 0.3em;
+      position: relative;
+      top: 3px; }
   .looking-ahead .wx-details-block {
     margin: 20px 0;
     *zoom: 1; }

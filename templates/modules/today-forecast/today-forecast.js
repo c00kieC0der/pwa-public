@@ -14,6 +14,7 @@
         var uvIndex = _Data.obs.uvIndex > 10 ? 'Extreme' : _Data.obs.uvIndex + ' of 10';
         dataAssignment = [
             ['nowcard-location',    _User.activeLocation.prsntNm.toUpperCase()],
+            ['nowcard-timestamp',   'as of ' + _Data.obs.timestamp.toLowerCase()],
             ['nowcard-temp',        _Data.obs.temperature],
             ['nowcard-feels-value', _Data.obs.feelsLike],
             ['nowcard-phrase',      _Data.obs.phrase],

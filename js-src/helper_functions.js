@@ -41,9 +41,9 @@ helper.isInViewport = function(el){
 
 helper.registerListener = function(event, func) {
     if (window.addEventListener) {
-        window.addEventListener(event, func)
+        window.addEventListener(event, func);
     } else {
-        window.attachEvent('on' + event, func)
+        window.attachEvent('on' + event, func);
     }
 };
 helper.removeListener = function(event, func){

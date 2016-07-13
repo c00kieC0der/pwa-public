@@ -17,9 +17,7 @@
     
     var mapSolarNoon = function () {
         if(_Data.solarData.moonIcons[0] ||_Data.solarData.moonIcons[1]) {
-            var moonIcon = "wx-iconfont-moon moon-phase-"
-                + (_Data.solarData.moonIcons[0]?_Data.solarData.moonIcons[0]:_Data.solarData.moonIcons[1])
-                + " sunmoon-icon";
+            var moonIcon = "wx-iconfont-moon moon-phase-" + (_Data.solarData.moonIcons[0]?_Data.solarData.moonIcons[0]:_Data.solarData.moonIcons[1]) + " sunmoon-icon";
             document.getElementById('sunmoon-moonphrase-icon').setAttribute("class", moonIcon);
         }
         solarAssignment = [
