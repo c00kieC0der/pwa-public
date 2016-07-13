@@ -54,6 +54,15 @@ helper.removeListener = function(event, func){
     }
 };
 
+var getRtlCss = function(xmlHtml) {
+    var RTLs = ['ar-AE', 'fa-IR', 'he-IL', 'ur-PK'];
+    if(RTLs.indexOf(_User.lang) > -1){
+      xmlHtml = xmlHtml.replace('.css', '-rtl.css');
+    }
+
+    return xmlHtml;
+};
+
 //TODO: add class functionality to loadTemplate function and make reusable
 
 helper.loadTemplateWithClass = function(elementId, type, name){
@@ -63,7 +72,7 @@ helper.loadTemplateWithClass = function(elementId, type, name){
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             helper.addClass(document.getElementById(elementId), 'slide-out');
-            document.getElementById(elementId).innerHTML = xhr.responseText;
+            document.getElementById(elementId).innerHTML = getRtlCss(xhr.responseText);
             var body = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
             script.type = 'text/javascript';
@@ -92,7 +101,7 @@ helper.loadTemplate = function(elementId, type, name){
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            document.getElementById(elementId).innerHTML = xhr.responseText;
+            document.getElementById(elementId).innerHTML = getRtlCss(xhr.responseText);
             var body = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
             script.type = 'text/javascript';
@@ -341,4 +350,8 @@ helper.setCanonical = function(){
     };
     generateMetaTag();
 
+};
+
+helper.pdTranslate = function(content) {
+    return _Lang[content] ? _Lang[content] : content
 };
