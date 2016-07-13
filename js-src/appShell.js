@@ -162,6 +162,22 @@ function showTemperature(ele) {
 
 }
 
+/**
+ * setActiveTemperatureUnits() is used to change the temperature units element accordingly with the data is loaded from localStorage
+ */
+
+function setActiveTemperatureUnits() {
+    var tempElements = document.getElementsByClassName('temp-red');
+    var tempUnitMapping = {m: '°C', e: '°F'};
+    var currentUnitPref = _User.unitPref || 'e';
+    for(var i=0;i<tempElements.length;i++) {
+        tempElements[i].className = 'temp-red';
+        if(tempElements[i].innerHTML === tempUnitMapping[currentUnitPref]){
+            tempElements[i].className += ' active';
+        }
+    }
+}
+
 
 function pwaNavClicked(e) {
     var windowWidth = window.innerWidth;
@@ -364,6 +380,7 @@ domReady(function(){
     document.getElementById('event-anchor').addEventListener('lang-builder', function(){
         assignAppShellLang();
     });
+    setActiveTemperatureUnits();
 });
 
 
