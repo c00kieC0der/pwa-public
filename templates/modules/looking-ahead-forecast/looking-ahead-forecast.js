@@ -2,30 +2,12 @@
  * Created by ecook on 6/10/16.
  */
 (function(){
-    var dataAssignment = [];
-    var mapData = function(){
+    var dataAssignmentLookingAhead = [];
+    var mapDataLookingAhead = function(){
         // Hide other details on first paint
         document.getElementById("dp2-details").style.display = 'none';
         document.getElementById("dp3-details").style.display = 'none';
-        var bt = _Data.obs.barometerTrend;
-        var pressureArrow = bt === 'Falling' ? '<span class="wx-iconfont-global wx-icon-arrow-down-4"></span>' :
-            bt === 'Rising' ? '<span class="wx-iconfont-global wx-icon-arrow-up-4"></span>' :
-                '<span class="wx-iconfont-global wx-icon-arrow-right1-4"></span>';
-        var uvIndex = _Data.obs.uvIndex > 10 ? 'Extreme' : _Data.obs.uvIndex + ' of 10';
-        dataAssignment = [
-            ['nowcard-location',    _User.activeLocation.prsntNm.toUpperCase()],
-            ['nowcard-timestamp',   'as of ' + _Data.obs.timestamp.toLowerCase()],
-            ['nowcard-temp',        _Data.obs.temperature],
-            ['nowcard-feels-value', _Data.obs.feelsLike],
-            ['nowcard-phrase',      _Data.obs.phrase],
-            ['nowcard-hi-value',    _Data.obs.phrase],
-            ['nowcard-lo-value',    _Data.dailyForecast.night.temperature[0]],
-            ['nowcard-humidity',    _Data.obs.humidity],
-            ['nowcard-wind',        _Data.obs.windDirCompass + ' ' + _Data.obs.windSpeed + ' ' + _User.units.wind],
-            ['nowcard-dewpoint',    _Data.obs.dewPoint],
-            ['nowcard-pressure',    _Data.obs.altimeter + ' ' + _User.units.pressure + ' ' + pressureArrow],
-            ['nowcard-visibility',  _Data.obs.visibility + ' ' + _User.units.visibility],
-            ['nowcard-uv-index',    uvIndex],
+        dataAssignmentLookingAhead = [
             ['dp1-daypartName',     _Data.lookingAhead[0].daypartName],
             ['dp1-phrase',          _Data.lookingAhead[0].phrase],
             ['la-part1-icon',       getWxIcon(_Data.lookingAhead[0].wxicon, 'light')],
@@ -70,7 +52,7 @@
 
         ];
         var highTemp = _Data.obs.temperatureMaxSince7am ? _Data.obs.temperatureMaxSince7am : _Data.dailyForecast.day.temperature[0] !== null ? _Data.dailyForecast.day.temperature[0] : '--';
-        dataAssignment.push(['nowcard-hi-value', highTemp]);
+        dataAssignmentLookingAhead.push(['nowcard-hi-value', highTemp]);
         //Input the weather icon - Nowcard.
         document.getElementById('nowcard-icon').innerHTML = getWxIcon(_Data.obs.icon, 'light');
 
@@ -87,12 +69,12 @@
     };
 
     if(_Data.obs && _Data.obs) {
-        mapData();
-        helper.setContent(dataAssignment);
+        mapDataLookingAhead();
+        helper.setContent(dataAssignmentLookingAhead);
     }
     document.getElementById('event-anchor').addEventListener('builder', function(){
-        mapData();
-        helper.setContent(dataAssignment);
+        mapDataLookingAhead();
+        helper.setContent(dataAssignmentLookingAhead);
     });
 
 
@@ -105,13 +87,6 @@
     var updateTodayForecastLangs = function(){
         todayForecastLangs = [
             ['looking-ahead-hdr', _Lang['looking ahead'].toUpperCase()],
-            ['nowcard-feels-label', _Lang['feels like'].toLowerCase()],
-            ['today-humidity' , helper.capitalize(_Lang.humidity)],
-            ['today-wind', helper.capitalize(_Lang.wind)],
-            ['today-dew-point', helper.capitalize(_Lang['dew point'])],
-            ['today-pressure', helper.capitalize(_Lang.pressure)],
-            ['today-visibility', helper.capitalize(_Lang.visibility)],
-            ['today-uv-index', helper.capitalize(_Lang['uv index'])],
             ['dp1-lb-wind', helper.capitalize(_Lang['wind'])],
             ['dp1-lb-humidity', helper.capitalize(_Lang['humidity'])],
             ['dp1-lb-uv-index', helper.capitalize(_Lang['uv index'])],

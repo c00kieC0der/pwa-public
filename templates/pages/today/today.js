@@ -1,5 +1,6 @@
 (function(){
-        helper.loadTemplate('today-forecast', 'modules', 'today-forecast');
+        helper.loadTemplate('nowcard-module', 'modules', 'nowcard-module');
+        helper.loadTemplate('looking-ahead-forecast', 'modules', 'looking-ahead-forecast');
         helper.loadTemplate('today-almanac', 'modules', 'almanac');
 
         var mapShowing = false;
