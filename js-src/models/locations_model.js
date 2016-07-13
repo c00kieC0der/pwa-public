@@ -77,12 +77,13 @@ helper.getJSON('/js-src/default-locations.json').then(function(data){
 _Locations.getDefaultLocation = function(){
    return new Promise(function(resolve, retreat){
        if (!_User.activeLocation.prsntNm) {
-           if(_User.lang){
+           if(defaultLocations[_User.lang]){
                _Locations.supplementLoc(defaultLocations[_User.lang].locId).then(function(results){
-                   resolve(_User.newActiveLocation(results));
+                   resolve(results);
                });
            } else {
                _Locations.callGeoLocation();
+               resolve();
            }
        }
    });

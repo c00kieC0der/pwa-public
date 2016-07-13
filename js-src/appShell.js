@@ -140,6 +140,22 @@ function hideMainSearch() {
 }
 
 /**
+ * setActiveTemperatureUnits() is used to change the temperature units element accordingly with the data is loaded from localStorage
+ */
+
+function setActiveTemperatureUnits() {
+    var tempElements = document.getElementsByClassName('temp-red');
+    var tempUnitMapping = {m: '°C', e: '°F'};
+    var currentUnitPref = _User.unitPref || 'e';
+    for(var i=0;i<tempElements.length;i++) {
+        tempElements[i].className = 'temp-red';
+        if(tempElements[i].innerHTML === tempUnitMapping[currentUnitPref]){
+            tempElements[i].className += ' active';
+        }
+    }
+}
+
+/**
  * showTemperature(ele) is used to change the temperature units
  * @param ele
  */
@@ -180,7 +196,7 @@ function pwaNavClicked(e) {
  * changeNav(ele) is used to changes the nav pages
  * @param ele
  */
-function changeNav(ele) {
+function changeNav(ele) {  console.log('called.');
     document.getElementById('main-search').style.display = "none";
     if(!ele.className.match('active')) {
         var tempElements = document.getElementsByClassName('page-nav-li');
@@ -240,10 +256,10 @@ function showAreas(ele,rowId ) {
  * fetches new lang strings
  * closes the menu
  */
-function changeLang(code){
+function changeLang(code){  console.log('changeLang');
     _User.lang = code;
     _Language.updateTranslations().then(function(){
-        _Router.updateURL();
+      //  _Router.updateURL();
     });
     showHide('main-nav', 0);
 }
@@ -355,8 +371,8 @@ var assignAppShellLang = function(){
         ['recent-searches-text', _Lang['recent searches'].toUpperCase()],
         ['footer-terms-of-use', capitalizeEachWord(_Lang['terms of use'])],
         ['footer-privacy-policy', capitalizeEachWord(_Lang['privacy policy'])],
-        ['footer-parental-controls', capitalizeEachWord(_Lang['parental controls'])],
-        ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])],
+      //  ['footer-parental-controls', capitalizeEachWord(_Lang['parental controls'])],
+      //  ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])],
        // ['footer-feedback', capitalizeEachWord(_Lang['feedback'])],
        // ['footer-press', capitalizeEachWord(_Lang['press'])]
 
@@ -367,6 +383,7 @@ domReady(function(){
     document.getElementById('event-anchor').addEventListener('lang-builder', function(){
         assignAppShellLang();
     });
+    setActiveTemperatureUnits();
 });
 
 

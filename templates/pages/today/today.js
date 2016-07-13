@@ -3,14 +3,17 @@
         helper.loadTemplate('today-almanac', 'modules', 'almanac');
 
         var mapShowing = false;
-        var showTheMap = function(){
-                if(!mapShowing){
-                        if(helper.isInViewport(document.getElementById('static-map'))){
-                                helper.loadTemplate('static-map', 'modules', 'static-map');
-                                mapShowing = true;
-                                helper.removeListener('scroll', showTheMap);
-                        }
+        var lazyLoadedModules = function(){
+            if(!mapShowing){
+                if(helper.isInViewport(document.getElementById('static-map'))){
+                        helper.loadTemplate('static-map', 'modules', 'static-map');
+                        mapShowing = true;
+                        helper.removeListener('scroll', lazyLoadedModules);
+
                 }
+            }
         };
-        helper.registerListener('scroll', showTheMap);
+        helper.registerListener('scroll', lazyLoadedModules);
+        _Router.dispatchAds();
+        helper.setContent([['MW_Position2', 'MY TEST for ads.']]); 
 })();

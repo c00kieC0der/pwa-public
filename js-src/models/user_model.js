@@ -36,15 +36,15 @@ _User.webPush = savedPco.products && savedPco.products.WebPushNotifications ? sa
     timeStamp : "2016-06-10T22:33:29.140Z"
  }
  */
-_User.locations = savedPco.user && savedPco.user.recentSearchLocations ? savedPco.user.recentSearchLocations : [];
+_User.locations = savedPco.user && savedPco.user.locations ? savedPco.user.locations : [];
 _User.lang = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : _User.lang;
-_User.unitPref = savedPco.user && savedPco.user.unit ? savedPco.user.unit : 'e';
+_User.unitPref = savedPco.user && savedPco.user.unitPref ? savedPco.user.unitPref : 'e';
 
-if(window.localStorage._Stored_User){
-   // _User = JSON.parse(window.localStorage._Stored_User);
-} else {
-    window.localStorage._Stored_User = JSON.stringify(_User);
-}
+// if(window.localStorage._Stored_User){
+//    // _User = JSON.parse(window.localStorage._Stored_User);
+// } else {
+//     window.localStorage._Stored_User = JSON.stringify(_User);
+// }
 
 
 if(!_User.activeLocation.prsntNm && _User.locations.length > 0){
@@ -56,9 +56,10 @@ if(!_User.activeLocation.prsntNm && _User.locations.length > 0){
  */
 
 var saveUser = function(){
-    window.localStorage._Stored_User = JSON.stringify(_User);
+    // window.localStorage._Stored_User = JSON.stringify(_User);
     savedPco.products = savedPco.products ? savedPco.products : {};
     savedPco.products.WebPushNotifications = _User.webPush;
+    savedPco.user = _User;
     window.localStorage.jStorage = JSON.stringify(savedPco);
     if(window['_Data']){
         _Data.collectNew();
@@ -89,8 +90,8 @@ _User.addLocation = function(locationObj){
 };
 
 _User.newActiveLocation = function(locationObj, updateRecents){
-    if(_User.activeLocation.prsntNm && updateRecents) {
-        _User.locations.push(_User.activeLocation);
+    if(locationObj.prsntNm && updateRecents) {
+        _User.locations.push(locationObj);
     }
     _User.activeLocation = locationObj;
     saveUser();

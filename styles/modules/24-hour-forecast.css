@@ -105,7 +105,8 @@ h3 {
     .twc-table .twc-sticky-col .day-detail,
     .twc-table .twc-sticky-col .date-time {
       text-transform: uppercase;
-      display: inline-block; }
+      display: inline-block;
+      padding-right: 75px;}
     .twc-table .twc-sticky-col .day-detail {
       display: block; }
 
