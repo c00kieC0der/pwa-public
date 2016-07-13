@@ -187,30 +187,10 @@ var _Data = {}, app = {};
 
 
     var formatTime = function (fullDate) {
-        var dateBase = new Date(fullDate);
-        var hours = dateBase.getHours();
-        var minutes = dateBase.getMinutes();
-        var meridian = 'AM';
-        if (hours === 12) {
-            meridian = 'PM';
-        }
-        if (hours > 12) {
-            hours -= 12;
-            meridian = 'PM';
-        }
-        if (hours === 0) {
-            hours = 12;
-        }
-
-        return hours + ':'
-            + (minutes>9?minutes + ' ':'0'+minutes + ' ')
-            + meridian;
+        return moment(fullDate).format(_Lang['h:mm a']);
     };
     var formatDate = function (fullDate) {
-        var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
-        var monthsOfYear = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-        var dateBase = new Date(fullDate);
-        return daysOfWeek[dateBase.getDay()] + ', ' + monthsOfYear[dateBase.getMonth()] + ' ' + dateBase.getDate();
+        return moment(fullDate).format(_Lang['ddd, MMM Do']);
     };
     /*
     returns array of curr date information. Can be combined with above function with some work if approved
