@@ -65,14 +65,10 @@ var _Router = {
         updateTranslations(urlInfo);
     };
     var updateTranslations = function(pathArr){
-        if(pathArr && pathArr.lang && _User.lang !== pathArr.lang){
-            _User.lang = pathArr.lang;
-            _Language.updateTranslations().then(function(){
-                getDefaultLoc(pathArr);
-            });
-        } else {
+        _User.lang = pathArr.lang;
+        _Language.updateTranslations().then(function(){
             getDefaultLoc(pathArr);
-        }
+        });
     };
     var RTLs = ['ar-AE', 'fa-IR', 'he-IL', 'ur-PK'];
     var setRTL = function(){

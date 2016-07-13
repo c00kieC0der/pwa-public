@@ -2,7 +2,7 @@
  * Created by omkard on 6/5/16.
  */
 
-var downArrayClicked = false;http://localhost:5001/en-US/weather/today/l/
+var downArrayClicked = false;
 
     /**
      * function to control the nav width
@@ -256,7 +256,7 @@ function showAreas(ele,rowId ) {
  * fetches new lang strings
  * closes the menu
  */
-function changeLang(code){  console.log('changeLang');
+function changeLang(code){
     _User.lang = code;
     _Language.updateTranslations().then(function(){
        _Router.updateURL();
@@ -355,7 +355,6 @@ document.getElementById('event-anchor').addEventListener('builder', function(){
 
 var langMap;
 var assignAppShellLang = function(){
-
     langMap = [
         ['nav-today', _Lang.today.toUpperCase()],
         ['nav-hourly', _Lang.hourly.toUpperCase()],
@@ -368,8 +367,6 @@ var assignAppShellLang = function(){
         ['recent-searches-text', _Lang['recent searches'].toUpperCase()],
         ['footer-terms-of-use', capitalizeEachWord(_Lang['terms of use'])],
         ['footer-privacy-policy', capitalizeEachWord(_Lang['privacy policy'])],
-      //  ['footer-parental-controls', capitalizeEachWord(_Lang['parental controls'])],
-      //  ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])],
         ['footer-feedback', capitalizeEachWord(_Lang['feedback'])],
         ['footer-press', capitalizeEachWord(_Lang['press'])]
 
@@ -378,7 +375,7 @@ var assignAppShellLang = function(){
 };
 domReady(function(){
     document.getElementById('event-anchor').addEventListener('lang-builder', function(){
-        assignAppShellLang();
+        assignAppShellLang();  console.log('after lang-builder. ');
     });
     setActiveTemperatureUnits();
 });

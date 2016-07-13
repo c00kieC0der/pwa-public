@@ -11,7 +11,7 @@ var _Data = {}, app = {};
 
 
 
-    _Data.collectNew = function () {
+    _Data.collectNew = function () {    console.log('called again? ');
         dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1dailyForecast;vt1observation?units=" +
         _User.unitPref +
         '&language=' + _User.lang +
@@ -24,11 +24,10 @@ var _Data = {}, app = {};
         var dummyLocId = "USDC0001:1:US";
         dataAlmanacUrl = "https://dsx.weather.com/wxd/v2/FarmingAlmanac/" +
             _User.lang + "/0/"+
-            dummyLocId +
-            //_User.activeLocation.locId +
+             _User.activeLocation.lat + ',' + _User.activeLocation.long +
             "?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
         app.hasRequestPending = true;
-        if ('caches' in window) {
+        /*if ('caches' in window) {
             // console.log(caches);
             caches.match(dataUrl).then(function (response) {
                 if (response) {
@@ -44,7 +43,7 @@ var _Data = {}, app = {};
                     });
                 }
             });
-        }
+        }*/
 
         AjaxRequest.get({
             'url': dataUrl,
@@ -91,15 +90,14 @@ var _Data = {}, app = {};
                 var oneDayHistorical = data.OneDayHistorical;
                 var reportedConditions = data.ReportedConditions;
                 var historicalMonthlyAvg = data.HistoricalMonthlyAvg;
-
                 var units = setUnits(_User.unitPref);
+
                 _Data.tempUnit = units.tempUnit;
                 _Data.precipUnit = units.precipUnit;
                 _Data.oneDayHistorical = cleanOneDayHxData(oneDayHistorical, _Data.tempUnit);
                 _Data.reportedConditions = cleanReportedConditionsData(reportedConditions, _Data.tempUnit, _Data.precipUnit);
                 _Data.historicalMonthlyAvg = cleanHxMonthlyAvgData(historicalMonthlyAvg, _Data.tempUnit, _Data.precipUnit);
-                // END WIP
-
+                _Data.almanacMonths = formatMonthDate();
                 document.getElementById('event-anchor').dispatchEvent(almanacEventData);
             }, 'onError' : function(err) {
                 console.log('error: ', err);
@@ -107,9 +105,6 @@ var _Data = {}, app = {};
         });
 
     };
-    if (_User.activeLocation.lat) {
-        _Data.collectNew();
-    }
 // WIP 7/5/16 1119
     var cleanHxMonthlyAvgData = function(hxMonthlyAvgObj, tempUnit, precipUnit) {
     //    console.log(precipUnit);
@@ -132,7 +127,7 @@ var _Data = {}, app = {};
             }
         });
         return data;
-    };
+    }
 // END WIP
 
     var setUnits = function(unitPref) {
@@ -207,7 +202,9 @@ var _Data = {}, app = {};
             hours = 12;
         }
 
-        return hours + ':' + (minutes>9?minutes + ' ':'0'+minutes + ' ') + meridian;
+        return hours + ':'
+            + (minutes>9?minutes + ' ':'0'+minutes + ' ')
+            + meridian;
     };
     var formatDate = function (fullDate) {
         var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
@@ -227,11 +224,11 @@ var _Data = {}, app = {};
             date:monthsOfYear[dateBase.getMonth()]+' '+dateBase.getDate(),
             dayIndex:dateBase.getDay()
         };
-    };
-    var formatMonthDate = function (fullDate) {
-        retMonthData = [];
-        var monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        var dateBase = new Date(fullDate);
+    }
+    var formatMonthDate = function () {
+        var monthsOfYear = _Lang.MONTH;
+        console.log(_User.lang, _Lang.MONTH);
+        var dateBase = new Date();
         return{
             month1: monthsOfYear[dateBase.getMonth()],
             month2: monthsOfYear[dateBase.getMonth()+1],
@@ -272,24 +269,11 @@ var _Data = {}, app = {};
         _Data.hourly.time = [];
         _Data.hourly.date = [];
         _Data.lookingAhead = getLookingAhead();
-        _Data.obs.timestamp = getTimestamp();
-        _Data.almanacMonths = getMonths();
         for (var i in _Data.hourly.processTime) {
             _Data.hourly.time[i] = formatTime(_Data.hourly.processTime[i]);
             _Data.hourly.date[i] = formatDate(_Data.hourly.processTime[i]);
         }
 
-    };
-
-
-    var getMonths = function () {
-        var currentMonth = formatMonthDate(_Data.datetime.datetime);
-        return currentMonth;
-    };
-
-    var getTimestamp = function () {
-        var currentTime = formatTime(_Data.obs.observationTime);
-        return currentTime;
     };
 
 
@@ -359,15 +343,11 @@ var _Data = {}, app = {};
                 }
                 else
                     for (var key in _Data.dailyForecast.dayData) {
-                        if(!_Data.dailyForecast.nextWeekendData[key]) {
-                            _Data.dailyForecast.nextWeekendData[key] = [];
-                        }
+                        if(!_Data.dailyForecast.nextWeekendData[key])_Data.dailyForecast.nextWeekendData[key]=[];
                         _Data.dailyForecast.nextWeekendData[key][counter] = _Data.dailyForecast.dayData[key][i];
                     }
-                if(_Data.dailyForecast.dayData.dateDayIndex[i]===0){
-                    if(currWeekDataFound===true){
-                        break;
-                    }
+                if(_Data.dailyForecast.dayData.dateDayIndex[i]==0){
+                    if(currWeekDataFound==true)break;
                     currWeekDataFound = true;
                     counter = 0;
                 }
