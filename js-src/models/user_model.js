@@ -1,5 +1,3 @@
-
-
 /*
   Properties and Defaults
  */
