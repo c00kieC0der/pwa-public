@@ -38,13 +38,13 @@ _User.webPush = savedPco.products && savedPco.products.WebPushNotifications ? sa
  */
 _User.locations = savedPco.user && savedPco.user.locations ? savedPco.user.locations : [];
 _User.lang = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : _User.lang;
-_User.unitPref = savedPco.user && savedPco.user.unitPref ? savedPco.user.unitPref : 'e';
+_User.unitPref = savedPco.user && savedPco.user.unit ? savedPco.user.unit : 'e';
 
-// if(window.localStorage._Stored_User){
-//    // _User = JSON.parse(window.localStorage._Stored_User);
-// } else {
-//     window.localStorage._Stored_User = JSON.stringify(_User);
-// }
+if(window.localStorage._Stored_User){
+   // _User = JSON.parse(window.localStorage._Stored_User);
+} else {
+    window.localStorage._Stored_User = JSON.stringify(_User);
+}
 
 
 if(!_User.activeLocation.prsntNm && _User.locations.length > 0){
@@ -56,10 +56,9 @@ if(!_User.activeLocation.prsntNm && _User.locations.length > 0){
  */
 
 var saveUser = function(){
-    // window.localStorage._Stored_User = JSON.stringify(_User);
+    window.localStorage._Stored_User = JSON.stringify(_User);
     savedPco.products = savedPco.products ? savedPco.products : {};
     savedPco.products.WebPushNotifications = _User.webPush;
-    savedPco.user = _User;
     window.localStorage.jStorage = JSON.stringify(savedPco);
     if(window['_Data']){
         _Data.collectNew();
