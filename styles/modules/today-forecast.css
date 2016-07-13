@@ -51,6 +51,9 @@
   .today .nowcard .location {
     padding: 0 10px;
     font-weight: 700; }
+  .today .nowcard .nowcard-timestamp {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8); }
   .today .nowcard .forecast {
     padding: 0 25px; }
   .today .nowcard .content {

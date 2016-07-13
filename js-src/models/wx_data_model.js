@@ -274,6 +274,7 @@ var _Data = {}, app = {};
         _Data.hourly.time = [];
         _Data.hourly.date = [];
         _Data.lookingAhead = getLookingAhead();
+        _Data.obs.timestamp = getTimestamp();
         _Data.almanacMonths = getMonths();
         for (var i in _Data.hourly.processTime) {
             _Data.hourly.time[i] = formatTime(_Data.hourly.processTime[i]);
@@ -286,6 +287,11 @@ var _Data = {}, app = {};
     var getMonths = function () {
         var currentMonth = formatMonthDate(_Data.datetime.datetime);
         return currentMonth;
+    };
+
+    var getTimestamp = function () {
+        var currentTime = formatTime(_Data.obs.observationTime);
+        return currentTime;
     };
 
 
