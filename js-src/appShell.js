@@ -2,7 +2,7 @@
  * Created by omkard on 6/5/16.
  */
 
-var downArrayClicked = false;http://localhost:5001/en-US/weather/today/l/
+var downArrayClicked = false;
 
     /**
      * function to control the nav width
@@ -140,22 +140,6 @@ function hideMainSearch() {
 }
 
 /**
- * setActiveTemperatureUnits() is used to change the temperature units element accordingly with the data is loaded from localStorage
- */
-
-function setActiveTemperatureUnits() {
-    var tempElements = document.getElementsByClassName('temp-red');
-    var tempUnitMapping = {m: '°C', e: '°F'};
-    var currentUnitPref = _User.unitPref || 'e';
-    for(var i=0;i<tempElements.length;i++) {
-        tempElements[i].className = 'temp-red';
-        if(tempElements[i].innerHTML === tempUnitMapping[currentUnitPref]){
-            tempElements[i].className += ' active';
-        }
-    }
-}
-
-/**
  * showTemperature(ele) is used to change the temperature units
  * @param ele
  */
@@ -176,6 +160,22 @@ function showTemperature(ele) {
         }
     }
 
+}
+
+/**
+ * setActiveTemperatureUnits() is used to change the temperature units element accordingly with the data is loaded from localStorage
+ */
+
+function setActiveTemperatureUnits() {
+    var tempElements = document.getElementsByClassName('temp-red');
+    var tempUnitMapping = {m: '°C', e: '°F'};
+    var currentUnitPref = _User.unitPref || 'e';
+    for(var i=0;i<tempElements.length;i++) {
+        tempElements[i].className = 'temp-red';
+        if(tempElements[i].innerHTML === tempUnitMapping[currentUnitPref]){
+            tempElements[i].className += ' active';
+        }
+    }
 }
 
 
@@ -256,7 +256,7 @@ function showAreas(ele,rowId ) {
  * fetches new lang strings
  * closes the menu
  */
-function changeLang(code){  console.log('changeLang');
+function changeLang(code){
     _User.lang = code;
     _Language.updateTranslations().then(function(){
        _Router.updateURL();
@@ -355,7 +355,6 @@ document.getElementById('event-anchor').addEventListener('builder', function(){
 
 var langMap;
 var assignAppShellLang = function(){
-
     langMap = [
         ['nav-today', _Lang.today.toUpperCase()],
         ['nav-hourly', _Lang.hourly.toUpperCase()],
@@ -368,11 +367,8 @@ var assignAppShellLang = function(){
         ['recent-searches-text', _Lang['recent searches'].toUpperCase()],
         ['footer-terms-of-use', capitalizeEachWord(_Lang['terms of use'])],
         ['footer-privacy-policy', capitalizeEachWord(_Lang['privacy policy'])],
-      //  ['footer-parental-controls', capitalizeEachWord(_Lang['parental controls'])],
-      //  ['footer-ad-choices', capitalizeEachWord(_Lang['adChoices'])],
         ['footer-feedback', capitalizeEachWord(_Lang['feedback'])],
         ['footer-press', capitalizeEachWord(_Lang['press'])]
-
     ];
     helper.setContent(langMap);
 };
