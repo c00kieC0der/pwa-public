@@ -183,8 +183,8 @@ var _Router = {
 
 
     _Router.dispatchAds = function(){
-            if (window.AdCtrl && AdCtrl.Promises && AdCtrl.Promises.loadAds) {
-                document.dispatchEvent(AdCtrl.Promises.loadAds);
+            if (window.AdsMetricsCtrl && AdsMetricsCtrl.Promises && AdsMetricsCtrl.Promises.loadAds) {
+                document.dispatchEvent(AdsMetricsCtrl.Promises.loadAds);
             }
     };
     //helper.registerListener('DOMContentLoaded', _Router.dispatchAds);

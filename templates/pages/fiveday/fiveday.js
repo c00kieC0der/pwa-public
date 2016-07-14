@@ -11,4 +11,5 @@
     document.getElementById('event-anchor').addEventListener('lang-builder', function(){
         helper.setContent([['fiveday-title', _Lang['5 day forecast for {0}'].replace('{0}', _User.activeLocation.prsntNm)]]);
     });
+    _Router.dispatchAds();
 })();

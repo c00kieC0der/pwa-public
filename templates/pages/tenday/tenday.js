@@ -6,4 +6,5 @@
     document.getElementById('event-anchor').addEventListener('lang-builder', function(){
         helper.setContent([['tenday-title', _Lang['10 day forecast for {0}'].replace('{0}', _User.activeLocation.prsntNm)]]);
     });
+    _Router.dispatchAds();
 })();

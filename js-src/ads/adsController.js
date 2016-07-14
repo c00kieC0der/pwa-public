@@ -11,6 +11,7 @@ googletag.cmd = googletag.cmd || [];
 
 (function($$) {
 
+    // Always load mobile for now.
     var isMobile = window.innerWidth < 768;
     var isTablet = window.innerWidth > 769 && window.innerWidth < 1025;
     var isDesktop = window.innerWidth > 1024;
@@ -21,7 +22,6 @@ googletag.cmd = googletag.cmd || [];
     getWXData();
     loadOpenX();
     getAdUnitAndMetricsSuite();
-    addCust_Params();
 
     // $$.utils.addLoadEvent(function(){
     //     loadNewAds();
@@ -29,6 +29,7 @@ googletag.cmd = googletag.cmd || [];
 
     /************** Private Functions **************/
     function loadNewAds() {
+        addCust_Params();
         googletag.cmd.push(function () {
             googletag.destroySlots();
             window.ls_dfp_slots = []; // Index-Exchange header bidder
@@ -58,7 +59,7 @@ googletag.cmd = googletag.cmd || [];
     }
 
     function setAd(el) {
-        var adpositions = $$.adMaps.adpositions;
+        var adpositions = $$.adsMetricsMaps.adpositions;
         var id = el.getAttribute('id');
         var screen = isMobile && 'mobile' || 'desktop';
         googletag.cmd.push(function () {
@@ -124,22 +125,22 @@ googletag.cmd = googletag.cmd || [];
 
     function getAdUnitAndMetricsSuite() {
         $$.Promises.jsonReady.promise.then(function() {
-            var adMaps = $$.adMaps;
+            var adsMetricsMaps = $$.adsMetricsMaps;
             var savedPco = window.localStorage.jStorage ? JSON.parse(window.localStorage.jStorage) : {};
             var locale = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : "en-US";
 
 
             /** ad unit */
-            adUnit = isDesktop && adMaps.localeToAdUnitMap[locale].desktop ||
-              isTablet && adMaps.localeToAdUnitMap[locale].tablet ||
-              adMaps.localeToAdUnitMap[locale].mobile;
+            adUnit = isDesktop && adsMetricsMaps.localeToAdUnitMap[locale].desktop ||
+              isTablet && adsMetricsMaps.localeToAdUnitMap[locale].tablet ||
+              adsMetricsMaps.localeToAdUnitMap[locale].mobile;
             adUnit = adstest ? 'test_' + adUnit : adUnit;
 
             /** ad zone */
             getAdZone();
 
             /** metrics suite **/
-            metrics_suite = adMaps.localeToAdUnitMap[locale].metrics ? adMaps.localeToAdUnitMap[locale].metrics : 'twcigls';
+            metrics_suite = adsMetricsMaps.localeToAdUnitMap[locale].metrics ? adsMetricsMaps.localeToAdUnitMap[locale].metrics : 'twcigls';
         });
     }
 
@@ -147,16 +148,19 @@ googletag.cmd = googletag.cmd || [];
         var savedPco = window.localStorage.jStorage ? JSON.parse(window.localStorage.jStorage) : {};
         var locale = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : "en-US";
         var urlZone = location.pathname.match(/\/(weather\/.*?)\//);
-        var network = "/" + $$.adMaps.localeToAdUnitMap[locale].network + "/";
+        var network = "/" + $$.adsMetricsMaps.localeToAdUnitMap[locale].network + "/";
         urlZone = urlZone && urlZone.length > 1 && urlZone[1];
-        adZone = $$.adMaps.urlToAdZone[urlZone] && $$.adMaps.urlToAdZone[urlZone].adZone || '/local_forecasts/today';
+        adZone = $$.adsMetricsMaps.urlToAdZone[urlZone] && $$.adsMetricsMaps.urlToAdZone[urlZone].adZone || '/local_forecasts/today';
         NCTAU = network + adUnit + adZone;
         NCAU = network + adUnit;
     }
 
     function addCust_Params() {
+        $$.custParams = $$.custParams || {};
         $$.Promises.jsonReady.promise.then(function() {
-            $$.custParams = $$.custParams || {};
+            var urlZone = location.pathname.match(/\/(weather\/.*?)\//);
+            urlZone = urlZone && urlZone.length > 1 && urlZone[1];
+            var brwsrWidth = window.innerWidth;
             $$.custParams.ad_unit = encodeURIComponent(NCAU);
             $$.custParams.browser = getBrowser();
             $$.custParams.cat = "fcst";
@@ -164,12 +168,13 @@ googletag.cmd = googletag.cmd || [];
             $$.custParams.fam = "fcst";
             $$.custParams.par = $$.utils.getParameterByName("par");
             $$.custParams.vw = $$.utils.getCookie('fv');
+            $$.custParams.tf = $$.adsMetricsMaps.urlToAdZone[urlZone] && $$.adsMetricsMaps.urlToAdZone[urlZone].timeframe;
+            $$.custParams.plat = brwsrWidth < 768 && 'wx_mw' ||
+              brwsrWidth >= 768 && brwsrWidth < 1025 && 'wx_tab' ||
+              brwsrWidth > 1024 && 'wx';
 
-            document.addEventListener('builder', function() {
+            document.getElementById('event-anchor').addEventListener('builder', function respond() {
                 var loc = _User.activeLocation;
-                var brwsrWidth = window.innerWidth;
-                var urlZone = location.pathname.match(/\/(weather\/.*?)\//);
-                urlZone = urlZone && urlZone.length > 1 && urlZone[1];
                 $$.custParams = $$.custParams || {};
                 $$.custParams.cc = loc.cntryCd;
                 $$.custParams.cnty = loc.cntyNm;
@@ -191,18 +196,14 @@ googletag.cmd = googletag.cmd || [];
                 $$.custParams.loc = (loc.locType !== 4) ? loc.locId + '$' + loc.locType : loc.locId;
                 $$.custParams.locale = _User.lang;
                 $$.custParams.lon = '' + loc.long;
-                $$.custParams.plat = brwsrWidth < 768 && 'wx_mw' ||
-                                   brwsrWidth >= 768 && brwsrWidth < 1025 && 'wx_tab' ||
-                                   brwsrWidth > 1024 && 'wx';
                 $$.custParams.st = loc.stCd;
-                $$.custParams.tf = $$.adMaps.urlToAdZone[urlZone] && $$.adMaps.urlToAdZone[urlZone].timeframe;
                 $$.custParams.zip = loc.zipCd;
 
             });
-            if (adstest) {
-                $$.custParams['adstest'] = adstest;
-            }
         });
+        if (adstest) {
+            $$.custParams['adstest'] = adstest;
+        }
     }
 
     function getBrowser() {
@@ -636,6 +637,6 @@ googletag.cmd = googletag.cmd || [];
     }
 
 
-})(AdCtrl);
+})(AdsMetricsCtrl);
 
 

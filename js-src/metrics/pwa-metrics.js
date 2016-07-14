@@ -17,7 +17,7 @@ var _Metrics = {};
             var param = $$.utils.getParameterByName;
             var locIds = [], i, l;
             urlZone = urlZone && urlZone.length > 1 && urlZone[1];
-            urlZone = $$.adMaps.urlToAdZone[urlZone];
+            urlZone = $$.adsMetricsMaps.urlToAdZone[urlZone];
             metrics = urlZone.metrics.split('/');
             var cm_date = param("cm_date") ? param("cm_date") : "";
             var cm_ven = param("cm_ven") ? param("cm_ven") : "";
@@ -129,5 +129,5 @@ var _Metrics = {};
 
 
     }
-})(AdCtrl);
+})(AdsMetricsCtrl);
 
