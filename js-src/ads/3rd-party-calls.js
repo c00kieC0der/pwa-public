@@ -1,15 +1,6 @@
 
 
 (function($$) {
-    $$.utils.getParameterByName = function (name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-          results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-    };
 
     var amzn = $$.utils.getParameterByName('amzn') || '';
     var wxftg = $$.utils.getParameterByName('wxftg') || '';
@@ -65,9 +56,9 @@
 
             $$.custParams = $$.custParams || {};
             $$.custParams['wfxtg'] = wfxtg;
-            $$.custParams['scatter_zcs'] = zcs;
-            $$.custParams['scatter_nzcs'] = nzcs;
-            $$.custParams['scatter_cxtg'] = cxtg;
+            $$.custParams['zcs'] = zcs;
+            $$.custParams['nzcs'] = nzcs;
+            $$.custParams['cxtg'] = cxtg;
             $$.Promises.wfxtgPromise.resolve();
             //console.log('wfxtgResolved', new Date().getTime() - window.renderStartTime);
 
@@ -118,7 +109,7 @@
                 }
 
                 $$.Promises.amznSlotsPromise.resolve("amznSlots");
-             //   console.log("success amzn", $$.custParams);
+                console.log("success amzn", $$.custParams);
              //   console.log('amznResolved', new Date().getTime() - window.renderStartTime);
 
 

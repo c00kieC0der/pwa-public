@@ -14,12 +14,12 @@ googletag.cmd = googletag.cmd || [];
     var isMobile = window.innerWidth < 768;
     var isTablet = window.innerWidth > 769 && window.innerWidth < 1025;
     var isDesktop = window.innerWidth > 1024;
-    var adstest = getCookie('adstest');
+    var adstest = $$.utils.getCookie('adstest');
     var network, adUnit, adZone, NCTAU, NCAU, adMapping, cust_params, metrics_suite;
 
+    setupFV();
     getWXData();
     loadOpenX();
-    $$.Promises.jsonReady = $$.utils.loadJSON('/js-src/ads/adMaps.json',$$, 'adMaps');
     getAdUnitAndMetricsSuite();
     addCust_Params();
 
@@ -150,34 +150,113 @@ googletag.cmd = googletag.cmd || [];
         var urlZone = location.pathname.match(/\/(weather\/.*?)\//);
         var network = "/" + $$.adMaps.localeToAdUnitMap[locale].network + "/";
         urlZone = urlZone && urlZone.length > 1 && urlZone[1];
-        adZone = $$.adMaps.urlToAdZone[urlZone].adZone || '/local_forecasts/today';
+        adZone = $$.adMaps.urlToAdZone[urlZone] && $$.adMaps.urlToAdZone[urlZone].adZone || '/local_forecasts/today';
         NCTAU = network + adUnit + adZone;
         NCAU = network + adUnit;
     }
 
     function addCust_Params() {
         $$.Promises.jsonReady.promise.then(function() {
-            cust_params = {
-                cat: "fcst",
-                ch: "fcst",
-                fam: "fcst",
-                ad_unit: encodeURIComponent(NCAU)
+            cust_params = cust_params || {};
+            cust_params.ad_unit = encodeURIComponent(NCAU);
+            cust_params.browser = getBrowser();
+            cust_params.cat = "fcst";
+            cust_params.ch = "fcst";
+            cust_params.fam = "fcst";
+            cust_params.par = $$.utils.getParameterByName("par");
+            cust_params.vw = $$.utils.getCookie('fv');
+
+            document.addEventListener('builder', function() {
+                var loc = _User.activeLocation;
+                var brwsrWidth = window.innerWidth;
+                var urlZone = location.pathname.match(/\/(weather\/.*?)\//);
+                urlZone = urlZone && urlZone.length > 1 && urlZone[1];
+                cust_params = cust_params || {};
+                cust_params.cc = loc.cntryCd;
+                cust_params.cnty = loc.cntyNm;
+                cust_params.ct = loc.cityNm;
+                cust_params.dma = '' + loc.dmaCd;
+                cust_params.env = "" + Math.floor(Math.random()*(10-0)+1);
+
+                if (loc.locType === 4) {
+                    cust_params.ent =  'zip';
+                } else if (loc.locType === 1) {
+                    cust_params.ent = 'city';
+                }
+
+                cust_params.intl = loc._gprId;
+                cust_params.lang = _User.lang && _User.lang.split('-')[0];
+                cust_params.lat = '' + loc.lat;
+
+                // targeting by locid requires locId$locType for all locTypes except 4
+                cust_params.loc = (loc.locType !== 4) ? loc.locId + '$' + loc.locType : loc.locId;
+                cust_params.locale = _User.lang;
+                cust_params.lon = '' + loc.long;
+                cust_params.plat = brwsrWidth < 768 && 'wx_mw' ||
+                                   brwsrWidth >= 768 && brwsrWidth < 1025 && 'wx_tab' ||
+                                   brwsrWidth > 1024 && 'wx';
+                cust_params.st = loc.stCd;
+                cust_params.tf = $$.adMaps.urlToAdZone[urlZone] && $$.adMaps.urlToAdZone[urlZone].timeframe;
+                cust_params.zip = loc.zipCd;
+
+            });
+            if (adstest) {
+                cust_params['adstest'] = adstest;
             }
         });
     }
 
-    if (adstest) {
-        cust_params['adstest'] = adstest;
-    }
+    function getBrowser() {
+        var userAgent = navigator && navigator.userAgent,
+            browser = userAgent && userAgent.match(/chrome|firefox|safari|trident/i),
+            brwsr='unknown';
+        if (browser && typeof browser === 'object' && browser.length && browser.length > 0) {
+            switch (browser[0].toLowerCase()) {
 
+                case 'chrome':
+                    brwsr = 'twcchrome';
+                    break;
+                case 'firefox':
+                    brwsr = 'twcff';
+                    break;
+                case 'safari':
+                    brwsr = 'twcsafari';
+                    break;
+                case 'trident':
+                    brwsr = 'twcie';
+                    break;
+                default:
+                    brwsr = 'twcnative';
+            }
+        }
+        return brwsr;
+    }
 
     function extend(){
-        for(var i=1; i<arguments.length; i++)
-            for(var key in arguments[i])
-                if(arguments[i].hasOwnProperty(key))
+        for(var i=1; i<arguments.length; i++) {
+            for (var key in arguments[i]) {
+                if (arguments[i].hasOwnProperty(key)) {
                     arguments[0][key] = arguments[i][key];
+                }
+            }
+        }
         return arguments[0];
     }
+
+    function setupFV() {
+        var fv = $$.utils.getCookie('fv'),
+          expires = new Date(new Date().getTime() + (30 * 60 * 1000)), // 30 minutes
+          domain = document.domain;
+        if (fv) {
+            fv = ( fv == 1 || fv == 2) ? ++fv : -1;
+        }
+        else {
+            fv = 1;
+        }
+        expires = expires.toUTCString();
+        document.cookie = 'fv=' + fv + '; expires=' + expires + ';path=/';
+    }
+
 
     function getCookie(name) {
         var value = "; " + document.cookie;
@@ -244,6 +323,31 @@ googletag.cmd = googletag.cmd || [];
 
         }
 
+        function temp(val) {
+            if(typeof val === 'object' && val.length === 2) {
+                var tmpF = val[0], tmpC = val[1];
+                // set temperature increments
+                var tempFVal = getTempInc(tmpF, 'f');
+
+                // set fahrenheit unit
+                var fUnit = (tmpF >= 0) ? (tmpF + "f") : ((tmpF * -1) + "nf");
+
+                // set celsius unit
+                var cUnit = (tmpC >= 0) ? (tmpC + "c") : ((tmpC * -1) + "nc");
+
+                // set celsius increments
+                var tempCVal = "cpnl";
+                if(tmpC > 60){ tempCVal = "cpnl"; }
+                else if(tmpC %2 == 0 && tmpC >=0){ tempCVal = (tmpC + 1) + "ci"; }
+                else if(tmpC %2 != 0 && tmpC >=0){ tempCVal = tmpC + "ci"; }
+                else if(tmpC %2 == 0 && tmpC <0 && tmpC > -9){ tempCVal = (tmpC * -1) + "nci"; }
+                else{ tempCVal = "cnnl"; }
+
+                return (tempFVal + "," + fUnit + "," + cUnit + "," + tempCVal);
+            }
+            return val;
+        }
+
         function tempR(obj) {
             var scale = obj.scale;
             var val = obj.val;
@@ -277,6 +381,10 @@ googletag.cmd = googletag.cmd || [];
             else if (val>=39){                 return "xhot";  }
         }
 
+        function snw(val) {
+            if (val >= 1 && val < 3){ return "1"; }
+            else if (val >=3){ return "3"; }
+        }
         function snowR(val) {
             if(typeof val === "undefined"){   return "nl";  }
             if (val >= 1 && val < 3){ return "1";   }
@@ -295,7 +403,7 @@ googletag.cmd = googletag.cmd || [];
                 return "hi";
             }
         }
-        function uv(val) { if(val >= 5){ return "hi";} }
+        function uv(val) { if(val >= 5){ return "hi";} else {return "nl"}}
 
         function getSevere(alerts, $) {
             if(alerts && $.isArray(alerts) && alerts.length > 0) {
@@ -348,6 +456,11 @@ googletag.cmd = googletag.cmd || [];
             }
             return "nl";
         }
+        function baro(val) {
+            if(val == 0) { return "stdy"; }
+            else if(val == 1) { return "rsng";  }
+            else if(val == 2) { return "fllng"; }
+        }
         function getPollen(pollen) {
             var p = pollen;
             var highVal = [].concat( ((p.tree || [])[0] || []), ((p.weed || [])[0] || []), ((p.grass || [])[0] || []) );
@@ -381,24 +494,23 @@ googletag.cmd = googletag.cmd || [];
                 $$.custParams["hmid"] = hum(obs.humidity);
                 $$.custParams["wind"] = wind(obs.windSpeed);
                 $$.custParams["uv"] = uv(obs.uvIndex);
-                $$.custParams["realTemp"] = tempF+ '';
-                $$.custParams["tmp"] = [tempF,tempC];
-                $$.custParams["tempc"] = tempC+ '';
-                $$.custParams["tempR"] = {
-                    val: tempF+ ''
-                };
-                $$.custParams["tempRC"] = {
-                    val: tempC+ ''
-                };
-                $$.custParams["wxIcon"] = obs.icon+ '';
-                $$.custParams['flsLkF'] = feelsLikeF+ '';
-                $$.custParams['flsLkC'] = feelsLikeC+ '';
+                $$.custParams["tmp"] = temp([tempF,tempC]);
+                $$.custParams["tempc"] = tempC + '';
+                $$.custParams["tempr"] = tempR({
+                    val: tempF + ''
+                });
+                $$.custParams["temprc"] = tempRC({
+                    val: tempC + ''
+                });
+                $$.custParams['fltmpf'] = feelsLikeF+ '';
+                $$.custParams['fltmpc'] = feelsLikeC+ '';
                 if (obs.iconExt) {
                     $$.custParams["wxExtIcon"] = obs.iconExt+ ''; /*not in turbo data. not needed per Pavan.*/
                 }
-                $$.custParams["cnd"] = obs.icon+ '';
-                $$.custParams["baro"] = obs.barometerCode+ '';
-                $$.custParams["snw"] = obs.snowDepth+ '';
+                $$.custParams["cnd"] = getCond(obs.icon);
+                $$.custParams["baro"] = baro(obs.barometerCode);
+                $$.custParams["snw"] = snw(obs.snowDepth);
+
 
             }
 

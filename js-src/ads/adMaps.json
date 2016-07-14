@@ -292,23 +292,33 @@
   "urlToAdZone": {
     "home": {
       "adZone":"home",
-      "timeframe": "home"
+      "timeframe": "home",
+      "metrics" : "HOMEPAGE/HOMEPAGE/NA/MAIN",
+      "pagecode": "home"
     },
     "weather/today": {
       "adZone":"/local_forecasts/today",
-      "timeframe": "today"
+      "timeframe": "today",
+      "metrics" : "LOCALWX/TODAY/NA/FORECAST",
+      "pagecode": "today-forecast"
     },
     "weather/5day": {
       "adZone" : "/local_forecasts/5_day",
-      "timeframe" : "5_day"
+      "timeframe" : "5_day",
+      "metrics" : "LOCALWX/5DAY/NA/FORECAST",
+      "pagecode": "5day-forecast"
     },
     "weather/tenday": {
       "adZone" : "/local_forecasts/10_day",
-      "timeframe" : "10_day"
+      "timeframe" : "10_day",
+      "metrics" : "LOCALWX/TENDAY/NA/FORECAST",
+      "pagecode": "10day-forecast"
     },
     "weather/hourbyhour": {
       "adZone" : "/local_forecasts/hourly",
-      "timeframe" : "hourly"
+      "timeframe" : "hourly",
+      "metrics" : "LOCALWX/HOURLY/NA/FORECAST",
+      "pagecode": "hourly-forecast"
     },
     "weather/radar/interactive": {
       "adZone" : "/local_forecasts/maps",
@@ -316,7 +326,9 @@
     },
     "weather/weekend": {
       "adZone" : "/local_forecasts/weekend",
-      "timeframe" : "weekend"
+      "timeframe" : "weekend",
+      "metrics" : "LOCALWX/WEEKEND/NA/FORECAST",
+      "pagecode": "weekend-forecast"
     }
   }
 }
