@@ -72,7 +72,7 @@ var _Router = {
     };
 
     _Router.setRTL = function(){
-        if(_Locales.isLTRLanguage(_User.lang)){
+        if(_Language.isLTRLanguage(_User.lang)){
             document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");
         } else {
             document.getElementsByTagName("html")[0].setAttribute("dir", "ltr");
