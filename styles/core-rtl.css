@@ -42,22 +42,6 @@ body {
   background-position-y: top;
   background-size: cover;
   background-repeat: no-repeat; }
-  @media (max-width: 480px) {
-    body #MW_Position1 {
-      min-height: 50px;
-      text-align: center; }
-    body #WX_WindowShade {
-      min-height: 0; } }
-  @media (min-width: 481px) {
-    body #WX_WindowShade {
-      min-height: 90px;
-      text-align: center; }
-    body #MW_Position1 {
-      min-height: 0; } }
-
-.wx-gptADS {
-  text-align: center;
-  margin-bottom: 10px; }
 
 .header {
   width: 100%;
@@ -132,17 +116,17 @@ body {
 .btn-mobile {
   top: 0;
   left: 0;
-  width: 43px;
+  width: 36px;
   height: 45px;
   padding: 6px;
-  position: relative;
+  position: absolute;
   background: transparent;
   border: none;
   outline: none;
   cursor: pointer; }
 
 .search-open-btn {
-  left: 43px;
+  left: 35px;
   text-align: center;
   background-color: transparent;
   color: #cccccc;
@@ -239,8 +223,7 @@ a {
 
 #area-value .wx-icon-arrow-right {
   display: none;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 .main-div {
   min-height: 91px;
@@ -519,11 +502,9 @@ footer {
 .page-card {
   position: relative;
   display: block;
-  width: 100%;
-  min-height: 600px; }
+  width: 100%; }
   .page-card.slide-out {
     position: relative;
-    display: none;
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
