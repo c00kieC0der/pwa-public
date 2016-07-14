@@ -2,6 +2,18 @@ var _Language = {}; _Lang = {}, _Locales = {};
     var langEvent = document.createEvent('Event');
     langEvent.initEvent('lang-builder', true, true);
 
+    _Locales.isLTRLanguage = function (lang) {
+        var rtlPrefix = ['fa-', 'ar-', 'ur-', 'he-'];
+        if (lang) {
+            for (var i = 0; i < rtlPrefix.length; i++) {
+                if (lang.indexOf(rtlPrefix[i]) === 0) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    };
 
     _Locales.getLocales = function(){
         return new Promise(function(resolve, reject){
