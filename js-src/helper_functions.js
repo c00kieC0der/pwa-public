@@ -357,3 +357,8 @@ helper.setCanonical = function(){
 helper.pdTranslate = function(content) {
     return _Lang[content] ? _Lang[content] : content
 };
+
+helper.getActiveLocID = function(){
+    var activeLoc = _User.activeLocation;
+    return (activeLoc.locId ? (activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd) : '');
+};
