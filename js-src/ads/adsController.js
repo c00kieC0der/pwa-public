@@ -15,7 +15,7 @@ googletag.cmd = googletag.cmd || [];
     var isTablet = window.innerWidth > 769 && window.innerWidth < 1025;
     var isDesktop = window.innerWidth > 1024;
     var adstest = $$.utils.getCookie('adstest');
-    var network, adUnit, adZone, NCTAU, NCAU, adMapping, cust_params, metrics_suite;
+    var network, adUnit, adZone, NCTAU, NCAU, adMapping, metrics_suite;
 
     setupFV();
     getWXData();
@@ -72,7 +72,6 @@ googletag.cmd = googletag.cmd || [];
     function displayAds(enable) {
         var selector = isMobile ? '[id^="MW_"]' : '[id^="WX_"]';
         var adDivs = document.querySelectorAll(selector);
-        $$.custParams = extend({}, $$.custParams, cust_params);
         for (var p in $$.custParams) {
             if ($$.custParams.hasOwnProperty(p)) {
                 googletag.pubads().setTargeting(p, $$.custParams[p]);
@@ -157,51 +156,51 @@ googletag.cmd = googletag.cmd || [];
 
     function addCust_Params() {
         $$.Promises.jsonReady.promise.then(function() {
-            cust_params = cust_params || {};
-            cust_params.ad_unit = encodeURIComponent(NCAU);
-            cust_params.browser = getBrowser();
-            cust_params.cat = "fcst";
-            cust_params.ch = "fcst";
-            cust_params.fam = "fcst";
-            cust_params.par = $$.utils.getParameterByName("par");
-            cust_params.vw = $$.utils.getCookie('fv');
+            $$.custParams = $$.custParams || {};
+            $$.custParams.ad_unit = encodeURIComponent(NCAU);
+            $$.custParams.browser = getBrowser();
+            $$.custParams.cat = "fcst";
+            $$.custParams.ch = "fcst";
+            $$.custParams.fam = "fcst";
+            $$.custParams.par = $$.utils.getParameterByName("par");
+            $$.custParams.vw = $$.utils.getCookie('fv');
 
             document.addEventListener('builder', function() {
                 var loc = _User.activeLocation;
                 var brwsrWidth = window.innerWidth;
                 var urlZone = location.pathname.match(/\/(weather\/.*?)\//);
                 urlZone = urlZone && urlZone.length > 1 && urlZone[1];
-                cust_params = cust_params || {};
-                cust_params.cc = loc.cntryCd;
-                cust_params.cnty = loc.cntyNm;
-                cust_params.ct = loc.cityNm;
-                cust_params.dma = '' + loc.dmaCd;
-                cust_params.env = "" + Math.floor(Math.random()*(10-0)+1);
+                $$.custParams = $$.custParams || {};
+                $$.custParams.cc = loc.cntryCd;
+                $$.custParams.cnty = loc.cntyNm;
+                $$.custParams.ct = loc.cityNm;
+                $$.custParams.dma = '' + loc.dmaCd;
+                $$.custParams.env = "" + Math.floor(Math.random()*(10-0)+1);
 
                 if (loc.locType === 4) {
-                    cust_params.ent =  'zip';
+                    $$.custParams.ent =  'zip';
                 } else if (loc.locType === 1) {
-                    cust_params.ent = 'city';
+                    $$.custParams.ent = 'city';
                 }
 
-                cust_params.intl = loc._gprId;
-                cust_params.lang = _User.lang && _User.lang.split('-')[0];
-                cust_params.lat = '' + loc.lat;
+                $$.custParams.intl = loc._gprId;
+                $$.custParams.lang = _User.lang && _User.lang.split('-')[0];
+                $$.custParams.lat = '' + loc.lat;
 
                 // targeting by locid requires locId$locType for all locTypes except 4
-                cust_params.loc = (loc.locType !== 4) ? loc.locId + '$' + loc.locType : loc.locId;
-                cust_params.locale = _User.lang;
-                cust_params.lon = '' + loc.long;
-                cust_params.plat = brwsrWidth < 768 && 'wx_mw' ||
+                $$.custParams.loc = (loc.locType !== 4) ? loc.locId + '$' + loc.locType : loc.locId;
+                $$.custParams.locale = _User.lang;
+                $$.custParams.lon = '' + loc.long;
+                $$.custParams.plat = brwsrWidth < 768 && 'wx_mw' ||
                                    brwsrWidth >= 768 && brwsrWidth < 1025 && 'wx_tab' ||
                                    brwsrWidth > 1024 && 'wx';
-                cust_params.st = loc.stCd;
-                cust_params.tf = $$.adMaps.urlToAdZone[urlZone] && $$.adMaps.urlToAdZone[urlZone].timeframe;
-                cust_params.zip = loc.zipCd;
+                $$.custParams.st = loc.stCd;
+                $$.custParams.tf = $$.adMaps.urlToAdZone[urlZone] && $$.adMaps.urlToAdZone[urlZone].timeframe;
+                $$.custParams.zip = loc.zipCd;
 
             });
             if (adstest) {
-                cust_params['adstest'] = adstest;
+                $$.custParams['adstest'] = adstest;
             }
         });
     }
@@ -479,7 +478,6 @@ googletag.cmd = googletag.cmd || [];
 
         // Wait for Data call to resolve
         document.addEventListener('builder', function() {
-         //   console.log('cust_params', new Date().getTime() - window.renderStartTime);
          //   console.log("Data", _Data);
             if(_Data && _Data.obs){
                 var obs = _Data.obs;
