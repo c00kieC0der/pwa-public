@@ -50,7 +50,7 @@ h3 {
     text-shadow: -1px 1px 1px #fff;
     white-space: nowrap;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 400;
     border-bottom: solid 1px #999;
     background-color: #eef6fb; }
     .twc-table th.twc-sticky-col {
@@ -81,6 +81,9 @@ h3 {
     position: absolute;
     top: 5px;
     left: 5px; }
+  .twc-table .time-detail {
+    display: inline-block;
+    padding-top: 7px; }
   .twc-table .day-detail {
     overflow: hidden;
     *zoom: 1; }
@@ -99,12 +102,10 @@ h3 {
     .twc-table .twc-sticky-col .wx-dsxdate,
     .twc-table .twc-sticky-col .day-detail,
     .twc-table .twc-sticky-col .date-time {
-      font-weight: 600;
       text-transform: uppercase;
-      display: inline-block;}
+      display: inline-block; }
     .twc-table .twc-sticky-col .day-detail {
-      display: block;
-    }
+      display: block; }
 
 .ls-display-control {
   display: -webkit-box;
@@ -146,9 +147,6 @@ h3 {
     background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)); }
 
-/*#ls-row-wrap-5day tr:nth-child(n+8) {
-  display: none; }*/
-
 .ls-24-hour-wrap {
   background: white;
   position: relative; }
@@ -175,9 +173,6 @@ h3 {
   .ls-24-hour-wrap .lo {
     color: #999999;
     font-style: italic; }
-  .ls-24-hour-wrap .temp,
-  .ls-24-hour-wrap .lo {
-    font-weight: 600; }
   .ls-24-hour-wrap .day-detail {
     font-size: 0.78571rem;
     color: #cccccc; }

@@ -173,15 +173,16 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
                 classXes = document.getElementsByClassName(dataMap[i][0]);
                 //for each element, place its piece of data in it.
                 for(j=0; j < classXes.length; j++){
-
-                    if(dataMap[i][1] === 'icon'){
-                        classXes[j].innerHTML = getWxIcon(data[dataMap[i][1]][j]);
-                    } else if(dataMap[i][1].indexOf('Class') !== -1){
-                        helper.addClass(classXes[j], data[dataMap[i][1]][j]);
-                    } else {
-                        classXes[j].innerHTML = data[dataMap[i][1]][j];
-                        if(dataMap[i][2]){
-                            classXes[j].innerHTML += ' ' + dataMap[i][2];
+                    if (data[dataMap[i][1]]) {
+                        if(dataMap[i][1] === 'icon'){
+                            classXes[j].innerHTML = getWxIcon(data[dataMap[i][1]][j]);
+                        } else if(dataMap[i][1].indexOf('Class') !== -1){
+                            helper.addClass(classXes[j], data[dataMap[i][1]][j]);
+                        } else {
+                            classXes[j].innerHTML = data[dataMap[i][1]][j];
+                            if(dataMap[i][2]){
+                                classXes[j].innerHTML += ' ' + dataMap[i][2];
+                            }
                         }
                     }
 
