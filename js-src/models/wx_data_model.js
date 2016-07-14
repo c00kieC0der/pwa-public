@@ -18,7 +18,7 @@ var _Data = {}, app = {};
         '&geocode=' +
         _User.activeLocation.lat + ',' + _User.activeLocation.long +
         '&format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
-        dataAstroUrl = "https://dsx.weather.com/wxd/v2/Astro/" + _User.lang + "/0/3/(" + _User.activeLocation.lat + ',' + _User.activeLocation.long + ")?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
+        dataAstroUrl = "https://dsx.weather.com/wxd/v2/Astro/" + _User.lang + "/0/3/(" + helper.getActiveLocID() + ")?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
 
         dataAlmanacUrl = "https://dsx.weather.com/wxd/v2/FarmingAlmanac/" +
             _User.lang + "/0/"+
