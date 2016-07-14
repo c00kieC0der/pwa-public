@@ -1,8 +1,8 @@
 
 window.renderStartTime = new Date().getTime();
 
-window.AdCtrl = window.AdCtrl || {};
-AdCtrl.utils = AdCtrl.utils || {};
+window.AdsMetricsCtrl = window.AdsMetricsCtrl || {};
+AdsMetricsCtrl.utils = AdsMetricsCtrl.utils || {};
 
 (function($$) {
     
@@ -108,11 +108,12 @@ AdCtrl.utils = AdCtrl.utils || {};
     $$.Promises.criteoPromise = new $$.Promises.Deferred();
     $$.Promises.weatherDataPromise = new $$.Promises.Deferred();
     
+    
     $$.Promises.loadAds = new Event('load-ads');
 
-    $$.Promises.jsonReady = $$.utils.loadJSON('/js-src/ads/adMaps.json',$$, 'adMaps');
+    $$.Promises.jsonReady = $$.utils.loadJSON('/js-src/ads/adsMetricsMaps.json',$$, 'adsMetricsMaps');
     
-})(AdCtrl);
+})(AdsMetricsCtrl);
 
 
 

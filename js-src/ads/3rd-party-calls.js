@@ -156,4 +156,4 @@
     else {
         $$.Promises.criteoPromise.resolve("criteo");
     }
-})(window.AdCtrl);
+})(window.AdsMetricsCtrl);

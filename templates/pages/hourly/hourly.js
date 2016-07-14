@@ -6,4 +6,5 @@
     document.getElementById('event-anchor').addEventListener('lang-builder', function(){
         helper.setContent([['hourly-title', _Lang['hourly forecast for {0}'].replace('{0}', _User.activeLocation.prsntNm)]]);
     });
+    _Router.dispatchAds();
 })();
