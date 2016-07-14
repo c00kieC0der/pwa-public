@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .panel-heading > h2,
 .panel-heading .heading {
   font-size: 1.14286rem;
@@ -10,7 +11,8 @@
   display: none !important; }
 
 .page-title {
-  padding: 0 10px; }
+  padding: 20px 10px;
+  background-color: #178CD7; }
   .page-title::first-letter {
     text-transform: capitalize; }
 
@@ -154,6 +156,21 @@ h3 {
 #ls-row-wrap-5day tr:nth-child(n+8) {
   display: none; }
 
+.page-header-wrapper {
+  font-family: "Roboto", "Helvetica", sans-serif;
+  font-size: 16px !important;
+  font-weight: normal !important; }
+
+.page-title {
+  background-color: #178CD7  ;
+  color: #FFFFFF;
+  font-size: 16px ;
+  padding-left: 15px;
+  margin: 0 5px;
+  -moz-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.05); }
+
 .ls-hourly-wrap {
   background: white;
   position: relative; }
@@ -200,7 +217,7 @@ h3 {
   color: #393939;
   font-size: 1.14286rem;
   padding: 10px 5px;
-  margin-top: -15px; }
+  margin-top: -39px; }
   @media only screen and (max-width: 767px) {
     .ls-hourly-wwir {
       padding-left: 15px; } }

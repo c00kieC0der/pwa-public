@@ -3,11 +3,27 @@
 @import '../partials/sticky-table'
 @import 'compass'
 
+
+.page-header-wrapper
+  font-family: "Roboto", "Helvetica", sans-serif
+  font-size: 16px !important
+  font-weight: normal !important
+.page-title
+  background-color: #178CD7 
+  color: #FFFFFF
+  font-size: 16px  !important
+  padding-left: 15px
+  margin: 0 5px
+  +box-shadow(0 0 3px 1px rgba(0, 0, 0, 0.05))
+
+
+.js-day
+  margin: 2px
 .ls-24-hour-wrap
   background: white
   position: relative
   @media only screen and (max-width: 767px)
-    margin: 5px
+    margin: 0 5px
     +box-shadow(0 0 3px rgba(black, .3))
   .wx-weather-icon
     width: 36px
@@ -56,4 +72,7 @@
     +transform(skewX(-30deg))
     position: relative
     bottom: -2px
+
+
+
 
