@@ -166,9 +166,11 @@ var _Router = {
         for(tag in metaArr){
             if(metaArr[tag].name === "Description"){
                 metaArr[tag].content = meta.page_desc.replaceAll('{dynamicLocName}', _User.activeLocation.prsntNm);
+                metaArr[tag].content = meta.page_desc.replaceAll('{pageLocName}', _User.activeLocation.prsntNm);
             }
             if(metaArr[tag].name === 'Keywords'){
                 metaArr[tag].content = meta.page_keywords.replaceAll('{dynamicLocName}', _User.activeLocation.prsntNm);
+                metaArr[tag].content = meta.page_keywords.replaceAll('{pageLocName}', _User.activeLocation.prsntNm);
             }
         }
     };
