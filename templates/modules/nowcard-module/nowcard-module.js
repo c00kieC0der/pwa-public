@@ -51,7 +51,9 @@
         helper.setContent(dataAssignmentNowCard);
     });
 
-
+    document.getElementById('event-anchor').addEventListener('pager', function(){
+        alert("I see the page loaded");
+    });
 
 
     /*

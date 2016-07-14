@@ -2,8 +2,11 @@
 var _Router = {
     page : ''
 };
+
 (function(){
     var pageAssignment;
+    var pagerEvent = document.createEvent('Event');
+    pagerEvent.initEvent('pager', true, true);
     var getHREFLANG = function(key){
         helper.getJSON('/js-src/hreflangs/hreflang_' + pageAssignment[key].href + '_page.json').then(function(data){
             pageAssignment[key].hreflang = data;
@@ -152,6 +155,8 @@ var _Router = {
         history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
         updateMetadata(page);
         helper.setCanonical();
+        console.log('HERE');
+        document.getElementById('event-anchor').dispatchEvent(pagerEvent);
     };
     var updateMetadata = function(page){
         document.getElementsByTagName("html")[0].setAttribute("lang", _User.lang);
