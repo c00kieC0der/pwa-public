@@ -46,7 +46,6 @@ AAAAAAAAAAAAAA==" />
     <script src="/js-src/ads/ad_core.js"></script>
     <script src="/js-src/ads/3rd-party-calls.js"></script>
 
-
 </head>
 <body onclick="">
 <div id="WX_Hidden"></div>
@@ -109,8 +108,8 @@ AAAAAAAAAAAAAA==" />
                 <div class="temp-cont">
                     <a href="#">
                         <span class="units-text">Units</span>
-                        <span class="temp-red" onclick="showTemperature(this)">°F</span>
-                        <span class="temp-red" onclick="showTemperature(this)">°C</span>
+                        <span class="temp-red active units-fahrenheit" onclick="showTemperature(this)">°F</span>
+                        <span class="temp-red " onclick="showTemperature(this)">°C</span>
                     </a>
                 </div>
                 <div class="locale-link" onclick="showCategories()">
@@ -163,6 +162,7 @@ AAAAAAAAAAAAAA==" />
     </div>
 
     <div class="page-card-container">
+        <div class="alert-bar" id="alert-bar"></div>
         <div class="page-card" id="page-content"></div>
     </div>
 <div id="page-toast-div"></div>
@@ -202,6 +202,8 @@ AAAAAAAAAAAAAA==" />
 <script src="/js-src/vendor/SiteCatalyst/AppMeasurement.js"></script>
 <script src="/js-src/metrics/pwa-metrics.js"></script>
 <script src="/js-src/vendor/ajax.js"></script>
+<script src="/js-src/vendor/moment-with-locales.js"></script>
+<!-- <script src="/js-src/vendor/moment-timezone-with-data.js"></script> -->
 <script src="/assets/wxicon/wxicon.js"></script>
 <script src="/js-src/helper_functions.js"></script>
 <script src="/js-src/countries.js"></script>
@@ -214,6 +216,7 @@ AAAAAAAAAAAAAA==" />
 <script src="/js-src/models/router_model.js"></script>
 <script src="/js-src/models/wxicon_model.js"></script>
 <script src="/js-src/models/wx_data_model.js"></script>
+<script src="/js-src/models/alert_model.js"></script>
 <script src="/js-src/ads/adsController.js"></script>
 
 

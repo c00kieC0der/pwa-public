@@ -4,14 +4,21 @@
 
 // Global
 .card
-  margin: 0 8px 15px
-  padding: 10px
+  margin: 0 8px 10px
   background-color: white
   box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px 0px
+  .panel-heading
+    padding: 10px 8px 0
+
+  &-padding
+    padding: 10px
+    .panel-heading
+      padding: 0
+
 
 .today
   .nowcard
-    margin-bottom: 15px
+    margin-bottom: 10px
     color: #ffffff
     letter-spacing: 0.02rem
     background-color: #257BDA
@@ -41,7 +48,10 @@
       padding: 15px
     .location
       padding: 0 10px
-      font-weight: 700
+      font-size: 14px
+    .nowcard-timestamp
+      font-size: px-to-rem(14px)
+      color: rgba(#FFFFFF, 0.8)
     .forecast
       padding: 0 25px
     .content
@@ -105,6 +115,7 @@
       font-size: 1.14286rem
       font-weight: 600
       padding-right: 85px
+      margin-bottom: 8px
 
     .temp
       font-weight: 600
@@ -112,31 +123,24 @@
       line-height: 1
 
 
-  .nowcard-details
-    padding: 10px
-    background-color: #FFF
-    .wx-detail-row
-      width: 100%
-      margin-bottom: 5px
-    //.wx-detail-label
-    //  font-weight: 600
-    .wx-detail-label,
-    .wx-detail-value
-      display: inline-block
-      width: 49%
-    .wx-detail-value
-      text-align: right
-  .wx-detail-icon
-    float: left
-    padding-right: 6px
-    font-size: px-to-rem(14px)
-    color: $gray-dark
-    line-height: 1.3em
-
-  &.preload
-    .nowcard-details
+    &-details
       .wx-detail-row
-        background-color: $gray-lighter
+        width: 100%
+        margin-bottom: 5px
+      //.wx-detail-label
+      //  font-weight: 600
+      .wx-detail-label,
+      .wx-detail-value
+        display: inline-block
+        width: 49%
+      .wx-detail-value
+        text-align: right
+    .wx-detail-icon
+      float: left
+      padding-right: 6px
+      font-size: px-to-rem(14px)
+      color: $gray-dark
+      line-height: 1.3em
 
 
 .looking-ahead
@@ -262,13 +266,14 @@
   .deg-unit
     position: absolute
   .wx-detail
+    min-height: 25px
     .wx-icon-sunrise-sunset
       line-height: 0.3em
       //font-size: px-to-rem(22px)
       position: relative
       top: 3px
   .wx-details-block
-    margin: 20px 0
+    margin: 20px 0 0
     +pie-clearfix
     .wx-detail
       display: block

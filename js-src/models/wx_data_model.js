@@ -9,26 +9,24 @@ var _Data = {}, app = {};
     almanacEventData.initEvent('almanac-builder', true, true);
 
 
-
-
     _Data.collectNew = function () {
+        _User.activeLocation.lat = Number(_User.activeLocation.lat).toPrecision(4).toString();
+        _User.activeLocation.long = Number(_User.activeLocation.long).toPrecision(4).toString();
         dataUrl = "https://api.weather.com/v2/turbo/vt1fifteenminute;vt1hourlyForecast;vt1precipitation;vt1currentdatetime;vt1dailyForecast;vt1observation?units=" +
         _User.unitPref +
         '&language=' + _User.lang +
         '&geocode=' +
         _User.activeLocation.lat + ',' + _User.activeLocation.long +
         '&format=json&apiKey=c1ea9f47f6a88b9acb43aba7faf389d4';
-
         dataAstroUrl = "https://dsx.weather.com/wxd/v2/Astro/" + _User.lang + "/0/3/(" + _User.activeLocation.lat + ',' + _User.activeLocation.long + ")?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
-        //TODO: remove this dummy var
-        var dummyLocId = "USDC0001:1:US";
+
         dataAlmanacUrl = "https://dsx.weather.com/wxd/v2/FarmingAlmanac/" +
             _User.lang + "/0/"+
-            dummyLocId +
-            //_User.activeLocation.locId +
+             _User.activeLocation.lat + ',' + _User.activeLocation.long +
             "?api=7bb1c920-7027-4289-9c96-ae5e263980bc";
+
         app.hasRequestPending = true;
-        if ('caches' in window) {
+        /*if ('caches' in window) {
             // console.log(caches);
             caches.match(dataUrl).then(function (response) {
                 if (response) {
@@ -44,7 +42,7 @@ var _Data = {}, app = {};
                     });
                 }
             });
-        }
+        }*/
 
         AjaxRequest.get({
             'url': dataUrl,
@@ -91,15 +89,14 @@ var _Data = {}, app = {};
                 var oneDayHistorical = data.OneDayHistorical;
                 var reportedConditions = data.ReportedConditions;
                 var historicalMonthlyAvg = data.HistoricalMonthlyAvg;
-
                 var units = setUnits(_User.unitPref);
+
                 _Data.tempUnit = units.tempUnit;
                 _Data.precipUnit = units.precipUnit;
                 _Data.oneDayHistorical = cleanOneDayHxData(oneDayHistorical, _Data.tempUnit);
                 _Data.reportedConditions = cleanReportedConditionsData(reportedConditions, _Data.tempUnit, _Data.precipUnit);
                 _Data.historicalMonthlyAvg = cleanHxMonthlyAvgData(historicalMonthlyAvg, _Data.tempUnit, _Data.precipUnit);
-                // END WIP
-
+                _Data.almanacMonths = formatMonthDate();
                 document.getElementById('event-anchor').dispatchEvent(almanacEventData);
             }, 'onError' : function(err) {
                 console.log('error: ', err);
@@ -107,9 +104,6 @@ var _Data = {}, app = {};
         });
 
     };
-    if (_User.activeLocation.lat) {
-        _Data.collectNew();
-    }
 // WIP 7/5/16 1119
     var cleanHxMonthlyAvgData = function(hxMonthlyAvgObj, tempUnit, precipUnit) {
     //    console.log(precipUnit);
@@ -132,7 +126,7 @@ var _Data = {}, app = {};
             }
         });
         return data;
-    }
+    };
 // END WIP
 
     var setUnits = function(unitPref) {
@@ -192,30 +186,10 @@ var _Data = {}, app = {};
 
 
     var formatTime = function (fullDate) {
-        var dateBase = new Date(fullDate);
-        var hours = dateBase.getHours();
-        var minutes = dateBase.getMinutes();
-        var meridian = 'AM';
-        if (hours === 12) {
-            meridian = 'PM';
-        }
-        if (hours > 12) {
-            hours -= 12;
-            meridian = 'PM';
-        }
-        if (hours === 0) {
-            hours = 12;
-        }
-
-        return hours + ':'
-            + (minutes>9?minutes + ' ':'0'+minutes + ' ')
-            + meridian;
+        return moment(fullDate).format(_Lang['h:mm a']);
     };
     var formatDate = function (fullDate) {
-        var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
-        var monthsOfYear = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-        var dateBase = new Date(fullDate);
-        return daysOfWeek[dateBase.getDay()] + ', ' + monthsOfYear[dateBase.getMonth()] + ' ' + dateBase.getDate();
+        return moment(fullDate).format(_Lang['ddd, MMM Do']);
     };
     /*
     returns array of curr date information. Can be combined with above function with some work if approved
@@ -230,10 +204,9 @@ var _Data = {}, app = {};
             dayIndex:dateBase.getDay()
         };
     }
-    var formatMonthDate = function (fullDate) {
-        retMonthData = [];
-        var monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        var dateBase = new Date(fullDate);
+    var formatMonthDate = function () {
+        var monthsOfYear = _Lang.MONTH;
+        var dateBase = new Date();
         return{
             month1: monthsOfYear[dateBase.getMonth()],
             month2: monthsOfYear[dateBase.getMonth()+1],
@@ -274,6 +247,7 @@ var _Data = {}, app = {};
         _Data.hourly.time = [];
         _Data.hourly.date = [];
         _Data.lookingAhead = getLookingAhead();
+        _Data.obs.timestamp = getTimestamp();
         _Data.almanacMonths = getMonths();
         for (var i in _Data.hourly.processTime) {
             _Data.hourly.time[i] = formatTime(_Data.hourly.processTime[i]);
@@ -282,12 +256,15 @@ var _Data = {}, app = {};
 
     };
 
-
     var getMonths = function () {
         var currentMonth = formatMonthDate(_Data.datetime.datetime);
         return currentMonth;
     };
 
+    var getTimestamp = function () {
+        var currentTime = formatTime(_Data.obs.observationTime);
+        return currentTime;
+    };
 
     var getDayData = function () {
         //Day night data, should be optimized
@@ -329,9 +306,9 @@ var _Data = {}, app = {};
             dayData.moonset[i] = formatTime(_Data.dailyForecast.moonset[i]);
             dayData.nightIcon[i] = dayData.nightIcon[i];
         }
-        for (var key in dayData){
-            _Data.dailyForecast.dayData[key] = dayData[key];
-        }
+
+        _Data.dailyForecast.dayData = dayData;
+
     };
     //Must be called after getDayData
     var getWeekendData = function () {

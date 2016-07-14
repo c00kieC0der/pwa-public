@@ -65,14 +65,10 @@ var _Router = {
         updateTranslations(urlInfo);
     };
     var updateTranslations = function(pathArr){
-        if(pathArr && pathArr.lang && _User.lang !== pathArr.lang){
-            _User.lang = pathArr.lang;
-            _Language.updateTranslations().then(function(){
-                getDefaultLoc(pathArr);
-            });
-        } else {
+        _User.lang = pathArr.lang;
+        _Language.updateTranslations().then(function(){
             getDefaultLoc(pathArr);
-        }
+        });
     };
     var RTLs = ['ar-AE', 'fa-IR', 'he-IL', 'ur-PK'];
     var setRTL = function(){
@@ -88,23 +84,28 @@ var _Router = {
             _Locations.supplementLoc(pathArr.loc).then(function(data){
                 _User.activeLocation = data;
                 _Data.collectNew();
+                _Alert.getAlertData();
                  checkPage(pathArr);
             });
-        } else if (!_User.activeLocation.prsntNm){
+        } else if (!_User.activeLocation.lat){
             _Locations.getDefaultLocation().then(function(data){
                 _User.activeLocation = data;
                 _Data.collectNew();
+                _Alert.getAlertData();
                 checkPage(pathArr);
             });
         } else {
+            _Data.collectNew();
             checkPage(pathArr);
         }
+        //Load alert-bar module
+        helper.loadTemplate('alert-bar', 'modules', 'alert-bar');
     };
      var checkPage = function(pathArr){
             if(history.state && history.state.changeTo){
                 _Router.changePage(history.state.changeTo);
             } else {
-                if(!pathArr.page){
+                if(!pathArr.page || pathArr.page === _User.lang + '//'){
                     _Router.changePage('today');
                 } else {
                     if(pathArr.page === '404/'){

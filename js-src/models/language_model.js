@@ -1,6 +1,6 @@
 var _Language = {}; _Lang = {}, _Locales = {};
-    var eventData = document.createEvent('Event');
-    eventData.initEvent('lang-builder', true, true);
+    var langEvent = document.createEvent('Event');
+    langEvent.initEvent('lang-builder', true, true);
 
 
     _Locales.getLocales = function(){
@@ -21,14 +21,14 @@ var _Language = {}; _Lang = {}, _Locales = {};
                 } else {
                     path = '/js-src/translated/' + localeMap[_User.lang] + '/';
                 }
-
                 helper.getJSON(path + 'app.json').then(function (result) {
                     _Lang = result;
                     helper.getJSON(path + 'metadata.json').then(function(result) {
                         _Locales.metadata = result;
+                        document.getElementById('event-anchor').dispatchEvent(langEvent);
+                        resolve();
                     });
-                    document.getElementById('event-anchor').dispatchEvent(eventData);
-                    resolve();
+
                 }, function (error) {
                     reject(error);
                 });

@@ -41,9 +41,9 @@ helper.isInViewport = function(el){
 
 helper.registerListener = function(event, func) {
     if (window.addEventListener) {
-        window.addEventListener(event, func)
+        window.addEventListener(event, func);
     } else {
-        window.attachEvent('on' + event, func)
+        window.attachEvent('on' + event, func);
     }
 };
 helper.removeListener = function(event, func){
@@ -52,6 +52,15 @@ helper.removeListener = function(event, func){
     } else {
         window.detachEvent('on' + event, func);
     }
+};
+
+var getRtlCss = function(xmlHtml) {
+    var RTLs = ['ar-AE', 'fa-IR', 'he-IL', 'ur-PK'];
+    if(RTLs.indexOf(_User.lang) > -1){
+      xmlHtml = xmlHtml.replace('.css', '-rtl.css');
+    }
+
+    return xmlHtml;
 };
 
 //TODO: add class functionality to loadTemplate function and make reusable
@@ -63,7 +72,7 @@ helper.loadTemplateWithClass = function(elementId, type, name){
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             helper.addClass(document.getElementById(elementId), 'slide-out');
-            document.getElementById(elementId).innerHTML = xhr.responseText;
+            document.getElementById(elementId).innerHTML = getRtlCss(xhr.responseText);
             var body = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
             script.type = 'text/javascript';
@@ -85,14 +94,13 @@ helper.loadTemplateWithClass = function(elementId, type, name){
     xhr.send();
 };
 
-
 helper.loadTemplate = function(elementId, type, name){
     var path = '/templates/' + type + '/' + name + '/' + name + '.html';
     var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            document.getElementById(elementId).innerHTML = xhr.responseText;
+            document.getElementById(elementId).innerHTML = getRtlCss(xhr.responseText);
             var body = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
             script.type = 'text/javascript';
@@ -126,6 +134,9 @@ helper.loadScript = function(path, callback){
 };
 helper.setContent = function(content){
         var assignToDOM = function(arr){
+            if(arr[1] === undefined || !arr[1]){
+                arr[1] = '--'
+            }
             document.getElementById(arr[0]).innerHTML = arr[1];
         };
         if(typeof content === 'object'){
@@ -165,6 +176,8 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
 
                     if(dataMap[i][1] === 'icon'){
                         classXes[j].innerHTML = getWxIcon(data[dataMap[i][1]][j]);
+                    } else if(dataMap[i][1].indexOf('Class') !== -1){
+                        helper.addClass(classXes[j], data[dataMap[i][1]][j]);
                     } else {
                         classXes[j].innerHTML = data[dataMap[i][1]][j];
                         if(dataMap[i][2]){
@@ -339,4 +352,8 @@ helper.setCanonical = function(){
     };
     generateMetaTag();
 
+};
+
+helper.pdTranslate = function(content) {
+    return _Lang[content] ? _Lang[content] : content
 };

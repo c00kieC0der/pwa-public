@@ -10,7 +10,7 @@ body {
   .hero-404 .largetext {
     font-size: 48px;
     font-weight: 700;
-    padding-top: 60px;
+    padding-top: 70px;
     color: rgba(255, 255, 255, 0.8); }
   .hero-404 .subtext {
     font-size: 16px;
@@ -20,6 +20,11 @@ body {
   font-size: 16px;
   text-transform: uppercase; }
   .list-404 li a {
-    padding: 20px 0;
+    padding: 20px;
     display: block;
-    border-bottom: solid 1px #999; }
+    border-bottom: solid 1px #999;
+    color: #393939; }
+  .list-404 li .wx-iconfont-global {
+    font-size: 25px;
+    vertical-align: middle;
+    margin-right: 10px; }

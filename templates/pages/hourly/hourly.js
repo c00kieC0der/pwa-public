@@ -1,9 +1,9 @@
 (function(){
     helper.loadTemplate('hourly-forecast', 'modules', 'hourly-forecast');
-    if(window['_Lang'] && window['_User'].activeLocation.prsntNm.length){ console.log('first run', _User.activeLocation.prsntNm);
+    if(window['_Lang'] && window['_User'].activeLocation.prsntNm.length){
         helper.setContent([['hourly-title', _Lang['hourly forecast for {0}'].replace('{0}', _User.activeLocation.prsntNm)]]);
     }
-    document.getElementById('event-anchor').addEventListener('builder', function(){ //console.log('waited for event');
+    document.getElementById('event-anchor').addEventListener('lang-builder', function(){
         helper.setContent([['hourly-title', _Lang['hourly forecast for {0}'].replace('{0}', _User.activeLocation.prsntNm)]]);
     });
 })();
