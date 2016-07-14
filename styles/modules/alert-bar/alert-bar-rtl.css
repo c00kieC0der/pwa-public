@@ -81,6 +81,31 @@ html[lang="ja-JP"] .gm_alerts .warning-text, html[lang="ko-KR"] .gm_alerts .warn
 .gm_alerts .dropdown {
   z-index: 1000;
 }
+.gm_alerts .text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gm_alerts .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  display: none;
+  float: right;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid #999999;
+  border-radius: 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
 .gm_alerts .dropdown .list-group > li > a {
   padding: 0 15px;
 }
@@ -153,6 +178,7 @@ html[lang="ja-JP"] .gm_alerts .warning-text, html[lang="ko-KR"] .gm_alerts .warn
 @media (min-width: 300px) {
   .gm_alerts .dropdown .dropdown-toggle {
     width: 75px;
+    height: 100%;
     padding: 8px;
   }
   .gm_alerts .dropdown .dropdown-toggle .wx-iconfont-global {
