@@ -1,21 +1,9 @@
 <link rel="stylesheet" type="text/css" href="/templates/modules/static-map/static-map.css">
-<!--<div class="menu">-->
-    <!--<div id="menuTitle" class="menu-title"><span id="menuTitleText"></span>-->
-        <!---->
-    <!--</div>-->
-<!--</div>-->
-
-<header class="panel-heading" onclick="menuShowHide()">
-    <div class="heading-link">
-        <h2 class="heading" id="almanac-hdr">
-            <span id="menuTitleText"></span>
-            <span class="wx-iconfont-global wx-icon-arrow-down-2"></span>
-        </h2>
+<div class="menu" onclick="menuShowHide()">
+    <div id="menuTitle" class="menu-title"><span id="menuTitleText"></span>
+        <span class="wx-iconfont-global wx-icon-arrow-down-2"></span>
     </div>
-</header>
-
-
-
+</div>
 <ul id="menuDropdown" class="dropdown">
     <li onclick="addAMapLayer(0);_Metrics.clickTrack(this, 'map', 'map', 'todaymapRadar');" id="map-radar"></li>
     <li onclick="addAMapLayer(1);_Metrics.clickTrack(this, 'map', 'map', 'todaymapClouds');" id="map-clouds"></li>

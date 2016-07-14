@@ -9,12 +9,15 @@
     height: 40px;
 }
 .menu-title{
-    font-size: 18px;
     padding: 10px;
     width: 115px;
     cursor: pointer;
     color: #383838;
     background-color: #FFF;
+    font-size: 1.14286rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 5px 0 10px;
 }
 .panel-heading .wx-iconfont-global {
     font-size: 14px;

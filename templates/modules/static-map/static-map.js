@@ -3,6 +3,9 @@ window['mapVersion'] = window['mapVersion'] ? Number(mapVersion) +1 : "2";
 var mapInited = false;
 var map, layers;
 var runTheMap = function(){
+    setTimeout(function(){
+
+
     mapInited = true;
 
     map = window._map = new wx.maps.Map(document.getElementsByClassName('static-map')[0], new wx.maps.MapOptions({
@@ -63,6 +66,7 @@ var runTheMap = function(){
     map.doubleClickZoom.disable();
     map.scrollWheelZoom.disable();
     map.dragging.disable();
+    }, 300);
 };
 
 var setMarker = function(){
