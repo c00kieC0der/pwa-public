@@ -260,6 +260,8 @@ function changeLang(code){
     _User.lang = code;
     _Language.updateTranslations().then(function(){
        _Router.updateURL();
+        //update RTL page when user change language.
+       _Router.setRTL();
     });
     showHide('main-nav', 0);
 }
