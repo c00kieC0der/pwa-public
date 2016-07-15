@@ -112,6 +112,13 @@ AdsMetricsCtrl.utils = AdsMetricsCtrl.utils || {};
     $$.Promises.loadAds = new Event('load-ads');
 
     $$.Promises.jsonReady = $$.utils.loadJSON('/js-src/ads/adsMetricsMaps.json',$$, 'adsMetricsMaps');
+    $$.Promises.jsonReady.promise.then(function() {
+        var locale = location.href.match(/[a-z]{2}-[A-Z]{2}/);
+        locale = locale && locale[0] || 'en-US';
+        $$.metricsAcct = ((location.href.match(/dev/) || location.href.match(/localhost/)) && "twcdev") ||
+                         ($$.adsMetricsMaps.localeToAdUnitMap[locale] &&
+                          $$.adsMetricsMaps.localeToAdUnitMap[locale].metrics) || "twcigls";
+    });
     
 })(AdsMetricsCtrl);
 

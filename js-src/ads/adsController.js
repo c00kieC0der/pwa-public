@@ -127,7 +127,8 @@ googletag.cmd = googletag.cmd || [];
         $$.Promises.jsonReady.promise.then(function() {
             var adsMetricsMaps = $$.adsMetricsMaps;
             var savedPco = window.localStorage.jStorage ? JSON.parse(window.localStorage.jStorage) : {};
-            var locale = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : "en-US";
+            var locale = location.href.match(/[a-z]{2}-[A-Z]{2}/);
+            locale = locale && locale[0] || 'en-US';
 
 
             /** ad unit */
