@@ -167,19 +167,19 @@ gulp.task('css-rtl', function () {
     // if there is --style-module passed then do below.
     if(args.module) {
         console.log(args.module);
-        return gulp.src(['ss-SS/styles/**/*.css', '!ss-SS/styles/**/*-rtl.css'], {base: 'styles/**/' })
+        return gulp.src(['ss-SS/styles/**/*.css', '!ss-SS/styles/**/*-rtl.css'], {base: 'ss-SS/styles/**/' })
             .pipe(autoprefixer(["last 2 versions", "> 1%"]))
-            .pipe(gulp.dest('styles/**/')) // Output LTR stylesheets.
+            .pipe(gulp.dest('ss-SS/styles/**/')) // Output LTR stylesheets.
             .pipe(rtlcss()) // Convert to RTL.
             .pipe(rename({ suffix: '-rtl' })) // Append "-rtl" to the filename.
-            .pipe(gulp.dest('styles/**/')); // Output RTL stylesheets.
+            .pipe(gulp.dest('ss-SS/styles/**/')); // Output RTL stylesheets.
     }
-    var styles = gulp.src(['ss-SS/styles/**/*.css', '!ss-SS/styles/**/*-rtl.css'], {base: 'styles/**/' })
+    var styles = gulp.src(['ss-SS/styles/**/*.css', '!ss-SS/styles/**/*-rtl.css'], {base: 'ss-SS/styles/**/' })
         .pipe(autoprefixer(["last 2 versions", "> 1%"]))
-        .pipe(gulp.dest('styles/**/')) // Output LTR stylesheets.
+        .pipe(gulp.dest('ss-SS/styles/**/')) // Output LTR stylesheets.
         .pipe(rtlcss()) // Convert to RTL.
         .pipe(rename({ suffix: '-rtl' })) // Append "-rtl" to the filename.
-        .pipe(gulp.dest('styles/**/')); // Output RTL stylesheets.
+        .pipe(gulp.dest('ss-SS/styles/**/')); // Output RTL stylesheets.
                                         //
     var templates = gulp.src(['templates/modules/**/*.css', '!templates/modules/**/*-rtl.css'], {base: 'templates/modules/**/' })
         .pipe(autoprefixer(["last 2 versions", "> 1%"]))
