@@ -120,14 +120,16 @@ helper.loadTemplate = function(elementId, type, name){
 
 helper.loadScript = function(path, callback, body){
     var body = document.getElementsByTagName(((body && 'body') || 'head'))[0];
+helper.loadScript = function(path, callback){
+    var body = document.getElementsByTagName('head')[0];
     var script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = path;
 
     // Then bind the event to the callback function.
     // There are several events for cross browser compatibility.
-    callback && (script.onreadystatechange = callback);
-    callback && (script.onload = callback);
+    script.onreadystatechange = callback;
+    script.onload = callback;
 
     // Fire the loading
     body.appendChild(script);
@@ -362,4 +364,8 @@ helper.pdTranslate = function(content) {
 helper.getActiveLocID = function(){
     var activeLoc = _User.activeLocation;
     return (activeLoc.locId ? (activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd) : '');
+};
+
+helper.safeDisplay = function(input, textToReplace){
+    return (input === 0 || !!input) ? input : (textToReplace || '--');
 };

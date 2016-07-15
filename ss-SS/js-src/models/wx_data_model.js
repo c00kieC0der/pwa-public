@@ -137,44 +137,20 @@ var _Data = {}, app = {};
     };
 
     var cleanOneDayHxData = function(oneDayHxObj, tempUnit) {
-            var data = {},
-                nullPlaceholder = '\u2014';
-
-            (isValidRecord(oneDayHxObj.yearOfRecordHighTemp)) ?
-                data.recordHighYear = oneDayHxObj.yearOfRecordHighTemp :
-            data.recordHighYear = '';
-
-            (isValidRecord(oneDayHxObj.yearOfRecordLowTemp)) ?
-                data.recordLowYear = oneDayHxObj.yearOfRecordLowTemp :
-            data.recordLowYear = '';
-
-            (isValidRecord(oneDayHxObj['recordHigh' + tempUnit])) ?
-                data.recordHigh = oneDayHxObj['recordHigh' + tempUnit] :
-                data.recordHigh = nullPlaceholder;
-
-            (isValidRecord(oneDayHxObj['recordLow' + tempUnit])) ?
-                data.recordLow = oneDayHxObj['recordLow' + tempUnit] :
-                data.recordLow = nullPlaceholder;
-
-            data.avgPrecip = nullPlaceholder;
-
-            (isValidRecord(oneDayHxObj['avgHigh' + tempUnit])) ?
-                data.avgHigh = oneDayHxObj['avgHigh' + tempUnit] :
-                data.avgHigh = nullPlaceholder;
-
-            (isValidRecord(oneDayHxObj['avgLow' + tempUnit])) ?
-                data.avgLow = oneDayHxObj['avgLow' + tempUnit] :
-                data.avgLow = nullPlaceholder;
+            var data = {};
+            data.recordHighYear = oneDayHxObj.yearOfRecordHighTemp;
+            data.recordLowYear = oneDayHxObj.yearOfRecordLowTemp;
+            data.recordHigh = oneDayHxObj['recordHigh' + tempUnit];
+            data.recordLow = oneDayHxObj['recordLow' + tempUnit];
+            data.avgPrecip = helper.safeDisplay();
+            data.avgHigh = oneDayHxObj['avgHigh' + tempUnit];
+            data.avgLow = oneDayHxObj['avgLow' + tempUnit];
 
         return data;
-    };
-    var isValidRecord = function(data) {
-        return !(isNaN(data));
     };
 
     var cleanReportedConditionsData = function(recordedConditionsObj, tempUnit, precipUnit) {
         var data = {},
-            nullPlaceholder = '\u2014',
             valueNames = ['mtdHigh', 'mtdLow', 'mtdPrecip', 'prevDayHigh', 'prevDayLow', 'prevDayPrecip', 'sevenDayHigh', 'sevenDayLow', 'sevenDayPrecip'];
         valueNames.forEach(function(currentVal) {
            data[currentVal] = (currentVal.indexOf('Precip') > -1) ?
