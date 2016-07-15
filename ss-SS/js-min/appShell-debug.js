@@ -1,195 +1,32 @@
-/**
+ /**
  * Created by omkard on 6/5/16.
  */
 
 var downArrayClicked = false;
-var categories = [{"catName":"Americas","countryName":[
-                                                    // {"name":"USA","code":"EN"},
-                                                    // {"name":"USA (Spanish)","code":"ES"},
-                                                    {"name":"Antigua and Barbuda","code":""},
-                                                    {"name":"Argentina","code":""},
-                                                    {"name":"Bahamas","code":""},
-                                                    {"name":"Barbados","code":""},
-                                                    {"name":"Belize","code":""},
-                                                    {"name":"Bolivia","code":""},
-                                                    {"name":"Brazil","code":""},
-                                                    {"name":"Canada","code":"EN"},
-                                                    {"name":"Canada","code":"FR"},
-                                                    {"name":"Chile","code":""},
-                                                    {"name":"Colombia","code":""},
-                                                    {"name":"Costa Rica","code":""},
-                                                    {"name":"Dominica","code":""},
-                                                    {"name":"Dominican Republic","code":""},
-                                                    {"name":"Ecuador","code":""},
-                                                    {"name":"El Salvador","code":""},
-                                                    {"name":"Grenada","code":""},
-                                                    {"name":"Guatemala","code":""},
-                                                    {"name":"Guyana","code":""},
-                                                    {"name":"Haiti","code":""},
-                                                    {"name":"Honduras","code":""},
-                                                    {"name":"Jamaica","code":""},
-                                                    {"name":"Mexico","code":""},
-                                                    {"name":"Nicaragua","code":""},
-                                                    {"name":"Panama","code":""},
-                                                    {"name":"Panama","code":""},
-                                                    {"name":"Paraguay","code":""},
-                                                    {"name":"Peru","code":""},
-                                                    {"name":"St. Kitts and Nevis","code":""},
-                                                    {"name":"St. Lucia","code":""},
-                                                    {"name":"St. Vincent and the Grenadines","code":""},
-                                                    {"name":"Suriname","code":""},
-                                                    {"name":"Trinidad and Tobago","code":""},
-                                                    {"name":"Uruguay","code":""},
-                                                    {"name":"Venezuela","code":""}]},
-                {"catName":"Africa","countryName":[{"name":"Algeria","code":""},
-                                                    {"name":"Algeria","code":""},
-                                                    {"name":"Benin","code":""},
-                                                    {"name":"Burkina Faso", "code":""},
-                                                    {"name":"Burundi", "code":""},
-                                                    {"name":"Cameroon", "code":""},
-                                                    {"name":"Cameroon", "code":""},
-                                                    {"name":"Cape Verde", "code":""},
-                                                    {"name":"Central African Republic", "code":""},
-                                                    {"name":"Chad","code":""},
-                                                    {"name":"Chad", "code":""},
-                                                    {"name":"Chile", "code":""},
-                                                    {"name":"Comoros", "code":""},
-                                                    {"name":"Comoros", "code":""},
-                                                    {"name":"Congo, Democratic Republic of the", "code":""},
-                                                    {"name":"Congo, Republic of", "code":""},
-                                                    {"name":"Costa Rica", "code":""},
-                                                    {"name":"Côte d'Ivoire", "code":""},
-                                                    {"name":"Djibouti","code":""},
-                                                    {"name":"Djibouti", "code":""},
-                                                    {"name":"Egypt", "code":""},
-                                                    {"name":"Equatorial Guinea", "code":""},
-                                                    {"name":"Eritrea", "code":""},
-                                                    {"name":"Gabon", "code":""},
-                                                    {"name":"Gambia", "code":""},
-                                                    {"name":"Ghana","code":""},
-                                                    {"name":"Guinea", "code":""},
-                                                    {"name":"Guinea-Bissau", "code":""},
-                                                    {"name":"Kenya", "code":""},
-                                                    {"name":"Lesotho", "code":""},
-                                                    {"name":"Liberia", "code":""},
-                                                    {"name":"Libya", "code":""},
-                                                    {"name":"Madagascar", "code":""},
-                                                    {"name":"Mali","code":""},
-                                                    {"name":"Mauritania", "code":""},
-                                                    {"name":"Mauritius", "code":""},
-                                                    {"name":"Mauritius", "code":""},
-                                                    {"name":"Morocco", "code":""},
-                                                    {"name":"Morocco", "code":""},
-                                                    {"name":"Mozambique", "code":""},
-                                                    {"name":"Namibia","code":""},
-                                                    {"name":"Niger", "code":""},
-                                                    {"name":"Nigeria", "code":""},
-                                                    {"name":"Rwanda", "code":""},
-                                                    {"name":"Rwanda", "code":""},
-                                                    {"name":"São Tomé and Príncipe", "code":""},
-                                                    {"name":"Senegal", "code":""},
-                                                    {"name":"Sierra Leone","code":""},
-                                                    {"name":"Somalia", "code":""},
-                                                    {"name":"South Africa", "code":""},
-                                                    {"name":"South Sudan", "code":""},
-                                                    {"name":"Sudan", "code":""},
-                                                    {"name":"Swaziland", "code":""},
-                                                    {"name":"Tanzania", "code":""},
-                                                    {"name":"Tunisia","code":""},
-                                                    {"name":"Uganda", "code":""}]},
-                {"catName":"Asia Pacific","countryName":[{"name":"Australia","code":""},
-                                                    {"name":"Bangladesh","code":""},
-                                                    {"name":"Brunei","code":""},
-                                                    {"name":"China", "code":""},
-                                                    {"name":"China", "code":""},
-                                                    {"name":"East Timor", "code":""},
-                                                    {"name":"Fiji", "code":""},
-                                                    {"name":"India (English)", "code":""},
-                                                    {"name":"India (Hindi)", "code":""},
-                                                    {"name":"Indonesia", "code":""},
-                                                    {"name":"Japan", "code":""},
-                                                    {"name":"Kiribati", "code":""},
-                                                    {"name":"Korea, North", "code":""},
-                                                    {"name":"Korea", "code":""},
-                                                    {"name":"Kyrgyzstan", "code":""},
-                                                    {"name":"Laos", "code":""},
-                                                    {"name":"Malaysia", "code":""},
-                                                    {"name":"Marshall Islands", "code":""},
-                                                    {"name":"Micronesia", "code":""},
-                                                    {"name":"New Zealand", "code":""},
-                                                    {"name":"Palau", "code":""},
-                                                    {"name":"Philippines", "code":""},
-                                                    {"name":"Philippines", "code":""},
-                                                    {"name":"Samoa", "code":""},
-                                                    {"name":"Singapore", "code":""},
-                                                    {"name":"Singapore", "code":""},
-                                                    {"name":"Solomon Islands", "code":""},
-                                                    {"name":"Taiwan", "code":""},
-                                                    {"name":"Thailand", "code":""},
-                                                    {"name":"Tonga", "code":""},
-                                                    {"name":"Tuvalu", "code":""},
-                                                    {"name":"Vanuatu", "code":""},
-                                                    {"name":"Vanuatu", "code":""},
-                                                    {"name":"Vietnam", "code":""}]},
-                  {"catName":"Europe","countryName":[{"name":"Andorra","code":""},
-                                                      {"name":"Andorra","code":""},
-                                                      {"name":"Angola","code":""},
-                                                      {"name":"Austria","code":""},
-                                                      {"name":"Belarus","code":""},
-                                                      {"name":"Belgium","code":""},
-                                                      {"name":"Belgium","code":""},
-                                                      {"name":"Bosnia and Herzegovina","code":""},
-                                                      {"name":"Croatia","code":""},
-                                                      {"name":"Cyprus","code":""},
-                                                      {"name":"Czech Republic","code":""},
-                                                      {"name":"Denmark","code":""},
-                                                      {"name":"Estonia","code":""},
-                                                      {"name":"Finland","code":""},
-                                                      {"name":"France","code":""},
-                                                      // {"name":"Germany","code":""},
-                                                      {"name":"Greece","code":""},
-                                                      {"name":"Hungary","code":""},
-                                                      {"name":"Iceland","code":""},
-                                                      {"name":"Iceland","code":""},
-                                                      {"name":"Ireland","code":""},
-                                                      {"name":"Italy","code":""},
-                                                      {"name":"Latvia","code":""},
-                                                      {"name":"Liechtenstein","code":""},
-                                                      {"name":"Luxembourg","code":""},
-                                                      {"name":"Malta","code":""},
-                                                      {"name":"Monaco","code":""},
-                                                      {"name":"Netherlands","code":""},
-                                                      {"name":"Norway","code":""},
-                                                      {"name":"Poland","code":""},
-                                                      {"name":"Portugal","code":""},
-                                                      {"name":"Romania","code":""},
-                                                      {"name":"Russia","code":""},
-                                                      {"name":"San Marino","code":""},
-                                                      {"name":"Slovakia","code":""},
-                                                      {"name":"Spain (Spanish)","code":""},
-                                                      {"name":"Spain (Catalan)","code":""},
-                                                      {"name":"Sweden","code":""},
-                                                      {"name":"Switzerland","code":""},
-                                                      {"name":"Turkey","code":""},
-                                                      {"name":"Ukraine","code":""},
-                                                      // {"name":"United Kingdom","code":""},
-                                                      {"name":"Vatican City (Holy See)","code":""}]},
-                  {"catName":"Middle East","countryName":[{"name":"Bahrain","code":""},
-                                                      {"name":"Iran","code":""},
-                                                      {"name":"Iraq","code":""},
-                                                      {"name":"Israel","code":""},
-                                                      {"name":"Jordan","code":""},
-                                                      {"name":"Kazakhstan","code":""},
-                                                      {"name":"Kuwait","code":""},
-                                                      {"name":"Lebanon","code":""},
-                                                      {"name":"Oman","code":""},
-                                                      {"name":"Pakistan","code":""},
-                                                      {"name":"Pakistan","code":""},
-                                                      {"name":"Qatar","code":""},
-                                                      {"name":"Saudi Arabia","code":""},
-                                                      {"name":"Syria","code":""},
-                                                      {"name":"United Arab Emirates","code":""}]}];
 
+    /**
+     * function to control the nav width
+     */
+    window.onload = navAppShell();
+    window.resize = navAppShell();
+
+
+    function navAppShell() {
+            var navListEle = document.getElementsByClassName('page-nav-li');
+            var navUlEle = document.getElementsByClassName('page-nav');
+            var navItemwidth = 0;
+            for(i=0; i<navListEle.length; i++){
+                navItemwidth += navListEle[i].offsetWidth;
+            }
+            navUlEle[0].style.width = navItemwidth + 'px';
+    }
+/**
+ * updateLanguageLabel() update language name accordingly with _User.lang
+ */
+
+function updateLanguageLabel() {
+    document.getElementById('lang-name-label').innerHTML = _Language.getNameFromCode(_User.lang);
+}
 /**
  * showMainMenu() shows the hamburger menu when clicked
  */
@@ -203,10 +40,10 @@ function showMainMenu() {
     //Displays the main menu page which was hidden
     showHide('main-nav', 1);
     //Displays only the current-location div and hides all other layouts
-    showHide('loc-layout',1);
-    showHide('category-layout',0);
-    showHide('areas-layout',0);
-
+    slideMenu('loc-layout',1);
+    slideMenu('category-layout',0);
+    slideMenu('areas-layout',0);
+    updateLanguageLabel();
 }
 /**
  * showMainSearch() shows the Search layout
@@ -227,7 +64,7 @@ function showMainSearch() {
     helper.empty('recently-searched');
     var container = document.getElementById('recently-searched');
     for(var i in _User.locations){
-        container.innerHTML += '<li class="results"><a onclick="javascript:searchResultsClicked(this, ' + _User.locations[i].lat + ', ' + _User.locations[i].long + ', false)" class="dropdown-name">' + _User.locations[i].prsntNm + '</a></li>';
+        container.innerHTML += '<li class="results"><a onclick="javascript:searchResultsClicked(this, ' + i +  ', \'' + _User.locations[i].prsntNm  + '\', false, false )" class="dropdown-name">' + _User.locations[i].prsntNm + '</a></li>';
     }
 }
 
@@ -246,9 +83,9 @@ function searchResults() {
         var searchResults = lookupLocations(currentValue);
         if(_Locations.results !== undefined) {
             var cityList = '';
-            for (i=0; i<_Locations.results.length; i++ ) {
-                var latLongArray = _Locations.results[i].geocode.split(',');
-                cityList += '<li class="results"><a class="name" onclick="searchResultsClicked(this, ' +latLongArray[0] + ',' + latLongArray[1] + ', true)"> '+_Locations.results[i].cityNm+', '+_Locations.results[i].stCd+'  </a></li>';
+            for (var i=0; i<_Locations.results.length; i++ ) {
+                var prsntNm = _Locations.results[i].cityNm + ', ' + _Locations.results[i].stCd;
+                cityList += '<li class="results"><a class="name" onclick="searchResultsClicked(this, ' + i + ', \'' + prsntNm + '\', true, true)"> ' + prsntNm + '  </a></li>';
             }
             document.getElementById('search-results-list').innerHTML = cityList;
         }
@@ -258,18 +95,25 @@ function searchResults() {
 
 
 
-function searchResultsClicked(ele, lat, long, updateList) {
+function searchResultsClicked(ele, locObjID, prsntNm, updateList, useSearch) {
+    var locObj = useSearch ? _Locations.results[locObjID] : _User.locations[locObjID];
+    if(prsntNm){
+        locObj.prsntNm = prsntNm;
+    }
+    if(!locObj.lat && locObj.geocode){
+        var geoArr = locObj.geocode.split(',');
+        console.log(geoArr);
+        locObj.lat = geoArr[0];
+        locObj.long = geoArr[1];
+    }
+
     var pwaHeader = document.getElementById('pwa-header');
     if(pwaHeader.className.match('.pwa-header-active')){
         pwaHeader.className = 'header';
         showHide('main-search', 0);
     }
     document.getElementById('activeLocName').innerHTML = ele.innerHTML;
-    _User.newActiveLocation({
-        lat     : lat,
-        long    : long,
-        prsntNm : ele.innerHTML
-    }, updateList);
+    _User.newActiveLocation(locObj, updateList);
     hideMainSearch();
 }
 
@@ -325,6 +169,22 @@ function showTemperature(ele) {
 
 }
 
+/**
+ * setActiveTemperatureUnits() is used to change the temperature units element accordingly with the data is loaded from localStorage
+ */
+
+function setActiveTemperatureUnits() {
+    var tempElements = document.getElementsByClassName('temp-red');
+    var tempUnitMapping = {m: '°C', e: '°F'};
+    var currentUnitPref = _User.unitPref || 'e';
+    for(var i=0;i<tempElements.length;i++) {
+        tempElements[i].className = 'temp-red';
+        if(tempElements[i].innerHTML === tempUnitMapping[currentUnitPref]){
+            tempElements[i].className += ' active';
+        }
+    }
+}
+
 
 function pwaNavClicked(e) {
     var windowWidth = window.innerWidth;
@@ -343,7 +203,7 @@ function pwaNavClicked(e) {
  * changeNav(ele) is used to changes the nav pages
  * @param ele
  */
-function changeNav(ele) {
+function changeNav(ele) {  console.log('called.');
     document.getElementById('main-search').style.display = "none";
     if(!ele.className.match('active')) {
         var tempElements = document.getElementsByClassName('page-nav-li');
@@ -359,9 +219,9 @@ function changeNav(ele) {
  * showLocations() shows the location selected layout
  */
 function showLocations() {
-    showHide('loc-layout',1);
-    showHide('category-layout',0);
-    showHide('areas-layout',0);
+    slideMenu('loc-layout',1);
+    slideMenu('category-layout',0);
+    slideMenu('areas-layout',0);
 }
 
 /**
@@ -371,12 +231,13 @@ function showLocations() {
 function showCategories() {
     var categoryHTML = '';
     for(c = 0; c < categories.length; c++){
-        categoryHTML += '<li ><a href="#" onclick="showAreas(this,'+ c +')"><span >'+categories[c].catName+'</span> <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small"></span></a></li>';
+        var categoryName = categories[c].catName;
+        categoryHTML += '<li ><a href="javascript:showAreas(\'' + categoryName+ '\','+ c +')"><span >'+categories[c].catName+'</span> <span class="wx-iconfont-global wx-icon-arrow-right wx-icon-small"></span></a></li>';
     }
     document.getElementById('lang-categories').innerHTML = categoryHTML;
-    showHide('loc-layout',0);
-    showHide('category-layout',1);
-    showHide('areas-layout',0);
+    slideMenu('loc-layout',0);
+    slideMenu('category-layout',1);
+    slideMenu('areas-layout',0);
 }
 
 /**
@@ -386,13 +247,30 @@ function showCategories() {
 function showAreas(ele,rowId ) {
     var languageHTML = '';
     for(l=0; l< categories[rowId].countryName.length; l++){
-        languageHTML += '<li><a href="#"><span> '+categories[rowId].countryName[l].name+' </span> <span>'+categories[rowId].countryName[l].code+'</span> </a></li>';
+        languageHTML += '<li><a href="javascript:changeLang(\'' + categories[rowId].countryName[l].code + '\')"><span> '+categories[rowId].countryName[l].name+' </span> <span> | '+categories[rowId].countryName[l].language+'</span> </a></li>';
     }
     document.getElementById('country-languages').innerHTML = languageHTML;
-    document.getElementById('area-value').innerHTML = ele.innerHTML;
-    showHide('loc-layout',0);
-    showHide('category-layout',0);
-    showHide('areas-layout',1);
+    document.getElementById('area-value').innerHTML = ele;
+    slideMenu('loc-layout',0);
+    slideMenu('category-layout',0);
+    slideMenu('areas-layout',1);
+}
+
+/**
+ * changeLang(lang code)
+ * @param(code)
+ * updates user lang parameter
+ * fetches new lang strings
+ * closes the menu
+ */
+function changeLang(code){
+    _User.setLanguage(code);
+    _Language.updateTranslations().then(function(){
+       _Router.updateURL();
+        //update RTL page when user change language.
+       _Router.setRTL();
+    });
+    showHide('main-nav', 0);
 }
 
 /**
@@ -409,6 +287,25 @@ function showHide(element, show) {
         document.getElementById(element).style.display = 'block';
     }
 }
+
+
+/**
+ * showHide() takes the element and slides in from the right based on the value
+ * 0 - hide
+ * 1 - display
+ * @param element
+ * @param show
+ */
+
+function slideMenu(element, show) {
+    if(show === 0) {
+        helper.addClass(document.getElementById(element), 'slide-out');
+
+    } else {
+        helper.removeClass(document.getElementById(element), 'slide-out');
+    }
+}
+
 
 function lookupLocations(term){
     if(term && term.length && term.length > 3){
@@ -460,37 +357,40 @@ document.getElementById('event-anchor').addEventListener('builder', function(){
 });
 
 
+/*
+ *  Translations
+ */
 
-function hasClass(elem, className) {
-    return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+
+var langMap;
+var assignAppShellLang = function(){
+    langMap = [
+        ['nav-today', _Lang.today.toUpperCase()],
+        ['nav-hourly', _Lang.hourly.toUpperCase()],
+        ['nav-fiveday', _Lang['5 day'].toUpperCase()],
+        ['nav-tenday', _Lang['10 day'].toUpperCase()],
+        ['nav-weekend', _Lang['weekend'].toUpperCase()],
+        ['nav-map', _Lang.maps.toUpperCase()],
+        ['update-current-location', capitalizeEachWord(_Lang['update current location'])],
+        ['update-current-location-recent', capitalizeEachWord(_Lang['update current location'])],
+        ['recent-searches-text', _Lang['recent searches'].toUpperCase()],
+        ['footer-terms-of-use', capitalizeEachWord(_Lang['terms of use'])],
+        ['footer-privacy-policy', capitalizeEachWord(_Lang['privacy policy'])],
+        ['footer-feedback', capitalizeEachWord(_Lang['feedback'])],
+        ['footer-press', capitalizeEachWord(_Lang['press'])]
+    ];
+    helper.setContent(langMap);
+};
+domReady(function(){
+    document.getElementById('event-anchor').addEventListener('lang-builder', function(){
+        assignAppShellLang();
+    });
+    setActiveTemperatureUnits();
+});
+
+
+function capitalizeEachWord(str) {
+    return str.replace(/\w\S*/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
 }
-
-function addClass(elem, className) {
-    if (!hasClass(elem, className)) {
-        elem.className += ' ' + className;
-    }
-}
-
-function removeClass(elem, className) {
-    var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
-    if (hasClass(elem, className)) {
-        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
-            newClass = newClass.replace(' ' + className + ' ', ' ');
-        }
-        elem.className = newClass.replace(/^\s+|\s+$/g, '');
-    }
-}
-
-
-function toggleClass(elem, className) {
-    var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
-    if (hasClass(elem, className)) {
-        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
-            newClass = newClass.replace( ' ' + className + ' ' , ' ' );
-        }
-        elem.className = newClass.replace(/^\s+|\s+$/g, '');
-    } else {
-        elem.className += ' ' + className;
-    }
-}
-

@@ -1,92 +1,198 @@
 
-var _Router = {};
+var _Router = {
+    page : ''
+};
+
 (function(){
-    _Router = {
-        page : ''
+    var pageAssignment;
+    var pagerEvent = document.createEvent('Event');
+    pagerEvent.initEvent('pager', true, true);
+    var getHREFLANG = function(key){
+        helper.getJSON('/ss-SS/js-src/hreflangs/hreflang_' + pageAssignment[key].href + '_page.json').then(function(data){
+            pageAssignment[key].hreflang = data;
+            if(key === 'maps'){
+                //Handles Onload checking.
+                 handlePath();
+            }
+        });
     };
 
-    var pageAssignment = {
-        'today'   : {
-            name       : 'today',
-            metricName : 'today-forecast',
-            title      : 'Your Current Conditions',
-            pos        : '1'
-        },
-        'hourly'  : {
-            name       : 'hourly',
-            metricName : 'hourly-forecast',
-            title      : 'Your Hourly Forecast',
-            pos        : '2'
-        },
-        'fiveday'   : {
-            name       : 'fiveday',
-            metricName : '5day-forecast',
-            title      : 'Your Five Day Forecast',
-            pos        : '3'
-        },
-        'tenday'   : {
-            name       : 'tenday',
-            metricName : '10day-forecast',
-            title      : 'Your Ten Day Forecast',
-            pos        : '4'
-        },
-        'weekend' : {
-            name       : 'weekend',
-            metricName : 'weekend-forecast',
-            title      : 'Your Weekend Forecast',
-            pos        : '5'
-        },
-        'map' : {
-            name        : 'map',
-            metricName  : 'map',
-            title       : 'Your Radar Map',
-            pos         : '6'
+    helper.getJSON('/ss-SS/js-src/page-config.json').then(function(data){
+        pageAssignment = data;
+        for(var pager in pageAssignment) {
+             getHREFLANG(pager);
+        }
+    });
+
+    var pathArr = [], queryArr = [];
+    var handlePath = function() {
+        var urlInfo = {
+            lang : 'en-US',
+            page : 'weather/today/l/',
+            loc : ''
+        };
+        //page=/weather/radar/interactive&locid=USDC0001:1:US
+        queryArr = helper.parseQueryString();
+        if(queryArr.page){
+            var paramsArr = queryArr.page.split('/');
+            urlInfo.lang = paramsArr[1].indexOf("-") === 2 ? paramsArr[1] : 'en-US';
+            urlInfo.page = queryArr.page.substr(1, queryArr.page.length -1) + '/l/';
+            urlInfo.loc = queryArr.locid ? queryArr.locid : '';
+        } else {
+            var path = window.location.pathname !== '/' ? window.location.pathname : '/weather/today/l';
+            pathArr = path.split('/');
+            pathArr.shift();
+            //get language
+            if (pathArr[0].indexOf('-') === 2) {
+                urlInfo.lang = pathArr[0];
+                if(pathArr.length < 2){
+                    pathArr.shift();
+                }
+            }
+            //get page
+            urlInfo.page = '';
+            for(var pathItem in pathArr){
+                if(pathArr[pathItem] === 'l'){
+                    urlInfo.page += 'l/';
+                    break;
+                } else {
+                    urlInfo.page += pathArr[pathItem] + '/';
+                }
+            }
+            //get location
+            var lastItem = pathArr.length > 1 ? pathArr[pathArr.length -1] : '';
+            if(lastItem.indexOf(',') > -1 || lastItem.indexOf(':') > -1 || (lastItem.length === 5 && helper.isNumeric(Number(lastItem)))){
+                urlInfo.loc = lastItem;
+            }
+        }
+        updateTranslations(urlInfo);
+    };
+    var updateTranslations = function(pathArr){
+        _User.lang = pathArr.lang;
+        _Language.updateTranslations().then(function(){
+            getDefaultLoc(pathArr);
+        });
+    };
+
+    _Router.setRTL = function(){
+        if(_Language.isLTRLanguage(_User.lang)){
+            document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");
+        } else {
+            document.getElementsByTagName("html")[0].setAttribute("dir", "ltr");
         }
     };
-    var changeTo = '', lis;
+    var getDefaultLoc = function(pathArr){
+        _Router.setRTL();
+        if(pathArr.loc){
+            _Locations.supplementLoc(pathArr.loc).then(function(data){
+                _User.activeLocation = data;
+                _Data.collectNew();
+                _Alert.getAlertData();
+                 checkPage(pathArr);
+            });
+        } else if (!_User.activeLocation.lat){
+            _Locations.getDefaultLocation().then(function(data){
+                _User.activeLocation = data;
+                _Data.collectNew();
+                _Alert.getAlertData();
+                checkPage(pathArr);
+            });
+        } else {
+            _Data.collectNew();
+            checkPage(pathArr);
+        }
+        //Load alert-bar module
+        helper.loadTemplate('alert-bar', 'modules', 'alert-bar');
+    };
+     var checkPage = function(pathArr){
+            if(history.state && history.state.changeTo){
+                _Router.changePage(history.state.changeTo);
+            } else {
+                if(!pathArr.page || pathArr.page === _User.lang + '//'){
+                    _Router.changePage('today');
+                } else {
+                    if(pathArr.page === '404/'){
+                        goto404();
+                    }
+                    for(var page in pageAssignment){
+                        if(page !== '404' && pathArr.page === pageAssignment[page].hreflang[pathArr.lang]){
+                            _Router.changePage(page);
+                            return;
+                        }
+                    }
+                    goto404();
+                }
+            }
+    };
+    var lis = document.getElementsByClassName('page-nav-li');
+    var goto404 = function(){
+        //Make NO nav items active.
+        for(var i=0; i < lis.length; i++){
+            lis[i].className = lis[i].className.replace('active', '');
+        }
+        if(!_Router.page){
+            _Router.page = 'today';
+        }
+        _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment['404'].metricName, pageAssignment['404'].pos);
+        _Router.page = '404';
+        helper.loadTemplateWithClass('page-content', 'pages', "404");
+    };
     _Router.changePage = function(page){
-        lis = document.getElementsByClassName('page-nav-li');
+        /*   Page Nav, decactivate all, the activate the right one. */
         for(var i=0; i < lis.length; i++){
             lis[i].className = lis[i].className.replace('active', '');
         }
         document.getElementsByClassName('page-nav-li ' + page)[0].className += ' active';
-        changeTo = page;
-        if(_Router.page !== changeTo){
-            if(!_Router.page){
-                _Router.page = 'today'; 
+
+        if(!_Router.page){
+            _Router.page = 'today';
+        }
+        _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[page].metricName, pageAssignment[page].pos);
+        _Router.page = page;
+        helper.loadTemplateWithClass('page-content', 'pages', page);
+        var activeLoc = _User.activeLocation;
+        var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
+        history.pushState({changeTo:page}, page, '/' + pageAssignment[page].hreflang[_User.lang] + loc);
+        updateMetadata(page);
+        helper.setCanonical();
+        console.log('HERE');
+        document.getElementById('event-anchor').dispatchEvent(pagerEvent);
+    };
+    var updateMetadata = function(page){
+        document.getElementsByTagName("html")[0].setAttribute("lang", _User.lang);
+        var meta = _Locales.metadata[page];
+        document.title = meta.page_title.replaceAll('{dynamicLocName}', _User.activeLocation.prsntNm);
+        var metaArr = document.getElementsByTagName("META");
+        for(tag in metaArr){
+            if(metaArr[tag].name === "Description"){
+                metaArr[tag].content = meta.page_desc.replaceAll('{dynamicLocName}', _User.activeLocation.prsntNm);
+                metaArr[tag].content = meta.page_desc.replaceAll('{pageLocName}', _User.activeLocation.prsntNm);
             }
-            _Metrics.pageLoad(pageAssignment[_Router.page].metricName, pageAssignment[changeTo].metricName, pageAssignment[page].pos);
-            _Router.page = changeTo;
-            helper.loadTemplate('page-content', 'pages', changeTo);
-            document.title = pageAssignment[page].title;
-            var loc = _User.activeLocation.lat ? _User.activeLocation.lat + ','+  _User.activeLocation.long : '';
-            history.pushState({changeTo:page}, page, '/weather/' + changeTo + '/l/' + loc);
+            if(metaArr[tag].name === 'Keywords'){
+                metaArr[tag].content = meta.page_keywords.replaceAll('{dynamicLocName}', _User.activeLocation.prsntNm);
+                metaArr[tag].content = meta.page_keywords.replaceAll('{pageLocName}', _User.activeLocation.prsntNm);
+            }
         }
     };
-
-
-    var pathArr = [];
-    var handlePath = function(){
-        if(history.state && history.state.changeTo){
-            _Router.changePage(history.state.changeTo);
-        } else {
-            if(window.location.pathname === '/'){
-                _Router.changePage('today');
-            } else {
-                pathArr = window.location.pathname.split('/');
-                if(pageAssignment[pathArr[2]]){
-                    _Router.changePage(pathArr[2]);
-                }
-            }
-            //Else, its not a valid URL.  We should probably 404 on this.
+    _Router.updateURL = function(){
+        var activeLoc = _User.activeLocation;
+        var loc = activeLoc.locId ? activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd : '';
+        if(!_Router.page){
+            _Router.page = 'today';
         }
+        var urlInfo = {
+            lang : _User.lang,
+            page : pageAssignment[_Router.page].hreflang[_User.lang],
+            loc : loc
+        };
+        checkPage(urlInfo);
     };
-    //Handles Onload checking.
-    handlePath();
 
-    window.onpopstate = function(){
-       handlePath();
+
+    _Router.dispatchAds = function(){
+            if (window.AdsMetricsCtrl && AdsMetricsCtrl.Promises && AdsMetricsCtrl.Promises.loadAds) {
+                document.dispatchEvent(AdsMetricsCtrl.Promises.loadAds);
+            }
     };
-
+    //helper.registerListener('DOMContentLoaded', _Router.dispatchAds);
 })();
-

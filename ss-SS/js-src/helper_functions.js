@@ -118,7 +118,7 @@ helper.loadTemplate = function(elementId, type, name){
     xhr.send();
 };
 
-helper.loadScript = function(path, callback, body){
+helper.loadScript = function(path, callback){
     var body = document.getElementsByTagName(((body && 'body') || 'head'))[0];
     var script = document.createElement('script');
     script.type = 'text/javascript';
@@ -135,7 +135,7 @@ helper.loadScript = function(path, callback, body){
 helper.setContent = function(content){
         var assignToDOM = function(arr){
             if(arr[1] === undefined || !arr[1]){
-                arr[1] = '--'
+                arr[1] = '--';
             }
             document.getElementById(arr[0]).innerHTML = arr[1];
         };
@@ -276,7 +276,7 @@ helper.getJSON = function(path){
         xobj.overrideMimeType("application/json");
         xobj.open('GET', path, true); // Replace 'my_data' with the path to your file
         xobj.onreadystatechange = function () {
-            if (xobj.readyState == 4 && xobj.status == "200") {
+            if (xobj.readyState === 4 && xobj.status === "200") {
                 resolve(JSON.parse(xobj.responseText));
             }
         };
@@ -356,7 +356,7 @@ helper.setCanonical = function(){
 };
 
 helper.pdTranslate = function(content) {
-    return _Lang[content] ? _Lang[content] : content
+    return _Lang[content] ? _Lang[content] : content;
 };
 
 helper.getActiveLocID = function(){

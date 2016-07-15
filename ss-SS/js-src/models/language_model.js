@@ -1,4 +1,4 @@
-var _Language = {}; _Lang = {}, _Locales = {};
+var _Language = {}; _Lang = {}; _Locales = {};
     var langEvent = document.createEvent('Event');
     langEvent.initEvent('lang-builder', true, true);
 

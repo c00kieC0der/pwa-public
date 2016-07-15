@@ -1,6 +1,11 @@
+
+window['mapVersion'] = window['mapVersion'] ? Number(mapVersion) +1 : "2";
 var mapInited = false;
 var map, layers;
 var runTheMap = function(){
+    setTimeout(function(){
+
+
     mapInited = true;
 
     map = window._map = new wx.maps.Map(document.getElementsByClassName('static-map')[0], new wx.maps.MapOptions({
@@ -14,14 +19,14 @@ var runTheMap = function(){
         layerKey: "radar",
         value: "Radar",
         active: true,
-        version: "2",
+        version: mapVersion,
         opacity: ".6"
     }, {
         id: "SUN Clouds Observation",
         layerKey: "ussat",
         value: "Clouds",
         active: false,
-        version: "2",
+        version: mapVersion,
         opacity: ".6"
     }, {
         id: "SUN Radar/Clouds Observation",
@@ -61,7 +66,9 @@ var runTheMap = function(){
     map.doubleClickZoom.disable();
     map.scrollWheelZoom.disable();
     map.dragging.disable();
+    }, 300);
 };
+
 var setMarker = function(){
     // Insert a marker
     var overlayLayer = map.createLayer(new wx.layers.OverlayLayerOptions({
@@ -78,6 +85,8 @@ var setMarker = function(){
     map.addLayer(overlayLayer);
     overlayLayer.addOverlay(overlay);
 };
+
+helper.loadScript('/ss-SS/templates/modules/static-map/leaflet.js', runTheMap);
 
 
 /*
@@ -107,7 +116,24 @@ var addAMapLayer = function(layerKey){
     menuShowHide();
     addLayer(layerKey);
 };
-setTimeout(function(){
 
-runTheMap();
-}, 100);
+
+/*
+ * Translations
+ */
+var mapTextMap = [];
+var refreshMapText = function(){
+    mapTextMap = [
+       ["menuTitleText", helper.capitalize(_Lang.maps)],
+       ["map-radar" , helper.capitalize(_Lang.radar)],
+       ["map-clouds", helper.capitalize(_Lang.clouds)],
+       ["map-radar-clouds", helper.capitalize(_Lang.radar) + ' & ' + helper.capitalize(_Lang.clouds)]
+    ];
+    helper.setContent(mapTextMap);
+};
+if(window['_Lang'] && _Lang.maps){
+    refreshMapText();
+}
+document.getElementById('event-anchor').addEventListener('lang-builder', function(){
+    refreshMapText();
+});

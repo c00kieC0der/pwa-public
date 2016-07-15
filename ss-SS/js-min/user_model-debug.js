@@ -1,5 +1,3 @@
-
-
 /*
   Properties and Defaults
  */
@@ -7,12 +5,18 @@
 var _User = {
     loggedIn : false,
     unitPref : 'e',
-    lang : 'en-US',
+    units : {
+      wind : 'mph',
+      pressure : 'in',
+      visibility : 'mi'
+    },
+    lang : '',
     locations: [],
     activeLocation : {
         lat : '',
         long : '',
-        prsntNm : ''
+        prsntNm : '',
+        locId : ''
     }
 };
 
@@ -31,11 +35,11 @@ _User.webPush = savedPco.products && savedPco.products.WebPushNotifications ? sa
  }
  */
 _User.locations = savedPco.user && savedPco.user.recentSearchLocations ? savedPco.user.recentSearchLocations : [];
-_User.lang = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : 'en-US';
+_User.lang = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : _User.lang;
 _User.unitPref = savedPco.user && savedPco.user.unit ? savedPco.user.unit : 'e';
 
 if(window.localStorage._Stored_User){
-    _User = JSON.parse(window.localStorage._Stored_User);
+   _User = JSON.parse(window.localStorage._Stored_User);
 } else {
     window.localStorage._Stored_User = JSON.stringify(_User);
 }
@@ -54,7 +58,9 @@ var saveUser = function(){
     savedPco.products = savedPco.products ? savedPco.products : {};
     savedPco.products.WebPushNotifications = _User.webPush;
     window.localStorage.jStorage = JSON.stringify(savedPco);
-    _Data.collectNew();
+    if(window['_Data']){
+        _Data.collectNew();
+    }
 };
 
 /*
@@ -69,6 +75,9 @@ _User.setLanguage = function(language){
 
 _User.setUnitPreference = function(unit){
     _User.unitPref = unit;
+    _User.units.wind = unit === 'e' ? 'mph' : 'kph';
+    _User.units.pressure = unit === 'e' ? 'in' : 'mb';
+    _User.units.visibility = unit === 'e' ? 'mi' : 'km';
     saveUser();
 };
 
@@ -78,24 +87,24 @@ _User.addLocation = function(locationObj){
 };
 
 _User.newActiveLocation = function(locationObj, updateRecents){
+    _User.activeLocation = locationObj;
     if(_User.activeLocation.prsntNm && updateRecents) {
         _User.locations.push(_User.activeLocation);
     }
-    _User.activeLocation = locationObj;
-
     saveUser();
+    _Router.updateURL();
 };
 
 _User.updatePushNotifications = function(answer){
     if(answer){
         _User.webPush = {
             PushStatus : "confirmNotification",
-            timeStamp : new Date().getTime() //Put a UTC time stamp ("2016-06-10T22:33:29.140Z")
+            timeStamp : new Date().toISOString()
         };
     } else {
         _User.webPush = {
             PushStatus : "noPushNotification",
-            timeStamp : new Date().getTime()
+            timeStamp : new Date().toISOString()
         };
     }
     saveUser();

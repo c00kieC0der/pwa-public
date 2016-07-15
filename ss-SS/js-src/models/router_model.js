@@ -51,7 +51,7 @@ var _Router = {
             }
             //get page
             urlInfo.page = '';
-            for(pathItem in pathArr){
+            for(var pathItem in pathArr){
                 if(pathArr[pathItem] === 'l'){
                     urlInfo.page += 'l/';
                     break;

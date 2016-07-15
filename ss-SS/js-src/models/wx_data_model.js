@@ -179,7 +179,7 @@ var _Data = {}, app = {};
             date:monthsOfYear[dateBase.getMonth()]+' '+dateBase.getDate(),
             dayIndex:dateBase.getDay()
         };
-    }
+    };
     var formatMonthDate = function () {
         var monthsOfYear = _Lang.MONTH;
         var dateBase = new Date();

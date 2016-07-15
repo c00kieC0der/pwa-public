@@ -99,22 +99,22 @@ gulp.task('webserver', function() {
         }));
 });
 gulp.task('js-concat', function() {
-    return gulp.src(['./ss-SS/js-min/user_model-min.js', './ss-SS/js-min/locations_model-min.js', './ss-SS/js-min/helper_functions-min.js', './ss-SS/js-min/router_model-min.js', './ss-SS/js-min/*-min.js'])
-        .pipe(concat('backend.js'))
+    gulp.src(['./ss-ss/js-min/ajax-min.js', './ss-SS/js-min/moment-with-locales-min.js', './ss-SS/js-min/helper_functions-min.js', './ss-SS/js-min/user_model-min.js', './ss-SS/js-min/language_model-min.js', './ss-SS/js-min/locations_model-min.js', './ss-SS/js-min/router_model-min.js', './ss-SS/js-min/*-min.js', './ss-SS/js-min/ads/adsController.js'])
+        .pipe(concat('./ss-SS/backend.js'))
         .pipe(gulp.dest('./'));
 });
 
 gulp.task('js-minify', function() {
-    gulp.src('./ss-SS/js-src/models/*.js')
+    gulp.src(['./ss-SS/js-src/models/*.js', './ss-SS/js-src/vendor/ajax.js', './ss-SS/js-src/vendor/moment-with-locales.js'])
         .pipe(minify({
             ext:{
                 src:'-debug.js',
                 min:'-min.js'
             },
            // exclude: ['tasks'],
-            ignoreFiles: ['-min.js', 'content_model.js']
+            ignoreFiles: ['-min.js']
         }))
-        .pipe(gulp.dest('js-min'));
+        .pipe(gulp.dest('./ss-SS/js-min'));
     gulp.src('./ss-SS/js-src/*.js')
         .pipe(minify({
             ext:{
@@ -124,8 +124,8 @@ gulp.task('js-minify', function() {
             // exclude: ['tasks'],
             ignoreFiles: ['-min.js']
         }))
-        .pipe(gulp.dest('js-min'));
-    gulp.src('./ss-SS/templates/*/*/*.js')
+        .pipe(gulp.dest('./ss-SS/js-min'));
+    gulp.src('./ss-SS/js-src/*.js')
         .pipe(minify({
             ext:{
                 src:'-debug.js',
@@ -134,7 +134,17 @@ gulp.task('js-minify', function() {
             // exclude: ['tasks'],
             ignoreFiles: ['-min.js']
         }))
-        .pipe(gulp.dest('./ss-SS/templates/js-min'));
+        .pipe(gulp.dest('./ss-SS/js-min'));
+    gulp.src('./ss-SS/js-src/ads/*.js')
+        .pipe(minify({
+            ext:{
+                src:'-debug.js',
+                min:'-min.js'
+            },
+            // exclude: ['tasks'],
+            ignoreFiles: ['-min.js']
+        }))
+        .pipe(gulp.dest('./ss-SS/js-min/ads/'));
 });
 
 gulp.task('lint', function(){
@@ -288,7 +298,6 @@ gulp.task('upload-translations', function() {
         };
 
         request(options, function(error, response, body) {
-            console.log(body.response);
             var accessToken = body.response.data.accessToken;
 
             // Upload files
@@ -296,7 +305,7 @@ gulp.task('upload-translations', function() {
                 url: 'https://api.smartling.com/files-api/v2/projects/' + projectId + '/file',
                 method: 'POST',
                 formData: {
-                    file: fs.createReadStream('./js-src/translations/app.json'),
+                    file: fs.createReadStream('./ss-SS/js-src/translations/app.json'),
                     fileUri: ['app.json'],
                     fileType: 'json',
                     authorize: 'true'
@@ -317,4 +326,4 @@ gulp.task('all', function(){
     //all default tasks.
 });
 
-gulp.task('all', ['lint', 'js-minify', 'js-concat']);
+gulp.task('all', ['js-minify', 'js-concat']);
