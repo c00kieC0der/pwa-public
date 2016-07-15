@@ -73,16 +73,16 @@ var _Router = {
             getDefaultLoc(pathArr);
         });
     };
-    var RTLs = ['ar-AE', 'fa-IR', 'he-IL', 'ur-PK'];
-    var setRTL = function(){
-        if(RTLs.indexOf(_User.lang) > -1){
+
+    _Router.setRTL = function(){
+        if(_Language.isLTRLanguage(_User.lang)){
             document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");
         } else {
             document.getElementsByTagName("html")[0].setAttribute("dir", "ltr");
         }
     };
     var getDefaultLoc = function(pathArr){
-        setRTL();
+        _Router.setRTL();
         if(pathArr.loc){
             _Locations.supplementLoc(pathArr.loc).then(function(data){
                 _User.activeLocation = data;

@@ -1,6 +1,6 @@
 /*************** DO NOT ALTER ANYTHING BELOW THIS LINE ! ****************/
 //initialize AppMeasurement
-var s_account="twcdev";
+var s_account=AdsMetricsCtrl && AdsMetricsCtrl.metricsAcct || "twcdev";
 var s=s_gi(s_account);
 
 /******** VISITOR ID SERVICE CONFIG - REQUIRES VisitorAPI.js ********/

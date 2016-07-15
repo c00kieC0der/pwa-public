@@ -1,4 +1,4 @@
-/**
+ /**
  * Created by omkard on 6/5/16.
  */
 
@@ -21,6 +21,13 @@ var downArrayClicked = false;
             navUlEle[0].style.width = navItemwidth + 'px';
     }
 /**
+ * updateLanguageLabel() update language name accordingly with _User.lang
+ */
+
+function updateLanguageLabel() {
+    document.getElementById('lang-name-label').innerHTML = _Language.getNameFromCode(_User.lang);
+}
+/**
  * showMainMenu() shows the hamburger menu when clicked
  */
 
@@ -36,7 +43,7 @@ function showMainMenu() {
     slideMenu('loc-layout',1);
     slideMenu('category-layout',0);
     slideMenu('areas-layout',0);
-
+    updateLanguageLabel();
 }
 /**
  * showMainSearch() shows the Search layout
@@ -257,9 +264,11 @@ function showAreas(ele,rowId ) {
  * closes the menu
  */
 function changeLang(code){
-    _User.lang = code;
+    _User.setLanguage(code);
     _Language.updateTranslations().then(function(){
        _Router.updateURL();
+        //update RTL page when user change language.
+       _Router.setRTL();
     });
     showHide('main-nav', 0);
 }

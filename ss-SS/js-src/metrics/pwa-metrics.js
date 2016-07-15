@@ -21,7 +21,7 @@ var _Metrics = {};
             metrics = urlZone.metrics.split('/');
             var cm_date = param("cm_date") ? param("cm_date") : "";
             var cm_ven = param("cm_ven") ? param("cm_ven") : "";
-            var cm_cat = param("cm_cat") ? ":" + param("cm_cat"): "";
+            var cm_cat = param("cm_cat") ? ":" + param("cm_cat") : "";
             var cm_pla = param("cm_pla") ? ":" + param("cm_pla") : "";
             var cm_ite = param("cm_ite") ? ":" + param("cm_ite") : "";
 
@@ -32,8 +32,8 @@ var _Metrics = {};
             s.events = "event2";
             for (i = 0, l = _User.locations.length; i < l; i++) {
                 locIds.push(_User.locations[i].locId + ":" +
-                            _User.locations[i].locType + ":" +
-                            _User.locations[i].cntryCd);
+                  _User.locations[i].locType + ":" +
+                  _User.locations[i].cntryCd);
             }
             s.prop2 = _User.locations.length + '^' + locIds.join(','); // number of recent locations ^ location1, location2, etc
             s.prop10 = metrics[0]; // timeframe
@@ -44,12 +44,30 @@ var _Metrics = {};
             s.prop22 = loc.locType + ":" + loc.locId + ":" + loc.cityNm; // Page Location Id with city (ex: 4:13159:BERLIN, 1:GMXX0007:BERLIN)
             s.prop24 = anonymizedURL(); // Anonymized URL (ex: /weather/today/l)
             s.prop25 = _User.activeLocation.locId + ':' +
-                       _User.activeLocation.locType + ":" +
-                       _User.activeLocation.cntryCd; // preferred location (ex: USGA0353:1:US)
+              _User.activeLocation.locType + ":" +
+              _User.activeLocation.cntryCd; // preferred location (ex: USGA0353:1:US)
             s.prop26 = loc.cityNm + ":" + loc.stCd + ":" + loc.cntryCd; // page or current location city:state:cc (ex: Vinings:GA:US)
             s.prop27 = loc.dmaCd; // dma code
             s.prop28 = loc.zipCd; // postal code
-            s.prop30 = $$.custParams.env; // env (ex: live:weather.com)
+
+            var serverEnv = "";
+            var replEnvStr = location.host.replace(".weather.com", "");
+
+
+            if (location.href.match(/localhost/)) {
+                serverEnv = "dev:localhost";
+            }else if (location.href.match(/pwa-stage/)){
+                serverEnv = "dev:pwa-stage";
+            }else if (location.href.match(/twcrb/)) {
+                serverEnv = ["dev:", replEnvStr].join("");
+            } else if (location.href.match(/preview/)) {
+                serverEnv = ["preview:", replEnvStr].join("");
+            } else if (location.href.match(/beta/)) {
+                serverEnv = ["beta:", replEnvStr].join("");
+            } else {
+                serverEnv = ["live:", replEnvStr].join("");
+            }
+            s.prop30 = serverEnv; // env (ex: live:weather.com)
 
             s.prop35 = ""; // Action tracking
 
