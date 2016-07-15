@@ -206,14 +206,49 @@ googletag.cmd = googletag.cmd || [];
         $$.custParams.zip = loc.zipCd;
 
     });
-    document.addEventListener('builder-alert', function(){
+    document.getElementById('event-anchor').addEventListener('builder-alert', function(){
         $$.custParams = $$.custParams || {};
         var pollen = window._Alert && _Alert.priority && _Alert.priority.type === "pollen" &&
           _Alert.priority.severity;
+        var bulletins = window._Alert && _Alert.bulletins, i,
+            l, bulletinStrArry = [], bulletinsStr, finalSev=[];
         $$.custParams.plln = (!pollen && "nl") ||
           (pollen && pollen < 2 && "lo") ||
           (pollen && pollen >= 4 && "hi") || "me";
+        if (bulletins) {
+            for( i = 0, l = bulletins.length; i < l; i++) {
+                if (bulletins[i].fromStr.match(/fld/i)){
+                   finalSev.push('fld');
+                } else if (bulletins[i].fromStr.match(/trop/i)){
+                    finalSev.push('trop');
+                } else if (bulletins[i].fromStr.match(/oth/i)){
+                    finalSev.push('oth');
+                } else if (bulletins[i].fromStr.match(/thdr/i)){
+                    finalSev.push('thdr');
+                } else if (bulletins[i].fromStr.match(/tor/i)){
+                    finalSev.push('tor');
+                } else if (bulletins[i].fromStr.match(/wint/i)){
+                    finalSev.push('wint');
+                }
+            }
+            if ($$.custParams.sev && finalSev.length > 0) {
+                $$.custParams.sev = $$.custParams.sev + "," + finalSev.join(',');
+            } else if (!$$.custParams.sev){
+                $$.custParams.sev = finalSev.join(',');
+            }
+        }
 
+    });
+
+    document.getElementById('event-anchor').addEventListener('builder-content', function(){
+        $$.custParams = $$.custParams || {};
+        var mode = window._Content && _Content.mode && _Content.mode.mode &&
+          ((_Content.mode.mode === 'normal' && 'n') || _Content.mode.mode === 'severe2' && 'y');
+        if ($$.custParams.sev) {
+            $$.custParams.sev = mode + ',' + $$.custParams.sev;
+        } else {
+            $$.custParams.sev = mode;
+        }
     });
 
 

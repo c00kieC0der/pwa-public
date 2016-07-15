@@ -99,7 +99,7 @@ gulp.task('webserver', function() {
         }));
 });
 gulp.task('js-concat', function() {
-    gulp.src(['./ss-ss/js-min/ajax-min.js', './ss-SS/js-min/moment-with-locales-min.js', './ss-SS/js-min/helper_functions-min.js', './ss-SS/js-min/user_model-min.js', './ss-SS/js-min/language_model-min.js', './ss-SS/js-min/locations_model-min.js', './ss-SS/js-min/router_model-min.js', './ss-SS/js-min/*-min.js', './ss-SS/js-min/ads/adsController.js'])
+    gulp.src(['./ss-ss/js-min/ajax-min.js', './ss-SS/js-min/moment-with-locales-min.js', './ss-SS/js-min/helper_functions-min.js', './ss-SS/js-min/user_model-min.js', './ss-SS/js-min/language_model-min.js', './ss-SS/js-min/locations_model-min.js', './ss-SS/js-min/router_model-min.js', './ss-SS/js-min/*-min.js'])
         .pipe(concat('./ss-SS/backend.js'))
         .pipe(gulp.dest('./'));
 });

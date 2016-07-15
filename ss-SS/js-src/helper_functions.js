@@ -70,7 +70,7 @@ helper.loadTemplateWithClass = function(elementId, type, name){
     var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
+        if (xhr.readyState === 4 && xhr.status == 200) {
             helper.addClass(document.getElementById(elementId), 'slide-out');
             document.getElementById(elementId).innerHTML = getRtlCss(xhr.responseText);
             var body = document.getElementsByTagName('head')[0];
@@ -99,7 +99,7 @@ helper.loadTemplate = function(elementId, type, name){
     var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
+        if (xhr.readyState === 4 && xhr.status == 200) {
             document.getElementById(elementId).innerHTML = getRtlCss(xhr.responseText);
             var body = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
@@ -158,7 +158,7 @@ helper.ngRepeat = function(divId, componentName, dataMap, data, multiplier){
     var classXes = '', x = 0, i = 0, j = 0, div ;
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
+        if (xhr.readyState === 4 && xhr.status == 200) {
             var rawTemplate = xhr.responseText;
             //put the template in x times.
             for(x=0; x < multiplier; x++){
@@ -203,7 +203,7 @@ helper.ngRepeatReverse = function(divId, componentName, dataMap, data, multiplie
     var classXes = '', x = 0, i = 0, j = 0 ;
     xhr.open('get', path, true);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
+        if (xhr.readyState === 4 && xhr.status == 200) {
             var rawTemplate = xhr.responseText;
             //put the template in x times.
             for(x=0; x < multiplier; x++){
@@ -276,7 +276,7 @@ helper.getJSON = function(path){
         xobj.overrideMimeType("application/json");
         xobj.open('GET', path, true); // Replace 'my_data' with the path to your file
         xobj.onreadystatechange = function () {
-            if (xobj.readyState === 4 && xobj.status === "200") {
+            if (xobj.readyState === 4 && xobj.status == "200") {
                 resolve(JSON.parse(xobj.responseText));
             }
         };
