@@ -23,10 +23,6 @@ googletag.cmd = googletag.cmd || [];
     loadOpenX();
     getAdUnitAndMetricsSuite();
 
-    // $$.utils.addLoadEvent(function(){
-    //     loadNewAds();
-    // });
-
     /************** Private Functions **************/
     function loadNewAds() {
         addCust_Params();
@@ -127,7 +123,8 @@ googletag.cmd = googletag.cmd || [];
         $$.Promises.jsonReady.promise.then(function() {
             var adsMetricsMaps = $$.adsMetricsMaps;
             var savedPco = window.localStorage.jStorage ? JSON.parse(window.localStorage.jStorage) : {};
-            var locale = savedPco.user && savedPco.user.locale ? savedPco.user.locale.replace('_', '-') : "en-US";
+            var locale = location.href.match(/[a-z]{2}-[A-Z]{2}/);
+            locale = locale && locale[0] || 'en-US';
 
 
             /** ad unit */
@@ -169,42 +166,57 @@ googletag.cmd = googletag.cmd || [];
             $$.custParams.par = $$.utils.getParameterByName("par");
             $$.custParams.vw = $$.utils.getCookie('fv');
             $$.custParams.tf = $$.adsMetricsMaps.urlToAdZone[urlZone] && $$.adsMetricsMaps.urlToAdZone[urlZone].timeframe;
+
             $$.custParams.plat = brwsrWidth < 768 && 'wx_mw' ||
               brwsrWidth >= 768 && brwsrWidth < 1025 && 'wx_tab' ||
               brwsrWidth > 1024 && 'wx';
 
-            document.getElementById('event-anchor').addEventListener('builder', function respond() {
-                var loc = _User.activeLocation;
-                $$.custParams = $$.custParams || {};
-                $$.custParams.cc = loc.cntryCd;
-                $$.custParams.cnty = loc.cntyNm;
-                $$.custParams.ct = loc.cityNm;
-                $$.custParams.dma = '' + loc.dmaCd;
-                $$.custParams.env = "" + Math.floor(Math.random()*(10-0)+1);
 
-                if (loc.locType === 4) {
-                    $$.custParams.ent =  'zip';
-                } else if (loc.locType === 1) {
-                    $$.custParams.ent = 'city';
-                }
-
-                $$.custParams.intl = loc._gprId;
-                $$.custParams.lang = _User.lang && _User.lang.split('-')[0];
-                $$.custParams.lat = '' + loc.lat;
-
-                // targeting by locid requires locId$locType for all locTypes except 4
-                $$.custParams.loc = (loc.locType !== 4) ? loc.locId + '$' + loc.locType : loc.locId;
-                $$.custParams.locale = _User.lang;
-                $$.custParams.lon = '' + loc.long;
-                $$.custParams.st = loc.stCd;
-                $$.custParams.zip = loc.zipCd;
-
-            });
         });
+
         if (adstest) {
             $$.custParams['adstest'] = adstest;
         }
     }
+
+    document.getElementById('event-anchor').addEventListener('builder', function respond() {
+        var loc = _User.activeLocation;
+        $$.custParams = $$.custParams || {};
+        $$.custParams.cc = loc.cntryCd;
+        $$.custParams.cnty = loc.cntyNm;
+        $$.custParams.ct = loc.cityNm;
+        $$.custParams.dma = '' + loc.dmaCd;
+        $$.custParams.env = "" + Math.floor(Math.random()*(10-0)+1);
+
+        if (loc.locType === 4) {
+            $$.custParams.ent =  'zip';
+        } else if (loc.locType === 1) {
+            $$.custParams.ent = 'city';
+        }
+
+        $$.custParams.intl = loc._gprId;
+        $$.custParams.lang = _User.lang && _User.lang.split('-')[0];
+        $$.custParams.lat = '' + loc.lat;
+
+        // targeting by locid requires locId$locType for all locTypes except 4
+        $$.custParams.loc = (loc.locType !== 4) ? loc.locId + '$' + loc.locType : loc.locId;
+        $$.custParams.locale = _User.lang;
+        $$.custParams.lon = '' + loc.long;
+        $$.custParams.st = loc.stCd;
+        $$.custParams.zip = loc.zipCd;
+
+    });
+    document.addEventListener('builder-alert', function(){
+        $$.custParams = $$.custParams || {};
+        var pollen = window._Alert && _Alert.priority && _Alert.priority.type === "pollen" &&
+          _Alert.priority.severity;
+        $$.custParams.plln = (!pollen && "nl") ||
+          (pollen && pollen < 2 && "lo") ||
+          (pollen && pollen >= 4 && "hi") || "me";
+
+    });
+
+
 
     function getBrowser() {
         var userAgent = navigator && navigator.userAgent,

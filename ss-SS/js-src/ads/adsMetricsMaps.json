@@ -38,255 +38,1121 @@
     }
   },
   "localeToAdUnitMap": {
-    "en-US": {
+    "ar-AE":  {
       "network": 7646,
-      "desktop": "web_weather_us",
-      "mobile": "mobile_smart_us",
-      "tablet": "tablet_weather_us",
-      "metrics": "twciwx"
+      "desktop": "web_weather_ar_ae",
+      "tablet": "tablet_weather_ar_ae",
+      "mobile": "mobile_smart_ar_ae"
     },
-    "en-GB": {
+    "ar-BH":  {
       "network": 7646,
-      "desktop": "web_weather_en_gb",
-      "mobile": "mobile_smart_en_gb",
-      "tablet": "tablet_weather_en_gb",
-      "metrics": "twciuk"
+      "desktop": "web_weather_ar_bh",
+      "tablet": "tablet_weather_ar_bh",
+      "mobile": "mobile_smart_ar_bh"
     },
-    "en-IN": {
+    "ar-DJ":  {
       "network": 7646,
-      "desktop": "web_weather_en_in",
-      "mobile": "mobile_smart_en_in",
-      "tablet": "tablet_weather_en_in",
-      "metrics": "twciin"
+      "desktop": "web_weather_ar_dj",
+      "tablet": "tablet_weather_ar_dj",
+      "mobile": "mobile_smart_ar_dj"
     },
-    "es-US": {
+    "ar-DZ":  {
       "network": 7646,
-      "desktop": "web_weather_es_us",
-      "mobile": "mobile_smart_es_us",
-      "tablet": "tablet_weather_es_us",
-      "metrics": "twciespanol"
+      "desktop": "web_weather_ar_dz",
+      "tablet": "tablet_weather_ar_dz",
+      "mobile": "mobile_smart_ar_dz"
     },
-    "es-MX": {
+    "ar-EG":  {
       "network": 7646,
-      "desktop": "web_weather_es_mx",
-      "mobile": "mobile_smart_es_mx",
-      "tablet": "tablet_weather_es_mx"
+      "desktop": "web_weather_ar_eg",
+      "tablet": "tablet_weather_ar_eg",
+      "mobile": "mobile_smart_ar_eg"
     },
-    "es-ES": {
+    "ar-ER":  {
       "network": 7646,
-      "desktop": "web_weather_es_es",
-      "mobile": "mobile_smart_es_es",
-      "tablet": "tablet_weather_es_es"
+      "desktop": "web_weather_ar_er",
+      "tablet": "tablet_weather_ar_er",
+      "mobile": "mobile_smart_ar_er"
     },
-    "es-AR": {
+    "ar-IQ":  {
       "network": 7646,
-      "desktop": "web_weather_es_ar",
-      "mobile": "mobile_smart_es_ar",
-      "tablet": "tablet_weather_es_ar"
+      "desktop": "web_weather_ar_iq",
+      "tablet": "tablet_weather_ar_iq",
+      "mobile": "mobile_smart_ar_iq"
     },
-    "it-IT": {
+    "ar-JO":  {
       "network": 7646,
-      "desktop": "web_weather_it",
-      "mobile": "mobile_smart_it",
-      "tablet": "tablet_weather_it"
+      "desktop": "web_weather_ar_jo",
+      "tablet": "tablet_weather_ar_jo",
+      "mobile": "mobile_smart_ar_jo"
     },
-    "pt-BR": {
+    "ar-KM":  {
       "network": 7646,
-      "desktop": "web_weather_br",
-      "mobile": "mobile_smart_br",
-      "tablet": "tablet_weather_br"
+      "desktop": "web_weather_ar_km",
+      "tablet": "tablet_weather_ar_km",
+      "mobile": "mobile_smart_ar_km"
     },
-    "fr-FR": {
+    "ar-KW":  {
       "network": 7646,
-      "desktop": "web_weather_fr",
-      "mobile": "mobile_smart_fr",
-      "tablet": "tablet_weather_fr"
+      "desktop": "web_weather_ar_kw",
+      "tablet": "tablet_weather_ar_kw",
+      "mobile": "mobile_smart_ar_kw"
     },
-    "zh-HK": {
+    "ar-LB":  {
       "network": 7646,
-      "desktop": "web_weather_hk_cn",
-      "mobile": "mobile_smart_hk_cn",
-      "tablet": "tablet_weather_hk_cn"
+      "desktop": "web_weather_ar_lb",
+      "tablet": "tablet_weather_ar_lb",
+      "mobile": "mobile_smart_ar_lb"
     },
-    "zh-TW": {
+    "ar-LY":  {
       "network": 7646,
-      "desktop": "web_weather_tw_cn",
-      "mobile": "mobile_smart_tw_cn",
-      "tablet": "tablet_weather_tw_cn"
+      "desktop": "web_weather_ar_ly",
+      "tablet": "tablet_weather_ar_ly",
+      "mobile": "mobile_smart_ar_ly"
     },
-    "ar-AE": {
+    "ar-MA":  {
       "network": 7646,
-      "desktop": "web_weather_ae",
-      "mobile": "mobile_smart_ae",
-      "tablet": "tablet_weather_ae"
+      "desktop": "web_weather_ar_ma",
+      "tablet": "tablet_weather_ar_ma",
+      "mobile": "mobile_smart_ar_ma"
     },
-    "ca-ES": {
+    "ar-MR":  {
       "network": 7646,
-      "desktop": "web_weather_es_ca",
-      "mobile": "mobile_smart_es_ca",
-      "tablet": "tablet_weather_es_ca"
+      "desktop": "web_weather_ar_mr",
+      "tablet": "tablet_weather_ar_mr",
+      "mobile": "mobile_smart_ar_mr"
     },
-    "cs-CZ": {
+    "ar-OM":  {
       "network": 7646,
-      "desktop": "web_weather_cz",
-      "mobile": "mobile_smart_cz",
-      "tablet": "tablet_weather_cz"
+      "desktop": "web_weather_ar_om",
+      "tablet": "tablet_weather_ar_om",
+      "mobile": "mobile_smart_ar_om"
     },
-    "da-DK": {
+    "ar-QA":  {
       "network": 7646,
-      "desktop": "web_weather_dk",
-      "mobile": "mobile_smart_dk",
-      "tablet": "tablet_weather_dk"
+      "desktop": "web_weather_ar_qa",
+      "tablet": "tablet_weather_ar_qa",
+      "mobile": "mobile_smart_ar_qa"
     },
-    "el-GR": {
+    "ar-SA":  {
       "network": 7646,
-      "desktop": "web_weather_gr",
-      "mobile": "mobile_smart_gr",
-      "tablet": "tablet_weather_gr"
+      "desktop": "web_weather_ar_sa",
+      "tablet": "tablet_weather_ar_sa",
+      "mobile": "mobile_smart_ar_sa"
     },
-    "fa-IR": {
+    "ar-SD":  {
       "network": 7646,
-      "desktop": "web_weather_ir",
-      "mobile": "mobile_smart_ir",
-      "tablet": "tablet_weather_ir"
+      "desktop": "web_weather_ar_sd",
+      "tablet": "tablet_weather_ar_sd",
+      "mobile": "mobile_smart_ar_sd"
     },
-    "fi-FI": {
+    "ar-SO":  {
       "network": 7646,
-      "desktop": "web_weather_fi",
-      "mobile": "mobile_smart_fi",
-      "tablet": "tablet_weather_fi"
+      "desktop": "web_weather_ar_so",
+      "tablet": "tablet_weather_ar_so",
+      "mobile": "mobile_smart_ar_so"
     },
-    "iw-IL": {
+    "ar-SY":  {
       "network": 7646,
-      "desktop": "web_weather_il",
-      "mobile": "mobile_smart_il",
-      "tablet": "tablet_weather_il"
+      "desktop": "web_weather_ar_sy",
+      "tablet": "tablet_weather_ar_sy",
+      "mobile": "mobile_smart_ar_sy"
     },
-    "hi-IN": {
+    "ar-TD":  {
       "network": 7646,
-      "desktop": "web_weather_in_hi",
-      "mobile": "mobile_smart_in_hi",
-      "tablet": "tablet_weather_in_hi"
+      "desktop": "web_weather_ar_td",
+      "tablet": "tablet_weather_ar_td",
+      "mobile": "mobile_smart_ar_td"
     },
-    "hr-HR": {
+    "ar-TN":  {
       "network": 7646,
-      "desktop": "web_weather_hr",
-      "mobile": "mobile_smart_hr",
-      "tablet": "tablet_weather_hr"
+      "desktop": "web_weather_ar_tn",
+      "tablet": "tablet_weather_ar_tn",
+      "mobile": "mobile_smart_ar_tn"
     },
-    "hu-HU": {
+    "ar-YE":  {
       "network": 7646,
-      "desktop": "web_weather_hu",
-      "mobile": "mobile_smart_hu",
-      "tablet": "tablet_weather_hu"
+      "desktop": "web_weather_ar_ye",
+      "tablet": "tablet_weather_ar_ye",
+      "mobile": "mobile_smart_ar_ye"
     },
-    "in-ID": {
+    "ar-IL":  {
       "network": 7646,
-      "desktop": "web_weather_id",
-      "mobile": "mobile_smart_id",
-      "tablet": "tablet_weather_id"
+      "desktop": "web_weather_ar_il",
+      "tablet": "tablet_weather_ar_il",
+      "mobile": "mobile_smart_ar_il"
     },
-    "ja-JP": {
+    "id-ID":  {
       "network": 7646,
-      "desktop": "web_weather_ja",
-      "mobile": "mobile_smart_ja",
-      "tablet": "tablet_weather_ja"
+      "desktop": "web_weather_id_id",
+      "tablet": "tablet_weather_id_id",
+      "mobile": "mobile_smart_id_id"
     },
-    "ko-KR": {
+    "bn-BD":  {
       "network": 7646,
-      "desktop": "web_weather_kr",
-      "mobile": "mobile_smart_kr",
-      "tablet": "tablet_weather_kr"
+      "desktop": "web_weather_bn_bd",
+      "tablet": "tablet_weather_bn_bd",
+      "mobile": "mobile_smart_bn_bd"
     },
-    "ms-MY": {
+    "bn-IN":  {
       "network": 7646,
-      "desktop": "web_weather_my",
-      "mobile": "mobile_smart_my",
-      "tablet": "tablet_weather_my"
+      "desktop": "web_weather_bn_in",
+      "tablet": "tablet_weather_bn_in",
+      "mobile": "mobile_smart_bn_in"
     },
-    "nl-NL": {
+    "ca-AD":  {
       "network": 7646,
-      "desktop": "web_weather_nl",
-      "mobile": "mobile_smart_nl",
-      "tablet": "tablet_weather_nl"
+      "desktop": "web_weather_ca_ad",
+      "tablet": "tablet_weather_ca_ad",
+      "mobile": "mobile_smart_ca_ad"
     },
-    "no-NO": {
+    "zh-TW":  {
       "network": 7646,
-      "desktop": "web_weather_no",
-      "mobile": "mobile_smart_no",
-      "tablet": "tablet_weather_no"
+      "desktop": "web_weather_zh_tw",
+      "tablet": "tablet_weather_zh_tw",
+      "mobile": "mobile_smart_zh_tw"
     },
-    "pl-PL": {
-      "network": 7646,
-      "desktop": "web_weather_pl",
-      "mobile": "mobile_smart_pl",
-      "tablet": "tablet_weather_pl"
-    },
-    "pt-PT": {
-      "network": 7646,
-      "desktop": "web_weather_pt",
-      "mobile": "mobile_smart_pt",
-      "tablet": "tablet_weather_pt"
-    },
-    "ro-RO": {
-      "network": 7646,
-      "desktop": "web_weather_ro",
-      "mobile": "mobile_smart_ro",
-      "tablet": "tablet_weather_ro"
-    },
-    "ru-RU": {
-      "network": 7646,
-      "desktop": "web_weather_ru",
-      "mobile": "mobile_smart_ru",
-      "tablet": "tablet_weather_ru"
-    },
-    "sk-SK": {
-      "network": 7646,
-      "desktop": "web_weather_sk",
-      "mobile": "mobile_smart_sk",
-      "tablet": "tablet_weather_sk"
-    },
-    "sv-SE": {
-      "network": 7646,
-      "desktop": "web_weather_se",
-      "mobile": "mobile_smart_se",
-      "tablet": "tablet_weather_se"
-    },
-    "th-TH": {
-      "network": 7646,
-      "desktop": "web_weather_th",
-      "mobile": "mobile_smart_th",
-      "tablet": "tablet_weather_th"
-    },
-    "tr-TR": {
-      "network": 7646,
-      "desktop": "web_weather_tr",
-      "mobile": "mobile_smart_tr",
-      "tablet": "tablet_weather_tr"
-    },
-    "uk-UA": {
-      "network": 7646,
-      "desktop": "web_weather_ua",
-      "mobile": "mobile_smart_ua",
-      "tablet": "tablet_weather_ua"
-    },
-    "vi-VN": {
-      "network": 7646,
-      "desktop": "web_weather_vn",
-      "mobile": "mobile_smart_vn",
-      "tablet": "tablet_weather_vn"
-    },
-    "zh-CN": {
+    "zh-CN":  {
       "network": 7646,
       "desktop": "web_weather_zh_cn",
-      "mobile": "mobile_smart_zh_cn",
-      "tablet": "tablet_weather_zh_cn"
+      "tablet": "tablet_weather_zh_cn",
+      "mobile": "mobile_smart_zh_cn"
     },
-    "de-AT": {
+    "hr-BA":  {
+      "network": 7646,
+      "desktop": "web_weather_hr_ba",
+      "tablet": "tablet_weather_hr_ba",
+      "mobile": "mobile_smart_hr_ba"
+    },
+    "hr-HR":  {
+      "network": 7646,
+      "desktop": "web_weather_hr_hr",
+      "tablet": "tablet_weather_hr_hr",
+      "mobile": "mobile_smart_hr_hr"
+    },
+    "cs-CZ":  {
+      "network": 7646,
+      "desktop": "web_weather_cs_cz",
+      "tablet": "tablet_weather_cs_cz",
+      "mobile": "mobile_smart_cs_cz"
+    },
+    "th-TH":  {
+      "network": 7646,
+      "desktop": "web_weather_th_th",
+      "tablet": "tablet_weather_th_th",
+      "mobile": "mobile_smart_th_th"
+    },
+    "da-DK":  {
+      "network": 7646,
+      "desktop": "web_weather_da_dk",
+      "tablet": "tablet_weather_da_dk",
+      "mobile": "mobile_smart_da_dk"
+    },
+    "nl-BE":  {
+      "network": 7646,
+      "desktop": "web_weather_nl_be",
+      "tablet": "tablet_weather_nl_be",
+      "mobile": "mobile_smart_nl_be"
+    },
+    "nl-NL":  {
+      "network": 7646,
+      "desktop": "web_weather_nl_nl",
+      "tablet": "tablet_weather_nl_nl",
+      "mobile": "mobile_smart_nl_nl"
+    },
+    "nl-SR":  {
+      "network": 7646,
+      "desktop": "web_weather_nl_sr",
+      "tablet": "tablet_weather_nl_sr",
+      "mobile": "mobile_smart_nl_sr"
+    },
+    "/en":  {
+      "network": 7646,
+      "desktop": "web_weather_en",
+      "tablet": "tablet_weather_en",
+      "mobile": "mobile_smart_en"
+    },
+    "en-AG":  {
+      "network": 7646,
+      "desktop": "web_weather_en_ag",
+      "tablet": "tablet_weather_en_ag",
+      "mobile": "mobile_smart_en_ag"
+    },
+    "en-AS":  {
+      "network": 7646,
+      "desktop": "web_weather_en_as",
+      "tablet": "tablet_weather_en_as",
+      "mobile": "mobile_smart_en_as"
+    },
+    "en-AU":  {
+      "network": 7646,
+      "desktop": "web_weather_en_au",
+      "tablet": "tablet_weather_en_au",
+      "mobile": "mobile_smart_en_au"
+    },
+    "en-BB":  {
+      "network": 7646,
+      "desktop": "web_weather_en_bb",
+      "tablet": "tablet_weather_en_bb",
+      "mobile": "mobile_smart_en_bb"
+    },
+    "en-BS":  {
+      "network": 7646,
+      "desktop": "web_weather_en_bs",
+      "tablet": "tablet_weather_en_bs",
+      "mobile": "mobile_smart_en_bs"
+    },
+    "en-BZ":  {
+      "network": 7646,
+      "desktop": "web_weather_en_bz",
+      "tablet": "tablet_weather_en_bz",
+      "mobile": "mobile_smart_en_bz"
+    },
+    "en-CA":  {
+      "network": 7646,
+      "desktop": "web_weather_en_ca",
+      "tablet": "tablet_weather_en_ca",
+      "mobile": "mobile_smart_en_ca"
+    },
+    "en-CM":  {
+      "network": 7646,
+      "desktop": "web_weather_en_cm",
+      "tablet": "tablet_weather_en_cm",
+      "mobile": "mobile_smart_en_cm"
+    },
+    "en-DM":  {
+      "network": 7646,
+      "desktop": "web_weather_en_dm",
+      "tablet": "tablet_weather_en_dm",
+      "mobile": "mobile_smart_en_dm"
+    },
+    "en-FJ":  {
+      "network": 7646,
+      "desktop": "web_weather_en_fj",
+      "tablet": "tablet_weather_en_fj",
+      "mobile": "mobile_smart_en_fj"
+    },
+    "en-FM":  {
+      "network": 7646,
+      "desktop": "web_weather_en_fm",
+      "tablet": "tablet_weather_en_fm",
+      "mobile": "mobile_smart_en_fm"
+    },
+    "en-GB":  {
+      "network": 7646,
+      "desktop": "web_weather_en_gb",
+      "tablet": "tablet_weather_en_gb",
+      "mobile": "mobile_smart_en_gb",
+      "metrics":"twciuk"
+    },
+    "en-GD":  {
+      "network": 7646,
+      "desktop": "web_weather_en_gd",
+      "tablet": "tablet_weather_en_gd",
+      "mobile": "mobile_smart_en_gd"
+    },
+    "en-GH":  {
+      "network": 7646,
+      "desktop": "web_weather_en_gh",
+      "tablet": "tablet_weather_en_gh",
+      "mobile": "mobile_smart_en_gh"
+    },
+    "en-GM":  {
+      "network": 7646,
+      "desktop": "web_weather_en_gm",
+      "tablet": "tablet_weather_en_gm",
+      "mobile": "mobile_smart_en_gm"
+    },
+    "en-GY":  {
+      "network": 7646,
+      "desktop": "web_weather_en_gy",
+      "tablet": "tablet_weather_en_gy",
+      "mobile": "mobile_smart_en_gy"
+    },
+    "en-IE":  {
+      "network": 7646,
+      "desktop": "web_weather_en_ie",
+      "tablet": "tablet_weather_en_ie",
+      "mobile": "mobile_smart_en_ie"
+    },
+    "en-IN":  {
+      "network": 7646,
+      "desktop": "web_weather_en_in",
+      "tablet": "tablet_weather_en_in",
+      "mobile": "mobile_smart_en_in",
+      "metrics":"twciin"
+    },
+    "en-JM":  {
+      "network": 7646,
+      "desktop": "web_weather_en_jm",
+      "tablet": "tablet_weather_en_jm",
+      "mobile": "mobile_smart_en_jm"
+    },
+    "en-KE":  {
+      "network": 7646,
+      "desktop": "web_weather_en_ke",
+      "tablet": "tablet_weather_en_ke",
+      "mobile": "mobile_smart_en_ke"
+    },
+    "en-KI":  {
+      "network": 7646,
+      "desktop": "web_weather_en_ki",
+      "tablet": "tablet_weather_en_ki",
+      "mobile": "mobile_smart_en_ki"
+    },
+    "en-KN":  {
+      "network": 7646,
+      "desktop": "web_weather_en_kn",
+      "tablet": "tablet_weather_en_kn",
+      "mobile": "mobile_smart_en_kn"
+    },
+    "en-LC":  {
+      "network": 7646,
+      "desktop": "web_weather_en_lc",
+      "tablet": "tablet_weather_en_lc",
+      "mobile": "mobile_smart_en_lc"
+    },
+    "en-LR":  {
+      "network": 7646,
+      "desktop": "web_weather_en_lr",
+      "tablet": "tablet_weather_en_lr",
+      "mobile": "mobile_smart_en_lr"
+    },
+    "en-LS":  {
+      "network": 7646,
+      "desktop": "web_weather_en_ls",
+      "tablet": "tablet_weather_en_ls",
+      "mobile": "mobile_smart_en_ls"
+    },
+    "en-MH":  {
+      "network": 7646,
+      "desktop": "web_weather_en_mh",
+      "tablet": "tablet_weather_en_mh",
+      "mobile": "mobile_smart_en_mh"
+    },
+    "en-MT":  {
+      "network": 7646,
+      "desktop": "web_weather_en_mt",
+      "tablet": "tablet_weather_en_mt",
+      "mobile": "mobile_smart_en_mt"
+    },
+    "en-MU":  {
+      "network": 7646,
+      "desktop": "web_weather_en_mu",
+      "tablet": "tablet_weather_en_mu",
+      "mobile": "mobile_smart_en_mu"
+    },
+    "en-NA":  {
+      "network": 7646,
+      "desktop": "web_weather_en_na",
+      "tablet": "tablet_weather_en_na",
+      "mobile": "mobile_smart_en_na"
+    },
+    "en-NG":  {
+      "network": 7646,
+      "desktop": "web_weather_en_ng",
+      "tablet": "tablet_weather_en_ng",
+      "mobile": "mobile_smart_en_ng"
+    },
+    "en-NZ":  {
+      "network": 7646,
+      "desktop": "web_weather_en_nz",
+      "tablet": "tablet_weather_en_nz",
+      "mobile": "mobile_smart_en_nz"
+    },
+    "en-PH":  {
+      "network": 7646,
+      "desktop": "web_weather_en_ph",
+      "tablet": "tablet_weather_en_ph",
+      "mobile": "mobile_smart_en_ph"
+    },
+    "en-PK":  {
+      "network": 7646,
+      "desktop": "web_weather_en_pk",
+      "tablet": "tablet_weather_en_pk",
+      "mobile": "mobile_smart_en_pk"
+    },
+    "en-PW":  {
+      "network": 7646,
+      "desktop": "web_weather_en_pw",
+      "tablet": "tablet_weather_en_pw",
+      "mobile": "mobile_smart_en_pw"
+    },
+    "en-RW":  {
+      "network": 7646,
+      "desktop": "web_weather_en_rw",
+      "tablet": "tablet_weather_en_rw",
+      "mobile": "mobile_smart_en_rw"
+    },
+    "en-SB":  {
+      "network": 7646,
+      "desktop": "web_weather_en_sb",
+      "tablet": "tablet_weather_en_sb",
+      "mobile": "mobile_smart_en_sb"
+    },
+    "en-SG":  {
+      "network": 7646,
+      "desktop": "web_weather_en_sg",
+      "tablet": "tablet_weather_en_sg",
+      "mobile": "mobile_smart_en_sg"
+    },
+    "en-SL":  {
+      "network": 7646,
+      "desktop": "web_weather_en_sl",
+      "tablet": "tablet_weather_en_sl",
+      "mobile": "mobile_smart_en_sl"
+    },
+    "en-SS":  {
+      "network": 7646,
+      "desktop": "web_weather_en_ss",
+      "tablet": "tablet_weather_en_ss",
+      "mobile": "mobile_smart_en_ss"
+    },
+    "en-SZ":  {
+      "network": 7646,
+      "desktop": "web_weather_en_sz",
+      "tablet": "tablet_weather_en_sz",
+      "mobile": "mobile_smart_en_sz"
+    },
+    "en-TO":  {
+      "network": 7646,
+      "desktop": "web_weather_en_to",
+      "tablet": "tablet_weather_en_to",
+      "mobile": "mobile_smart_en_to"
+    },
+    "en-TT":  {
+      "network": 7646,
+      "desktop": "web_weather_en_tt",
+      "tablet": "tablet_weather_en_tt",
+      "mobile": "mobile_smart_en_tt"
+    },
+    "en-TV":  {
+      "network": 7646,
+      "desktop": "web_weather_en_tv",
+      "tablet": "tablet_weather_en_tv",
+      "mobile": "mobile_smart_en_tv"
+    },
+    "en-TZ":  {
+      "network": 7646,
+      "desktop": "web_weather_en_tz",
+      "tablet": "tablet_weather_en_tz",
+      "mobile": "mobile_smart_en_tz"
+    },
+    "en-UG":  {
+      "network": 7646,
+      "desktop": "web_weather_en_ug",
+      "tablet": "tablet_weather_en_ug",
+      "mobile": "mobile_smart_en_ug"
+    },
+    "en-US":  {
+      "network": 7646,
+      "desktop": "web_weather_us",
+      "tablet": "tablet_weather_us",
+      "mobile": "mobile_smart_us",
+      "metrics":"twciwx"
+    },
+    "en-VC":  {
+      "network": 7646,
+      "desktop": "web_weather_en_vs",
+      "tablet": "tablet_weather_en_vs",
+      "mobile": "mobile_smart_en_vs"
+    },
+    "en-VU":  {
+      "network": 7646,
+      "desktop": "web_weather_en_vu",
+      "tablet": "tablet_weather_en_vu",
+      "mobile": "mobile_smart_en_vu"
+    },
+    "en-ZA":  {
+      "network": 7646,
+      "desktop": "web_weather_en_za",
+      "tablet": "tablet_weather_en_za",
+      "mobile": "mobile_smart_en_za"
+    },
+    "en-ZM":  {
+      "network": 7646,
+      "desktop": "web_weather_en_zm",
+      "tablet": "tablet_weather_en_zm",
+      "mobile": "mobile_smart_en_zm"
+    },
+    "en-ZW":  {
+      "network": 7646,
+      "desktop": "web_weather_en_zw",
+      "tablet": "tablet_weather_en_zw",
+      "mobile": "mobile_smart_en_zw"
+    },
+    "fa-IR":  {
+      "network": 7646,
+      "desktop": "web_weather_fa_ir",
+      "tablet": "tablet_weather_fa_ir",
+      "mobile": "mobile_smart_fa_ir"
+    },
+    "fi-FI":  {
+      "network": 7646,
+      "desktop": "web_weather_fi_fi",
+      "tablet": "tablet_weather_fi_fi",
+      "mobile": "mobile_smart_fi_fi"
+    },
+    "/fr":  {
+      "network": 7646,
+      "desktop": "web_weather_fr",
+      "tablet": "tablet_weather_fr",
+      "mobile": "mobile_smart_fr"
+    },
+    "fr-AD":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_ad",
+      "tablet": "tablet_weather_fr_ad",
+      "mobile": "mobile_smart_fr_ad"
+    },
+    "fr-BE":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_be",
+      "tablet": "tablet_weather_fr_be",
+      "mobile": "mobile_smart_fr_be"
+    },
+    "fr-BF":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_bf",
+      "tablet": "tablet_weather_fr_bf",
+      "mobile": "mobile_smart_fr_bf"
+    },
+    "fr-BI":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_bi",
+      "tablet": "tablet_weather_fr_bi",
+      "mobile": "mobile_smart_fr_bi"
+    },
+    "fr-BJ":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_bj",
+      "tablet": "tablet_weather_fr_bj",
+      "mobile": "mobile_smart_fr_bj"
+    },
+    "fr-CA":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_ca",
+      "tablet": "tablet_weather_fr_ca",
+      "mobile": "mobile_smart_fr_ca"
+    },
+    "fr-CD":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_cd",
+      "tablet": "tablet_weather_fr_cd",
+      "mobile": "mobile_smart_fr_cd"
+    },
+    "fr-CF":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_cf",
+      "tablet": "tablet_weather_fr_cf",
+      "mobile": "mobile_smart_fr_cf"
+    },
+    "fr-CG":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_cg",
+      "tablet": "tablet_weather_fr_cg",
+      "mobile": "mobile_smart_fr_cg"
+    },
+    "fr-CI":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_ci",
+      "tablet": "tablet_weather_fr_ci",
+      "mobile": "mobile_smart_fr_ci"
+    },
+    "fr-CM":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_cm",
+      "tablet": "tablet_weather_fr_cm",
+      "mobile": "mobile_smart_fr_cm"
+    },
+    "fr-DJ":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_dj",
+      "tablet": "tablet_weather_fr_dj",
+      "mobile": "mobile_smart_fr_dj"
+    },
+    "fr-DZ":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_dz",
+      "tablet": "tablet_weather_fr_dz",
+      "mobile": "mobile_smart_fr_dz"
+    },
+    "fr-FR":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_fr",
+      "tablet": "tablet_weather_fr_fr",
+      "mobile": "mobile_smart_fr_fr"
+    },
+    "fr-GA":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_ga",
+      "tablet": "tablet_weather_fr_ga",
+      "mobile": "mobile_smart_fr_ga"
+    },
+    "fr-GN":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_gn",
+      "tablet": "tablet_weather_fr_gn",
+      "mobile": "mobile_smart_fr_gn"
+    },
+    "fr-HT":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_ht",
+      "tablet": "tablet_weather_fr_ht",
+      "mobile": "mobile_smart_fr_ht"
+    },
+    "fr-KM":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_km",
+      "tablet": "tablet_weather_fr_km",
+      "mobile": "mobile_smart_fr_km"
+    },
+    "fr-LU":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_lu",
+      "tablet": "tablet_weather_fr_lu",
+      "mobile": "mobile_smart_fr_lu"
+    },
+    "fr-MA":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_ma",
+      "tablet": "tablet_weather_fr_ma",
+      "mobile": "mobile_smart_fr_ma"
+    },
+    "fr-MC":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_mc",
+      "tablet": "tablet_weather_fr_mc",
+      "mobile": "mobile_smart_fr_mc"
+    },
+    "fr-MG":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_mg",
+      "tablet": "tablet_weather_fr_mg",
+      "mobile": "mobile_smart_fr_mg"
+    },
+    "fr-ML":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_ml",
+      "tablet": "tablet_weather_fr_ml",
+      "mobile": "mobile_smart_fr_ml"
+    },
+    "fr-MU":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_mu",
+      "tablet": "tablet_weather_fr_mu",
+      "mobile": "mobile_smart_fr_mu"
+    },
+    "fr-NE":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_ne",
+      "tablet": "tablet_weather_fr_ne",
+      "mobile": "mobile_smart_fr_ne"
+    },
+    "fr-RW":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_rw",
+      "tablet": "tablet_weather_fr_rw",
+      "mobile": "mobile_smart_fr_rw"
+    },
+    "fr-SN":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_sn",
+      "tablet": "tablet_weather_fr_sn",
+      "mobile": "mobile_smart_fr_sn"
+    },
+    "fr-TD":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_td",
+      "tablet": "tablet_weather_fr_td",
+      "mobile": "mobile_smart_fr_td"
+    },
+    "fr-TG":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_tg",
+      "tablet": "tablet_weather_fr_tg",
+      "mobile": "mobile_smart_fr_tg"
+    },
+    "fr-VU":  {
+      "network": 7646,
+      "desktop": "web_weather_fr_vu",
+      "tablet": "tablet_weather_fr_vu",
+      "mobile": "mobile_smart_fr_vu"
+    },
+    "de-AT":  {
       "network": 7646,
       "desktop": "web_weather_de_at",
-      "mobile": "mobile_smart_de_at",
-      "tablet": "tablet_weather_de_at"
+      "tablet": "tablet_weather_de_at",
+      "mobile": "mobile_smart_de_at"
+    },
+    "de-CH":  {
+      "network": 7646,
+      "desktop": "web_weather_de_ch",
+      "tablet": "tablet_weather_de_ch",
+      "mobile": "mobile_smart_de_ch"
+    },
+    "de-DE":  {
+      "network": 3673,
+      "desktop": "wx_digital",
+      "tablet": "wx_digital",
+      "mobile": "wx_digital",
+      "metrics":"twciglsde"
+    },
+    "de-LI":  {
+      "network": 7646,
+      "desktop": "web_weather_de_li",
+      "tablet": "tablet_weather_de_li",
+      "mobile": "mobile_smart_de_li"
+    },
+    "el-GR":  {
+      "network": 7646,
+      "desktop": "web_weather_el_gr",
+      "tablet": "tablet_weather_el_gr",
+      "mobile": "mobile_smart_el_gr"
+    },
+    "el-CY":  {
+      "network": 7646,
+      "desktop": "web_weather_el_cy",
+      "tablet": "tablet_weather_el_cy",
+      "mobile": "mobile_smart_el_cy"
+    },
+    "he-IL":  {
+      "network": 7646,
+      "desktop": "web_weather_he_il",
+      "tablet": "tablet_weather_he_il",
+      "mobile": "mobile_smart_he_il"
+    },
+    "hi-IN":  {
+      "network": 7646,
+      "desktop": "web_weather_hi_in",
+      "tablet": "tablet_weather_hi_in",
+      "mobile": "mobile_smart_hi_in"
+    },
+    "hu-HU":  {
+      "network": 7646,
+      "desktop": "web_weather_hu_hu",
+      "tablet": "tablet_weather_hu_hu",
+      "mobile": "mobile_smart_hu_hu"
+    },
+    "it-IT":  {
+      "network": 7646,
+      "desktop": "web_weather_it_it",
+      "tablet": "tablet_weather_it_it",
+      "mobile": "mobile_smart_it_it"
+    },
+    "it-SM":  {
+      "network": 7646,
+      "desktop": "web_weather_it_sm",
+      "tablet": "tablet_weather_it_sm",
+      "mobile": "mobile_smart_it_sm"
+    },
+    "it-VA":  {
+      "network": 7646,
+      "desktop": "web_weather_it_va",
+      "tablet": "tablet_weather_it_va",
+      "mobile": "mobile_smart_it_va"
+    },
+    "ja-JP":  {
+      "network": 7646,
+      "desktop": "web_weather_ja_jp",
+      "tablet": "tablet_weather_ja_jp",
+      "mobile": "mobile_smart_ja_jp"
+    },
+    "ko-KP":  {
+      "network": 7646,
+      "desktop": "web_weather_ko_kp",
+      "tablet": "tablet_weather_ko_kp",
+      "mobile": "mobile_smart_ko_kp"
+    },
+    "ko-KR":  {
+      "network": 7646,
+      "desktop": "web_weather_ko_kr",
+      "tablet": "tablet_weather_ko_kr",
+      "mobile": "mobile_smart_ko_kr"
+    },
+    "ms-BN":  {
+      "network": 7646,
+      "desktop": "web_weather_ms_bn",
+      "tablet": "tablet_weather_ms_bn",
+      "mobile": "mobile_smart_ms_bn"
+    },
+    "ms-MY":  {
+      "network": 7646,
+      "desktop": "web_weather_ms_my",
+      "tablet": "tablet_weather_ms_my",
+      "mobile": "mobile_smart_ms_my"
+    },
+    "no-NO":  {
+      "network": 7646,
+      "desktop": "web_weather_no_no",
+      "tablet": "tablet_weather_no_no",
+      "mobile": "mobile_smart_no_no"
+    },
+    "pl-PL":  {
+      "network": 7646,
+      "desktop": "web_weather_pl_pl",
+      "tablet": "tablet_weather_pl_pl",
+      "mobile": "mobile_smart_pl_pl"
+    },
+    "pt-AO":  {
+      "network": 7646,
+      "desktop": "web_weather_pt_ao",
+      "tablet": "tablet_weather_pt_ao",
+      "mobile": "mobile_smart_pt_ao"
+    },
+    "pt-BR":  {
+      "network": 7646,
+      "desktop": "web_weather_pt_br",
+      "tablet": "tablet_weather_pt_br",
+      "mobile": "mobile_smart_pt_br"
+    },
+    "pt-CV":  {
+      "network": 7646,
+      "desktop": "web_weather_pt_cv",
+      "tablet": "tablet_weather_pt_cv",
+      "mobile": "mobile_smart_pt_cv"
+    },
+    "pt-GW":  {
+      "network": 7646,
+      "desktop": "web_weather_pt_gw",
+      "tablet": "tablet_weather_pt_gw",
+      "mobile": "mobile_smart_pt_gw"
+    },
+    "pt-MZ":  {
+      "network": 7646,
+      "desktop": "web_weather_pt_mz",
+      "tablet": "tablet_weather_pt_mz",
+      "mobile": "mobile_smart_pt_mz"
+    },
+    "pt-PT":  {
+      "network": 7646,
+      "desktop": "web_weather_pt_pt",
+      "tablet": "tablet_weather_pt_pt",
+      "mobile": "mobile_smart_pt_pt"
+    },
+    "pt-ST":  {
+      "network": 7646,
+      "desktop": "web_weather_pt_st",
+      "tablet": "tablet_weather_pt_st",
+      "mobile": "mobile_smart_pt_st"
+    },
+    "pt-TP":  {
+      "network": 7646,
+      "desktop": "web_weather_pt_tp",
+      "tablet": "tablet_weather_pt_tp",
+      "mobile": "mobile_smart_pt_tp"
+    },
+    "ro-RO":  {
+      "network": 7646,
+      "desktop": "web_weather_ro_ro",
+      "tablet": "tablet_weather_ro_ro",
+      "mobile": "mobile_smart_ro_ro"
+    },
+    "ru-BY":  {
+      "network": 7646,
+      "desktop": "web_weather_ru_by",
+      "tablet": "tablet_weather_ru_by",
+      "mobile": "mobile_smart_ru_by"
+    },
+    "ru-EE":  {
+      "network": 7646,
+      "desktop": "web_weather_ru_ee",
+      "tablet": "tablet_weather_ru_ee",
+      "mobile": "mobile_smart_ru_ee"
+    },
+    "ru-KG":  {
+      "network": 7646,
+      "desktop": "web_weather_ru_kg",
+      "tablet": "tablet_weather_ru_kg",
+      "mobile": "mobile_smart_ru_kg"
+    },
+    "ru-RU":  {
+      "network": 7646,
+      "desktop": "web_weather_ru_ru",
+      "tablet": "tablet_weather_ru_ru",
+      "mobile": "mobile_smart_ru_ru"
+    },
+    "sk-SK":  {
+      "network": 7646,
+      "desktop": "web_weather_sk_sk",
+      "tablet": "tablet_weather_sk_sk",
+      "mobile": "mobile_smart_sk_sk"
+    },
+    "en-PA":  {
+      "network": 7646,
+      "desktop": "web_weather_en_pa",
+      "tablet": "tablet_weather_en_pa",
+      "mobile": "mobile_smart_en_pa"
+    },
+    "es":  {
+      "network": 7646,
+      "desktop": "web_weather_es",
+      "tablet": "tablet_weather_es",
+      "mobile": "mobile_smart_es"
+    },
+    "es-AR":  {
+      "network": 7646,
+      "desktop": "web_weather_es_ar",
+      "tablet": "tablet_weather_es_ar",
+      "mobile": "mobile_smart_es_ar"
+    },
+    "es-BO":  {
+      "network": 7646,
+      "desktop": "web_weather_es_bo",
+      "tablet": "tablet_weather_es_bo",
+      "mobile": "mobile_smart_es_bo"
+    },
+    "es-CL":  {
+      "network": 7646,
+      "desktop": "web_weather_es_cl",
+      "tablet": "tablet_weather_es_cl",
+      "mobile": "mobile_smart_es_cl"
+    },
+    "es-CO":  {
+      "network": 7646,
+      "desktop": "web_weather_es_co",
+      "tablet": "tablet_weather_es_co",
+      "mobile": "mobile_smart_es_co"
+    },
+    "es-CR":  {
+      "network": 7646,
+      "desktop": "web_weather_es_cr",
+      "tablet": "tablet_weather_es_cr",
+      "mobile": "mobile_smart_es_cr"
+    },
+    "es-DO":  {
+      "network": 7646,
+      "desktop": "web_weather_es_do",
+      "tablet": "tablet_weather_es_do",
+      "mobile": "mobile_smart_es_do"
+    },
+    "es-EC":  {
+      "network": 7646,
+      "desktop": "web_weather_es_ec",
+      "tablet": "tablet_weather_es_ec",
+      "mobile": "mobile_smart_es_ec"
+    },
+    "es-GT":  {
+      "network": 7646,
+      "desktop": "web_weather_es_gt",
+      "tablet": "tablet_weather_es_gt",
+      "mobile": "mobile_smart_es_gt"
+    },
+    "es-HN":  {
+      "network": 7646,
+      "desktop": "web_weather_es_hn",
+      "tablet": "tablet_weather_es_hn",
+      "mobile": "mobile_smart_es_hn"
+    },
+    "es-MX":  {
+      "network": 7646,
+      "desktop": "web_weather_es_mx",
+      "tablet": "tablet_weather_es_mx",
+      "mobile": "mobile_smart_es_mx"
+    },
+    "es-NI":  {
+      "network": 7646,
+      "desktop": "web_weather_es_ni",
+      "tablet": "tablet_weather_es_ni",
+      "mobile": "mobile_smart_es_ni"
+    },
+    "es-PA":  {
+      "network": 7646,
+      "desktop": "web_weather_es_pa",
+      "tablet": "tablet_weather_es_pa",
+      "mobile": "mobile_smart_es_pa"
+    },
+    "es-PE":  {
+      "network": 7646,
+      "desktop": "web_weather_es_pe",
+      "tablet": "tablet_weather_es_pe",
+      "mobile": "mobile_smart_es_pe"
+    },
+    "es-PY":  {
+      "network": 7646,
+      "desktop": "web_weather_es_py",
+      "tablet": "tablet_weather_es_py",
+      "mobile": "mobile_smart_es_py"
+    },
+    "es-SV":  {
+      "network": 7646,
+      "desktop": "web_weather_es_sv",
+      "tablet": "tablet_weather_es_sv",
+      "mobile": "mobile_smart_es_sv"
+    },
+    "es-US":  {
+      "network": 7646,
+      "desktop": "web_weather_es_us",
+      "tablet": "tablet_weather_es_us",
+      "mobile": "mobile_smart_es_us",
+      "metrics":"twciespanol"
+    },
+    "es-UY":  {
+      "network": 7646,
+      "desktop": "web_weather_es_uy",
+      "tablet": "tablet_weather_es_uy",
+      "mobile": "mobile_smart_es_uy"
+    },
+    "es-VE":  {
+      "network": 7646,
+      "desktop": "web_weather_es_ve",
+      "tablet": "tablet_weather_es_ve",
+      "mobile": "mobile_smart_es_ve"
+    },
+    "es-ES":  {
+      "network": 7646,
+      "desktop": "web_weather_es_es",
+      "tablet": "tablet_weather_es_es",
+      "mobile": "mobile_smart_es_es",
+      "metrics":"twciespanol"
+    },
+    "es-GQ":  {
+      "network": 7646,
+      "desktop": "web_weather_es_gq",
+      "tablet": "tablet_weather_es_gq",
+      "mobile": "mobile_smart_es_gq"
+    },
+    "sv-SE":  {
+      "network": 7646,
+      "desktop": "web_weather_sv_se",
+      "tablet": "tablet_weather_sv_se",
+      "mobile": "mobile_smart_sv_se"
+    },
+    "tl-PH":  {
+      "network": 7646,
+      "desktop": "web_weather_tl_ph",
+      "tablet": "tablet_weather_tl_ph",
+      "mobile": "mobile_smart_tl_ph"
+    },
+    "zh-SG":  {
+      "network": 7646,
+      "desktop": "web_weather_zh_sg",
+      "tablet": "tablet_weather_zh_sg",
+      "mobile": "mobile_smart_zh_sg"
+    },
+    "tr-TR":  {
+      "network": 7646,
+      "desktop": "web_weather_tr_tr",
+      "tablet": "tablet_weather_tr_tr",
+      "mobile": "mobile_smart_tr_tr"
+    },
+    "uk-UA":  {
+      "network": 7646,
+      "desktop": "web_weather_uk_ua",
+      "tablet": "tablet_weather_uk_ua",
+      "mobile": "mobile_smart_uk_ua"
+    },
+    "ur-PK":  {
+      "network": 7646,
+      "desktop": "web_weather_ur_pk",
+      "tablet": "tablet_weather_ur_pk",
+      "mobile": "mobile_smart_ur_pk"
+    },
+    "vi-VN":  {
+      "network": 7646,
+      "desktop": "web_weather_vi_vn",
+      "tablet": "tablet_weather_vi_vn",
+      "mobile": "mobile_smart_vi_vn"
     }
   },
   "urlToAdZone": {
