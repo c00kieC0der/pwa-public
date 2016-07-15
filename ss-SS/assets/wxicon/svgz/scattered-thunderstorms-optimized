@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" class="svg-scattered-thunderstorms">
+  <defs>
+    <mask id="svg-cloud-mask-scattered-thunderstorms">
+      <rect x="0" y="0" width="100%" height="100%" fill="#FFF"/>
+      <use xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/symbols.svgz#svg-cloud" transform="scale(1.8) translate(-6, -14)" fill="#000" stroke="#000" stroke-width="13"/>
+    </mask>
+  </defs>
+  <g transform="translate(0, -16)">
+    <use class="svg-sun" xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/symbols.svgz#svg-sun" transform="scale(0.56) translate(20, 30)" mask="url(#svg-cloud-mask-scattered-thunderstorms)"/>
+    <use class="svg-cloud" xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/symbols.svgz#svg-cloud" transform="scale(0.95) translate(8, 6)" stroke="none"/>
+  </g>
+  <g>
+    <path class="svg-lightning" d="M89.5,141.8c0-0.5-0.5-0.8-1-0.8l0,0l0,0H69.2c-0.5,0-0.8,0.3-1,0.5l-7.6,21.6c0,0.2,0,0.2,0,0.3 c0,0.5,0.5,0.8,1,0.8l0,0h7.3l-6.8,19.4l0,0c0,0.2,0,0.3,0,0.3c0,0.8,0.8,1.5,2,1.5c0.7,0,1.4-0.3,1.7-0.8l0,0l22.3-29.6l0,0 c0-0.2,0-0.2,0-0.3c0-0.5-0.5-0.8-1-0.8l0,0l0,0h-6.8l9.1-12L89.5,141.8z"/>
+    <path class="svg-drop" d="M105.3,167.3c0.4-0.9-0.2-1.9-1.2-2.2c-0.9-0.3-1.9,0-2.3,0.7h0l-19.4,24.8c-0.4,0.5-0.7,1-1,1.6 c-1.2,3,0.6,6.4,4,7.5c3.4,1.1,7-0.4,8.3-3.3h0l11.5-28.9L105.3,167.3L105.3,167.3z"/>
+    <path class="svg-drop" d="M139.3,143.3c0.4-0.9-0.2-1.9-1.2-2.2c-0.9-0.3-1.9,0-2.3,0.7h0l-19.4,24.8c-0.4,0.5-0.7,1-1,1.6 c-1.2,3,0.6,6.4,4,7.5c3.4,1.1,7-0.4,8.3-3.3h0l11.5-28.9L139.3,143.3L139.3,143.3z"/>
+  </g>
+</svg>

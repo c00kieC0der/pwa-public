@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Krajowy i lokalny radar pogodowy, prognozy dzienne, informacje o huraganach i z serwisu The Weather Channel i weather.com",
+    "page_desc" : "The Weather Channel i weather.com udostępniają prognozy dla kraju i lokalne prognozy dla miast oraz dane z radaru, raporty i informacje o huraganach",
+    "page_keywords" : "pogoda w kraju, prognoza pogody dla kraju, pogoda lokalna, lokalna prognoza pogody, pogoda, prognoza pogody, radar pogodowy, raport pogodowy, huragany, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "Prognozy pogody i bieżące warunki dla lokalizacji {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Prognoza pogody, warunki pogodowe i radar dopplerowski na dzień i noc dla lokalizacji {dynamicLocName} z serwisu The Weather Channel i Weather.com",
+    "page_keywords" : "pogoda {dynamicLocName}, prognoza pogody {dynamicLocName}, warunki pogodowe {dynamicLocName}, prognoza {dynamicLocName}, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Godzinowa prognoza pogody dla lokalizacji {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Lokalna prognoza pogody wg godziny, warunki pogodowe, opady, punkt rosy, wilgotność, wiatr z serwisu Weather.com i The Weather Channel",
+    "page_keywords" : "godzinowa pogoda {dynamicLocName}, godzinowa prognoza pogody @, prognoza godzinowa, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "Prognoza pogody na weekend dla lokalizacji {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "prognoza pogody na weekend {dynamicLocName}, maks. temperatura, min. temperatura, opady, mapa pogodowa z serwisu The Weather Channel i Weather.com",
+    "page_keywords" : "pogoda na weekend {dynamicLocName}, prognoza pogody na weekend {dynamicLocName}, perspektywa pogodowa na weekend{dynamicLocName}, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "5-dniowa prognoza pogody dla lokalizacji {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "5-dniowa prognoza pogody {dynamicLocName}, warunki pogodowe, temperatury, szanse opadów z serwisu The Weather Channel i Weather.com",
+    "page_keywords" : "5-dniowa pogoda {dynamicLocName}, 5-dniowa prognoza pogody {dynamicLocName}, 5-dniowa {dynamicLocName}, 5-dniowa pogoda {dynamicLocName}, weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "10 dniowa prognoza pogody dla lokalizacji {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Nie daj się zaskoczyć dzięki najbardziej precyzyjnej 10-dniowej prognozie dla lokalizacji {dynamicLocName} z informacjami o maksymalnej i minimalnej temperaturze oraz szansie opadów z serwisów The Weather Channel i Weather.com",
+    "page_keywords" : "10-dniowa podoga {dynamicLocName}, 10-dniowa prognoza pogody {dynamicLocName}, warunki pogodowe {dynamicLocName}, 10-dniowa prognoza {dynamicLocName}, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "Pogoda i mapa radarowa dla lokalizacji {pageLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Interaktywna mapa pogodowa dla lokalizacji {pageLocName} umożliwia przesuwanie i przybliżanie widoku, dając niespotykaną nigdzie indziej precyzję dla twojej okolicy, ale również dla miejsc po drugiej stronie świata - przygotowane przez serwisy The Weather Channel i Weather.com",
+    "page_keywords" : "interaktywna, lokalna, radar, pogoda, mapa, mapa pogodowa {pageLocName}, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Filmy o pogodzie z The Weather Channel | Weather.com",
+    "page_desc" : "Oglądaj najnowsze nagrania wideo o pogodzie z serwisów The Weather Channel i Weather.com",
+    "page_keywords" : "filmy o pogodzie, filmy weather channel, filmy naukowe, filmy o przyrodzie, filmy o burzach, filmy o huraganach, filmy o tornadach, filmy podróżnicze, filmy o zdrowiu, filmy o klimacie, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Alerty pogodowe – The Weather Channel | Weather.com",
+    "page_desc" : "Szybki dostęp do aktywnych alertów pogodowych dla całej lokalizacji {dynamicLocName} z serwisu The Weather Channel i Weather.com",
+    "page_keywords" : "alerty, trudne warunki pogodowe, komunikaty, ostrzeżenia, weather.com, weather channel"
+  }
+}

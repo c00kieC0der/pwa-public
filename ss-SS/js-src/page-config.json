@@ -1,0 +1,44 @@
+{
+  "today"   : {
+    "name"       : "today",
+    "metricName" : "today-forecast",
+    "pos"        : "1",
+    "href"       : "today"
+  },
+  "hourly"  : {
+    "name"       : "hourly",
+    "metricName" : "hourly-forecast",
+    "pos"        : "2",
+    "href"       : "hourly"
+  },
+  "fiveday"   : {
+    "name"       : "fiveday",
+    "metricName" : "5day-forecast",
+    "pos"        : "3",
+    "href"       : "5_day"
+  },
+  "tenday"   : {
+    "name"       : "tenday",
+    "metricName" : "10day-forecast",
+    "pos"        : "4",
+    "href"       : "10_day"
+  },
+  "weekend" : {
+    "name"       : "weekend",
+    "metricName" : "weekend-forecast",
+    "pos"        : "5",
+    "href"       : "weekend"
+  },
+  "maps" : {
+    "name"        : "maps",
+    "metricName"  : "maps",
+    "pos"         : "6",
+    "href"        : "maps"
+  },
+  "404" : {
+    "name"        : "404",
+    "metricName"  : "404",
+    "pos"         : "0",
+    "href"        : "404"
+  }
+}

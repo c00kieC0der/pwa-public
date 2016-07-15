@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" class="svg-heavy-snow">
+    <use class="svg-cloud" xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/symbols.svgz#svg-cloud" transform="translate(-7, -48) scale(1.05)" />
+
+    <use class="svg-snowflake" xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/symbols.svgz#svg-snowflake" transform="translate(41.7, 122) scale(0.17)" />
+    <use class="svg-snowflake" xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/symbols.svgz#svg-snowflake" transform="translate(66, 166) scale(0.17)" />
+    <use class="svg-snowflake" xlink:href="/sites/all/modules/custom/angularmods/app/shared/wxicon/svgz/symbols.svgz#svg-snowflake" transform="translate(98.5, 122) scale(0.30)" />
+</svg>

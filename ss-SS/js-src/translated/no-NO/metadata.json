@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Nasjonal og lokal radar, daglig værmelding, orkanvarsel og informasjon fra The Weather Channel og weather.com",
+    "page_desc" : "The Weather Channel og weather.com gir nasjonale og lokale værmeldinger for byer, og også værradar, rapport og orkan dekning",
+    "page_keywords" : "nasjonalt vær, nasjonale værmeldinger, lokalt vær, lokale værmeldinger, vær, værmeldinger, værradar, værrapport, orkan, weather.com værkanal"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName} Værmelding og forhold – The Weather Channel | Weather.com",
+    "page_desc" : "Dagens og kveldens værmelding for {dynamicLocName}, værforhold og dopplerradar fra The Weather Channel og Weather.com",
+    "page_keywords" : "{dynamicLocName}vær, {dynamicLocName}værmelding, {dynamicLocName}værforhold, {dynamicLocName}varsler, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Værvarsler for hver time fra {dynamicLocName} – The Weather Channel | Weather.com",
+    "page_desc" : "Lokale værvarsler hver time, vær tilstander, nedbør, duggpunkt, luftfuktighet og vind fra weather.com og The Weather Channel",
+    "page_keywords" : "Vær for hver time for {dynamicLocName}, værvarsel for hver time for  varsler for hver time, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "{dynamicLocName} Værvarsel for helg – The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} værvarsler for helg, høy temperatur, lav temperatur, nedbør og værkart fra The Weather Channel og Weather.com",
+    "page_keywords" : "{dynamicLocName}været for helgen, {dynamicLocName} værvarsel for helgen, {dynamicLocName} værutsiktene for helgen, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "5 dagers værvarsel for {dynamicLocName} – The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} 5 dagers værvarsel, værforhold, temperaturer og mulighet for nedbør fra The Weather Channel og Weather.com",
+    "page_keywords" : "5 dagers vær for {dynamicLocName}, 5 dagers værvarsel for {dynamicLocName}, 5 dager {dynamicLocName}, 5 dagers vær {dynamicLocName}, weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName} 10 Dagers Værvarsel – The Weather Channel | Weather.com",
+    "page_desc" : "Vær forberedt med det mest presise 10 dagers værvarselet for {dynamicLocName}med høytrykk, lavtrykk, og muligheter for nedbør fra The Weather Channel og Weather.com",
+    "page_keywords" : "{dynamicLocName} 10 dagers vær, {dynamicLocName} 10 dagers værvarsel {dynamicLocName} værforhold, {dynamicLocName} 10 dagers varsel, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName} Vær- og radarkart – The Weather Channel | Weather.com",
+    "page_desc" : "Interaktivt {pageLocName} værkart lar deg panorere og zoome for å få enestående værdetaljer i ditt nærmiljø eller halvveis rundt jorda, fra The Weather Channel og Weather.com",
+    "page_keywords" : "Interaktiv, lokalt, radar, vær, kart {pageLocName} værkart, weather.com, værkanal"
+  },
+  "video" : {
+    "page_title" : "Værvideoer fra The Weather Channel | Weather.com",
+    "page_desc" : "Få de siste vær videoene fra The Weather Channel og Weather.com",
+    "page_keywords" : "værvideo, værkanal video, forskningsvideo, moder jord-video, stormvideo, orkanvideo, tornadovideo, reisevideo, helsevideo, klimavideo, weather.com weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Vær advarsler - The Weather Channel | Weather.com",
+    "page_desc" : "Hurtig tilgang til aktive vær advarsler fra hele {dynamicLocName} fra The Weather Channel og Weather.com",
+    "page_keywords" : "Advarsler, ekstremvær, overvåking, advarsler, rådgivning, weather.com, værkanal"
+  }
+}

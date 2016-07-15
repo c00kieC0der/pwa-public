@@ -1,0 +1,62 @@
+@import '../partials/colors'
+@import '../partials/typography'
+@import '../partials/sticky-table'
+@import 'compass'
+
+
+.page-title
+  background-color: #178CD7 
+  color: #FFFFFF
+  padding-left: 15px
+  margin: 0 0 10px 0
+  +box-shadow(0 0 3px 1px rgba(0, 0, 0, 0.05))
+
+.ls-hourly-wrap
+  background: white
+  position: relative
+  @media only screen and (max-width: 767px)
+    margin: 5px
+    +box-shadow(0 0 3px rgba(black, .3))
+  .wx-weather-icon
+    width: 36px
+    height: 36px
+    position: absolute
+    right: 10px
+  .description
+    padding-left: 15px
+    width: 30%
+    p
+      height: auto
+      display: inherit
+    @media only screen and (max-width: 767px)
+      display: none
+  .wind
+    width: 70%
+    // +pane-parent-eq-sm-down
+    @media only screen and (max-width: 767px)
+      width: 100%
+  .feels
+    color: $gray-dark
+    font-style: italic
+  .day-detail
+    font-size: px-to-rem(11px)
+    color: $gray
+  .open,
+  .details
+    .day-detail
+      color: $gray-dark
+      +transition(color .3s ease)
+
+.ls-hourly-wwir
+  color: $text-color
+  font-size: px-to-rem(16px)
+  padding: 10px 5px
+  margin-top: -39px /*just changed from -15px*/
+  @media only screen and (max-width: 767px)
+    padding-left: 15px
+  .wwir-icon
+    float: left
+    font-size: px-to-rem(20px)
+  .wwir-data
+    margin-left: 2em
+

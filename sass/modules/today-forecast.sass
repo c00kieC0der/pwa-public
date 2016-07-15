@@ -1,0 +1,382 @@
+@import '../partials/colors'
+@import 'compass'
+
+.today
+  .nowcard
+    margin-bottom: 10px
+    color: #ffffff
+    letter-spacing: 0.02rem
+    background-color: #257BDA
+    font-size: 18px
+    padding-bottom: 20px
+    a
+      color: #FFF
+    .deg
+      font-size: 75%
+      line-height: 0
+      position: relative
+      vertical-align: baseline
+      top: -0.2em
+      left: -0.3em
+    .wx-weather-icon
+      float: right
+      width: 60px
+      height: 60px
+      padding: 5px
+      background-color: rgba(255, 255, 255, 0.3)
+      .svg-icon
+        width: 100%
+        height: 100%
+
+    header
+      text-align: center
+      padding: 15px
+    .location
+      padding: 0 10px
+      font-size: 14px
+    .nowcard-timestamp
+      font-size: px-to-rem(14px)
+      color: rgba(#FFFFFF, 0.8)
+    .forecast
+      padding: 0 25px
+    .content
+      margin: 10px 5px
+      padding: 15px 15px 50px
+      .content-block
+        border-top: solid 1px $transparent-frosted-glass
+        border-bottom: solid 1px $transparent-frosted-glass
+        padding: 15px 0
+    .thumbnail
+      margin-right: 15px
+      vertical-align: middle
+    .wx-weather-icon
+      float: right
+      width: 60px
+      height: 60px
+      padding: 5px
+      font-size: 45px
+      background-color: rgba(255, 255, 255, 0.3)
+      .svg-icon
+        width: 100%
+        height: 100%
+
+    .video
+      cursor: pointer
+      padding-top: 5px
+      padding-bottom: 5px
+      border-top: solid 1px rgba(255, 255, 255, 0.3)
+      border-bottom: solid 1px rgba(255, 255, 255, 0.3)
+
+    .content-link
+      display: -webkit-flex
+      display: flex
+      -webkit-align-items: center
+      align-items: center
+
+    .content-title
+      -webkit-flex-grow: 1
+      flex-grow: 1
+      -webkit-flex-basis: 0px
+      flex-basis: 0px
+      padding-left: 10px
+
+    .video
+      .wx-iconfont-global
+        padding-left: 10px
+        font-size: 1.42857rem
+
+    .hilo
+      font-weight: 600
+      .btn-text
+        font-weight: normal
+
+    .feels
+      font-weight: 600
+      .btn-text
+        font-weight: normal
+
+    .phrase
+      text-transform: uppercase
+      font-size: 1.14286rem
+      font-weight: 600
+      padding-right: 85px
+      margin-bottom: 8px
+
+    .temp
+      font-weight: 600
+      font-size: 2.85714rem
+      line-height: 1
+
+
+    &-details
+      .wx-detail-row
+        width: 100%
+        margin-bottom: 5px
+      //.wx-detail-label
+      //  font-weight: 600
+      .wx-detail-label,
+      .wx-detail-value
+        display: inline-block
+        width: 49%
+      .wx-detail-value
+        text-align: right
+    .wx-detail-icon
+      float: left
+      padding-right: 6px
+      font-size: px-to-rem(14px)
+      color: $gray-dark
+      line-height: 1.3em
+
+
+.looking-ahead
+  .panel-body, .panel-footer
+    padding: 0 15px
+  h2
+    display: inline
+  .today-next-link
+    text-transform: uppercase
+    float: right
+    margin: 15px 15px 10px
+    a
+      color: $wx-light-blue
+      font-weight: 600
+  .today-looking-ahead
+    background-color: #FFF
+  .today-daypart-hilo
+    font-size: 12px
+  +display-flex
+  +flex-direction(row)
+
+  .today-daypart
+    //max-width: 125px
+    +flex-basis(125px)
+    +flex(0 0 25px)
+    outline: 0
+    transition: flex-basis 0.3s linear
+    -webkit-transition: flex-basis 0.3s linear
+    -moz-transition: flex-basis 0.3s linear
+    //transition: width 0.3s linear
+    color: #FFF
+    text-align: center
+    padding: 25px 8px
+    display: inline
+    position: relative
+    margin-bottom: 30px
+    justify-content: center
+    cursor: pointer
+    &:after
+      top: 100%
+      left: 50%
+      border: solid transparent
+      content: " "
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+      border-color: transparent
+      border-width: 20px
+      margin-left: -14px
+    .today-daypart-top
+      min-height: 55px
+      min-width: 65px
+    .today-daypart-content
+      max-width: 95px
+      margin: auto
+
+    .today-daypart-wxphrase
+      opacity: 0
+      display: none
+      transition: opacity .35s ease-in-out
+      -moz-transition: opacity .35s ease-in-out
+      -webkit-transition: opacity .35s ease-in-out
+
+    &.selected
+      max-width: none
+      cursor: default
+      +flex-basis(15%)
+      .today-daypart-wxphrase
+        opacity: 1
+      &:after
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 16px 12px 0 12px
+      .today-daypart-content
+        max-width: 100%
+        margin: auto
+
+  .condition-icon
+    width: 45px
+    margin: 10px auto
+    height: 50px
+    margin-bottom: 10px
+
+  .today-daypart-title
+    margin-bottom: 4px
+
+  .today-daypart-title,
+  .today-daypart-wxphrase,
+  .today-daypart-hilo
+    text-transform: uppercase
+
+  .today-daypart-temp
+    font-size: 32px
+  .today-daypart-precip,
+  .today-daypart-wxphrase
+    color: $frosted-glass
+  .today-daypart-wxphrase
+    font-size: px-to-rem(11px)
+  .today-daypart-precip
+    font-size: px-to-rem(13px)
+
+
+  .today-daypart-title,
+  .today-daypart-hilo,
+  .today-daypart-temp,
+  .today-daypart-precip
+    display: block
+
+  .today-daypart-title,
+  .today-daypart-wxphrase,
+  .today-daypart-hilo,
+  .today-daypart-temp,
+  .today-daypart-precip
+    text-align: center
+
+  .today-daypart-temp
+    margin: -5px 0 10px 0
+    position: relative
+  .today-daypart-title-lg
+    display: none
+  .deg-unit
+    position: absolute
+  .wx-detail
+    min-height: 25px
+    .wx-icon-sunrise-sunset
+      line-height: 0.3em
+      //font-size: px-to-rem(22px)
+      position: relative
+      top: 3px
+  .wx-details-block
+    margin: 20px 0 0
+    +pie-clearfix
+    .wx-detail
+      display: block
+      padding: 4px 0
+    .wx-detail-value
+      float: right
+      text-align: right
+    //.wx-detail-label
+    //  text-transform: uppercase
+    //  font-weight: 600
+  .show-lg
+    display: none
+@media (min-width: 481px)
+  .looking-ahead
+    .today-daypart-title-sm
+      display: none
+    .today-daypart-title-lg
+      display: inline
+
+.looking-ahead
+  .show-lg
+    display: inline
+  .dp-details
+    width: 100%
+  .today-daypart
+    &.daypart-1
+      background-color: $wx-blue-1
+      -webkit-flex-grow: 1
+      flex-grow: 1
+      &.selected
+        &:after
+          border-top-color: $wx-blue-1
+    &.daypart-2
+      background-color: $wx-blue-2
+      -webkit-flex-grow: 1
+      flex-grow: 1
+      &.selected
+        &:after
+          border-top-color: $wx-blue-2
+    &.daypart-3
+      background-color: $wx-blue-3
+      -webkit-flex-grow: 1
+      flex-grow: 1
+      &.selected
+        &:after
+          border-top-color: $wx-blue-3
+    &.daypart-4
+      background-color: $wx-blue-4
+      -webkit-flex-grow: 1
+      flex-grow: 1
+      &.selected
+        &:after
+          border-top-color: $wx-blue-4
+    &.daypart-5
+      background-color: $wx-blue-5
+      -webkit-flex-grow: 1
+      flex-grow: 1
+      &.selected
+        &:after
+          border-top-color: $wx-blue-5
+    &.selected
+      .today-daypart-wxphrase
+        display: block
+      &:after
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 16px 12px 0 12px
+
+.looking-ahead
+  .today-daypart
+    &.daypart-1,
+    &.daypart-2,
+    &.daypart-3
+      display: block
+    &.daypart-4,
+    &.daypart-5
+      display: none
+
+  .today-daypart
+    &.selected
+      flex-basis: 25%
+
+  &.panel-footer
+    .dp-details
+      display: none
+      &:first-child
+        display: block
+
+.nowcard
+  height: 250px
+  background-size: cover
+  background-repeat: no-repeat
+  &.day-clear
+    background-image: url(/ss-SS/assets/wxcards/day-clear.jpg)
+  &.day-mostly-cloudy
+    background-image: url(/ss-SS/assets/wxcards/day-mostly-cloudy.jpg)
+  &.day-partly-cloudy
+    background-image: url(/ss-SS/assets/wxcards/day-partly-cloudy.jpg)
+  &.day-rainy
+    background-image: url(/ss-SS/assets/wxcards/day-rainy.jpg)
+  &.fog
+    background-image: url(/ss-SS/assets/wxcards/fog.jpg)
+  &.hurricane
+    background-image: url(/ss-SS/assets/wxcards/hurricane.jpg)
+  &.ice
+    background-image: url(/ss-SS/assets/wxcards/ice.jpg)
+  &.night-clear
+    background-image: url(/ss-SS/assets/wxcards/night-clear.jpg)
+  &.night-lightning
+    background-image: url(/ss-SS/assets/wxcards/night-lightning.jpg)
+  &.night-mostlycloudy
+    background-image: url(/ss-SS/assets/wxcards/night-mostlycloudy.jpg)
+  &.night-partlycloudy
+    background-image: url(/ss-SS/assets/wxcards/night-partlycloudy.jpg)
+  &.night-rain
+    background-image: url(/ss-SS/assets/wxcards/night-rain.jpg)
+  &.snow
+    background-image: url(/ss-SS/assets/wxcards/snow.jpg)
+  &.tornado
+    background-image: url(/ss-SS/assets/wxcards/tornado.jpg)

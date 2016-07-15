@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Nationale en lokale weerradar, dagelijkse verwachtingen, orkanen en informatie van The Weather Channel en weather.com",
+    "page_desc" : "The Weather Channel en weather.com bieden nationale en lokale weersverwachtingen voor steden en ook weerradar, weerbericht en tornadoverwachtingen",
+    "page_keywords" : "nationaal weer, nationale weersverwachting, lokaal weer, lokale weersverwachting, weer, weersverwachting, weerradar, weerbericht, tornado, weather.com, weerkanaal"
+  },
+  "today" : {
+    "page_title" : " Weersverwachtingen en weersomstandigheden voor {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : " Weersverwachtingen, weersomstandigheden en dopplerradar van vandaag en morgen voor {dynamicLocName} van The Weather Channel en Weather.com",
+    "page_keywords" : "{dynamicLocName} weer, {dynamicLocName} weersverwachting, {dynamicLocName} weersomstandigheden, {dynamicLocName} verwachtingen, weather.com, weerkanaal"
+  },
+  "hourly" : {
+    "page_title" : "Weersverwachtingen per uur voor {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Lokale weersverwachting elk uur, weersituatie, neerslag, dauwpunt, vochtigheid, wind van Weather.com en The Weather Channel ",
+    "page_keywords" : "weer per uur voor {dynamicLocName} weersverwachting per uur voor @ verwachtingen per uur, weather.com, weerkanaal"
+  },
+  "weekend" : {
+    "page_title" : " Weersverwachting voor het weekend voor {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} weersverwachting voor het weekend, hoge temperatuur, lage temperatuur, neerslag, weerkaart van The Weather Channel en Weather.com",
+    "page_keywords" : "{dynamicLocName} weer in het weekend, {dynamicLocName} weekendweersverwachting, {dynamicLocName} weekendweersverwachting, weather.com, weerkanaal"
+  },
+  "5day" : {
+    "page_title" : "Weersverwachting voor 5 dagen voor {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} weersverwachting voor 5 dagen, weersomstandigheden, temperaturen, kans op neerslag van The Weather Channel en Weather.com",
+    "page_keywords" : "Weer voor 5 dagen voor {dynamicLocName} weersverwachting voor 5 dagen voor {dynamicLocName} 5 dagen {dynamicLocName} weer voor 5 dagen {dynamicLocName} weather.com, weerkanaal"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName} weersverwachting voor 10 dagen - The Weather Channel | Weather.com",
+    "page_desc" : "Wees goed voorbereid met de meest accurate weersverwachting voor 10 dagen voor {dynamicLocName} met hoge temperaturen, lage temperaturen, kans op neerslag van The Weather Channel en Weather.com",
+    "page_keywords" : "{dynamicLocName} weer voor 10 dagen, {dynamicLocName} weersverwachting voor 10 dagen {dynamicLocName} weersomstandigheden, {dynamicLocName} verwachtingen voor 10 dagen, weather.com, weerkanaal"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName} Weer- en Radarkaart - The Weather Channel | Weather.com",
+    "page_desc" : "Met de interactieve weerkaart voor {pageLocName} kun je pannen en zoomen voor ongeëvenaarde weergegevens in jouw plaatselijke omgeving of op het andere halfrond van The Weather Channel en Weather.com",
+    "page_keywords" : "interactief, lokaal, radar, weer, kaart, {pageLocName} weerkaart, weather.com, weerkanaal"
+  },
+  "video" : {
+    "page_title" : "Weervideo's van The Weather Channel | Weather.com",
+    "page_desc" : "Bekijk actuele weerfilmpjes van The Weather Channel en Weather.com",
+    "page_keywords" : "weervideo, weerkanaal video, wetenschap video, moeder natuur video, storm video, orkaan video, tornado video, reis video, gezondheid video, klimaat video, weer.com, weerkanaal"
+  },
+  "alerts" : {
+    "page_title" : "Weermeldingen - The Weather Channel | Weather.com",
+    "page_desc" : "Snelle toegang tot actieve weermeldingen in {dynamicLocName} van The Weather Channel en Weather.com",
+    "page_keywords" : "meldingen, extreem weer, uitkijk, waarschuwingen, advies, weather.com, weerkanaal"
+  }
+}

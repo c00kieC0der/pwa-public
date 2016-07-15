@@ -1,0 +1,53 @@
+.map-card{
+    height: 340px;
+    color: #383838;
+    padding: 0;
+    width: auto !important;
+    overflow: hidden;
+}
+.menu{
+    height: 40px;
+}
+.menu-title{
+    padding: 10px;
+    width: 115px;
+    cursor: pointer;
+    color: #383838;
+    background-color: #FFF;
+    font-size: 1.14286rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 5px 0 10px;
+}
+.panel-heading .wx-iconfont-global {
+    font-size: 14px;
+}
+.panel-heading.active{
+    background-color: #378cd5;
+    color: #FFF;
+}
+#menuDropdown{
+    display: none;
+    position: absolute;
+    margin: 0;
+    border: 1px solid #C0C0C0;
+    border-bottom: none;
+    z-index: 1000;
+}
+#menuDropdown li{
+    padding: 5px 10px;
+    border-bottom: 1px solid #C0C0C0;
+    cursor: pointer;
+    z-index: 1;
+    background-color: #FFF;
+}
+.static-map-container {
+    height: 320px;
+    /*position: absolute;*/
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.static-map {
+    height: 100% !important;
+}

@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Radar del Temps nacional i local, Previsió Diària, Huracans i informació de The Weather Channel i weather.com",
+    "page_desc" : "The Weather Channel i weather.com proporcionen una previsió del temps nacional i local per a ciutats així com radars del temps, informes i cobertura d'huracans.",
+    "page_keywords" : "temps nacional, previsió del temps nacional, temps local, previsió del temps local, temps, previsió del temps, radar del temps, informe del temps, huracà, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName} Previsió del temps i condicions meteorològiques - The Weather Channel | Weather.com",
+    "page_desc" : "Previsió del temps d'avui i d'aquesta nit {dynamicLocName}, condicions meteorològiques i radar Doppler de The Weather Channel i Weather.com",
+    "page_keywords" : "{dynamicLocName} temps, {dynamicLocName} previsió del temps, {dynamicLocName} condicions meteorològiques, {dynamicLocName}previsió, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Previsió del temps per hores a {dynamicLocName}The Weather Channel | Weather.com",
+    "page_desc" : "Previsió del temps local per hores, condicions meteorològiques, precipitació, punt de rosada, humitat, vent de Weather.com i The Weather Channel. ",
+    "page_keywords" : "temps per hores a {dynamicLocName},previsió del temps per hores a @, previsió per hores, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "{dynamicLocName} Previsió del temps per al cap de setmana- The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} previsió del temps per al cap de setmana, altes temperatures, baixes temperatures, precipitació, mapa del temps de The Weather Channel i Weather.com",
+    "page_keywords" : "{dynamicLocName} temps per al cap de setmana, {dynamicLocName}previsió del temps per al cap de setmana, {dynamicLocName} perspectiva del temps per al cap de setmana, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "Previsió del temps de 5 dies per a {dynamicLocName}- The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} previsió del temps de 5 dies, condicions meteorològiques, temperatures, possibles precipitacions de The Weather Channel i Weather.com",
+    "page_keywords" : "Temps de 5 dies per a {dynamicLocName}, previsió del temps de 5 dies per a {dynamicLocName}, 5 dies {dynamicLocName}, temps de 5 dies{dynamicLocName}, weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName} Previsió del temps de 10 dies - The Weather Channel | Weather.com",
+    "page_desc" : "Prepara't amb la previsió de 10 dies més precisa per a {dynamicLocName} amb màximes, mínimes, possibles precipitacions de The Weather Channel i Weather.com",
+    "page_keywords" : "{dynamicLocName} temps de 10 dies, {dynamicLocName} previsió del temps de 10 dies {dynamicLocName} condicions meteorològiques, {dynamicLocName} previsió de 10 dies, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName} Mapa del temps i del radar - The Weather Channel | Weather.com",
+    "page_desc" : "El mapa del temps {pageLocName} interactiu et permet fer panoràmiques, ampliar per obtenir detalls del temps sense coincidències al teu barri o a l'altra punta del món des de The Weather Channel and Weather.com",
+    "page_keywords" : "interactiu, local, radar, temps, mapa, {pageLocName}mapa del temps, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Vídeos del temps de The Weather Channel | Weather.com",
+    "page_desc" : "Aconsegueix els últims vídeos del temps de The Weather Channel  i Weather.com",
+    "page_keywords" : "vídeo del temps, vídeo de weather channel, vídeo de ciència, vídeo de la mare natura, vídeo de tempesta, vídeo d'huracà, vídeo de tornado, vídeo de viatges, vídeo de la salut, vídeo del clima, weather.com weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Alertes del temps - The Weather Channel | Weather.com",
+    "page_desc" : "Accés ràpid a les alertes del temps actives a tota {dynamicLocName} de The Weather Channel i Weather.com",
+    "page_keywords" : "alertes, temps sever, advertiments, advertències, avisos, weather.com, weather channel"
+  }
+}

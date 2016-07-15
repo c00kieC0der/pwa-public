@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Radarképek az országos és helyi időjárásról, napi előrejelzés, hurrikánjelentések és információk a The Weather Channel és a weather.com oldalán",
+    "page_desc" : "A The Weather Channel és a weather.com országos és helyi időjárás-előrejelzést közöl az egyes városokról, ezenkívül az oldalon radarképek, jelentések és beszámolók is találhatók a hurrikánhelyzetről",
+    "page_keywords" : "országos időjárás, országos időjárás-előrejelzés, helyi időjárás, helyi időjárás-előrejelzés, időjárás, időjárás-előrejelzés, időjárásradar, időjárás-jelentés, hurrikán, weather.com, weather channel"
+  },
+  "today" : {
+    "page_title" : "{dynamicLocName} időjárás-előrejelzés és körülmények – The Weather Channel | Weather.com",
+    "page_desc" : "Mai napközbeni és esti időjárás-előrejelzés {dynamicLocName} településen, időjárási körülmények és Doppler-radar a The Weather Channel és a Weather.com oldalán",
+    "page_keywords" : "{dynamicLocName} időjárása, {dynamicLocName} időjárás-előrejelzése, {dynamicLocName} időjárási körülményei, {dynamicLocName} előrejelzése, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Óránkénti időjárás-előrejelzés {dynamicLocName} településről – The Weather Channel | Weather.com",
+    "page_desc" : "Óránkénti helyi időjárás-előrejelzés, időjárási körülmények, csapadék, harmatpont, páratartalom, szél a Weather.com és The Weather Channel oldalán",
+    "page_keywords" : "óránkénti időjárás {dynamicLocName} településen, óránkénti időjárás-előrejelzés @ településen, óránkénti előrejelzés, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : "Hétvégi időjárás-előrejelzés {dynamicLocName} településre – The Weather Channel | Weather.com",
+    "page_desc" : "{dynamicLocName} hétvégi időjárásának előrejelzése, magas hőmérséklet, alacsony hőmérséklet, csapadék, időjárástérkép a The Weather Channel és a Weather.com oldalán",
+    "page_keywords" : "{dynamicLocName} hétvégi időjárása, {dynamicLocName} hétvégi időjárásának előrejelzése, kitekintés {dynamicLocName} hétvégi időjárására, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "5 napos időjárás-előrejelzés {dynamicLocName} településre – The Weather Channel | Weather.com",
+    "page_desc" : "5 napos időjárás-előrejelzés {dynamicLocName} településre, időjárási körülmények, hőmérsékletek, csapadékvalószínűség a The Weather Channel jóvoltából a Weather.com oldalon",
+    "page_keywords" : "5 napos időjárás {dynamicLocName} településen, 5 napos időjárás-előrejelzés {dynamicLocName} településre, 5 nap {dynamicLocName} településen, 5 nap időjárása {dynamicLocName} településen, weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "{dynamicLocName} 10 napos időjárás-előrejelzése – The Weather Channel | Weather.com",
+    "page_desc" : "Készüljön fel mindenre {dynamicLocName} település legpontosabb 10 napos előrejelzésével: legmagasabb és legalacsonyabb hőmérséklet és csapadékvalószínűség a The Weather Channel és a Weather.com oldalán",
+    "page_keywords" : "{dynamicLocName} 10 napos időjárása, {dynamicLocName} 10 napos időjárás előrejelzése, {dynamicLocName} időjárási körülményei, {dynamicLocName} 10 napos előrejelzése, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "{pageLocName} időjárás- és radartérkép – The Weather Channel | Weather.com",
+    "page_desc" : "{pageLocName} interaktív időjárási térképe segítségével végigböngészheti a könyékének vagy a világ másik felének időjárási jellemzőit, és rá is közelíthet azokra a The Weather Channel és a Weather.com oldalán ",
+    "page_keywords" : "interaktív, helyi, radar, időjárás, térkép, {pageLocName} időjárási térképe, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Időjárási videók a The Weather Channel | Weather.com oldalán",
+    "page_desc" : "A legújabb időjárási videók a The Weather Channel és a Weather.com oldalán",
+    "page_keywords" : "időjárási videó, weather channel videó, tudományos videó, videó az anyatermészetről, viharvideó, hurrikánvideó, tornádóvideó, utazási videó, egészégvideó, klímavideó, weather.com, weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Időjárással kapcsolatos riasztások – The Weather Channel | Weather.com",
+    "page_desc" : "Gyors hozzáférés az időjárással kapcsolatos aktív riasztásokhoz {dynamicLocName} településen a The Weather Channel és a Weather.com oldalán",
+    "page_keywords" : "riasztások, rossz időjárás, megtekintések, figyelmeztetések, tanácsok, weather.com, weather channel"
+  }
+}

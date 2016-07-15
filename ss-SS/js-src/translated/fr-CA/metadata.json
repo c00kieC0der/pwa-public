@@ -1,0 +1,50 @@
+{
+  "smartling" : {
+    "placeholder_format_custom" : ["\\{.+?\\}"]
+  },
+  "homepage" : {
+    "page_title" : "Radar météo national et local, prévisions du jour, d'ouragans et informations de The Weather Channel et weather.com",
+    "page_desc" : "The Weather Channel et weather.com fournissent des prévisions météo locales et nationales pour chaque ville, ainsi que des données du radar météo, des bulletins et des infos ouragan. ",
+    "page_keywords" : "météo nationale, prévisions météo nationales, météo locale, prévision météo locale, météo, prévision météo, radar météo, bulletin météo, ouragan, weather.com weather channel"
+  },
+  "today" : {
+    "page_title" : " Prévision météo et Conditions à {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Prévision météo pour aujourd'hui et ce soir à {dynamicLocName} prévision météo, conditions météo et radar Doppler par The Weather Channel et Weather.com",
+    "page_keywords" : " météo {dynamicLocName}, prévisions {dynamicLocName}, météo {dynamicLocName} conditions météo, prévisions {dynamicLocName}, weather.com, weather channel"
+  },
+  "hourly" : {
+    "page_title" : "Prévisions météo par heure pour {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Prévision météo locale par heure, conditions météo, précipitation, point de rosée, humidité, vent par Weather.com et The Weather Channel",
+    "page_keywords" : "météo par heure pour {dynamicLocName} prévision météo par heure pour @ prévision par heure, weather.com, weather channel"
+  },
+  "weekend" : {
+    "page_title" : " Prévision météo week-end à {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "prévision météo week-end {dynamicLocName}, température élevée, basse température, précipitations, carte météo par The Weather Channel et Weather.com",
+    "page_keywords" : "météo week-end {dynamicLocName}, prévisions météo week-end {dynamicLocName}, aperçu météo week-end {dynamicLocName}, weather.com, weather channel"
+  },
+  "5day" : {
+    "page_title" : "Prévision météo sur 5 jours pour {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "prévision météo sur 5 jours {dynamicLocName}, conditions météo, températures, probabilité de précipitations par The Weather Channel et Weather.com",
+    "page_keywords" : "Météo sur 5 jours {dynamicLocName} prévisions météo sur 5 jours {dynamicLocName} 5 jours {dynamicLocName} météo sur 5 jours {dynamicLocName} weather.com, weather channel"
+  },
+  "10day" : {
+    "page_title" : "Prévisions météo sur 10 jours {dynamicLocName} - The Weather Channel | Weather.com",
+    "page_desc" : "Soyez prêts avec les prévisions les plus précises sur 10 jours pour {dynamicLocName} avec les temp. plus élevées et plus basses, les probabilités de précipitations par The Weather Channel et Weather.com",
+    "page_keywords" : " météo sur 10 jours {dynamicLocName}, prévisions météo sur 10 jours {dynamicLocName}, conditions météo {dynamicLocName}, prévision sur 10 jours {dynamicLocName}, weather.com, weather channel"
+  },
+  "maps" : {
+    "page_title" : "Météo et carte radar {pageLocName}- The Weather Channel | Weather.com",
+    "page_desc" : "La carte météo interactive {pageLocName} vous permet de déplacer et augmenter la carte pour obtenir des détails météo sans égal dans votre quartier ou de l'autre côté du monde, par The Weather Channel et Weather.com",
+    "page_keywords" : "interactive, locale, radar, météo, carte, carte météo {pageLocName}, weather.com, weather channel"
+  },
+  "video" : {
+    "page_title" : "Vidéos météo par The Weather Channel | Weather.com",
+    "page_desc" : "Regardez les dernières vidéos météo de The Weather Channel et Weather.com",
+    "page_keywords" : "vidéo météo, vidéo weather channel, vidéo science, vidéo mère nature, vidéo tempête, vidéo ouragan, vidéo tornade, vidéo voyage, vidéo santé, vidéo climat, weather.com weather channel"
+  },
+  "alerts" : {
+    "page_title" : "Alertes Météo - The Weather Channel | Weather.com",
+    "page_desc" : "Accès rapide aux alertes météo actives à {dynamicLocName} par The Weather Channel et Weather.com",
+    "page_keywords" : "alertes, météo violente, avertissements, veilles, avis, weather.com weather channel"
+  }
+}
