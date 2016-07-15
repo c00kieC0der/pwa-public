@@ -76,7 +76,7 @@ helper.loadTemplateWithClass = function(elementId, type, name){
             var body = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
             script.type = 'text/javascript';
-            script.src = '/ss-SS/templates/' + type + '/' + name + '/' + name + '.js';
+            script.src = '/ss-SS/templates/js-min/' + type + '/' + name + '/' + name + '-min.js';
 
             // Then bind the event to the callback function.
             // There are several events for cross browser compatibility.
@@ -104,7 +104,7 @@ helper.loadTemplate = function(elementId, type, name){
             var body = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
             script.type = 'text/javascript';
-            script.src = '/ss-SS/templates/' + type + '/' + name + '/' + name + '.js';
+            script.src = '/ss-SS/templates/js-min/' + type + '/' + name + '/' + name + '-min.js';
 
             // Then bind the event to the callback function.
             // There are several events for cross browser compatibility.
