@@ -45,6 +45,7 @@
     height: 320px;
     /*position: absolute;*/
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .static-map {

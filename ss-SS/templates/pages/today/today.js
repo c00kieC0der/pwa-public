@@ -2,7 +2,7 @@
         helper.loadTemplate('nowcard-module', 'modules', 'nowcard-module');
         helper.loadTemplate('looking-ahead-forecast', 'modules', 'looking-ahead-forecast');
         helper.loadTemplate('today-almanac', 'modules', 'almanac');
-
+    helper.loadTemplate('sun-moon', 'modules', 'sun-moon');
         var mapShowing = false;
         var lazyLoadedModules = function(){
             if(!mapShowing){
