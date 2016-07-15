@@ -11,7 +11,7 @@ javascripts_dir = "js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
-output_style = :nested
+output_style = :compressed
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
 # relative_assets = true
@@ -20,7 +20,7 @@ output_style = :nested
 line_comments = false
 
 # Require any additional compass plugins installed on your system.
-require 'compass'
+# require 'compass'
 # require 'toolkit'
 # require 'singularitygs'
 # require 'sass-globbing'

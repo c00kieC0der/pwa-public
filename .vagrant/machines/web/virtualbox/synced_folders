@@ -1,1 +1,0 @@
-{"nfs":{"/var/www/twc-web":{"nfs":true,"guestpath":"/var/www/twc-web","hostpath":"/Users/omkard/pwa-main/pwa/docroot","disabled":false,"type":"nfs","__vagrantfile":true,"map_uid":501,"map_gid":20,"nfs_udp":true,"nfs_version":3,"uuid":"3973109270"}},"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/omkard/pwa-main/pwa","disabled":false,"__vagrantfile":true}}}
