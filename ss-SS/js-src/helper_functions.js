@@ -363,3 +363,7 @@ helper.getActiveLocID = function(){
     var activeLoc = _User.activeLocation;
     return (activeLoc.locId ? (activeLoc.locId + ':' + activeLoc.locType + ':' + activeLoc.cntryCd) : '');
 };
+
+helper.safeDisplay = function(input, textToReplace){
+    return (input === 0 || !!input) ? input : (textToReplace || '--');
+};
