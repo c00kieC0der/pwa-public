@@ -2,7 +2,7 @@
  /**
   * Created by ecook on 6/26/16.
   */
- var hf = require('../js-src/helper_functions.js');
+ var hf = require('../ss-SS/js-src/helper_functions.js');
  describe('Helper Functions ', function(){
      it(' - isNumeric to work fully', function(){
          expect(hf.isNumeric('NaN')).toBe(false);
