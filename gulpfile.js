@@ -30,189 +30,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var rtlcss = require('gulp-rtlcss');
 var rename = require('gulp-rename');
 var mergeStream = require('merge-stream');
-var allLocales = [
-    'ar-AE',
-    'ar-BH',
-    'ar-DJ',
-    'ar-DZ',
-    'ar-EG',
-    'ar-ER',
-    'ar-IQ',
-    'ar-JO',
-    'ar-KM',
-    'ar-KW',
-    'ar-LB',
-    'ar-LY',
-    'ar-MA',
-    'ar-MR',
-    'ar-OM',
-    'ar-QA',
-    'ar-SA',
-    'ar-SD',
-    'ar-SO',
-    'ar-SY',
-    'ar-TD',
-    'ar-TN',
-    'ar-YE',
-    'bn-BD',
-    'ca-AD',
-    'ca-ES',
-    'cs-CZ',
-    'da-DK',
-    'de-AT',
-    'de-CH',
-    'de-DE',
-    'de-LI',
-    'el-CY',
-    'el-GR',
-    'en-AG',
-    'en-AS',
-    'en-AU',
-    'en-BB',
-    'en-BS',
-    'en-BZ',
-    'en-CM',
-    'en-DM',
-    'en-FJ',
-    'en-GB',
-    'en-CA',
-    'en-GD',
-    'en-GH',
-    'en-GM',
-    'en-GY',
-    'en-IE',
-    'en-IN',
-    'en-JM',
-    'en-KE',
-    'en-KI',
-    'en-KN',
-    'en-LC',
-    'en-LR',
-    'en-LS',
-    'en-MH',
-    'en-MT',
-    'en-MU',
-    'en-NA',
-    'en-NG',
-    'en-NZ',
-    'en-PA',
-    'en-PH',
-    'en-PK',
-    'en-PW',
-    'en-RW',
-    'en-SB',
-    'en-SG',
-    'en-SL',
-    'en-SS',
-    'en-SZ',
-    'en-TO',
-    'en-TT',
-    'en-TV',
-    'en-TZ',
-    'en-UG',
-    'en-US',
-    'en-VC',
-    'en-VU',
-    'en-ZA',
-    'en-ZM',
-    'en-ZW',
-    'es-AR',
-    'es-BO',
-    'es-CL',
-    'es-CO',
-    'es-CR',
-    'es-DO',
-    'es-EC',
-    'es-ES',
-    'es-GQ',
-    'es-GT',
-    'es-HN',
-    'es-MX',
-    'es-NI',
-    'es-PA',
-    'es-PE',
-    'es-PY',
-    'es-SV',
-    'es-US',
-    'es-UY',
-    'es-VE',
-    'fa-IR',
-    'fi-FI',
-    'fr-AD',
-    'fr-BE',
-    'fr-BE',
-    'fr-BF',
-    'fr-BI',
-    'fr-BJ',
-    'fr-CD',
-    'fr-CF',
-    'fr-CG',
-    'fr-CI',
-    'fr-CM',
-    'fr-DJ',
-    'fr-DZ',
-    'fr-FR',
-    'fr-CA',
-    'fr-GA',
-    'fr-GN',
-    'fr-HT',
-    'fr-KM',
-    'fr-LU',
-    'fr-MA',
-    'fr-MC',
-    'fr-MG',
-    'fr-ML',
-    'fr-MU',
-    'fr-NE',
-    'fr-RW',
-    'fr-SN',
-    'fr-TD',
-    'fr-TG',
-    'fr-VU',
-    'he-IL',
-    'hi-IN',
-    'hr-BA',
-    'hr-HR',
-    'hu-HU',
-    'id-ID',
-    'it-IT',
-    'it-SM',
-    'it-VA',
-    'ja-JP',
-    'ko-KP',
-    'ko-KR',
-    'ms-BN',
-    'ms-MY',
-    'nl-BE',
-    'nl-NL',
-    'nl-SR',
-    'no-NO',
-    'pl-PL',
-    'pt-AO',
-    'pt-BR',
-    'pt-CV',
-    'pt-GW',
-    'pt-MZ',
-    'pt-PT',
-    'pt-ST',
-    'pt-TP',
-    'ro-RO',
-    'ru-BY',
-    'ru-EE',
-    'ru-KG',
-    'ru-RU',
-    'sv-SE',
-    'sk-SK',
-    'th-TH',
-    'tl-PH',
-    'tr-TR',
-    'uk-UA',
-    'ur-PK',
-    'vi-VN',
-    'zh-CN',
-    'zh-SG',
-    'zh-TW'
-];
 var originalLocales = [
     'ar',
     'bn-BD',
@@ -224,7 +41,6 @@ var originalLocales = [
     'en-GB',
     'en-CA',
     'en-IN',
-
     //  'es-LA'
     'es-ES',
     'es-US',
@@ -263,11 +79,11 @@ gulp.task('generate-service-worker', function(callback) {
     var rootDir = './';
     swPrecache.write(path.join(rootDir, 'service-worker.js'), {
         staticFileGlobs: [
-            rootDir + '/assets/**/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
-            rootDir + '/iconfont/**/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
+            rootDir + '/ss-SS/assets/**/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
+            rootDir + '/ss-SS/iconfont/**/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
             rootDir + '//**/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}',
-            rootDir + '/js-src/**/*.js',
-            rootDir + '/js-src/*.js'
+            rootDir + '/ss-SS/js-src/**/*.js',
+            rootDir + '/ss-SS/js-src/*.js'
         ],
         stripPrefix: rootDir
     }, callback);
@@ -283,13 +99,13 @@ gulp.task('webserver', function() {
         }));
 });
 gulp.task('js-concat', function() {
-    return gulp.src(['./js-min/user_model-min.js', './js-min/locations_model-min.js', './js-min/helper_functions-min.js', './js-min/router_model-min.js', './js-min/*-min.js'])
+    return gulp.src(['./ss-SS/js-min/user_model-min.js', './ss-SS/js-min/locations_model-min.js', './ss-SS/js-min/helper_functions-min.js', './ss-SS/js-min/router_model-min.js', './ss-SS/js-min/*-min.js'])
         .pipe(concat('backend.js'))
         .pipe(gulp.dest('./'));
 });
 
 gulp.task('js-minify', function() {
-    gulp.src('./js-src/models/*.js')
+    gulp.src('./ss-SS/js-src/models/*.js')
         .pipe(minify({
             ext:{
                 src:'-debug.js',
@@ -299,7 +115,7 @@ gulp.task('js-minify', function() {
             ignoreFiles: ['-min.js', 'content_model.js']
         }))
         .pipe(gulp.dest('js-min'));
-    gulp.src('./js-src/*.js')
+    gulp.src('./ss-SS/js-src/*.js')
         .pipe(minify({
             ext:{
                 src:'-debug.js',
@@ -309,7 +125,7 @@ gulp.task('js-minify', function() {
             ignoreFiles: ['-min.js']
         }))
         .pipe(gulp.dest('js-min'));
-    gulp.src('./templates/*/*/*.js')
+    gulp.src('./ss-SS/templates/*/*/*.js')
         .pipe(minify({
             ext:{
                 src:'-debug.js',
@@ -318,17 +134,17 @@ gulp.task('js-minify', function() {
             // exclude: ['tasks'],
             ignoreFiles: ['-min.js']
         }))
-        .pipe(gulp.dest('./templates/js-min'));
+        .pipe(gulp.dest('./ss-SS/templates/js-min'));
 });
 
 gulp.task('lint', function(){
-    gulp.src('./js-src/models/*.js')
+    gulp.src('./ss-SS/js-src/models/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
-    gulp.src('./js-src/*.js')
+    gulp.src('./ss-SS/js-src/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
-    gulp.src('./templates/*/*/*.js')
+    gulp.src('./ss-SS/templates/*/*/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
     return;
@@ -342,7 +158,7 @@ gulp.task('unit', function(){
 
 
 gulp.task('css-minify', function() {
-    // place code for your default task here
+    // Currently done through compass compiling.
 });
 
 // RTL content with autoprefixer
@@ -351,26 +167,26 @@ gulp.task('css-rtl', function () {
     // if there is --style-module passed then do below.
     if(args.module) {
         console.log(args.module);
-        return gulp.src(['styles/**/*.css', '!styles/**/*-rtl.css'], {base: 'styles/**/' })
+        return gulp.src(['ss-SS/styles/**/*.css', '!styles/**/*-rtl.css'], {base: 'styles/**/' })
             .pipe(autoprefixer(["last 2 versions", "> 1%"]))
-            .pipe(gulp.dest('styles/**/')) // Output LTR stylesheets.
+            .pipe(gulp.dest('ss-SS/styles/**/')) // Output LTR stylesheets.
             .pipe(rtlcss()) // Convert to RTL.
             .pipe(rename({ suffix: '-rtl' })) // Append "-rtl" to the filename.
-            .pipe(gulp.dest('styles/**/')); // Output RTL stylesheets.
+            .pipe(gulp.dest('ss-SS/styles/**/')); // Output RTL stylesheets.
     }
-    var styles = gulp.src(['styles/**/*.css', '!styles/**/*-rtl.css'], {base: 'styles/**/' })
+    var styles = gulp.src(['ss-SS/styles/**/*.css', '!styles/**/*-rtl.css'], {base: 'styles/**/' })
         .pipe(autoprefixer(["last 2 versions", "> 1%"]))
-        .pipe(gulp.dest('styles/**/')) // Output LTR stylesheets.
+        .pipe(gulp.dest('ss-SS/styles/**/')) // Output LTR stylesheets.
         .pipe(rtlcss()) // Convert to RTL.
         .pipe(rename({ suffix: '-rtl' })) // Append "-rtl" to the filename.
-        .pipe(gulp.dest('styles/**/')); // Output RTL stylesheets.
+        .pipe(gulp.dest('ss-SS/styles/**/')); // Output RTL stylesheets.
                                         //
     var templates = gulp.src(['templates/modules/**/*.css', '!templates/modules/**/*-rtl.css'], {base: 'templates/modules/**/' })
         .pipe(autoprefixer(["last 2 versions", "> 1%"]))
-        .pipe(gulp.dest('templates/modules/**/')) // Output LTR stylesheets.
+        .pipe(gulp.dest('ss-SS/templates/modules/**/')) // Output LTR stylesheets.
         .pipe(rtlcss()) // Convert to RTL.
         .pipe(rename({ suffix: '-rtl' })) // Append "-rtl" to the filename.
-        .pipe(gulp.dest('templates/modules/**/')); // Output RTL stylesheets.
+        .pipe(gulp.dest('ss-SS/templates/modules/**/')); // Output RTL stylesheets.
     return mergeStream([styles, templates]);
 
 });
@@ -428,7 +244,7 @@ gulp.task('download-translations', function() {
                 })
                 .pipe(fs.createWriteStream('./translations.zip'))
                 .on('close', function() {
-                    var destinationDir = './js-src/translated';
+                    var destinationDir = './ss-SS/js-src/translated';
                     var unzipError = false;
                     var child = exec('unzip -o translations.zip -d ' + destinationDir, {async: true});
 
