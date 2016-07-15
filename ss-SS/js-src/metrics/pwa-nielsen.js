@@ -14,7 +14,9 @@
         sample_rate: cfg.sample_rate
       }
     );
-    trac.record().post();
+    document.getElementById('event-anchor').addEventListener('pager', function(){
+      trac.record().post();
+    });
   }
 
   helper.loadScript("//"+(cfg.server||"secure-us")+".imrworldwide.com/v60.js", cb, true);
