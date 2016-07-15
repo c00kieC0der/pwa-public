@@ -1,6 +1,6 @@
 var categories = [{"catName":"Americas","countryName":[
-    // {"name":"USA","code":"EN", "language":"EN"},
-    // {"name":"USA (Spanish)","code":"ES", "language":"ES"},
+    {"name":"USA","code":"en-US", "language":"EN"},
+    {"name":"USA (Spanish)","code":"es-US", "language":"ES"},
     {"name":"Antigua and Barbuda","code":"en-AG", "language": "EN"},
     {"name":"Argentina","code":"es-AR", "language":"ES"},
     {"name":"Bahamas","code":"en-BS", "language":"EN"},
