@@ -1,0 +1,46 @@
+<link rel="stylesheet" type="text/css" href="/ss-SS/styles/modules/24-hour-forecast.css">
+<header class="heading">
+  <h2 class="js-day"></h2>
+</header>
+<article class="ls-24-hour-wrap twc-table-wrap">
+  <div id="twc-scrollable" class="twc-table-scroller">
+    <table class="twc-table">
+      <thead>
+        <tr>
+          <th class="twc-sticky-col" id="day" scope="col">Day</th>
+          <th class="description" id="description" scope="col">Description</th>
+          <th class="temp" id="hi-lo" scope="col">High/Low</th>
+          <th class="precip" id="precip" scope="col">Precip</th>
+          <th class="wind" id="wind" scope="col">Wind</th>
+          <th class="humidity" id="humidity" scope="col">Humidity</th>
+          <th class="uv" id="uv-index" scope="col">UV Index</th>
+          <th class="sunrise" id="sunrise" scope="col">Sunrise</th>
+          <th class="sunset" id="sunset" scope="col">Sunset</th>
+          <th class="moonrise" id="moonrise" scope="col">Moonrise</th>
+          <th class="moonset" id="moonset" scope="col">Moonset</th>
+        </tr>
+      </thead>
+      <tbody id="ls-row-wrap-24" class="ls-row-wrap-24"></tbody>
+    </table>
+  </div>
+  <div class="twc-table-shadow"></div>
+
+
+ </article>
+<!--   <div class="ls-display-control" data-ng-cloak>
+    <a href="" class="ls-display-btn"
+      data-ng-if="ls24HourVm.canShowNext"
+      data-ng-click="::ls24HourVm.loadMoreDays()"
+      data-track-str="{{::ls24HourVm.moduleId}}_next">
+      <span class="btn-text" data-ng-bind="::('Next @dayOffset Days' | pfTranslate: {context: 'weather_terms', vars: {'@dayOffset': ls24HourVm.dayOffset}})"></span>
+      <span aria-hidden="true" class="wx-iconfont-global wx-icon-arrow-down-5 ls-down-arrow"></span>
+    </a>
+    <a class="ls-display-btn"
+      data-ng-if="!ls24HourVm.canShowNext"
+      data-ng-href="{{::ls24HourVm.tendayLink}}"
+      data-from-str="{{::ls24HourVm.moduleId}}_moreHourly-10Day">
+      <span class="btn-text" data-ng-bind="::'10 Day Forecast' | pfTranslate: {context: 'weather_terms'}"></span>
+      <span class="wx-iconfont-global wx-icon-arrow-right ls-right-arrow"></span>
+    </a>
+  </div>
+ -->
