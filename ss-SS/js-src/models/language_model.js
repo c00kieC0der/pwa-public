@@ -48,4 +48,14 @@ var _Language = {}; _Lang = {}, _Locales = {};
             });
         });
     };
+    _Language.getNameFromCode = function (code) {
+        for (var i = 0; i < categories.length; i++) {
+            for (var l = 0; l < categories[i].countryName.length; l++) {
+                if (categories[i].countryName[l].code === code) {
+                    return (categories[i].countryName[l].name + ' | ' + categories[i].countryName[l].language);
+                }
+            }
+        }
+        return '';
+    };
 
